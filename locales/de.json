@@ -1,0 +1,169 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "calculators": "Rechner",
+    "about": "Über"
+  },
+  "hero": {
+    "title": "Professionelle Weinbereitungs-Rechner",
+    "subtitle": "Präzise Werkzeuge für die Weinbereitung. Berechnen Sie SO2, Säure, Aufspritung und mehr.",
+    "searchPlaceholder": "Rechner suchen..."
+  },
+  "categories": {
+    "chemical": "Chemische Zusätze",
+    "specialized": "Spezialisierte Berechnungen",
+    "reference": "Referenzwerkzeuge",
+    "sensory": "Sensorische Analyse",
+    "additional": "Zusätzliche Ressourcen"
+  },
+  "calculators": {
+    "so2": {
+      "title": "Schwefeldioxid (SO2)",
+      "description": "Berechnen Sie die Menge an SO2, die dem Wein zugesetzt werden soll",
+      "volume": "Volumen (L)",
+      "currentSO2": "Aktuelles SO2 (mg/L)",
+      "targetSO2": "Ziel-SO2 (mg/L)",
+      "sulfiteType": "Sulfit-Typ",
+      "types": {
+        "potassium_metabisulfite": "Kaliummetabisulfit",
+        "sodium_metabisulfite": "Natriummetabisulfit",
+        "sulfur_dioxide_gas": "Schwefeldioxid-Gas"
+      },
+      "results": {
+        "amount": "Zuzufügende Menge",
+        "concentration": "Endkonzentration"
+      },
+      "info": "Sulfit ist unerlässlich, um Wein vor Oxidation und Bakterien zu schützen. Kaliummetabisulfit ist in der Weinbereitung am gebräuchlichsten."
+    },
+    "acid": {
+      "title": "Säurezusatz",
+      "description": "Berechnen Sie Säuregehalt und Weinsäure-Zusätze",
+      "volume": "Volumen (L)",
+      "currentTA": "Aktuelle Gesamtsäure (g/L)",
+      "targetTA": "Ziel-Gesamtsäure (g/L)",
+      "acidType": "Säuretyp",
+      "types": {
+        "tartaric": "Weinsäure",
+        "citric": "Zitronensäure",
+        "malic": "Apfelsäure"
+      },
+      "results": {
+        "amount": "Zuzufügende Menge",
+        "finalTA": "Finale Gesamtsäure"
+      },
+      "info": "Säure ist grundlegend für das Gleichgewicht und die Stabilität des Weins. Weinsäure ist die stabilste und am häufigsten verwendete."
+    },
+    "bentonite": {
+      "title": "Bentonit",
+      "description": "Berechnen Sie den Bentonit-Zusatz zur Schönung",
+      "volume": "Volumen (L)",
+      "dosage": "Dosierung (g/hL)",
+      "results": {
+        "amount": "Bentonit-Menge",
+        "water": "Wasser zur Hydratation"
+      },
+      "info": "Bentonit ist ein Ton, der zur Entfernung instabiler Proteine aus Wein verwendet wird und Trübungen verhindert."
+    },
+    "fortification": {
+      "title": "Aufspritung",
+      "description": "Berechnen Sie den Alkohol zur Aufspritung des Weins",
+      "volume": "Volumen (L)",
+      "currentAlcohol": "Aktueller Alkohol (%vol)",
+      "targetAlcohol": "Ziel-Alkohol (%vol)",
+      "spiritStrength": "Alkoholstärke (%vol)",
+      "results": {
+        "spiritVolume": "Zuzufügendes Alkoholvolumen",
+        "finalVolume": "Endvolumen",
+        "finalAlcohol": "Endalkoholgehalt"
+      },
+      "info": "Die Aufspritung wird zur Herstellung von Likörweinen wie Portwein, Sherry und Marsala verwendet, wobei die Gärung gestoppt und der Alkohol erhöht wird."
+    },
+    "water": {
+      "title": "Wasserzusatz",
+      "description": "Berechnen Sie den Wasserzusatz zur Verdünnung",
+      "volume": "Anfangsvolumen (L)",
+      "currentValue": "Aktueller Wert",
+      "targetValue": "Zielwert",
+      "parameter": "Zu verdünnender Parameter",
+      "results": {
+        "waterVolume": "Zuzufügendes Wasservolumen",
+        "finalVolume": "Endvolumen"
+      },
+      "info": "Wasserzusatz kann verwendet werden, um Alkohol, Zucker oder Säure zu reduzieren, wo es gesetzlich erlaubt ist."
+    },
+    "conversion": {
+      "title": "Allgemeine Umrechnungen",
+      "description": "Umrechnung von Weinbereitungs-Maßeinheiten",
+      "from": "Von",
+      "to": "Zu",
+      "value": "Wert",
+      "category": "Kategorie",
+      "categories": {
+        "volume": "Volumen",
+        "weight": "Gewicht",
+        "temperature": "Temperatur",
+        "density": "Dichte",
+        "alcohol": "Alkohol"
+      },
+      "units": {
+        "liters": "Liter (L)",
+        "hectoliters": "Hektoliter (hL)",
+        "gallons": "Gallonen (gal)",
+        "grams": "Gramm (g)",
+        "kilograms": "Kilogramm (kg)",
+        "pounds": "Pfund (lb)",
+        "celsius": "Celsius (°C)",
+        "fahrenheit": "Fahrenheit (°F)",
+        "brix": "Brix",
+        "baume": "Baumé",
+        "sg": "Spezifisches Gewicht (SG)",
+        "abv": "Alkohol vol (%)",
+        "proof": "Proof"
+      },
+      "results": {
+        "converted": "Umgerechneter Wert"
+      }
+    }
+  },
+  "common": {
+    "calculate": "Berechnen",
+    "reset": "Zurücksetzen",
+    "save": "Speichern",
+    "result": "Ergebnis",
+    "results": "Ergebnisse",
+    "info": "Info",
+    "close": "Schließen",
+    "noResults": "Kein Rechner gefunden",
+    "error": "Fehler",
+    "warning": "Warnung",
+    "success": "Erfolg",
+    "required": "Pflichtfeld",
+    "invalidValue": "Ungültiger Wert",
+    "unit": "Einheit"
+  },
+  "footer": {
+    "description": "Professionelle Rechner für Weinbereitung",
+    "inspiration": "Inspiriert von AWRI Winemaking Calculators",
+    "viewOnGithub": "Auf GitHub ansehen",
+    "madeWith": "Erstellt mit",
+    "by": "von"
+  },
+  "errors": {
+    "volumeRequired": "Volumen ist erforderlich",
+    "positiveValue": "Wert muss positiv sein",
+    "targetGreaterThanCurrent": "Zielwert muss größer als aktueller Wert sein",
+    "invalidRange": "Wert außerhalb des zulässigen Bereichs",
+    "calculationError": "Berechnungsfehler"
+  },
+  "units": {
+    "liters": "L",
+    "grams": "g",
+    "kilograms": "kg",
+    "milligrams": "mg",
+    "milliliters": "mL",
+    "percent": "%",
+    "gPerL": "g/L",
+    "mgPerL": "mg/L",
+    "gPerHl": "g/hL"
+  }
+}

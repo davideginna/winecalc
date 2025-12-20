@@ -1,0 +1,138 @@
+/* WineCalc - Theme Variables and Colors */
+
+:root {
+    /* Wine-inspired Color Palette */
+    --wine-primary: #722F37;        /* Bordeaux */
+    --wine-primary-dark: #5a2529;   /* Dark Bordeaux */
+    --wine-primary-light: #ffe5e8;  /* Light Bordeaux */
+
+    --wine-secondary: #C9A96E;      /* Champagne Gold */
+    --wine-secondary-dark: #a88b56;
+    --wine-secondary-light: #f5ecd7;
+
+    --wine-success: #4A7C59;        /* Grape Green */
+    --wine-success-light: #d4e8dc;
+
+    --wine-accent: #8B4789;         /* Grape Purple */
+    --wine-accent-light: #f0e5ef;
+
+    /* Neutral Colors */
+    --wine-bg: #F8F9FA;
+    --wine-bg-dark: #212529;
+    --wine-text: #212529;
+    --wine-text-muted: #6c757d;
+    --wine-white: #ffffff;
+
+    /* Spacing */
+    --wine-border-radius: 12px;
+    --wine-box-shadow: 0 2px 8px rgba(114, 47, 55, 0.1);
+    --wine-box-shadow-hover: 0 4px 16px rgba(114, 47, 55, 0.15);
+
+    /* Transitions */
+    --wine-transition: all 0.3s ease;
+}
+
+/* Background Utilities */
+.bg-wine {
+    background-color: var(--wine-primary) !important;
+}
+
+.bg-wine-light {
+    background-color: var(--wine-primary-light) !important;
+}
+
+.bg-wine-secondary {
+    background-color: var(--wine-secondary) !important;
+}
+
+.bg-gradient-wine {
+    background: linear-gradient(135deg, var(--wine-primary) 0%, var(--wine-primary-dark) 100%) !important;
+}
+
+/* Text Utilities */
+.text-wine {
+    color: var(--wine-primary) !important;
+}
+
+.text-wine-secondary {
+    color: var(--wine-secondary) !important;
+}
+
+/* Button Utilities */
+.btn-wine {
+    background-color: var(--wine-primary);
+    border-color: var(--wine-primary);
+    color: var(--wine-white);
+}
+
+.btn-wine:hover,
+.btn-wine:focus {
+    background-color: var(--wine-primary-dark);
+    border-color: var(--wine-primary-dark);
+    color: var(--wine-white);
+}
+
+.btn-outline-wine {
+    border-color: var(--wine-primary);
+    color: var(--wine-primary);
+}
+
+.btn-outline-wine:hover,
+.btn-outline-wine:focus {
+    background-color: var(--wine-primary);
+    border-color: var(--wine-primary);
+    color: var(--wine-white);
+}
+
+/* Badge Utilities */
+.badge.bg-wine {
+    background-color: var(--wine-primary) !important;
+}
+
+.badge.bg-wine-secondary {
+    background-color: var(--wine-secondary) !important;
+    color: var(--wine-text);
+}
+
+/* Border Utilities */
+.border-wine {
+    border-color: var(--wine-primary) !important;
+}
+
+/* Form Control Focus */
+.form-control:focus {
+    border-color: var(--wine-primary);
+    box-shadow: 0 0 0 0.25rem rgba(114, 47, 55, 0.25);
+}
+
+.form-select:focus {
+    border-color: var(--wine-primary);
+    box-shadow: 0 0 0 0.25rem rgba(114, 47, 55, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--wine-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--wine-secondary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--wine-secondary-dark);
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --wine-bg: #1a1a1a;
+        --wine-text: #f8f9fa;
+    }
+}

@@ -1,0 +1,169 @@
+{
+  "nav": {
+    "home": "Home",
+    "calculators": "Calcolatori",
+    "about": "Info"
+  },
+  "hero": {
+    "title": "Calcolatori Enologici Professionali",
+    "subtitle": "Strumenti precisi per la vinificazione. Calcola SO2, acidità, fortificazione e molto altro.",
+    "searchPlaceholder": "Cerca un calcolatore..."
+  },
+  "categories": {
+    "chemical": "Aggiunte Chimiche",
+    "specialized": "Calcoli Specializzati",
+    "reference": "Strumenti di Riferimento",
+    "sensory": "Analisi Sensoriale",
+    "additional": "Risorse Aggiuntive"
+  },
+  "calculators": {
+    "so2": {
+      "title": "Anidride Solforosa (SO2)",
+      "description": "Calcola la quantità di SO2 da aggiungere al vino",
+      "volume": "Volume (L)",
+      "currentSO2": "SO2 attuale (mg/L)",
+      "targetSO2": "SO2 desiderato (mg/L)",
+      "sulfiteType": "Tipo di solfito",
+      "types": {
+        "potassium_metabisulfite": "Metabisolfito di potassio",
+        "sodium_metabisulfite": "Metabisolfito di sodio",
+        "sulfur_dioxide_gas": "Anidride solforosa gassosa"
+      },
+      "results": {
+        "amount": "Quantità da aggiungere",
+        "concentration": "Concentrazione finale"
+      },
+      "info": "Il solfito è essenziale per preservare il vino da ossidazione e batteri. Il metabisolfito di potassio è il più comunemente usato in enologia."
+    },
+    "acid": {
+      "title": "Aggiunta Acidi",
+      "description": "Calcola l'acidità e le aggiunte di acido tartarico",
+      "volume": "Volume (L)",
+      "currentTA": "Acidità totale attuale (g/L)",
+      "targetTA": "Acidità totale desiderata (g/L)",
+      "acidType": "Tipo di acido",
+      "types": {
+        "tartaric": "Acido tartarico",
+        "citric": "Acido citrico",
+        "malic": "Acido malico"
+      },
+      "results": {
+        "amount": "Quantità da aggiungere",
+        "finalTA": "Acidità totale finale"
+      },
+      "info": "L'acidità è fondamentale per l'equilibrio e la stabilità del vino. L'acido tartarico è il più stabile e comunemente usato."
+    },
+    "bentonite": {
+      "title": "Bentonite",
+      "description": "Calcola l'aggiunta di bentonite per la chiarifica",
+      "volume": "Volume (L)",
+      "dosage": "Dosaggio (g/hL)",
+      "results": {
+        "amount": "Quantità di bentonite",
+        "water": "Acqua per l'idratazione"
+      },
+      "info": "La bentonite è un'argilla usata per rimuovere le proteine instabili dal vino e prevenire intorbidimenti."
+    },
+    "fortification": {
+      "title": "Fortificazione",
+      "description": "Calcola l'alcol da aggiungere per fortificare il vino",
+      "volume": "Volume (L)",
+      "currentAlcohol": "Alcol attuale (%vol)",
+      "targetAlcohol": "Alcol desiderato (%vol)",
+      "spiritStrength": "Gradazione spirito (%vol)",
+      "results": {
+        "spiritVolume": "Volume spirito da aggiungere",
+        "finalVolume": "Volume finale",
+        "finalAlcohol": "Gradazione alcolica finale"
+      },
+      "info": "La fortificazione è usata per produrre vini liquorosi come Porto, Sherry e Marsala, bloccando la fermentazione e aumentando la gradazione."
+    },
+    "water": {
+      "title": "Aggiunta Acqua",
+      "description": "Calcola l'aggiunta di acqua per diluizione",
+      "volume": "Volume iniziale (L)",
+      "currentValue": "Valore attuale",
+      "targetValue": "Valore desiderato",
+      "parameter": "Parametro da diluire",
+      "results": {
+        "waterVolume": "Volume acqua da aggiungere",
+        "finalVolume": "Volume finale"
+      },
+      "info": "L'aggiunta di acqua può essere usata per ridurre l'alcol, gli zuccheri o l'acidità, dove permesso dalla legislazione."
+    },
+    "conversion": {
+      "title": "Conversioni Generali",
+      "description": "Converti unità di misura enologiche",
+      "from": "Da",
+      "to": "A",
+      "value": "Valore",
+      "category": "Categoria",
+      "categories": {
+        "volume": "Volume",
+        "weight": "Peso",
+        "temperature": "Temperatura",
+        "density": "Densità",
+        "alcohol": "Alcol"
+      },
+      "units": {
+        "liters": "Litri (L)",
+        "hectoliters": "Ettolitri (hL)",
+        "gallons": "Galloni (gal)",
+        "grams": "Grammi (g)",
+        "kilograms": "Kilogrammi (kg)",
+        "pounds": "Libbre (lb)",
+        "celsius": "Celsius (°C)",
+        "fahrenheit": "Fahrenheit (°F)",
+        "brix": "Brix",
+        "baume": "Baumé",
+        "sg": "Gravità specifica (SG)",
+        "abv": "Alcol vol (%)",
+        "proof": "Proof"
+      },
+      "results": {
+        "converted": "Valore convertito"
+      }
+    }
+  },
+  "common": {
+    "calculate": "Calcola",
+    "reset": "Reset",
+    "save": "Salva",
+    "result": "Risultato",
+    "results": "Risultati",
+    "info": "Info",
+    "close": "Chiudi",
+    "noResults": "Nessun calcolatore trovato",
+    "error": "Errore",
+    "warning": "Attenzione",
+    "success": "Successo",
+    "required": "Campo obbligatorio",
+    "invalidValue": "Valore non valido",
+    "unit": "Unità"
+  },
+  "footer": {
+    "description": "Calcolatori professionali per l'enologia",
+    "inspiration": "Ispirato a AWRI Winemaking Calculators",
+    "viewOnGithub": "Vedi su GitHub",
+    "madeWith": "Fatto con",
+    "by": "da"
+  },
+  "errors": {
+    "volumeRequired": "Il volume è obbligatorio",
+    "positiveValue": "Il valore deve essere positivo",
+    "targetGreaterThanCurrent": "Il valore target deve essere maggiore di quello attuale",
+    "invalidRange": "Valore fuori dal range consentito",
+    "calculationError": "Errore nel calcolo"
+  },
+  "units": {
+    "liters": "L",
+    "grams": "g",
+    "kilograms": "kg",
+    "milligrams": "mg",
+    "milliliters": "mL",
+    "percent": "%",
+    "gPerL": "g/L",
+    "mgPerL": "mg/L",
+    "gPerHl": "g/hL"
+  }
+}
