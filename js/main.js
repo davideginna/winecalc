@@ -7,6 +7,7 @@ import { TemplateGenerator } from './modules/template-generator.js';
 import { FormHandler } from './modules/form-handler.js';
 import { ResultsRenderer } from './modules/results-renderer.js';
 import { CalculatorManager } from './modules/calculator-manager.js';
+import { CalculatorLoader } from './modules/calculator-loader.js';
 
 /**
  * Main application orchestrator
@@ -52,7 +53,7 @@ const WineCalcApp = {
     /**
      * Initialize all modules
      */
-    init() {
+    async init() {
         console.log('Initializing WineCalc modules...');
 
         try {
@@ -60,10 +61,14 @@ const WineCalcApp = {
             StateManager.initialize();
             console.log('  ✓ State Manager');
 
+            // Load calculator configuration and generate cards
+            await CalculatorLoader.initialize();
+            console.log('  ✓ Calculator Loader');
+
             SearchManager.initialize();
             console.log('  ✓ Search Manager');
 
-            CalculatorManager.initialize();
+            await CalculatorManager.initialize();
             console.log('  ✓ Calculator Manager');
 
             // Setup global event listeners
@@ -73,6 +78,7 @@ const WineCalcApp = {
             window.WineCalcApp = this;
             window.StateManager = StateManager;
             window.CalculatorManager = CalculatorManager;
+            window.CalculatorLoader = CalculatorLoader;
             window.TemplateGenerator = TemplateGenerator;
             window.FormHandler = FormHandler;
             window.ResultsRenderer = ResultsRenderer;

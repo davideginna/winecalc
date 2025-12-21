@@ -90,3 +90,180 @@ Perfetto! L'applicazione WineCalc è stata creata con successo e testata. Ecco i
   Tutti i file sono nella directory /home/davide/Documents/personale/sitogit e sono pronti per essere modificati e estesi!                                                                    
                                                                                                                                                                                               
   Buona vinificazione! 🍷  
+
+
+
+  ----------------------------------
+  📊 LISTA CALCOLATORI MANCANTI (26/34)                                                                                                                                                       
+                                                                                                                                                                                              
+  ✅ IMPLEMENTATI (8/34)                                                                                                                                                                      
+                                                                                                                                                                                              
+  1. SO2                                                                                                                                                                                      
+  2. Acid Addition                                                                                                                                                                            
+  3. Bentonite                                                                                                                                                                                
+  4. Fortification                                                                                                                                                                            
+  5. Water Addition                                                                                                                                                                           
+  6. Conversion (General)                                                                                                                                                                     
+  7. DAP                                                                                                                                                                                      
+  8. Ascorbic Acid                                                                                                                                                                            
+                                                                                                                                                                                              
+  ---                                                                                                                                                                                         
+  ⏳ MANCANTI (26/34)                                                                                                                                                                         
+                                                                                                                                                                                              
+  🔵 AGGIUNTE CHIMICHE (Semplici) - ~2500 token cad.                                                                                                                                          
+                                                                                                                                                                                              
+  9. Copper Sulfate (Solfato di rame - rimozione H2S)                                                                                                                                         
+    - Token stimati: ~2500                                                                                                                                                                    
+    - Formula: dosaggio × volume                                                                                                                                                              
+    - Note: limiti legali, cautele                                                                                                                                                            
+  10. Sorbic Acid (Acido sorbico - conservante)                                                                                                                                               
+    - Token stimati: ~2500                                                                                                                                                                    
+    - Formula: g/hL × volume                                                                                                                                                                  
+    - Note: combinazione con SO2                                                                                                                                                              
+  11. Tannin Addition (Aggiuntatannini)                                                                                                                                                       
+    - Token stimati: ~2800                                                                                                                                                                    
+    - Formula: dosaggio per stile vino                                                                                                                                                        
+    - Note: tipi tannino, timing                                                                                                                                                              
+  12. Isinglass (Colla di pesce - chiarifica)                                                                                                                                                 
+    - Token stimati: ~2600                                                                                                                                                                    
+    - Formula: g/hL, preparazione                                                                                                                                                             
+    - Note: idratazione, allergie                                                                                                                                                             
+  13. PVPP (Polivinilpolipirrolidone - rimozione polifenoli)                                                                                                                                  
+    - Token stimati: ~2700                                                                                                                                                                    
+    - Formula: dosaggio preventivo/correttivo                                                                                                                                                 
+    - Note: limiti, recupero                                                                                                                                                                  
+  14. PMS Addition (Potassium Metabisulfite - già coperto da SO2?)                                                                                                                            
+    - Token stimati: ~1500 (se separato)                                                                                                                                                      
+    - Potrebbe essere integrato in SO2    
+                                                                                                                                                                                                 
+  🟡 AGGIUNTE CHIMICHE (Medie) - ~3500 token cad.                                                                                                                                             
+                                                                                                                                                                                              
+  15. Deacidification (Disacidificazione)                                                                                                                                                     
+    - Token stimati: ~3800                                                                                                                                                                    
+    - Formule: K2CO3, CaCO3, KHCO3                                                                                                                                                            
+    - Note: precipitazione tartrati, pH                                                                                                                                                       
+  16. Crème of Tartar (Bitartrato di potassio)                                                                                                                                                
+    - Token stimati: ~3200                                                                                                                                                                    
+    - Formula: stabilizzazione tartarica                                                                                                                                                      
+    - Note: freddo preventivo                                                                                                                                                                 
+  17. Carbon Addition (Carbone attivo - decolorazione)                                                                                                                                        
+    - Token stimati: ~3500                                                                                                                                                                    
+    - Formula: dosaggio per difetto                                                                                                                                                           
+    - Note: rischi, sovradosaggio                                                                                                                                                             
+  18. Hydrogen Peroxide (Acqua ossigenata - rimozione H2S)                                                                                                                                    
+    - Token stimati: ~3400                                                                                                                                                                    
+    - Formula: dosaggio molto basso                                                                                                                                                           
+    - Note: pericoli, legalità                                                                                                                                                                
+                                                                                                                                                                                              
+  🟠 CALCOLI SPECIALIZZATI (Complessi) - ~4500 token cad.                                                                                                                                     
+                                                                                                                                                                                              
+  19. Ferro Cyanide Trial (Ferrocianuro - derame)                                                                                                                                             
+    - Token stimati: ~5000                                                                                                                                                                    
+    - Formula: trial bench + scala                                                                                                                                                            
+    - Note: molto pericoloso, precisione critica                                                                                                                                              
+  20. Fining Trial (Trial chiarifica generica)                                                                                                                                                
+    - Token stimati: ~4800                                                                                                                                                                    
+    - Formula: scala da bench a batch                                                                                                                                                         
+    - Note: multipli agenti                                                                                                                                                                   
+  21. GJC Addition (Pearson Square) (Concentrato mosto)                                                                                                                                       
+    - Token stimati: ~4200                                                                                                                                                                    
+    - Formula: Pearson Square                                                                                                                                                                 
+    - Note: regolamentazione, zuccheri                                                                                                                                                        
+  22. Micro-Oxygenation (Micro-ossigenazione)                                                                                                                                                 
+    - Token stimati: ~5500                                                                                                                                                                    
+    - Formula: mg O2/L/mese                                                                                                                                                                   
+    - Note: parametri tempo, temperatura                                                                                                                                                      
+  23. Molecular SO2 Addition (SO2 molecolare)                                                                                                                                                 
+    - Token stimati: ~4500                                                                                                                                                                    
+    - Formula: pH-dependent                                                                                                                                                                   
+    - Note: curve pH, efficacia                                                                                                                                                               
+                                                                                                                                                                                              
+  🟢 STRUMENTI RIFERIMENTO (Medi) - ~3000 token cad.
+                                                                                                                                                                                                
+  24. Acidity Units Interconversion (Conversione acidità)                                                                                                                                     
+    - Token stimati: ~3200                                                                                                                                                                    
+    - Formula: g/L ↔ % ↔ meq/L                                                                                                                                                                
+    - Note: acidi diversi                                                                                                                                                                     
+  25. Laboratory Stock Solution (Soluzioni stock laboratorio)                                                                                                                                 
+    - Token stimati: ~3500                                                                                                                                                                    
+    - Formula: molarità, diluizioni                                                                                                                                                           
+    - Note: conservazione                                                                                                                                                                     
+  26. Winery Stock Solution (Soluzioni stock cantina)                                                                                                                                         
+    - Token stimati: ~3400                                                                                                                                                                    
+    - Formula: preparazione additivi                                                                                                                                                          
+    - Note: stabilità                                                                                                                                                                         
+                                                                                                                                                                                              
+  🟣 ANALISI SENSORIALE (Statistici) - ~4000 token cad.                                                                                                                                       
+                                                                                                                                                                                              
+  27. Paired Preference Test (Test preferenza accoppiato)                                                                                                                                     
+    - Token stimati: ~4200                                                                                                                                                                    
+    - Formula: statistica binomiale                                                                                                                                                           
+    - Note: significatività                                                                                                                                                                   
+  28. Same/Different Test (Test uguale/diverso)                                                                                                                                               
+    - Token stimati: ~4000                                                                                                                                                                    
+    - Formula: test chi-quadro                                                                                                                                                                
+    - Note: panel size                                                                                                                                                                        
+  29. Duo-Trio Test (Test duo-trio)                                                                                                                                                           
+    - Token stimati: ~4100                                                                                                                                                                    
+    - Formula: probabilità                                                                                                                                                                    
+    - Note: design sperimentale                                                                                                                                                               
+  30. Paired Comparison Test (Confronto accoppiato)                                                                                                                                           
+    - Token stimati: ~3900                                                                                                                                                                    
+    - Formula: t-test                                                                                                                                                                         
+    - Note: scale rating                                                                                                                                                                      
+  31. Triangle Test (Test triangolo)                                                                                                                                                          
+    - Token stimati: ~4300                                                                                                                                                                    
+    - Formula: tavole statistiche                                                                                                                                                             
+    - Note: livelli confidenza                                                                                                                                                                
+                                                                                                                                                                                              
+  🔴 RISORSE AGGIUNTIVE (Complessi) - ~5000 token cad.                                                                                                                                        
+                                                                                                                                                                                              
+  32. Methanol Proportion Calculator (Proporzione metanolo)
+     - Token stimati: ~4500                                                                                                                                                                    
+    - Formula: da pectina, fermentazione                                                                                                                                                      
+    - Note: limiti sicurezza                                                                                                                                                                  
+  33. Number of Standard Drinks (Unità alcoliche standard)                                                                                                                                    
+    - Token stimati: ~3000                                                                                                                                                                    
+    - Formula: volume × ABV / 14g                                                                                                                                                             
+    - Note: standard internazionali                                                                                                                                                           
+  34. Winery Refrigeration Demand (Fabbisogno refrigerazione)                                                                                                                                 
+    - Token stimati: ~5800                                                                                                                                                                    
+    - Formula: BTU, kW, tonnellate                                                                                                                                                            
+    - Note: perdite, isolamento                                                                                                                                                               
+                                                                                                                                                                                              
+  ---                                                                                                                                                                                         
+  📈 STIMA TOKEN TOTALE                                                                                                                                                                       
+                                                                                                                                                                                              
+  | Categoria         | Calcolatori | Token Medi | Totale  |                                                                                                                                  
+  |-------------------|-------------|------------|---------|                                                                                                                                  
+  | Aggiunte Semplici | 6           | 2,600      | ~15,600 |                                                                                                                                  
+  | Aggiunte Medie    | 4           | 3,500      | ~14,000 |                                                                                                                                  
+  | Specializzati     | 5           | 4,800      | ~24,000 |                                                                                                                                  
+  | Riferimento       | 3           | 3,400      | ~10,200 |                                                                                                                                  
+  | Sensoriali        | 5           | 4,100      | ~20,500 |                                                                                                                                  
+  | Risorse           | 3           | 4,400      | ~13,200 |                                                                                                                                  
+  | TOTALE            | 26          | ~3,750     | ~97,500 |                                                                                                                                  
+                                                                                                                                                                                              
+  Token disponibili rimasti: ~110,000                                                                                                                                                         
+                                                                                                                                                                                              
+  Puoi implementarne circa: 29 calcolatori (tutti i mancanti!)                                                                                                                                
+                                                                                                                                                                                              
+  ---                                                                                                                                                                                         
+  🎯 RACCOMANDAZIONI PRIORITÀ                                                                                                                                                                 
+                                                                                                                                                                                              
+  ALTA (più usati in enologia):                                                                                                                                                               
+  - Copper Sulfate                                                                                                                                                                            
+  - Sorbic Acid                                                                                                                                                                               
+  - Tannin                                                                                                                                                                                    
+  - Deacidification                                                                                                                                                                           
+  - Micro-Oxygenation                                                                                                                                                                         
+                                                                                                                                                                                              
+  MEDIA (utili ma meno frequenti):                                                                                                                                                            
+  - PVPP                                                                                                                                                                                      
+  - Fining Trial                                                                                                                                                                              
+  - GJC Addition                  
+    - Acidity Interconversion                                                                                                                                                                   
+                                                                                                                                                                                              
+  BASSA (nice-to-have):                                                                                                                                                                       
+  - Test sensoriali (più accademici)                                                                                                                                                          
+  - Winery refrigeration             

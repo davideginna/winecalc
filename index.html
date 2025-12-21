@@ -116,158 +116,57 @@
     <!-- Main Content -->
     <main class="container my-5" id="main-content">
         <!-- Chemical Additions Category -->
-        <section class="mb-5">
+        <section class="mb-5" id="chemical-calculators">
             <h2 class="mb-4 text-wine">
                 <i class="bi bi-droplet-fill me-2"></i>
                 <span data-i18n="categories.chemical">Aggiunte Chimiche</span>
             </h2>
-            <div class="row g-4" id="chemicalCalculators">
-                <!-- SO2 Addition -->
-                <div class="col-md-6 col-lg-4 calculator-card" data-category="chemical" data-name="so2">
-                    <div class="card h-100 shadow-sm hover-lift">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <div class="icon-circle bg-wine-light">
-                                    <i class="bi bi-shield-fill-check text-wine fs-3"></i>
-                                </div>
-                                <span class="badge bg-wine">Priorità Alta</span>
-                            </div>
-                            <h5 class="card-title fw-bold" data-i18n="calculators.so2.title">Anidride Solforosa (SO2)
-                            </h5>
-                            <p class="card-text text-muted" data-i18n="calculators.so2.description">
-                                Calcola la quantità di SO2 da aggiungere al vino
-                            </p>
-                            <a href="#" class="btn btn-outline-wine btn-sm calculator-link" data-calculator="so2">
-                                <span data-i18n="common.calculate">Calcola</span> <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Acid Addition -->
-                <div class="col-md-6 col-lg-4 calculator-card" data-category="chemical" data-name="acid">
-                    <div class="card h-100 shadow-sm hover-lift">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <div class="icon-circle bg-wine-light">
-                                    <i class="bi bi-droplet-half text-wine fs-3"></i>
-                                </div>
-                                <span class="badge bg-wine">Priorità Alta</span>
-                            </div>
-                            <h5 class="card-title fw-bold" data-i18n="calculators.acid.title">Aggiunta Acidi</h5>
-                            <p class="card-text text-muted" data-i18n="calculators.acid.description">
-                                Calcola l'acidità e le aggiunte di acido tartarico
-                            </p>
-                            <a href="#" class="btn btn-outline-wine btn-sm calculator-link" data-calculator="acid">
-                                <span data-i18n="common.calculate">Calcola</span> <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- More calculators will be added dynamically -->
-                <div class="col-md-6 col-lg-4 calculator-card" data-category="chemical" data-name="bentonite">
-                    <div class="card h-100 shadow-sm hover-lift">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <div class="icon-circle bg-wine-light">
-                                    <i class="bi bi-filter text-wine fs-3"></i>
-                                </div>
-                            </div>
-                            <h5 class="card-title fw-bold" data-i18n="calculators.bentonite.title">Bentonite</h5>
-                            <p class="card-text text-muted" data-i18n="calculators.bentonite.description">
-                                Calcola l'aggiunta di bentonite per la chiarifica
-                            </p>
-                            <a href="#" class="btn btn-outline-wine btn-sm calculator-link" data-calculator="bentonite">
-                                <span data-i18n="common.calculate">Calcola</span> <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4">
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
             </div>
         </section>
 
         <!-- Specialized Calculations Category -->
-        <section class="mb-5">
+        <section class="mb-5" id="specialized-calculators">
             <h2 class="mb-4 text-wine">
                 <i class="bi bi-calculator me-2"></i>
                 <span data-i18n="categories.specialized">Calcoli Specializzati</span>
             </h2>
-            <div class="row g-4" id="specializedCalculators">
-                <!-- Fortification -->
-                <div class="col-md-6 col-lg-4 calculator-card" data-category="specialized" data-name="fortification">
-                    <div class="card h-100 shadow-sm hover-lift">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <div class="icon-circle bg-wine-light">
-                                    <i class="bi bi-percent text-wine fs-3"></i>
-                                </div>
-                                <span class="badge bg-wine">Priorità Alta</span>
-                            </div>
-                            <h5 class="card-title fw-bold" data-i18n="calculators.fortification.title">Fortificazione
-                            </h5>
-                            <p class="card-text text-muted" data-i18n="calculators.fortification.description">
-                                Calcola l'alcol da aggiungere per fortificare il vino
-                            </p>
-                            <a href="#" class="btn btn-outline-wine btn-sm calculator-link"
-                                data-calculator="fortification">
-                                <span data-i18n="common.calculate">Calcola</span> <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Water Addition -->
-                <div class="col-md-6 col-lg-4 calculator-card" data-category="specialized" data-name="water">
-                    <div class="card h-100 shadow-sm hover-lift">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <div class="icon-circle bg-wine-light">
-                                    <i class="bi bi-moisture text-wine fs-3"></i>
-                                </div>
-                            </div>
-                            <h5 class="card-title fw-bold" data-i18n="calculators.water.title">Aggiunta Acqua</h5>
-                            <p class="card-text text-muted" data-i18n="calculators.water.description">
-                                Calcola l'aggiunta di acqua per diluizione
-                            </p>
-                            <a href="#" class="btn btn-outline-wine btn-sm calculator-link" data-calculator="water">
-                                <span data-i18n="common.calculate">Calcola</span> <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4">
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
             </div>
         </section>
 
         <!-- Reference Tools Category -->
-        <section class="mb-5">
+        <section class="mb-5" id="reference-calculators">
             <h2 class="mb-4 text-wine">
                 <i class="bi bi-tools me-2"></i>
                 <span data-i18n="categories.reference">Strumenti di Riferimento</span>
             </h2>
-            <div class="row g-4" id="referenceCalculators">
-                <!-- Conversion Calculator -->
-                <div class="col-md-6 col-lg-4 calculator-card" data-category="reference" data-name="conversion">
-                    <div class="card h-100 shadow-sm hover-lift">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-start mb-3">
-                                <div class="icon-circle bg-wine-light">
-                                    <i class="bi bi-arrow-left-right text-wine fs-3"></i>
-                                </div>
-                                <span class="badge bg-wine">Priorità Alta</span>
-                            </div>
-                            <h5 class="card-title fw-bold" data-i18n="calculators.conversion.title">Conversioni Generali
-                            </h5>
-                            <p class="card-text text-muted" data-i18n="calculators.conversion.description">
-                                Converti unità di misura enologiche
-                            </p>
-                            <a href="#" class="btn btn-outline-wine btn-sm calculator-link"
-                                data-calculator="conversion">
-                                <span data-i18n="common.calculate">Calcola</span> <i class="bi bi-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4">
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
+            </div>
+        </section>
+
+        <!-- Sensory Analysis Category -->
+        <section class="mb-5" id="sensory-calculators">
+            <h2 class="mb-4 text-wine">
+                <i class="bi bi-clipboard-check me-2"></i>
+                <span data-i18n="categories.sensory">Analisi Sensoriale</span>
+            </h2>
+            <div class="row g-4">
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
+            </div>
+        </section>
+
+        <!-- Additional Resources Category -->
+        <section class="mb-5" id="additional-calculators">
+            <h2 class="mb-4 text-wine">
+                <i class="bi bi-info-circle me-2"></i>
+                <span data-i18n="categories.additional">Risorse Aggiuntive</span>
+            </h2>
+            <div class="row g-4">
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
             </div>
         </section>
 
@@ -442,10 +341,9 @@
                     <p class="text-muted" data-i18n="footer.description">Calcolatori professionali per l'enologia</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-1" data-i18n="footer.inspiration">Ispirato a AWRI Winemaking Calculators</p>
                     <p class="text-muted">
                         <i class="bi bi-github me-2"></i>
-                        <a href="#" class="text-white text-decoration-none" data-i18n="footer.viewOnGithub">Vedi su
+                        <a href="https://github.com/davideginna/winecalc" class="text-white text-decoration-none" data-i18n="footer.viewOnGithub">Vedi su
                             GitHub</a>
                     </p>
                 </div>
@@ -467,15 +365,8 @@
     <script src="js/theme-manager.js"></script>
     <script src="js/settings-ui.js"></script>
 
-    <!-- Calculator modules (global) -->
-    <script src="js/calculators/so2.js"></script>
-    <script src="js/calculators/acid.js"></script>
-    <script src="js/calculators/bentonite.js"></script>
-    <script src="js/calculators/fortification.js"></script>
-    <script src="js/calculators/water.js"></script>
-    <script src="js/calculators/conversion.js"></script>
-    <script src="js/calculators/dap.js"></script>
-    <script src="js/calculators/ascorbic-acid.js"></script>
+    <!-- Calculator modules will be lazy loaded on demand -->
+    <!-- No preloading = faster initial page load! -->
 
     <!-- Main application (ES6 module - entry point) -->
     <script type="module" src="js/main.js"></script>

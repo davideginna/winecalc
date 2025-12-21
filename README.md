@@ -39,7 +39,7 @@ Applicazione web mobile-first per calcoli enologici professionali, ispirata ai c
 - Aggiunta Mosto Concentrato (GJC)
 - Micro-ossigenazione
 - SO2 Molecolare
-- Aggiunta Acqua
+- ✅ Aggiunta Acqua - **Implementato**
 
 ### Strumenti di Riferimento (4)
 - ✅ Conversioni Generali - **Implementato**

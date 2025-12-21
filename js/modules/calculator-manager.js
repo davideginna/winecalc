@@ -3,6 +3,7 @@
 import { AppState, StateManager } from './app-state.js';
 import { TemplateGenerator } from './template-generator.js';
 import { FormHandler } from './form-handler.js';
+import { CalculatorLoader } from './calculator-loader.js';
 
 /**
  * Manages calculator lifecycle: loading, opening, closing
@@ -11,7 +12,7 @@ export const CalculatorManager = {
     /**
      * Initialize calculator manager
      */
-    initialize() {
+    async initialize() {
         // Initialize Bootstrap modal
         const modalElement = document.getElementById('calculatorModal');
         if (modalElement) {
@@ -43,11 +44,21 @@ export const CalculatorManager = {
     /**
      * Open calculator in modal
      */
-    openCalculator(calculatorId) {
+    async openCalculator(calculatorId) {
         console.log(`Opening calculator: ${calculatorId}`);
 
         // Update state
         StateManager.updateState('currentCalculator', calculatorId);
+
+        // Lazy load calculator module if not already loaded
+        if (!CalculatorLoader.isCalculatorLoaded(calculatorId)) {
+            console.log(`Lazy loading calculator module: ${calculatorId}`);
+            const loaded = await CalculatorLoader.loadCalculatorModule(calculatorId);
+            if (!loaded) {
+                console.error(`Failed to load calculator: ${calculatorId}`);
+                // Continue anyway, fallback will handle it
+            }
+        }
 
         // Load calculator content
         this.loadCalculatorContent(calculatorId);
