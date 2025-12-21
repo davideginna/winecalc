@@ -121,7 +121,10 @@
         "proof": "Proof"
       },
       "results": {
-        "converted": "Umgerechneter Wert"
+        "converted": "Umgerechneter Wert",
+        "originalValue": "Ursprünglicher Wert",
+        "originalUnit": "Ursprüngliche Einheit",
+        "targetUnit": "Zieleinheit"
       }
     }
   },
@@ -139,7 +142,8 @@
     "success": "Erfolg",
     "required": "Pflichtfeld",
     "invalidValue": "Ungültiger Wert",
-    "unit": "Einheit"
+    "unit": "Einheit",
+    "copied": "In die Zwischenablage kopiert"
   },
   "footer": {
     "description": "Professionelle Rechner für Weinbereitung",
@@ -181,8 +185,11 @@
   "accessibility": {
     "title": "Barrierefreiheit",
     "highContrast": "Hoher Kontrast",
-    "reducedMotion": "Reduzierte Bewegung",
+    "highContrastDesc": "Dickere Ränder und erhöhte Kontraste",
+    "reducedMotion": "Animationen Deaktivieren",
+    "reducedMotionDesc": "Entfernt Animationen und Übergänge (empfohlen bei Kopfschmerzen/Epilepsie)",
     "largeText": "Großer Text",
+    "largeTextDesc": "Vergrößert die Textgröße um 12%",
     "keyboardNav": "Tastaturnavigation",
     "skipToContent": "Zum Hauptinhalt springen",
     "settings": "Barrierefreiheitseinstellungen"
@@ -193,6 +200,8 @@
     "accessibility": "Barrierefreiheit",
     "language": "Sprache",
     "reset": "Auf Standard zurücksetzen",
+    "resetConfirm": "Alle Einstellungen auf Standardwerte zurücksetzen?",
+    "resetSuccess": "Einstellungen erfolgreich zurückgesetzt",
     "export": "Einstellungen exportieren",
     "import": "Einstellungen importieren"
   }

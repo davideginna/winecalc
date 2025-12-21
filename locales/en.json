@@ -121,7 +121,10 @@
         "proof": "Proof"
       },
       "results": {
-        "converted": "Converted value"
+        "converted": "Converted value",
+        "originalValue": "Original value",
+        "originalUnit": "Original unit",
+        "targetUnit": "Target unit"
       }
     }
   },
@@ -139,7 +142,8 @@
     "success": "Success",
     "required": "Required field",
     "invalidValue": "Invalid value",
-    "unit": "Unit"
+    "unit": "Unit",
+    "copied": "Copied to clipboard"
   },
   "footer": {
     "description": "Professional winemaking calculators",
@@ -196,6 +200,8 @@
     "accessibility": "Accessibility",
     "language": "Language",
     "reset": "Reset to defaults",
+    "resetConfirm": "Reset all settings to defaults?",
+    "resetSuccess": "Settings reset successfully",
     "export": "Export settings",
     "import": "Import settings"
   }

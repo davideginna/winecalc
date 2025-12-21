@@ -121,7 +121,10 @@
         "proof": "Proof"
       },
       "results": {
-        "converted": "Valeur convertie"
+        "converted": "Valeur convertie",
+        "originalValue": "Valeur d'origine",
+        "originalUnit": "Unité d'origine",
+        "targetUnit": "Unité cible"
       }
     }
   },
@@ -139,7 +142,8 @@
     "success": "Succès",
     "required": "Champ obligatoire",
     "invalidValue": "Valeur non valide",
-    "unit": "Unité"
+    "unit": "Unité",
+    "copied": "Copié dans le presse-papiers"
   },
   "footer": {
     "description": "Calculateurs professionnels pour l'œnologie",
@@ -181,8 +185,11 @@
   "accessibility": {
     "title": "Accessibilité",
     "highContrast": "Contraste Élevé",
-    "reducedMotion": "Mouvement Réduit",
+    "highContrastDesc": "Bordures plus épaisses et contrastes augmentés",
+    "reducedMotion": "Désactiver les Animations",
+    "reducedMotionDesc": "Supprime les animations et transitions (recommandé pour maux de tête/épilepsie)",
     "largeText": "Texte Large",
+    "largeTextDesc": "Augmente la taille du texte de 12%",
     "keyboardNav": "Navigation au Clavier",
     "skipToContent": "Aller au contenu principal",
     "settings": "Paramètres d'Accessibilité"
@@ -193,6 +200,8 @@
     "accessibility": "Accessibilité",
     "language": "Langue",
     "reset": "Réinitialiser",
+    "resetConfirm": "Réinitialiser tous les paramètres par défaut?",
+    "resetSuccess": "Paramètres réinitialisés avec succès",
     "export": "Exporter les paramètres",
     "import": "Importer les paramètres"
   }

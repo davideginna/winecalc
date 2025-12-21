@@ -121,7 +121,10 @@
         "proof": "Proof"
       },
       "results": {
-        "converted": "Valore convertito"
+        "converted": "Valore convertito",
+        "originalValue": "Valore originale",
+        "originalUnit": "Unità originale",
+        "targetUnit": "Unità di destinazione"
       }
     }
   },
@@ -139,7 +142,8 @@
     "success": "Successo",
     "required": "Campo obbligatorio",
     "invalidValue": "Valore non valido",
-    "unit": "Unità"
+    "unit": "Unità",
+    "copied": "Copiato negli appunti"
   },
   "footer": {
     "description": "Calcolatori professionali per l'enologia",
@@ -196,6 +200,8 @@
     "accessibility": "Accessibilità",
     "language": "Lingua",
     "reset": "Ripristina predefinite",
+    "resetConfirm": "Ripristinare tutte le impostazioni ai valori predefiniti?",
+    "resetSuccess": "Impostazioni ripristinate con successo",
     "export": "Esporta impostazioni",
     "import": "Importa impostazioni"
   }

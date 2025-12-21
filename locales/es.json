@@ -121,7 +121,10 @@
         "proof": "Proof"
       },
       "results": {
-        "converted": "Valor convertido"
+        "converted": "Valor convertido",
+        "originalValue": "Valor original",
+        "originalUnit": "Unidad original",
+        "targetUnit": "Unidad de destino"
       }
     }
   },
@@ -139,7 +142,8 @@
     "success": "Éxito",
     "required": "Campo obligatorio",
     "invalidValue": "Valor no válido",
-    "unit": "Unidad"
+    "unit": "Unidad",
+    "copied": "Copiado al portapapeles"
   },
   "footer": {
     "description": "Calculadoras profesionales para enología",
@@ -181,8 +185,11 @@
   "accessibility": {
     "title": "Accesibilidad",
     "highContrast": "Alto Contraste",
-    "reducedMotion": "Movimiento Reducido",
+    "highContrastDesc": "Bordes más gruesos y contrastes aumentados",
+    "reducedMotion": "Desactivar Animaciones",
+    "reducedMotionDesc": "Elimina animaciones y transiciones (recomendado para dolores de cabeza/epilepsia)",
     "largeText": "Texto Grande",
+    "largeTextDesc": "Aumenta el tamaño del texto en un 12%",
     "keyboardNav": "Navegación por Teclado",
     "skipToContent": "Saltar al contenido principal",
     "settings": "Configuración de Accesibilidad"
@@ -193,6 +200,8 @@
     "accessibility": "Accesibilidad",
     "language": "Idioma",
     "reset": "Restablecer valores predeterminados",
+    "resetConfirm": "¿Restablecer toda la configuración a los valores predeterminados?",
+    "resetSuccess": "Configuración restablecida con éxito",
     "export": "Exportar configuración",
     "import": "Importar configuración"
   }
