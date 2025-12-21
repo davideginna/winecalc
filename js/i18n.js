@@ -84,6 +84,8 @@ async function loadLanguage(lang) {
 
 // Update all translatable elements on the page
 function updatePageLanguage() {
+    console.log('Updating page language to:', i18next.language);
+
     // Update elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -91,6 +93,8 @@ function updatePageLanguage() {
 
         if (translation && translation !== key) {
             element.textContent = translation;
+        } else {
+            console.warn(`Translation missing for key: ${key}`);
         }
     });
 
@@ -133,6 +137,8 @@ function updatePageLanguage() {
 
     // Update HTML lang attribute
     document.documentElement.lang = i18next.language;
+
+    console.log('Page language update completed');
 }
 
 // Setup language switcher event listeners
@@ -142,9 +148,20 @@ function setupLanguageSwitchers() {
             e.preventDefault();
             const lang = e.currentTarget.getAttribute('data-lang');
 
+            console.log('Language switch clicked:', lang);
+
             if (lang && SUPPORTED_LANGUAGES.includes(lang)) {
                 await changeLanguage(lang);
             }
+        });
+    });
+
+    // Update translations when modals are shown
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        modal.addEventListener('shown.bs.modal', () => {
+            console.log('Modal shown, updating translations');
+            updatePageLanguage();
         });
     });
 }

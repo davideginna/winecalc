@@ -165,5 +165,38 @@
     "gPerL": "g/L",
     "mgPerL": "mg/L",
     "gPerHl": "g/hL"
+  },
+  "themes": {
+    "title": "Appearance",
+    "mode": "Mode",
+    "light": "Light",
+    "dark": "Dark",
+    "colorTheme": "Color Theme",
+    "wine": "Wine",
+    "ocean": "Ocean",
+    "forest": "Forest",
+    "lavender": "Lavender",
+    "sunset": "Sunset"
+  },
+  "accessibility": {
+    "title": "Accessibility",
+    "highContrast": "High Contrast",
+    "highContrastDesc": "Thicker borders and increased contrasts",
+    "reducedMotion": "Disable Animations",
+    "reducedMotionDesc": "Removes animations and transitions (recommended for headaches/epilepsy)",
+    "largeText": "Large Text",
+    "largeTextDesc": "Increases text size by 12%",
+    "keyboardNav": "Keyboard Navigation",
+    "skipToContent": "Skip to main content",
+    "settings": "Accessibility Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "accessibility": "Accessibility",
+    "language": "Language",
+    "reset": "Reset to defaults",
+    "export": "Export settings",
+    "import": "Import settings"
   }
 }

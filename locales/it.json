@@ -165,5 +165,38 @@
     "gPerL": "g/L",
     "mgPerL": "mg/L",
     "gPerHl": "g/hL"
+  },
+  "themes": {
+    "title": "Aspetto",
+    "mode": "Modalità",
+    "light": "Chiaro",
+    "dark": "Scuro",
+    "colorTheme": "Tema Colore",
+    "wine": "Vino",
+    "ocean": "Oceano",
+    "forest": "Foresta",
+    "lavender": "Lavanda",
+    "sunset": "Tramonto"
+  },
+  "accessibility": {
+    "title": "Accessibilità",
+    "highContrast": "Alto Contrasto",
+    "highContrastDesc": "Bordi più spessi e contrasti aumentati",
+    "reducedMotion": "Disabilita Animazioni",
+    "reducedMotionDesc": "Rimuove animazioni e transizioni (consigliato per mal di testa/epilessia)",
+    "largeText": "Testo Grande",
+    "largeTextDesc": "Aumenta dimensione testo del 12%",
+    "keyboardNav": "Navigazione da Tastiera",
+    "skipToContent": "Salta al contenuto principale",
+    "settings": "Impostazioni Accessibilità"
+  },
+  "settings": {
+    "title": "Impostazioni",
+    "appearance": "Aspetto",
+    "accessibility": "Accessibilità",
+    "language": "Lingua",
+    "reset": "Ripristina predefinite",
+    "export": "Esporta impostazioni",
+    "import": "Importa impostazioni"
   }
 }

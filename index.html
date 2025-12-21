@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Skip to Content Link for Accessibility -->
+    <a href="#main-content" class="skip-link" data-i18n="accessibility.skipToContent">Salta al contenuto principale</a>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-wine sticky-top">
         <div class="container-fluid">
@@ -55,6 +58,16 @@
                             <li><a class="dropdown-item lang-switch" href="#" data-lang="de">🇩🇪 Deutsch</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" id="darkModeToggle" aria-label="Toggle dark mode">
+                            <i class="bi bi-moon-stars" id="darkModeIcon"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" data-bs-toggle="modal" data-bs-target="#settingsModal" aria-label="Settings">
+                            <i class="bi bi-gear"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -67,22 +80,33 @@
                 <div class="col-lg-8 mx-auto text-center">
                     <h1 class="display-4 fw-bold mb-3" data-i18n="hero.title">Calcolatori Enologici Professionali</h1>
                     <p class="lead mb-4" data-i18n="hero.subtitle">Strumenti precisi per la vinificazione. Calcola SO2, acidità, fortificazione e molto altro.</p>
-
-                    <!-- Search Bar -->
-                    <div class="input-group input-group-lg mb-3 shadow-lg">
-                        <span class="input-group-text bg-white border-0">
-                            <i class="bi bi-search"></i>
-                        </span>
-                        <input type="text" class="form-control border-0" id="searchInput"
-                               placeholder="Cerca un calcolatore..." data-i18n-placeholder="hero.searchPlaceholder">
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Search Bar Section (always visible) -->
+    <div class="search-section py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="search-container">
+                        <div class="input-group input-group-lg shadow-sm">
+                            <span class="input-group-text">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" class="form-control" id="searchInput"
+                                   placeholder="Cerca un calcolatore..." data-i18n-placeholder="hero.searchPlaceholder"
+                                   aria-label="Cerca calcolatori">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Main Content -->
-    <main class="container my-5">
+    <main class="container my-5" id="main-content">
         <!-- Chemical Additions Category -->
         <section class="mb-5">
             <h2 class="mb-4 text-wine">
@@ -256,6 +280,133 @@
         </div>
     </div>
 
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header bg-wine text-white">
+                    <h5 class="modal-title" id="settingsModalLabel">
+                        <i class="bi bi-gear me-2"></i>
+                        <span data-i18n="settings.title">Impostazioni</span>
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Appearance Settings -->
+                    <div class="settings-section mb-4">
+                        <h6 class="fw-bold mb-3">
+                            <i class="bi bi-palette me-2"></i>
+                            <span data-i18n="settings.appearance">Aspetto</span>
+                        </h6>
+
+                        <!-- Theme Mode (Light/Dark) -->
+                        <div class="mb-3">
+                            <label class="form-label" data-i18n="themes.mode">Modalità</label>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-outline-primary-theme flex-fill theme-mode-btn" data-theme="light">
+                                    <i class="bi bi-sun me-2"></i>
+                                    <span data-i18n="themes.light">Chiaro</span>
+                                </button>
+                                <button class="btn btn-outline-primary-theme flex-fill theme-mode-btn" data-theme="dark">
+                                    <i class="bi bi-moon-stars me-2"></i>
+                                    <span data-i18n="themes.dark">Scuro</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Color Theme -->
+                        <div class="mb-3">
+                            <label class="form-label" data-i18n="themes.colorTheme">Tema Colore</label>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn" data-color-theme="wine">
+                                        🍷 <span data-i18n="themes.wine">Vino</span>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn" data-color-theme="ocean">
+                                        🌊 <span data-i18n="themes.ocean">Oceano</span>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn" data-color-theme="forest">
+                                        🌲 <span data-i18n="themes.forest">Foresta</span>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn" data-color-theme="lavender">
+                                        💜 <span data-i18n="themes.lavender">Lavanda</span>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn" data-color-theme="sunset">
+                                        🌅 <span data-i18n="themes.sunset">Tramonto</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Accessibility Settings -->
+                    <div class="settings-section mb-4">
+                        <h6 class="fw-bold mb-3">
+                            <i class="bi bi-universal-access me-2"></i>
+                            <span data-i18n="accessibility.title">Accessibilità</span>
+                        </h6>
+
+                        <!-- High Contrast -->
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="highContrastSwitch">
+                                <label class="form-check-label" for="highContrastSwitch">
+                                    <i class="bi bi-circle-half me-2"></i>
+                                    <strong data-i18n="accessibility.highContrast">Alto Contrasto</strong>
+                                </label>
+                            </div>
+                            <small class="text-muted ms-4" data-i18n="accessibility.highContrastDesc">Bordi più spessi e contrasti aumentati</small>
+                        </div>
+
+                        <!-- Reduced Motion -->
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="reducedMotionSwitch">
+                                <label class="form-check-label" for="reducedMotionSwitch">
+                                    <i class="bi bi-pause-circle me-2"></i>
+                                    <strong data-i18n="accessibility.reducedMotion">Disabilita Animazioni</strong>
+                                </label>
+                            </div>
+                            <small class="text-muted ms-4" data-i18n="accessibility.reducedMotionDesc">Rimuove animazioni e transizioni (consigliato per mal di testa/epilessia)</small>
+                        </div>
+
+                        <!-- Large Text -->
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="largeTextSwitch">
+                                <label class="form-check-label" for="largeTextSwitch">
+                                    <i class="bi bi-type me-2"></i>
+                                    <strong data-i18n="accessibility.largeText">Testo Grande</strong>
+                                </label>
+                            </div>
+                            <small class="text-muted ms-4" data-i18n="accessibility.largeTextDesc">Aumenta dimensione testo del 12%</small>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- Reset Button -->
+                    <div class="d-grid">
+                        <button class="btn btn-outline-secondary" id="resetSettingsBtn">
+                            <i class="bi bi-arrow-counterclockwise me-2"></i>
+                            <span data-i18n="settings.reset">Ripristina predefinite</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-4 mt-5">
         <div class="container">
@@ -283,6 +434,7 @@
 
     <!-- Custom Scripts -->
     <script src="js/i18n.js"></script>
+    <script src="js/theme-manager.js"></script>
     <script src="js/utils.js"></script>
 
     <!-- Calculator Modules -->
@@ -293,5 +445,6 @@
 
     <!-- Main App -->
     <script src="js/app.js"></script>
+    <script src="js/settings-ui.js"></script>
 </body>
 </html>

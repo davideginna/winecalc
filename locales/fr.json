@@ -165,5 +165,35 @@
     "gPerL": "g/L",
     "mgPerL": "mg/L",
     "gPerHl": "g/hL"
+  },
+  "themes": {
+    "title": "Apparence",
+    "mode": "Mode",
+    "light": "Clair",
+    "dark": "Sombre",
+    "colorTheme": "Thème Couleur",
+    "wine": "Vin",
+    "ocean": "Océan",
+    "forest": "Forêt",
+    "lavender": "Lavande",
+    "sunset": "Coucher de soleil"
+  },
+  "accessibility": {
+    "title": "Accessibilité",
+    "highContrast": "Contraste Élevé",
+    "reducedMotion": "Mouvement Réduit",
+    "largeText": "Texte Large",
+    "keyboardNav": "Navigation au Clavier",
+    "skipToContent": "Aller au contenu principal",
+    "settings": "Paramètres d'Accessibilité"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "appearance": "Apparence",
+    "accessibility": "Accessibilité",
+    "language": "Langue",
+    "reset": "Réinitialiser",
+    "export": "Exporter les paramètres",
+    "import": "Importer les paramètres"
   }
 }
