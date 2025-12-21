@@ -98,7 +98,7 @@ export const CalculatorLoader = {
                                 </p>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-outline-wine btn-sm calculator-link w-100"
+                        <a href="#" class="btn btn-outline-wine btn-sm calculator-link"
                            data-calculator="${calc.id}"
                            data-js-file="${calc.jsFile}">
                             <i class="bi bi-calculator me-2"></i>
