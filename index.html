@@ -461,20 +461,24 @@
     <!-- i18next for internationalization -->
     <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.11/i18next.min.js"></script>
 
-    <!-- Custom Scripts -->
+    <!-- Global utilities and dependencies (loaded before ES6 modules) -->
+    <script src="js/utils.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/theme-manager.js"></script>
-    <script src="js/utils.js"></script>
+    <script src="js/settings-ui.js"></script>
 
-    <!-- Calculator Modules -->
+    <!-- Calculator modules (global) -->
     <script src="js/calculators/so2.js"></script>
     <script src="js/calculators/acid.js"></script>
+    <script src="js/calculators/bentonite.js"></script>
     <script src="js/calculators/fortification.js"></script>
+    <script src="js/calculators/water.js"></script>
     <script src="js/calculators/conversion.js"></script>
+    <script src="js/calculators/dap.js"></script>
+    <script src="js/calculators/ascorbic-acid.js"></script>
 
-    <!-- Main App -->
-    <script src="js/app.js"></script>
-    <script src="js/settings-ui.js"></script>
+    <!-- Main application (ES6 module - entry point) -->
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
