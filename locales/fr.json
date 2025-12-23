@@ -37,21 +37,14 @@
     },
     "acid": {
       "title": "Ajout d'Acide",
-      "description": "Calculez l'acidité et les ajouts d'acide tartrique",
-      "volume": "Volume (L)",
-      "currentTA": "Acidité totale actuelle (g/L)",
-      "targetTA": "Acidité totale souhaitée (g/L)",
-      "acidType": "Type d'acide",
-      "types": {
-        "tartaric": "Acide tartrique",
-        "citric": "Acide citrique",
-        "malic": "Acide malique"
-      },
+      "description": "Calculez la quantité d'acide à ajouter",
+      "additionRate": "Taux d'ajout souhaité d'acide (g/L)",
+      "volume": "Volume de vin/fermentation/jus (L)",
       "results": {
-        "amount": "Quantité à ajouter",
-        "finalTA": "Acidité totale finale"
+        "amountKg": "Kilogrammes d'acide à ajouter",
+        "amountG": "Grammes d'acide à ajouter"
       },
-      "info": "L'acidité est fondamentale pour l'équilibre et la stabilité du vin. L'acide tartrique est le plus stable et couramment utilisé."
+      "info": "Lors d'ajouts à une fermentation rouge, cette formule ne tient pas compte du rapport jus/solides (peaux de raisin, pépins, etc.)."
     },
     "bentonite": {
       "title": "Bentonite",

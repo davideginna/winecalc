@@ -4,17 +4,43 @@
  * Renders calculation results in a user-friendly format
  */
 export const ResultsRenderer = {
+    resultsConfigCache: {},
+
+    /**
+     * Load results configuration for a calculator
+     */
+    async loadResultsConfig(calculatorId) {
+        // Check cache
+        if (this.resultsConfigCache[calculatorId]) {
+            return this.resultsConfigCache[calculatorId];
+        }
+
+        try {
+            const response = await fetch(`js/calculators-fields/${calculatorId}.json`);
+            if (!response.ok) {
+                return null;
+            }
+            const config = await response.json();
+            const resultsConfig = config.results || null;
+            this.resultsConfigCache[calculatorId] = resultsConfig;
+            return resultsConfig;
+        } catch (error) {
+            console.warn(`No results config for ${calculatorId}, using defaults`);
+            return null;
+        }
+    },
+
     /**
      * Render calculation results
      */
-    render(calculatorId, result) {
+    async render(calculatorId, result) {
         const container = document.getElementById('resultsContainer');
         if (!container) {
             console.error('Results container not found');
             return;
         }
 
-        const html = this.generateResultsHTML(calculatorId, result);
+        const html = await this.generateResultsHTML(calculatorId, result);
         container.innerHTML = html;
 
         // Animate results appearing
@@ -27,8 +53,11 @@ export const ResultsRenderer = {
     /**
      * Generate HTML for results
      */
-    generateResultsHTML(calculatorId, result) {
+    async generateResultsHTML(calculatorId, result) {
         const t = WineCalcI18n.t;
+
+        // Load results configuration
+        const resultsConfig = await this.loadResultsConfig(calculatorId);
 
         let html = `
             <div class="results-section mt-4">
@@ -43,16 +72,34 @@ export const ResultsRenderer = {
                 </div>
         `;
 
-        // Render each result item
-        for (let key in result) {
+        // Determine order of fields
+        let fieldsToRender = [];
+
+        if (resultsConfig && resultsConfig.order) {
+            // Use configured order
+            fieldsToRender = resultsConfig.order;
+        } else {
+            // Use all fields from result object
+            fieldsToRender = Object.keys(result).filter(key =>
+                !this.shouldSkipField(key, result[key])
+            );
+        }
+
+        // Render each result item in configured order
+        for (let key of fieldsToRender) {
             const value = result[key];
+
+            // Skip if field doesn't exist in result
+            if (value === undefined || value === null) {
+                continue;
+            }
 
             // Skip certain meta fields
             if (this.shouldSkipField(key, value)) {
                 continue;
             }
 
-            html += this.renderResultItem(calculatorId, key, value);
+            html += this.renderResultItem(calculatorId, key, value, resultsConfig);
         }
 
         html += '</div>';
@@ -82,10 +129,10 @@ export const ResultsRenderer = {
     /**
      * Render a single result item
      */
-    renderResultItem(calculatorId, key, value) {
+    renderResultItem(calculatorId, key, value, resultsConfig) {
         const label = this.getResultLabel(calculatorId, key);
-        const displayValue = this.formatResultValue(value);
-        const unit = this.getResultUnit(calculatorId, key);
+        const displayValue = this.formatResultValue(value, calculatorId, key, resultsConfig);
+        const unit = this.getResultUnit(calculatorId, key, resultsConfig);
 
         return `
             <div class="result-item">
@@ -130,8 +177,13 @@ export const ResultsRenderer = {
     /**
      * Format result value for display
      */
-    formatResultValue(value) {
+    formatResultValue(value, calculatorId, key, resultsConfig) {
         if (typeof value === 'number') {
+            // Check if there's a specific decimal config for this field
+            if (resultsConfig && resultsConfig.decimals && resultsConfig.decimals[key] !== undefined) {
+                const decimals = resultsConfig.decimals[key];
+                return value.toFixed(decimals);
+            }
             return WineCalcUtils.formatNumber(value);
         }
 
@@ -149,7 +201,13 @@ export const ResultsRenderer = {
     /**
      * Get unit for result
      */
-    getResultUnit(calculatorId, resultKey) {
+    getResultUnit(calculatorId, resultKey, resultsConfig) {
+        // First, try to get unit from config
+        if (resultsConfig && resultsConfig.units && resultsConfig.units[resultKey]) {
+            return resultsConfig.units[resultKey];
+        }
+
+        // Fallback to hardcoded units (for backwards compatibility)
         const units = {
             so2: {
                 amount: 'g',
@@ -158,10 +216,10 @@ export const ResultsRenderer = {
                 molecularSO2: 'mg/L'
             },
             acid: {
-                amount: 'g',
-                finalTA: 'g/L',
-                currentTA: 'g/L',
-                targetTA: 'g/L'
+                amountKg: 'kg',
+                amountG: 'g',
+                additionRate: 'g/L',
+                volume: 'L'
             },
             bentonite: {
                 bentoniteAmount: 'g',

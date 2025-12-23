@@ -174,42 +174,99 @@ Modifica `index.html` alla riga del footer:
 
 ```
 winecalc/
-├── index.html              # Homepage principale
-├── README.md              # Questo file
+├── index.html                    # Homepage principale
+├── README.md                     # Questo file
+├── ARCHITECTURE.md               # 📐 Documentazione architettura
+├── run.sh                        # Script avvio server sviluppo
+│
+├── calculators-config.json       # Configurazione calcolatori
 │
 ├── css/
-│   ├── theme.css          # Variabili tema e colori
-│   └── styles.css         # Stili personalizzati
+│   ├── theme.css                 # Variabili tema e colori
+│   └── styles.css                # Stili personalizzati
 │
 ├── js/
-│   ├── app.js             # Logica principale app
-│   ├── i18n.js            # Sistema internazionalizzazione
-│   ├── utils.js           # Funzioni utility
-│   └── calculators/       # Moduli calcolatori
-│       ├── so2.js         # Calcolatore SO2
-│       ├── acid.js        # Calcolatore acidità
-│       ├── fortification.js  # Calcolatore fortificazione
-│       └── conversion.js  # Conversioni unità
+│   ├── main.js                   # Entry point principale
+│   ├── i18n.js                   # Sistema internazionalizzazione
+│   ├── utils.js                  # Funzioni utility
+│   ├── theme-manager.js          # Gestione tema scuro/chiaro
+│   ├── settings-ui.js            # UI impostazioni
+│   │
+│   ├── modules/                  # Moduli core (ES6)
+│   │   ├── app-state.js          # State management
+│   │   ├── calculator-loader.js  # Caricamento calcolatori
+│   │   ├── calculator-manager.js # Gestione lifecycle
+│   │   ├── template-generator.js # Generazione form dinamica
+│   │   ├── form-handler.js       # Gestione submit form
+│   │   └── results-renderer.js   # Rendering risultati
+│   │
+│   ├── calculators/              # Moduli calcolatori
+│   │   ├── acid.js               # Aggiunta acido
+│   │   ├── so2.js                # Anidride solforosa
+│   │   ├── bentonite.js          # Bentonite
+│   │   ├── fortification.js      # Fortificazione
+│   │   └── ...                   # Altri calcolatori
+│   │
+│   └── calculators-fields/       # Configurazione campi form (JSON)
+│       ├── acid.json             # Campi per calcolatore acid
+│       ├── so2.json              # Campi per calcolatore SO2
+│       ├── bentonite.json        # Campi per calcolatore bentonite
+│       └── ...                   # Un file per ogni calcolatore
 │
-├── locales/               # File traduzioni
-│   ├── it.json            # Italiano
-│   ├── en.json            # Inglese
-│   ├── fr.json            # Francese
-│   ├── es.json            # Spagnolo
-│   └── de.json            # Tedesco
+├── locales/                      # File traduzioni
+│   ├── it.json                   # Italiano
+│   ├── en.json                   # Inglese
+│   ├── fr.json                   # Francese
+│   ├── es.json                   # Spagnolo
+│   └── de.json                   # Tedesco
 │
 └── assets/
-    └── icons/             # Icone personalizzate (opzionale)
+    └── img/                      # Immagini e screenshots
 ```
 
 ## 🔧 Tecnologie Utilizzate
 
 - **HTML5** - Struttura semantica
 - **CSS3** - Stili moderni con variabili CSS
-- **JavaScript ES6+** - Logica applicazione
+- **JavaScript ES6+** - Logica applicazione con moduli ES6
 - **Bootstrap 5.3.3** - Framework CSS responsive
 - **Bootstrap Icons** - Icone
 - **i18next** - Gestione multilingua
+
+## 🏗️ Architettura e Flusso Dati
+
+WineCalc utilizza un'architettura **modulare basata su configurazione JSON** che permette di aggiungere nuovi calcolatori facilmente senza modificare il codice core.
+
+### Flusso Dati Semplificato
+
+```
+USER compila form
+    ↓
+FormHandler raccoglie dati → { volume: 100, additionRate: 10 }
+    ↓
+Converte stringhe in numeri → { volume: 100, additionRate: 10 }
+    ↓
+Chiama window.calculate_acid(data)
+    ↓
+Funzione esegue calcolo → { amountKg: 0.01, amountG: 10 }
+    ↓
+ResultsRenderer mostra risultati
+    ↓
+USER vede "0.01 kg" e "10 g"
+```
+
+### Componenti Principali
+
+- **TemplateGenerator**: Genera form HTML da `calculators-fields-config.json`
+- **FormHandler**: Gestisce submit, raccoglie dati, chiama calcolatore
+- **Funzione Calcolatore**: Riceve dati, esegue calcolo, ritorna risultati
+- **ResultsRenderer**: Prende risultati, aggiunge traduzioni e unità, mostra all'utente
+
+📚 **Documentazione Completa**: Vedi [ARCHITECTURE.md](ARCHITECTURE.md) per:
+- Flusso dati dettagliato con diagrammi
+- Spiegazione di ogni modulo
+- Esempi di codice passo-passo
+- Debug e troubleshooting
 
 ## 🧮 Come Funzionano i Calcolatori
 
@@ -231,6 +288,189 @@ winecalc/
 // Formula Pearson Square:
 // Volume spirito = Volume vino × (Alcol target - Alcol attuale) / (Alcol spirito - Alcol target)
 ```
+
+## ➕ Aggiungere un Nuovo Calcolatore
+
+Il sistema WineCalc utilizza un approccio modulare e basato su configurazione per facilitare l'aggiunta di nuovi calcolatori. Segui questi 4 passaggi:
+
+### 1. Crea il Modulo JavaScript del Calcolatore
+
+Crea un file `js/calculators/nome-calcolatore.js` con una funzione di calcolo:
+
+```javascript
+/* WineCalc - Nome Calcolatore */
+
+/**
+ * Descrizione del calcolatore
+ * Basato su: [link fonte AWRI o altra]
+ *
+ * @param {Object} data - Dati di input dal form
+ * @param {number} data.campo1 - Descrizione campo 1
+ * @param {number} data.campo2 - Descrizione campo 2
+ * @returns {Object} Risultati del calcolo
+ */
+function calculate_nome_calcolatore(data) {
+    const { campo1, campo2 } = data;
+
+    // Validazione input
+    if (!campo1 || campo1 <= 0) {
+        throw new Error(WineCalcI18n.t('errors.positiveValue'));
+    }
+
+    // Formula: [descrizione formula]
+    const risultato = campo1 * campo2;
+
+    // Ritorna i risultati
+    return {
+        risultato: Math.round(risultato * 100) / 100,
+        campo1: campo1,
+        campo2: campo2
+    };
+}
+
+// Esporta la funzione
+window.calculate_nome_calcolatore = calculate_nome_calcolatore;
+```
+
+### 2. Registra il Calcolatore in `calculators-config.json`
+
+Aggiungi una entry nel file di configurazione:
+
+```json
+{
+  "calculators": [
+    {
+      "id": "nome_calcolatore",
+      "enabled": true,
+      "category": "chemical",
+      "icon": "bi-flask",
+      "jsFile": "js/calculators/nome-calcolatore.js",
+      "priority": 10
+    }
+  ]
+}
+```
+
+**Parametri:**
+- `id`: identificatore univoco (snake_case)
+- `enabled`: `true` per mostrare, `false` per nascondere
+- `category`: `chemical`, `specialized`, `reference`, `sensory`, `additional`
+- `icon`: classe icona Bootstrap Icons (vedi [bootstrap-icons](https://icons.getbootstrap.com/))
+- `jsFile`: percorso al file JavaScript
+- `priority`: ordine di visualizzazione (numeri più bassi appaiono prima)
+
+### 3. Configura i Campi del Form in `js/calculators-fields/nome_calcolatore.json`
+
+Crea un file dedicato per il tuo calcolatore in `js/calculators-fields/`:
+
+```json
+{
+  "info": true,
+  "alertType": "info",
+  "fields": [
+      {
+        "id": "campo1",
+        "type": "number",
+        "label": "calculators.nome_calcolatore.campo1",
+        "min": 0,
+        "step": 0.1,
+        "placeholder": "100",
+        "required": true,
+        "helpText": "Testo di aiuto opzionale"
+      },
+      {
+        "id": "campo2",
+        "type": "select",
+        "label": "calculators.nome_calcolatore.campo2",
+        "required": true,
+        "options": [
+          {
+            "value": "opzione1",
+            "label": "calculators.nome_calcolatore.opzioni.opzione1"
+          },
+          {
+            "value": "opzione2",
+            "label": "calculators.nome_calcolatore.opzioni.opzione2"
+          }
+        ]
+      }
+    ]
+}
+```
+
+**Vantaggi di file separati:**
+- ✅ Ordine campi personalizzabile (basta riordinare l'array `fields`)
+- ✅ Facile trovare e modificare la configurazione di un calcolatore
+- ✅ Nessun file gigante con 30+ calcolatori
+- ✅ Ogni calcolatore può avere complessità diversa
+
+**Tipi di campo supportati:**
+- `number`: input numerico con attributi `min`, `max`, `step`
+- `select`: dropdown con array di `options`
+- `text`: input testuale
+
+**Attributi comuni:**
+- `id`: nome del campo (deve corrispondere al parametro nella funzione JS)
+- `type`: tipo di campo
+- `label`: chiave di traduzione per la label
+- `required`: se il campo è obbligatorio
+- `placeholder`: testo placeholder
+- `helpText`: testo di aiuto sotto il campo (opzionale)
+
+### 4. Aggiungi le Traduzioni in Tutte le Lingue
+
+Aggiungi le traduzioni in **tutti i 5 file** `locales/*.json` (it, en, fr, es, de):
+
+```json
+{
+  "calculators": {
+    "nome_calcolatore": {
+      "title": "Titolo Calcolatore",
+      "description": "Breve descrizione del calcolatore",
+      "campo1": "Etichetta Campo 1",
+      "campo2": "Etichetta Campo 2",
+      "opzioni": {
+        "opzione1": "Prima Opzione",
+        "opzione2": "Seconda Opzione"
+      },
+      "results": {
+        "risultato": "Risultato Calcolato",
+        "campo1": "Campo 1",
+        "campo2": "Campo 2"
+      },
+      "info": "Informazioni importanti sul calcolatore. Questa formula non tiene conto di..."
+    }
+  }
+}
+```
+
+### 5. (Opzionale) Configura le Unità di Misura
+
+Se i risultati hanno unità di misura specifiche, aggiungile in `js/modules/results-renderer.js`:
+
+```javascript
+const units = {
+    nome_calcolatore: {
+        risultato: 'g',
+        campo1: 'L',
+        campo2: 'g/L'
+    }
+};
+```
+
+### ✅ Fatto!
+
+Il calcolatore apparirà automaticamente nella UI, il form verrà generato dalla configurazione, e sarà completamente tradotto in tutte le lingue.
+
+### 📝 Checklist Finale
+
+- [ ] File JavaScript del calcolatore creato e funzione esportata
+- [ ] Entry aggiunta in `calculators-config.json`
+- [ ] File configurazione campi creato in `js/calculators-fields/nome.json`
+- [ ] Traduzioni aggiunte in tutti i 5 file `locales/*.json`
+- [ ] Unità di misura configurate in `results-renderer.js` (se necessario)
+- [ ] Calcolatore testato con valori reali
+- [ ] Formula validata contro fonte AWRI o altra documentazione
 
 ## 🌍 Aggiungere Nuove Lingue
 

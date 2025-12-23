@@ -37,21 +37,14 @@
     },
     "acid": {
       "title": "Adición de Ácido",
-      "description": "Calcula la acidez y las adiciones de ácido tartárico",
-      "volume": "Volumen (L)",
-      "currentTA": "Acidez total actual (g/L)",
-      "targetTA": "Acidez total deseada (g/L)",
-      "acidType": "Tipo de ácido",
-      "types": {
-        "tartaric": "Ácido tartárico",
-        "citric": "Ácido cítrico",
-        "malic": "Ácido málico"
-      },
+      "description": "Calcula la cantidad de ácido a agregar",
+      "additionRate": "Tasa de adición deseada de ácido (g/L)",
+      "volume": "Volumen de vino/fermentación/mosto (L)",
       "results": {
-        "amount": "Cantidad a agregar",
-        "finalTA": "Acidez total final"
+        "amountKg": "Kilogramos de ácido a agregar",
+        "amountG": "Gramos de ácido a agregar"
       },
-      "info": "La acidez es fundamental para el equilibrio y la estabilidad del vino. El ácido tartárico es el más estable y comúnmente utilizado."
+      "info": "Al hacer adiciones a una fermentación tinta, esta fórmula no tiene en cuenta la proporción de jugo a sólidos (hollejos, semillas, etc.)."
     },
     "bentonite": {
       "title": "Bentonita",

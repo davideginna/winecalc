@@ -36,22 +36,15 @@
       "info": "Il solfito è essenziale per preservare il vino da ossidazione e batteri. Il metabisolfito di potassio è il più comunemente usato in enologia."
     },
     "acid": {
-      "title": "Aggiunta Acidi",
-      "description": "Calcola l'acidità e le aggiunte di acido tartarico",
-      "volume": "Volume (L)",
-      "currentTA": "Acidità totale attuale (g/L)",
-      "targetTA": "Acidità totale desiderata (g/L)",
-      "acidType": "Tipo di acido",
-      "types": {
-        "tartaric": "Acido tartarico",
-        "citric": "Acido citrico",
-        "malic": "Acido malico"
-      },
+      "title": "Aggiunta Acido",
+      "description": "Calcola la quantità di acido da aggiungere",
+      "additionRate": "Tasso di aggiunta desiderato (g/L)",
+      "volume": "Volume di vino/mosto/succo (L)",
       "results": {
-        "amount": "Quantità da aggiungere",
-        "finalTA": "Acidità totale finale"
+        "amountKg": "Chilogrammi di acido da aggiungere",
+        "amountG": "Grammi di acido da aggiungere"
       },
-      "info": "L'acidità è fondamentale per l'equilibrio e la stabilità del vino. L'acido tartarico è il più stabile e comunemente usato."
+      "info": "Questa formula non tiene conto del rapporto tra succo e solidi (vinacce, semi, ecc.) nelle fermentazioni rosse."
     },
     "bentonite": {
       "title": "Bentonite",
