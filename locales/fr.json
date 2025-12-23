@@ -44,7 +44,14 @@
         "amountKg": "Kilogrammes d'acide à ajouter",
         "amountG": "Grammes d'acide à ajouter"
       },
-      "info": "Lors d'ajouts à une fermentation rouge, cette formule ne tient pas compte du rapport jus/solides (peaux de raisin, pépins, etc.)."
+      "info": "Lors d'ajouts à une fermentation rouge, cette formule ne tient pas compte du rapport jus/solides (peaux de raisin, pépins, etc.).",
+      "formula": {
+        "description": "Formule AWRI pour le calcul d'ajout d'acide",
+        "steps": [
+          "Quantité (kg) = (Taux d'ajout × Volume) / 1000",
+          "Quantité (g) = Taux d'ajout × Volume"
+        ]
+      }
     },
     "bentonite": {
       "title": "Bentonite",
@@ -136,7 +143,10 @@
     "required": "Champ obligatoire",
     "invalidValue": "Valeur non valide",
     "unit": "Unité",
-    "copied": "Copié dans le presse-papiers"
+    "copy": "Copier",
+    "copied": "Copié dans le presse-papiers",
+    "showFormula": "Afficher la formule",
+    "hideFormula": "Masquer la formule"
   },
   "footer": {
     "description": "Calculateurs professionnels pour l'œnologie",

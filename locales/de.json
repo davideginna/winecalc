@@ -44,7 +44,14 @@
         "amountKg": "Kilogramm Säure zuzufügen",
         "amountG": "Gramm Säure zuzufügen"
       },
-      "info": "Bei Zugaben zu einer Rotweingärung berücksichtigt diese Formel nicht das Verhältnis von Saft zu Feststoffen (Traubenschalen, Kerne usw.)."
+      "info": "Bei Zugaben zu einer Rotweingärung berücksichtigt diese Formel nicht das Verhältnis von Saft zu Feststoffen (Traubenschalen, Kerne usw.).",
+      "formula": {
+        "description": "AWRI-Formel zur Berechnung der Säurezugabe",
+        "steps": [
+          "Menge (kg) = (Zugaberate × Volumen) / 1000",
+          "Menge (g) = Zugaberate × Volumen"
+        ]
+      }
     },
     "bentonite": {
       "title": "Bentonit",
@@ -136,7 +143,10 @@
     "required": "Pflichtfeld",
     "invalidValue": "Ungültiger Wert",
     "unit": "Einheit",
-    "copied": "In die Zwischenablage kopiert"
+    "copy": "Kopieren",
+    "copied": "In die Zwischenablage kopiert",
+    "showFormula": "Formel anzeigen",
+    "hideFormula": "Formel ausblenden"
   },
   "footer": {
     "description": "Professionelle Rechner für Weinbereitung",

@@ -44,7 +44,14 @@
         "amountKg": "Kilograms of acid to add",
         "amountG": "Grams of acid to add"
       },
-      "info": "When making additions to a red fermentation, this formula does not take into account the ratio of juice to solids (grapeskins, seeds, etc.)."
+      "info": "When making additions to a red fermentation, this formula does not take into account the ratio of juice to solids (grapeskins, seeds, etc.).",
+      "formula": {
+        "description": "AWRI formula for acid addition calculation",
+        "steps": [
+          "Amount (kg) = (Addition rate × Volume) / 1000",
+          "Amount (g) = Addition rate × Volume"
+        ]
+      }
     },
     "bentonite": {
       "title": "Bentonite",
@@ -136,7 +143,10 @@
     "required": "Required field",
     "invalidValue": "Invalid value",
     "unit": "Unit",
-    "copied": "Copied to clipboard"
+    "copy": "Copy",
+    "copied": "Copied to clipboard",
+    "showFormula": "Show formula",
+    "hideFormula": "Hide formula"
   },
   "footer": {
     "description": "Professional winemaking calculators",

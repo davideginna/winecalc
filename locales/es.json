@@ -44,7 +44,14 @@
         "amountKg": "Kilogramos de ácido a agregar",
         "amountG": "Gramos de ácido a agregar"
       },
-      "info": "Al hacer adiciones a una fermentación tinta, esta fórmula no tiene en cuenta la proporción de jugo a sólidos (hollejos, semillas, etc.)."
+      "info": "Al hacer adiciones a una fermentación tinta, esta fórmula no tiene en cuenta la proporción de jugo a sólidos (hollejos, semillas, etc.).",
+      "formula": {
+        "description": "Fórmula AWRI para el cálculo de adición de ácido",
+        "steps": [
+          "Cantidad (kg) = (Tasa de adición × Volumen) / 1000",
+          "Cantidad (g) = Tasa de adición × Volumen"
+        ]
+      }
     },
     "bentonite": {
       "title": "Bentonita",
@@ -136,7 +143,10 @@
     "required": "Campo obligatorio",
     "invalidValue": "Valor no válido",
     "unit": "Unidad",
-    "copied": "Copiado al portapapeles"
+    "copy": "Copiar",
+    "copied": "Copiado al portapapeles",
+    "showFormula": "Mostrar fórmula",
+    "hideFormula": "Ocultar fórmula"
   },
   "footer": {
     "description": "Calculadoras profesionales para enología",

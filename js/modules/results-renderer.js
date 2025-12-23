@@ -59,6 +59,9 @@ export const ResultsRenderer = {
         // Load results configuration
         const resultsConfig = await this.loadResultsConfig(calculatorId);
 
+        // Check if formula exists
+        const hasFormula = resultsConfig && resultsConfig.formula;
+
         let html = `
             <div class="results-section mt-4">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -66,10 +69,19 @@ export const ResultsRenderer = {
                         <i class="bi bi-check-circle-fill text-success me-2"></i>
                         ${t('common.results')}
                     </h5>
-                    <button class="btn btn-sm btn-outline-secondary" onclick="ResultsRenderer.copyResults('${calculatorId}')">
-                        <i class="bi bi-clipboard"></i> ${t('common.copy') || 'Copy'}
-                    </button>
+                    <div class="btn-group btn-group-sm" role="group">
+                        ${hasFormula ? `
+                            <button class="btn btn-outline-secondary" onclick="ResultsRenderer.toggleFormula()">
+                                <i class="bi bi-calculator"></i> <span id="formulaToggleText">${t('common.showFormula')}</span>
+                            </button>
+                        ` : ''}
+                        <button class="btn btn-outline-secondary" onclick="ResultsRenderer.copyResults('${calculatorId}')">
+                            <i class="bi bi-clipboard"></i> ${t('common.copy')}
+                        </button>
+                    </div>
                 </div>
+
+                ${hasFormula ? this.renderFormula(calculatorId, t) : ''}
         `;
 
         // Determine order of fields
@@ -324,6 +336,48 @@ export const ResultsRenderer = {
      */
     printResults() {
         window.print();
+    },
+
+    /**
+     * Render formula section
+     */
+    renderFormula(calculatorId, t) {
+        const formulaData = t(`calculators.${calculatorId}.formula`, { returnObjects: true });
+
+        if (!formulaData || typeof formulaData === 'string') {
+            return '';
+        }
+
+        const description = formulaData.description || 'Formula';
+        const steps = formulaData.steps || [];
+
+        return `
+            <div id="formulaSection" class="alert alert-light border mb-3" style="display: none;">
+                <h6 class="mb-2"><i class="bi bi-calculator me-2"></i>${description}</h6>
+                ${steps.map((step, i) => `
+                    <div class="font-monospace small mb-1">${i + 1}. ${step}</div>
+                `).join('')}
+            </div>
+        `;
+    },
+
+    /**
+     * Toggle formula visibility
+     */
+    toggleFormula() {
+        const formulaSection = document.getElementById('formulaSection');
+        const toggleText = document.getElementById('formulaToggleText');
+        const t = WineCalcI18n.t;
+
+        if (formulaSection) {
+            if (formulaSection.style.display === 'none') {
+                formulaSection.style.display = 'block';
+                if (toggleText) toggleText.textContent = t('common.hideFormula');
+            } else {
+                formulaSection.style.display = 'none';
+                if (toggleText) toggleText.textContent = t('common.showFormula');
+            }
+        }
     }
 };
 

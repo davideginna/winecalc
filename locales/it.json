@@ -44,7 +44,14 @@
         "amountKg": "Chilogrammi di acido da aggiungere",
         "amountG": "Grammi di acido da aggiungere"
       },
-      "info": "Questa formula non tiene conto del rapporto tra succo e solidi (vinacce, semi, ecc.) nelle fermentazioni rosse."
+      "info": "Questa formula non tiene conto del rapporto tra succo e solidi (vinacce, semi, ecc.) nelle fermentazioni rosse.",
+      "formula": {
+        "description": "Formula AWRI per calcolo aggiunta acido",
+        "steps": [
+          "Quantità (kg) = (Tasso aggiunta × Volume) / 1000",
+          "Quantità (g) = Tasso aggiunta × Volume"
+        ]
+      }
     },
     "bentonite": {
       "title": "Bentonite",
@@ -136,7 +143,10 @@
     "required": "Campo obbligatorio",
     "invalidValue": "Valore non valido",
     "unit": "Unità",
-    "copied": "Copiato negli appunti"
+    "copy": "Copia",
+    "copied": "Copiato negli appunti",
+    "showFormula": "Mostra formula",
+    "hideFormula": "Nascondi formula"
   },
   "footer": {
     "description": "Calcolatori professionali per l'enologia",
