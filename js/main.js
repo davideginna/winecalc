@@ -97,9 +97,9 @@ const WineCalcApp = {
      */
     setupGlobalListeners() {
         // Listen for language changes and reload current calculator
-        window.addEventListener('languageChanged', (e) => {
+        window.addEventListener('languageChanged', async (e) => {
             console.log(`Language changed to: ${e.detail.language}`);
-            CalculatorManager.reloadCurrentCalculator();
+            await CalculatorManager.reloadCurrentCalculator();
         });
 
         // Listen for theme changes

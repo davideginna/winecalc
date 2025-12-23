@@ -61,7 +61,7 @@ export const CalculatorManager = {
         }
 
         // Load calculator content
-        this.loadCalculatorContent(calculatorId);
+        await this.loadCalculatorContent(calculatorId);
 
         // Show modal
         const modal = AppState.modal;
@@ -75,7 +75,7 @@ export const CalculatorManager = {
     /**
      * Load calculator content into modal
      */
-    loadCalculatorContent(calculatorId) {
+    async loadCalculatorContent(calculatorId) {
         const content = document.getElementById('calculatorContent');
         const modalLabel = document.getElementById('calculatorModalLabel');
 
@@ -89,8 +89,8 @@ export const CalculatorManager = {
             modalLabel.textContent = WineCalcI18n.t(`calculators.${calculatorId}.title`);
         }
 
-        // Generate calculator HTML
-        const html = TemplateGenerator.generate(calculatorId);
+        // Generate calculator HTML (now async)
+        const html = await TemplateGenerator.generate(calculatorId);
         content.innerHTML = html;
 
         // Setup form handlers
@@ -149,11 +149,11 @@ export const CalculatorManager = {
     /**
      * Reload current calculator (e.g., after language change)
      */
-    reloadCurrentCalculator() {
+    async reloadCurrentCalculator() {
         const currentCalc = AppState.currentCalculator;
         if (currentCalc) {
             console.log(`Reloading calculator: ${currentCalc}`);
-            this.loadCalculatorContent(currentCalc);
+            await this.loadCalculatorContent(currentCalc);
         }
     },
 

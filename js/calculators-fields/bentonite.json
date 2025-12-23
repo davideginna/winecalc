@@ -1,0 +1,36 @@
+{
+  "info": true,
+  "alertType": "info",
+  "fields": [
+    {
+      "id": "volume",
+      "type": "number",
+      "label": "calculators.bentonite.volume",
+      "min": 0,
+      "step": 0.1,
+      "placeholder": "100",
+      "required": true
+    },
+    {
+      "id": "dosage",
+      "type": "number",
+      "label": "calculators.bentonite.dosage",
+      "min": 0,
+      "step": 1,
+      "placeholder": "30",
+      "required": true,
+      "helpText": "Tipico: 20-80 g/hL"
+    }
+  ],
+  "results": {
+    "order": ["amount", "water"],
+    "units": {
+      "amount": "g",
+      "water": "mL"
+    },
+    "decimals": {
+      "amount": 1,
+      "water": 0
+    }
+  }
+}

@@ -71,7 +71,7 @@ export const FormHandler = {
     /**
      * Execute calculator calculation
      */
-    executeCalculation(calculatorId, data) {
+    async executeCalculation(calculatorId, data) {
         const calculatorFunction = window[`calculate_${calculatorId}`];
 
         if (typeof calculatorFunction === 'function') {
@@ -79,8 +79,8 @@ export const FormHandler = {
                 // Call calculator function
                 const result = calculatorFunction(data);
 
-                // Display results
-                ResultsRenderer.render(calculatorId, result);
+                // Display results (now async)
+                await ResultsRenderer.render(calculatorId, result);
 
                 // Add to history
                 StateManager.addToHistory(calculatorId, data, result);
@@ -94,7 +94,7 @@ export const FormHandler = {
         } else {
             // Calculator not implemented - try fallback
             console.warn(`Calculator "${calculatorId}" not implemented, using fallback`);
-            this.fallbackCalculation(calculatorId, data);
+            await this.fallbackCalculation(calculatorId, data);
         }
     },
 
@@ -112,7 +112,7 @@ export const FormHandler = {
     /**
      * Fallback calculation for basic calculators
      */
-    fallbackCalculation(calculatorId, data) {
+    async fallbackCalculation(calculatorId, data) {
         const result = {};
 
         try {
@@ -139,7 +139,7 @@ export const FormHandler = {
                     throw new Error(`Calculator "${calculatorId}" not implemented`);
             }
 
-            ResultsRenderer.render(calculatorId, result);
+            await ResultsRenderer.render(calculatorId, result);
             StateManager.addToHistory(calculatorId, data, result);
 
         } catch (error) {

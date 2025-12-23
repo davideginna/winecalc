@@ -1,0 +1,25 @@
+{
+  "acid": {
+    "info": true,
+    "fields": [
+      {
+        "id": "volume",
+        "type": "number",
+        "label": "calculators.acid.volume",
+        "min": 0,
+        "step": 0.1,
+        "placeholder": "1",
+        "required": true
+      },
+      {
+        "id": "additionRate",
+        "type": "number",
+        "label": "calculators.acid.additionRate",
+        "min": 0,
+        "step": 0.1,
+        "placeholder": "10",
+        "required": true
+      }
+    ]
+  }
+}

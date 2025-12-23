@@ -1,0 +1,36 @@
+{
+  "info": true,
+  "alertType": "info",
+  "fields": [
+    {
+      "id": "additionRate",
+      "type": "number",
+      "label": "calculators.acid.additionRate",
+      "min": 0,
+      "step": 0.1,
+      "placeholder": "10",
+      "required": true
+    },
+    {
+      "id": "volume",
+      "type": "number",
+      "label": "calculators.acid.volume",
+      "min": 0,
+      "step": 0.1,
+      "placeholder": "1",
+      "required": true
+    }
+  ],
+  "results": {
+    "order": ["amountKg", "amountG"],
+    "units": {
+      "amountKg": "kg",
+      "amountG": "g"
+    },
+    "decimals": {
+      "amountKg": 3,
+      "amountG": 1
+    }
+  },
+  "formula": true
+}

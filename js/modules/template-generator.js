@@ -1,31 +1,203 @@
 /* WineCalc - Template Generator */
 
 /**
- * Generates HTML templates for calculator forms
+ * Generates HTML templates for calculator forms dynamically from configuration
  */
 export const TemplateGenerator = {
+    fieldsConfigCache: {},
+
+    /**
+     * Load fields configuration for a specific calculator
+     */
+    async loadFieldsConfig(calculatorId) {
+        // Check cache
+        if (this.fieldsConfigCache[calculatorId]) {
+            return this.fieldsConfigCache[calculatorId];
+        }
+
+        try {
+            const response = await fetch(`js/calculators-fields/${calculatorId}.json`);
+            if (!response.ok) {
+                throw new Error(`Config not found for ${calculatorId}`);
+            }
+            const config = await response.json();
+            this.fieldsConfigCache[calculatorId] = config;
+            return config;
+        } catch (error) {
+            console.error(`Failed to load fields config for ${calculatorId}:`, error);
+            return null;
+        }
+    },
+
     /**
      * Generate template for calculator
      */
-    generate(calculatorId) {
-        const generators = {
-            'so2': this.getSO2Template,
-            'acid': this.getAcidTemplate,
-            'bentonite': this.getBentoniteTemplate,
-            'fortification': this.getFortificationTemplate,
-            'water': this.getWaterTemplate,
-            'conversion': this.getConversionTemplate,
-            'dap': this.getDAPTemplate,
-            'ascorbic_acid': this.getAscorbicAcidTemplate
-        };
+    async generate(calculatorId) {
+        // Load config for this specific calculator
+        const config = await this.loadFieldsConfig(calculatorId);
 
-        const generator = generators[calculatorId];
-
-        if (generator) {
-            return generator.call(this);
-        } else {
-            return this.getComingSoonTemplate(calculatorId);
+        // Check if calculator has field configuration
+        if (config) {
+            return this.generateDynamicTemplate(calculatorId, config);
         }
+
+        // Fallback to coming soon template
+        return this.getComingSoonTemplate(calculatorId);
+    },
+
+    /**
+     * Generate dynamic template from configuration
+     */
+    generateDynamicTemplate(calculatorId, config) {
+        const t = WineCalcI18n.t;
+
+        let html = '';
+
+        // Add info alert if configured
+        if (config.info) {
+            const alertType = config.alertType || 'info';
+            html += `
+                <div class="alert alert-${alertType} mb-4">
+                    <i class="bi bi-info-circle me-2"></i>
+                    ${t(`calculators.${calculatorId}.info`)}
+                </div>
+            `;
+        }
+
+        // Generate form
+        html += '<form id="calculatorForm" class="calculator-form">';
+
+        // Generate fields
+        config.fields.forEach(field => {
+            html += this.generateField(field);
+        });
+
+        // Add error container
+        html += '<div id="errorContainer"></div>';
+
+        // Add form buttons
+        html += this.getFormButtons();
+
+        html += '</form>';
+
+        // Add results container
+        html += '<div id="resultsContainer"></div>';
+
+        return html;
+    },
+
+    /**
+     * Generate a single form field
+     */
+    generateField(field) {
+        switch (field.type) {
+            case 'number':
+                return this.generateNumberField(field);
+            case 'select':
+                return this.generateSelectField(field);
+            case 'text':
+                return this.generateTextField(field);
+            default:
+                console.warn(`Unknown field type: ${field.type}`);
+                return '';
+        }
+    },
+
+    /**
+     * Generate number input field
+     */
+    generateNumberField(field) {
+        const t = WineCalcI18n.t;
+        const label = t(field.label);
+
+        const attributes = [
+            `type="number"`,
+            `class="form-control"`,
+            `id="${field.id}"`,
+            `name="${field.id}"`,
+            field.min !== undefined ? `min="${field.min}"` : '',
+            field.max !== undefined ? `max="${field.max}"` : '',
+            field.step !== undefined ? `step="${field.step}"` : '',
+            field.placeholder ? `placeholder="${field.placeholder}"` : '',
+            field.value ? `value="${field.value}"` : '',
+            field.required ? 'required' : ''
+        ].filter(Boolean).join(' ');
+
+        let html = `
+            <div class="mb-3">
+                <label for="${field.id}" class="form-label">${label}</label>
+                <input ${attributes}>
+        `;
+
+        if (field.helpText) {
+            html += `<div class="form-text">${field.helpText}</div>`;
+        }
+
+        html += '</div>';
+
+        return html;
+    },
+
+    /**
+     * Generate select dropdown field
+     */
+    generateSelectField(field) {
+        const t = WineCalcI18n.t;
+        const label = t(field.label);
+
+        let html = `
+            <div class="mb-3">
+                <label for="${field.id}" class="form-label">${label}</label>
+                <select class="form-select" id="${field.id}" name="${field.id}" ${field.required ? 'required' : ''}>
+        `;
+
+        field.options.forEach(option => {
+            const optionLabel = t(option.label);
+            const selected = option.selected ? 'selected' : '';
+            html += `<option value="${option.value}" ${selected}>${optionLabel}</option>`;
+        });
+
+        html += '</select>';
+
+        if (field.helpText) {
+            html += `<div class="form-text">${field.helpText}</div>`;
+        }
+
+        html += '</div>';
+
+        return html;
+    },
+
+    /**
+     * Generate text input field
+     */
+    generateTextField(field) {
+        const t = WineCalcI18n.t;
+        const label = t(field.label);
+
+        const attributes = [
+            `type="text"`,
+            `class="form-control"`,
+            `id="${field.id}"`,
+            `name="${field.id}"`,
+            field.placeholder ? `placeholder="${field.placeholder}"` : '',
+            field.value ? `value="${field.value}"` : '',
+            field.required ? 'required' : ''
+        ].filter(Boolean).join(' ');
+
+        let html = `
+            <div class="mb-3">
+                <label for="${field.id}" class="form-label">${label}</label>
+                <input ${attributes}>
+        `;
+
+        if (field.helpText) {
+            html += `<div class="form-text">${field.helpText}</div>`;
+        }
+
+        html += '</div>';
+
+        return html;
     },
 
     /**
@@ -47,375 +219,6 @@ export const TemplateGenerator = {
     },
 
     /**
-     * SO2 Calculator Template
-     */
-    getSO2Template() {
-        const t = WineCalcI18n.t;
-
-        return `
-            <div class="alert alert-info mb-4">
-                <i class="bi bi-info-circle me-2"></i>
-                ${t('calculators.so2.info')}
-            </div>
-
-            <form id="calculatorForm" class="calculator-form">
-                <div class="mb-3">
-                    <label for="volume" class="form-label">${t('calculators.so2.volume')}</label>
-                    <input type="number" class="form-control" id="volume" name="volume"
-                           min="0" step="0.1" placeholder="100" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="currentSO2" class="form-label">${t('calculators.so2.currentSO2')}</label>
-                    <input type="number" class="form-control" id="currentSO2" name="currentSO2"
-                           min="0" step="1" placeholder="20" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="targetSO2" class="form-label">${t('calculators.so2.targetSO2')}</label>
-                    <input type="number" class="form-control" id="targetSO2" name="targetSO2"
-                           min="0" step="1" placeholder="50" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="sulfiteType" class="form-label">${t('calculators.so2.sulfiteType')}</label>
-                    <select class="form-select" id="sulfiteType" name="sulfiteType" required>
-                        <option value="potassium_metabisulfite">${t('calculators.so2.types.potassium_metabisulfite')}</option>
-                        <option value="sodium_metabisulfite">${t('calculators.so2.types.sodium_metabisulfite')}</option>
-                        <option value="sulfur_dioxide_gas">${t('calculators.so2.types.sulfur_dioxide_gas')}</option>
-                    </select>
-                </div>
-
-                <div id="errorContainer"></div>
-
-                ${this.getFormButtons()}
-            </form>
-
-            <div id="resultsContainer"></div>
-        `;
-    },
-
-    /**
-     * Acid Calculator Template
-     */
-    getAcidTemplate() {
-        const t = WineCalcI18n.t;
-
-        return `
-            <div class="alert alert-info mb-4">
-                <i class="bi bi-info-circle me-2"></i>
-                ${t('calculators.acid.info')}
-            </div>
-
-            <form id="calculatorForm" class="calculator-form">
-                <div class="mb-3">
-                    <label for="volume" class="form-label">${t('calculators.acid.volume')}</label>
-                    <input type="number" class="form-control" id="volume" name="volume"
-                           min="0" step="0.1" placeholder="100" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="currentTA" class="form-label">${t('calculators.acid.currentTA')}</label>
-                    <input type="number" class="form-control" id="currentTA" name="currentTA"
-                           min="0" step="0.1" placeholder="5.0" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="targetTA" class="form-label">${t('calculators.acid.targetTA')}</label>
-                    <input type="number" class="form-control" id="targetTA" name="targetTA"
-                           min="0" step="0.1" placeholder="6.5" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="acidType" class="form-label">${t('calculators.acid.acidType')}</label>
-                    <select class="form-select" id="acidType" name="acidType" required>
-                        <option value="tartaric">${t('calculators.acid.types.tartaric')}</option>
-                        <option value="citric">${t('calculators.acid.types.citric')}</option>
-                        <option value="malic">${t('calculators.acid.types.malic')}</option>
-                    </select>
-                </div>
-
-                <div id="errorContainer"></div>
-
-                ${this.getFormButtons()}
-            </form>
-
-            <div id="resultsContainer"></div>
-        `;
-    },
-
-    /**
-     * Bentonite Calculator Template
-     */
-    getBentoniteTemplate() {
-        const t = WineCalcI18n.t;
-
-        return `
-            <div class="alert alert-info mb-4">
-                <i class="bi bi-info-circle me-2"></i>
-                ${t('calculators.bentonite.info')}
-            </div>
-
-            <form id="calculatorForm" class="calculator-form">
-                <div class="mb-3">
-                    <label for="volume" class="form-label">${t('calculators.bentonite.volume')}</label>
-                    <input type="number" class="form-control" id="volume" name="volume"
-                           min="0" step="0.1" placeholder="100" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="dosage" class="form-label">${t('calculators.bentonite.dosage')}</label>
-                    <input type="number" class="form-control" id="dosage" name="dosage"
-                           min="0" step="1" placeholder="30" required>
-                    <div class="form-text">Tipico: 20-80 g/hL</div>
-                </div>
-
-                <div id="errorContainer"></div>
-
-                ${this.getFormButtons()}
-            </form>
-
-            <div id="resultsContainer"></div>
-        `;
-    },
-
-    /**
-     * Fortification Calculator Template
-     */
-    getFortificationTemplate() {
-        const t = WineCalcI18n.t;
-
-        return `
-            <div class="alert alert-info mb-4">
-                <i class="bi bi-info-circle me-2"></i>
-                ${t('calculators.fortification.info')}
-            </div>
-
-            <form id="calculatorForm" class="calculator-form">
-                <div class="mb-3">
-                    <label for="volume" class="form-label">${t('calculators.fortification.volume')}</label>
-                    <input type="number" class="form-control" id="volume" name="volume"
-                           min="0" step="0.1" placeholder="100" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="currentAlcohol" class="form-label">${t('calculators.fortification.currentAlcohol')}</label>
-                    <input type="number" class="form-control" id="currentAlcohol" name="currentAlcohol"
-                           min="0" max="100" step="0.1" placeholder="12.5" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="targetAlcohol" class="form-label">${t('calculators.fortification.targetAlcohol')}</label>
-                    <input type="number" class="form-control" id="targetAlcohol" name="targetAlcohol"
-                           min="0" max="100" step="0.1" placeholder="18.0" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="spiritStrength" class="form-label">${t('calculators.fortification.spiritStrength')}</label>
-                    <input type="number" class="form-control" id="spiritStrength" name="spiritStrength"
-                           min="0" max="100" step="0.1" value="96" required>
-                </div>
-
-                <div id="errorContainer"></div>
-
-                ${this.getFormButtons()}
-            </form>
-
-            <div id="resultsContainer"></div>
-        `;
-    },
-
-    /**
-     * Water Addition Template
-     */
-    getWaterTemplate() {
-        const t = WineCalcI18n.t;
-
-        return `
-            <div class="alert alert-warning mb-4">
-                <i class="bi bi-exclamation-triangle me-2"></i>
-                ${t('calculators.water.info')}
-            </div>
-
-            <form id="calculatorForm" class="calculator-form">
-                <div class="mb-3">
-                    <label for="volume" class="form-label">${t('calculators.water.volume')}</label>
-                    <input type="number" class="form-control" id="volume" name="volume"
-                           min="0" step="0.1" placeholder="100" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="currentValue" class="form-label">${t('calculators.water.currentValue')}</label>
-                    <input type="number" class="form-control" id="currentValue" name="currentValue"
-                           min="0" step="0.1" placeholder="14.5" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="targetValue" class="form-label">${t('calculators.water.targetValue')}</label>
-                    <input type="number" class="form-control" id="targetValue" name="targetValue"
-                           min="0" step="0.1" placeholder="13.0" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="parameter" class="form-label">${t('calculators.water.parameter')}</label>
-                    <select class="form-select" id="parameter" name="parameter" required>
-                        <option value="alcohol">Alcohol (%vol)</option>
-                        <option value="acidity">Total Acidity (g/L)</option>
-                        <option value="sugar">Sugar (g/L)</option>
-                    </select>
-                </div>
-
-                <div id="errorContainer"></div>
-
-                ${this.getFormButtons()}
-            </form>
-
-            <div id="resultsContainer"></div>
-        `;
-    },
-
-    /**
-     * Conversion Calculator Template
-     */
-    getConversionTemplate() {
-        const t = WineCalcI18n.t;
-
-        return `
-            <form id="calculatorForm" class="calculator-form">
-                <div class="mb-3">
-                    <label for="value" class="form-label">${t('calculators.conversion.value')}</label>
-                    <input type="number" class="form-control" id="value" name="value"
-                           step="0.0001" placeholder="100" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="category" class="form-label">${t('calculators.conversion.category')}</label>
-                    <select class="form-select" id="category" name="category" required>
-                        <option value="volume">${t('calculators.conversion.categories.volume')}</option>
-                        <option value="weight">${t('calculators.conversion.categories.weight')}</option>
-                        <option value="temperature">${t('calculators.conversion.categories.temperature')}</option>
-                        <option value="density">${t('calculators.conversion.categories.density')}</option>
-                        <option value="alcohol">${t('calculators.conversion.categories.alcohol')}</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="fromUnit" class="form-label">${t('calculators.conversion.from')}</label>
-                    <select class="form-select" id="fromUnit" name="fromUnit" required>
-                        <option value="liters">${t('calculators.conversion.units.liters')}</option>
-                        <option value="hectoliters">${t('calculators.conversion.units.hectoliters')}</option>
-                        <option value="gallons">${t('calculators.conversion.units.gallons')}</option>
-                    </select>
-                </div>
-
-                <div class="mb-3">
-                    <label for="toUnit" class="form-label">${t('calculators.conversion.to')}</label>
-                    <select class="form-select" id="toUnit" name="toUnit" required>
-                        <option value="liters">${t('calculators.conversion.units.liters')}</option>
-                        <option value="hectoliters">${t('calculators.conversion.units.hectoliters')}</option>
-                        <option value="gallons">${t('calculators.conversion.units.gallons')}</option>
-                    </select>
-                </div>
-
-                <div id="errorContainer"></div>
-
-                ${this.getFormButtons()}
-            </form>
-
-            <div id="resultsContainer"></div>
-        `;
-    },
-
-    /**
-     * DAP Calculator Template
-     */
-    getDAPTemplate() {
-        const t = WineCalcI18n.t;
-
-        return `
-            <div class="alert alert-info mb-4">
-                <i class="bi bi-info-circle me-2"></i>
-                Nutrimento azotato per lieviti. Dosaggio tipico: 20-40 g/hL
-            </div>
-
-            <form id="calculatorForm" class="calculator-form">
-                <div class="mb-3">
-                    <label for="volume" class="form-label">Volume (L)</label>
-                    <input type="number" class="form-control" id="volume" name="volume"
-                           min="0" step="0.1" placeholder="100" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="dosage" class="form-label">Dosaggio (g/hL)</label>
-                    <input type="number" class="form-control" id="dosage" name="dosage"
-                           min="0" step="1" placeholder="30">
-                    <div class="form-text">Oppure calcola da YAN</div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="yeastAssimilableNitrogen" class="form-label">YAN Attuale (mg/L)</label>
-                    <input type="number" class="form-control" id="yeastAssimilableNitrogen" name="yeastAssimilableNitrogen"
-                           min="0" step="1" placeholder="120">
-                </div>
-
-                <div class="mb-3">
-                    <label for="targetYAN" class="form-label">YAN Desiderato (mg/L)</label>
-                    <input type="number" class="form-control" id="targetYAN" name="targetYAN"
-                           min="0" step="1" placeholder="200">
-                </div>
-
-                <div id="errorContainer"></div>
-
-                ${this.getFormButtons()}
-            </form>
-
-            <div id="resultsContainer"></div>
-        `;
-    },
-
-    /**
-     * Ascorbic Acid Template
-     */
-    getAscorbicAcidTemplate() {
-        const t = WineCalcI18n.t;
-
-        return `
-            <div class="alert alert-warning mb-4">
-                <i class="bi bi-exclamation-triangle me-2"></i>
-                <strong>IMPORTANTE:</strong> L'acido ascorbico deve essere usato INSIEME ad SO2 adeguato!
-            </div>
-
-            <form id="calculatorForm" class="calculator-form">
-                <div class="mb-3">
-                    <label for="volume" class="form-label">Volume (L)</label>
-                    <input type="number" class="form-control" id="volume" name="volume"
-                           min="0" step="0.1" placeholder="100" required>
-                </div>
-
-                <div class="mb-3">
-                    <label for="dosage" class="form-label">Dosaggio (g/hL)</label>
-                    <input type="number" class="form-control" id="dosage" name="dosage"
-                           min="0" step="1" placeholder="10" required>
-                    <div class="form-text">Tipico: 5-20 g/hL</div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="currentSO2" class="form-label">SO2 Libera Attuale (mg/L)</label>
-                    <input type="number" class="form-control" id="currentSO2" name="currentSO2"
-                           min="0" step="1" placeholder="30">
-                    <div class="form-text">Minimo raccomandato: 20 mg/L</div>
-                </div>
-
-                <div id="errorContainer"></div>
-
-                ${this.getFormButtons()}
-            </form>
-
-            <div id="resultsContainer"></div>
-        `;
-    },
-
-    /**
      * Get standard form buttons (Calculate + Reset)
      */
     getFormButtons() {
@@ -433,4 +236,3 @@ export const TemplateGenerator = {
         `;
     }
 };
-

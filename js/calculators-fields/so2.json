@@ -1,0 +1,64 @@
+{
+  "info": true,
+  "alertType": "info",
+  "fields": [
+    {
+      "id": "volume",
+      "type": "number",
+      "label": "calculators.so2.volume",
+      "min": 0,
+      "step": 0.1,
+      "placeholder": "100",
+      "required": true
+    },
+    {
+      "id": "currentSO2",
+      "type": "number",
+      "label": "calculators.so2.currentSO2",
+      "min": 0,
+      "step": 1,
+      "placeholder": "20",
+      "required": true
+    },
+    {
+      "id": "targetSO2",
+      "type": "number",
+      "label": "calculators.so2.targetSO2",
+      "min": 0,
+      "step": 1,
+      "placeholder": "50",
+      "required": true
+    },
+    {
+      "id": "sulfiteType",
+      "type": "select",
+      "label": "calculators.so2.sulfiteType",
+      "required": true,
+      "options": [
+        {
+          "value": "potassium_metabisulfite",
+          "label": "calculators.so2.types.potassium_metabisulfite"
+        },
+        {
+          "value": "sodium_metabisulfite",
+          "label": "calculators.so2.types.sodium_metabisulfite"
+        },
+        {
+          "value": "sulfur_dioxide_gas",
+          "label": "calculators.so2.types.sulfur_dioxide_gas"
+        }
+      ]
+    }
+  ],
+  "results": {
+    "order": ["amount", "concentration"],
+    "units": {
+      "amount": "g",
+      "concentration": "mg/L"
+    },
+    "decimals": {
+      "amount": 2,
+      "concentration": 1
+    }
+  }
+}

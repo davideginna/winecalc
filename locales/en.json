@@ -37,21 +37,21 @@
     },
     "acid": {
       "title": "Acid Addition",
-      "description": "Calculate acidity and tartaric acid additions",
-      "volume": "Volume (L)",
-      "currentTA": "Current total acidity (g/L)",
-      "targetTA": "Target total acidity (g/L)",
-      "acidType": "Acid type",
-      "types": {
-        "tartaric": "Tartaric acid",
-        "citric": "Citric acid",
-        "malic": "Malic acid"
-      },
+      "description": "Calculate amount of acid to add",
+      "additionRate": "Desired addition rate of acid (g/L)",
+      "volume": "Volume of wine/ferment/juice (L)",
       "results": {
-        "amount": "Amount to add",
-        "finalTA": "Final total acidity"
+        "amountKg": "Kilograms of acid to add",
+        "amountG": "Grams of acid to add"
       },
-      "info": "Acidity is fundamental for wine balance and stability. Tartaric acid is the most stable and commonly used."
+      "info": "When making additions to a red fermentation, this formula does not take into account the ratio of juice to solids (grapeskins, seeds, etc.).",
+      "formula": {
+        "description": "AWRI formula for acid addition calculation",
+        "steps": [
+          "Amount (kg) = (Addition rate × Volume) / 1000",
+          "Amount (g) = Addition rate × Volume"
+        ]
+      }
     },
     "bentonite": {
       "title": "Bentonite",
@@ -143,7 +143,10 @@
     "required": "Required field",
     "invalidValue": "Invalid value",
     "unit": "Unit",
-    "copied": "Copied to clipboard"
+    "copy": "Copy",
+    "copied": "Copied to clipboard",
+    "showFormula": "Show formula",
+    "hideFormula": "Hide formula"
   },
   "footer": {
     "description": "Professional winemaking calculators",

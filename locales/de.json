@@ -37,21 +37,21 @@
     },
     "acid": {
       "title": "Säurezusatz",
-      "description": "Berechnen Sie Säuregehalt und Weinsäure-Zusätze",
-      "volume": "Volumen (L)",
-      "currentTA": "Aktuelle Gesamtsäure (g/L)",
-      "targetTA": "Ziel-Gesamtsäure (g/L)",
-      "acidType": "Säuretyp",
-      "types": {
-        "tartaric": "Weinsäure",
-        "citric": "Zitronensäure",
-        "malic": "Apfelsäure"
-      },
+      "description": "Berechnen Sie die Menge der zuzufügenden Säure",
+      "additionRate": "Gewünschte Säurezugaberate (g/L)",
+      "volume": "Volumen von Wein/Gärung/Saft (L)",
       "results": {
-        "amount": "Zuzufügende Menge",
-        "finalTA": "Finale Gesamtsäure"
+        "amountKg": "Kilogramm Säure zuzufügen",
+        "amountG": "Gramm Säure zuzufügen"
       },
-      "info": "Säure ist grundlegend für das Gleichgewicht und die Stabilität des Weins. Weinsäure ist die stabilste und am häufigsten verwendete."
+      "info": "Bei Zugaben zu einer Rotweingärung berücksichtigt diese Formel nicht das Verhältnis von Saft zu Feststoffen (Traubenschalen, Kerne usw.).",
+      "formula": {
+        "description": "AWRI-Formel zur Berechnung der Säurezugabe",
+        "steps": [
+          "Menge (kg) = (Zugaberate × Volumen) / 1000",
+          "Menge (g) = Zugaberate × Volumen"
+        ]
+      }
     },
     "bentonite": {
       "title": "Bentonit",
@@ -143,7 +143,10 @@
     "required": "Pflichtfeld",
     "invalidValue": "Ungültiger Wert",
     "unit": "Einheit",
-    "copied": "In die Zwischenablage kopiert"
+    "copy": "Kopieren",
+    "copied": "In die Zwischenablage kopiert",
+    "showFormula": "Formel anzeigen",
+    "hideFormula": "Formel ausblenden"
   },
   "footer": {
     "description": "Professionelle Rechner für Weinbereitung",
