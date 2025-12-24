@@ -30,7 +30,7 @@
     "decimals": {
       "amountKg": 3,
       "amountG": 1
-    }
-  },
-  "formula": true
+    },
+    "formula": true
+  }
 }

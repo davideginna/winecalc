@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="WineCalc - Formule matematiche per calcoli enologici. Documentazione completa delle formule AWRI.">
+    <meta name="keywords" content="vino, enologia, formule, matematica, AWRI, wine, winemaking">
+    <meta name="author" content="WineCalc">
+
+    <title>Formule - WineCalc</title>
+    <link rel="icon" type="image/jpeg" href="assets/icons/favicon/favicon.jpg">
+
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Skip to Content Link for Accessibility -->
+    <a href="#main-content" class="skip-link" data-i18n="accessibility.skipToContent">Salta al contenuto principale</a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-wine sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <span class="me-2 fs-3">🍷</span>
+                <span class="fw-bold">WineCalc</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="formulas.html">
+                            <i class="bi bi-calculator"></i> <span data-i18n="nav.formulas">Formule</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-translate"></i> <span id="currentLang">IT</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item lang-switch" href="#" data-lang="it">🇮🇹 Italiano</a></li>
+                            <li><a class="dropdown-item lang-switch" href="#" data-lang="en">🇬🇧 English</a></li>
+                            <li><a class="dropdown-item lang-switch" href="#" data-lang="fr">🇫🇷 Français</a></li>
+                            <li><a class="dropdown-item lang-switch" href="#" data-lang="es">🇪🇸 Español</a></li>
+                            <li><a class="dropdown-item lang-switch" href="#" data-lang="de">🇩🇪 Deutsch</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" id="darkModeToggle" aria-label="Toggle dark mode">
+                            <i class="bi bi-moon-stars" id="darkModeIcon"></i>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn btn-link" data-bs-toggle="modal" data-bs-target="#settingsModal"
+                            aria-label="Settings">
+                            <i class="bi bi-gear"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container my-5" id="main-content">
+        <!-- Page Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 mb-3">
+                <i class="bi bi-calculator text-wine"></i>
+                <span data-i18n="formulas.title">Formule Matematiche</span>
+            </h1>
+            <p class="lead text-muted" data-i18n="formulas.subtitle">
+                Documentazione completa delle formule utilizzate dai calcolatori enologici
+            </p>
+        </div>
+
+        <!-- Expand/Collapse All Buttons -->
+        <div class="text-end mb-3">
+            <div class="btn-group" role="group">
+                <button class="btn btn-outline-wine" id="expandAllBtn">
+                    <i class="bi bi-arrows-expand"></i> <span data-i18n="formulas.expandAll">Espandi tutti</span>
+                </button>
+                <button class="btn btn-outline-wine" id="collapseAllBtn">
+                    <i class="bi bi-arrows-collapse"></i> <span data-i18n="formulas.collapseAll">Chiudi tutti</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Formulas List -->
+        <div class="row g-4">
+            <!-- Acid Addition Formula -->
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-wine text-white" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#acidFormula" aria-expanded="false" aria-controls="acidFormula">
+                        <h4 class="mb-0 d-flex justify-content-between align-items-center">
+                            <span>
+                                <i class="bi bi-droplet me-2"></i>
+                                <span data-i18n="calculators.acid.title">Aggiunta Acido</span>
+                            </span>
+                            <i class="bi bi-chevron-down"></i>
+                        </h4>
+                    </div>
+                    <div class="collapse" id="acidFormula">
+                        <div class="card-body" id="acidFormulaContent">
+                            <!-- Content will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More formulas will be added here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-muted py-4 mt-5">
+        <div class="container">
+            <p class="mb-2" data-i18n="footer.description">Calcolatori professionali per l'enologia</p>
+            <p class="small">
+                <span data-i18n="footer.madeWith">Fatto con</span> ❤️
+                <span data-i18n="footer.by">da</span> WineCalc
+            </p>
+        </div>
+    </footer>
+
+    <!-- Settings Modal (same as index.html) -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingsModalLabel" data-i18n="settings.title">Impostazioni</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Theme Settings -->
+                    <h6 data-i18n="themes.title">Aspetto</h6>
+                    <div class="mb-3">
+                        <label class="form-label" data-i18n="themes.mode">Modalità</label>
+                        <div class="btn-group w-100" role="group">
+                            <input type="radio" class="btn-check" name="theme-mode" id="lightMode" value="light">
+                            <label class="btn btn-outline-secondary" for="lightMode" data-i18n="themes.light">Chiaro</label>
+                            <input type="radio" class="btn-check" name="theme-mode" id="darkMode" value="dark">
+                            <label class="btn btn-outline-secondary" for="darkMode" data-i18n="themes.dark">Scuro</label>
+                        </div>
+                    </div>
+
+                    <!-- Accessibility Settings -->
+                    <h6 class="mt-4" data-i18n="accessibility.title">Accessibilità</h6>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="highContrast">
+                        <label class="form-check-label" for="highContrast">
+                            <span data-i18n="accessibility.highContrast">Alto Contrasto</span>
+                            <small class="text-muted d-block" data-i18n="accessibility.highContrastDesc">Bordi più spessi e contrasti aumentati</small>
+                        </label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input class="form-check-input" type="checkbox" id="reducedMotion">
+                        <label class="form-check-label" for="reducedMotion">
+                            <span data-i18n="accessibility.reducedMotion">Disabilita Animazioni</span>
+                            <small class="text-muted d-block" data-i18n="accessibility.reducedMotionDesc">Rimuove animazioni e transizioni</small>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="largeText">
+                        <label class="form-check-label" for="largeText">
+                            <span data-i18n="accessibility.largeText">Testo Grande</span>
+                            <small class="text-muted d-block" data-i18n="accessibility.largeTextDesc">Aumenta dimensione testo del 12%</small>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- i18next -->
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.6/i18next.min.js"></script>
+
+    <!-- Global utilities and i18n (non-modules) -->
+    <script src="js/utils.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/theme-manager.js"></script>
+    <script src="js/settings-ui.js"></script>
+
+    <!-- Formulas Page Script -->
+    <script type="module">
+        // Track loaded formulas to avoid reloading
+        const loadedFormulas = new Set();
+
+        // Wait for i18n to be ready
+        window.addEventListener('languageChanged', () => {
+            // Clear loaded formulas on language change
+            loadedFormulas.clear();
+            // Reload any visible formulas
+            document.querySelectorAll('.collapse.show').forEach(collapse => {
+                const calculatorId = collapse.id.replace('Formula', '');
+                loadFormulaContent(calculatorId);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Setup expand/collapse all buttons
+            setupCollapseButtons();
+
+            // Update chevron icons when collapse state changes
+            setupChevronToggle();
+
+            // Setup dynamic loading when collapse is opened
+            setupDynamicLoading();
+        });
+
+        function setupDynamicLoading() {
+            const collapseElements = document.querySelectorAll('.collapse');
+
+            collapseElements.forEach(collapse => {
+                collapse.addEventListener('show.bs.collapse', async () => {
+                    const calculatorId = collapse.id.replace('Formula', '');
+
+                    // Only load if not already loaded
+                    if (!loadedFormulas.has(calculatorId)) {
+                        await loadFormulaContent(calculatorId);
+                        loadedFormulas.add(calculatorId);
+                    }
+                });
+            });
+        }
+
+        async function loadFormulaContent(calculatorId) {
+            const t = WineCalcI18n.t;
+            const currentLang = WineCalcI18n.getCurrentLanguage();
+
+            try {
+                // Load calculator translations
+                await WineCalcI18n.loadCalculatorTranslations(calculatorId, currentLang);
+
+                // Load HTML template
+                const response = await fetch(`formulas/${calculatorId}.html`);
+                if (!response.ok) {
+                    console.error(`Formula template not found for ${calculatorId}`);
+                    return;
+                }
+
+                const html = await response.text();
+                const container = document.getElementById(`${calculatorId}FormulaContent`);
+                if (container) {
+                    container.innerHTML = html;
+
+                    // Now translate the dynamic content
+                    translateFormulaContent(calculatorId);
+                }
+            } catch (error) {
+                console.error(`Error loading formula for ${calculatorId}:`, error);
+            }
+        }
+
+        function translateFormulaContent(calculatorId) {
+            const t = WineCalcI18n.t;
+
+            // Update elements with data-i18n
+            document.querySelectorAll(`#${calculatorId}FormulaContent [data-i18n]`).forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = t(key);
+                if (translation && translation !== key) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Special handling for acid calculator
+            if (calculatorId === 'acid') {
+                // Formula description and steps
+                const formulaData = t('formula', { ns: 'acid', returnObjects: true, defaultValue: null });
+                if (formulaData) {
+                    const descEl = document.getElementById('acidFormulaDescription');
+                    if (descEl) descEl.textContent = formulaData.description || '';
+
+                    const stepsContainer = document.getElementById('acidFormulaSteps');
+                    if (stepsContainer && formulaData.steps) {
+                        stepsContainer.innerHTML = formulaData.steps.map((step, i) => `
+                            <div class="font-monospace small mb-1 p-2 bg-light rounded">${i + 1}. ${step}</div>
+                        `).join('');
+                    }
+                }
+
+                // Input labels
+                const additionRateEl = document.getElementById('acidInputAdditionRate');
+                if (additionRateEl) additionRateEl.textContent = t('additionRate', { ns: 'acid' });
+
+                const volumeEl = document.getElementById('acidInputVolume');
+                if (volumeEl) volumeEl.textContent = t('volume', { ns: 'acid' });
+
+                // Output labels
+                const amountKgEl = document.getElementById('acidOutputAmountKg');
+                if (amountKgEl) amountKgEl.textContent = t('results.amountKg', { ns: 'acid' });
+
+                const amountGEl = document.getElementById('acidOutputAmountG');
+                if (amountGEl) amountGEl.textContent = t('results.amountG', { ns: 'acid' });
+
+                // Info note
+                const infoEl = document.getElementById('acidInfoNote');
+                if (infoEl) infoEl.textContent = t('info', { ns: 'acid' });
+            }
+        }
+
+        function setupCollapseButtons() {
+            const expandAllBtn = document.getElementById('expandAllBtn');
+            const collapseAllBtn = document.getElementById('collapseAllBtn');
+
+            // Get all collapse elements
+            const allCollapses = document.querySelectorAll('.collapse');
+
+            expandAllBtn.addEventListener('click', () => {
+                allCollapses.forEach(collapse => {
+                    const bsCollapse = new bootstrap.Collapse(collapse, { toggle: false });
+                    bsCollapse.show();
+                });
+            });
+
+            collapseAllBtn.addEventListener('click', () => {
+                allCollapses.forEach(collapse => {
+                    const bsCollapse = new bootstrap.Collapse(collapse, { toggle: false });
+                    bsCollapse.hide();
+                });
+            });
+        }
+
+        function setupChevronToggle() {
+            const collapseElements = document.querySelectorAll('.collapse');
+
+            collapseElements.forEach(collapse => {
+                const header = collapse.previousElementSibling;
+                const chevron = header.querySelector('.bi-chevron-down, .bi-chevron-up');
+
+                collapse.addEventListener('shown.bs.collapse', () => {
+                    if (chevron) {
+                        chevron.classList.remove('bi-chevron-down');
+                        chevron.classList.add('bi-chevron-up');
+                    }
+                });
+
+                collapse.addEventListener('hidden.bs.collapse', () => {
+                    if (chevron) {
+                        chevron.classList.remove('bi-chevron-up');
+                        chevron.classList.add('bi-chevron-down');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "calculators": "Calcolatori",
+    "formulas": "Formule",
     "about": "Info"
   },
   "hero": {
@@ -100,5 +101,19 @@
     "resetSuccess": "Impostazioni ripristinate con successo",
     "export": "Esporta impostazioni",
     "import": "Importa impostazioni"
+  },
+  "formulas": {
+    "title": "Formule Matematiche",
+    "subtitle": "Documentazione completa delle formule utilizzate dai calcolatori enologici",
+    "inputs": "Parametri di Input",
+    "outputs": "Risultati",
+    "notes": "Note Importanti",
+    "source": "Fonte",
+    "expandAll": "Espandi tutti",
+    "collapseAll": "Chiudi tutti",
+    "acid": {
+      "additionRateDesc": "- Quantità di acido da aggiungere per litro di vino",
+      "volumeDesc": "- Volume totale di vino/mosto/succo da trattare"
+    }
   }
 }

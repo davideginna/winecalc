@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "calculators": "Calculators",
+    "formulas": "Formulas",
     "about": "About"
   },
   "hero": {
@@ -100,5 +101,19 @@
     "resetSuccess": "Settings reset successfully",
     "export": "Export settings",
     "import": "Import settings"
+  },
+  "formulas": {
+    "title": "Mathematical Formulas",
+    "subtitle": "Complete documentation of formulas used by winemaking calculators",
+    "inputs": "Input Parameters",
+    "outputs": "Results",
+    "notes": "Important Notes",
+    "source": "Source",
+    "expandAll": "Expand all",
+    "collapseAll": "Collapse all",
+    "acid": {
+      "additionRateDesc": "- Amount of acid to add per liter of wine",
+      "volumeDesc": "- Total volume of wine/ferment/juice to treat"
+    }
   }
 }

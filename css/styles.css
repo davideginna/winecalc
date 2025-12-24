@@ -426,10 +426,6 @@ footer a:hover {
         min-height: 44px;
         min-width: 44px;
     }
-
-    .card:active {
-        transform: scale(0.98);
-    }
 }
 
 /* Print Styles */

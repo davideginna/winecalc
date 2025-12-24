@@ -2,6 +2,7 @@
   "nav": {
     "home": "Startseite",
     "calculators": "Rechner",
+    "formulas": "Formeln",
     "about": "Über"
   },
   "hero": {
@@ -100,5 +101,19 @@
     "resetSuccess": "Einstellungen erfolgreich zurückgesetzt",
     "export": "Einstellungen exportieren",
     "import": "Einstellungen importieren"
+  },
+  "formulas": {
+    "title": "Mathematische Formeln",
+    "subtitle": "Vollständige Dokumentation der Formeln, die von den Weinbereitungs-Rechnern verwendet werden",
+    "inputs": "Eingabeparameter",
+    "outputs": "Ergebnisse",
+    "notes": "Wichtige Hinweise",
+    "source": "Quelle",
+    "expandAll": "Alle erweitern",
+    "collapseAll": "Alle reduzieren",
+    "acid": {
+      "additionRateDesc": "- Säuremenge pro Liter Wein hinzuzufügen",
+      "volumeDesc": "- Gesamtvolumen von Wein/Gärung/Saft zu behandeln"
+    }
   }
 }

@@ -2,6 +2,7 @@
   "nav": {
     "home": "Accueil",
     "calculators": "Calculateurs",
+    "formulas": "Formules",
     "about": "À propos"
   },
   "hero": {
@@ -100,5 +101,19 @@
     "resetSuccess": "Paramètres réinitialisés avec succès",
     "export": "Exporter les paramètres",
     "import": "Importer les paramètres"
+  },
+  "formulas": {
+    "title": "Formules Mathématiques",
+    "subtitle": "Documentation complète des formules utilisées par les calculateurs œnologiques",
+    "inputs": "Paramètres d'Entrée",
+    "outputs": "Résultats",
+    "notes": "Notes Importantes",
+    "source": "Source",
+    "expandAll": "Développer tout",
+    "collapseAll": "Réduire tout",
+    "acid": {
+      "additionRateDesc": "- Quantité d'acide à ajouter par litre de vin",
+      "volumeDesc": "- Volume total de vin/fermentation/jus à traiter"
+    }
   }
 }
