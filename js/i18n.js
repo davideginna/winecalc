@@ -38,12 +38,14 @@ async function initI18n() {
         await i18next.init({
             lng: currentLang,
             fallbackLng: DEFAULT_LANGUAGE,
+            defaultNS: 'common',
+            ns: ['common'],
             debug: false,
             resources: {}
         });
 
-        // Load translations for current language
-        await loadLanguage(currentLang);
+        // Load common translations for current language
+        await loadCommonTranslations(currentLang);
 
         // Update UI
         updatePageLanguage();
@@ -57,28 +59,49 @@ async function initI18n() {
     }
 }
 
-// Load language resources
-async function loadLanguage(lang) {
+// Load common translations
+async function loadCommonTranslations(lang) {
     try {
-        const response = await fetch(`locales/${lang}.json`);
+        const response = await fetch(`locales/${lang}/common.json`);
         if (!response.ok) {
-            throw new Error(`Failed to load ${lang}.json`);
+            throw new Error(`Failed to load ${lang}/common.json`);
         }
 
         const translations = await response.json();
 
-        // Add resources to i18next
-        i18next.addResourceBundle(lang, 'translation', translations, true, true);
+        // Add resources to i18next with 'common' namespace
+        i18next.addResourceBundle(lang, 'common', translations, true, true);
 
         return translations;
     } catch (error) {
-        console.error(`Error loading language ${lang}:`, error);
+        console.error(`Error loading common translations for ${lang}:`, error);
 
         // Fallback to default language if not already trying it
         if (lang !== DEFAULT_LANGUAGE) {
             console.log(`Falling back to ${DEFAULT_LANGUAGE}`);
-            return loadLanguage(DEFAULT_LANGUAGE);
+            return loadCommonTranslations(DEFAULT_LANGUAGE);
         }
+    }
+}
+
+// Load calculator-specific translations
+async function loadCalculatorTranslations(calculatorId, lang) {
+    try {
+        const response = await fetch(`locales/${lang}/${calculatorId}.json`);
+        if (!response.ok) {
+            console.warn(`No translations found for calculator ${calculatorId} in ${lang}`);
+            return null;
+        }
+
+        const translations = await response.json();
+
+        // Add resources to i18next with calculator namespace
+        i18next.addResourceBundle(lang, calculatorId, translations, true, true);
+
+        return translations;
+    } catch (error) {
+        console.error(`Error loading translations for calculator ${calculatorId} in ${lang}:`, error);
+        return null;
     }
 }
 
@@ -169,9 +192,9 @@ function setupLanguageSwitchers() {
 // Change language
 async function changeLanguage(lang) {
     try {
-        // Load language if not already loaded
-        if (!i18next.hasResourceBundle(lang, 'translation')) {
-            await loadLanguage(lang);
+        // Load common translations if not already loaded
+        if (!i18next.hasResourceBundle(lang, 'common')) {
+            await loadCommonTranslations(lang);
         }
 
         // Change language
@@ -208,6 +231,7 @@ window.WineCalcI18n = {
     t: t,
     changeLanguage: changeLanguage,
     getCurrentLanguage: getCurrentLanguage,
+    loadCalculatorTranslations: loadCalculatorTranslations,
     LANGUAGE_INFO: LANGUAGE_INFO
 };
 

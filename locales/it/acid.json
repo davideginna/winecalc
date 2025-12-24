@@ -1,0 +1,16 @@
+{
+  "additionRate": "Tasso di aggiunta desiderato (g/L)",
+  "volume": "Volume di vino/mosto/succo (L)",
+  "results": {
+    "amountKg": "Chilogrammi di acido da aggiungere",
+    "amountG": "Grammi di acido da aggiungere"
+  },
+  "info": "Questa formula non tiene conto del rapporto tra succo e solidi (vinacce, semi, ecc.) nelle fermentazioni rosse.",
+  "formula": {
+    "description": "Formula AWRI per calcolo aggiunta acido",
+    "steps": [
+      "Quantità (kg) = (Tasso aggiunta × Volume) / 1000",
+      "Quantità (g) = Tasso aggiunta × Volume"
+    ]
+  }
+}

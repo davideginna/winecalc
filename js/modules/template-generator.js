@@ -33,6 +33,10 @@ export const TemplateGenerator = {
      * Generate template for calculator
      */
     async generate(calculatorId) {
+        // Load translations for this calculator
+        const currentLang = WineCalcI18n.getCurrentLanguage();
+        await WineCalcI18n.loadCalculatorTranslations(calculatorId, currentLang);
+
         // Load config for this specific calculator
         const config = await this.loadFieldsConfig(calculatorId);
 
@@ -59,7 +63,7 @@ export const TemplateGenerator = {
             html += `
                 <div class="alert alert-${alertType} mb-4">
                     <i class="bi bi-info-circle me-2"></i>
-                    ${t(`calculators.${calculatorId}.info`)}
+                    ${t('info', { ns: calculatorId })}
                 </div>
             `;
         }
@@ -69,7 +73,7 @@ export const TemplateGenerator = {
 
         // Generate fields
         config.fields.forEach(field => {
-            html += this.generateField(field);
+            html += this.generateField(field, calculatorId);
         });
 
         // Add error container
@@ -89,14 +93,14 @@ export const TemplateGenerator = {
     /**
      * Generate a single form field
      */
-    generateField(field) {
+    generateField(field, calculatorId) {
         switch (field.type) {
             case 'number':
-                return this.generateNumberField(field);
+                return this.generateNumberField(field, calculatorId);
             case 'select':
-                return this.generateSelectField(field);
+                return this.generateSelectField(field, calculatorId);
             case 'text':
-                return this.generateTextField(field);
+                return this.generateTextField(field, calculatorId);
             default:
                 console.warn(`Unknown field type: ${field.type}`);
                 return '';
@@ -106,9 +110,9 @@ export const TemplateGenerator = {
     /**
      * Generate number input field
      */
-    generateNumberField(field) {
+    generateNumberField(field, calculatorId) {
         const t = WineCalcI18n.t;
-        const label = t(field.label);
+        const label = t(field.label, { ns: calculatorId });
 
         const attributes = [
             `type="number"`,
@@ -141,9 +145,9 @@ export const TemplateGenerator = {
     /**
      * Generate select dropdown field
      */
-    generateSelectField(field) {
+    generateSelectField(field, calculatorId) {
         const t = WineCalcI18n.t;
-        const label = t(field.label);
+        const label = t(field.label, { ns: calculatorId });
 
         let html = `
             <div class="mb-3">
@@ -152,7 +156,7 @@ export const TemplateGenerator = {
         `;
 
         field.options.forEach(option => {
-            const optionLabel = t(option.label);
+            const optionLabel = t(option.label, { ns: calculatorId });
             const selected = option.selected ? 'selected' : '';
             html += `<option value="${option.value}" ${selected}>${optionLabel}</option>`;
         });
@@ -171,9 +175,9 @@ export const TemplateGenerator = {
     /**
      * Generate text input field
      */
-    generateTextField(field) {
+    generateTextField(field, calculatorId) {
         const t = WineCalcI18n.t;
-        const label = t(field.label);
+        const label = t(field.label, { ns: calculatorId });
 
         const attributes = [
             `type="text"`,
@@ -209,11 +213,11 @@ export const TemplateGenerator = {
         return `
             <div class="alert alert-info">
                 <i class="bi bi-hourglass-split me-2"></i>
-                <strong>${t('common.comingSoon') || 'Coming soon...'}</strong>
+                <strong>${t('comingSoon') || 'Coming soon...'}</strong>
             </div>
-            <p>${t(`calculators.${calculatorId}.description`) || 'This calculator is under development.'}</p>
+            <p>${t('description', { ns: calculatorId, defaultValue: 'This calculator is under development.' })}</p>
             <p class="text-muted small">
-                ${t(`calculators.${calculatorId}.info`) || ''}
+                ${t('info', { ns: calculatorId, defaultValue: '' })}
             </p>
         `;
     },
