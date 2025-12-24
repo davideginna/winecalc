@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "calculators": "Rechner",
+    "about": "Über"
+  },
+  "hero": {
+    "title": "Professionelle Weinbereitungs-Rechner",
+    "subtitle": "Präzise Werkzeuge für die Weinbereitung. Berechnen Sie SO2, Säure, Aufspritung und mehr.",
+    "searchPlaceholder": "Rechner suchen..."
+  },
+  "categories": {
+    "chemical": "Chemische Zusätze",
+    "specialized": "Spezialisierte Berechnungen",
+    "reference": "Referenzwerkzeuge",
+    "sensory": "Sensorische Analyse",
+    "additional": "Zusätzliche Ressourcen"
+  },
+  "calculators": {
+    "acid": {
+      "title": "Säurezusatz",
+      "description": "Berechnen Sie die Menge der zuzufügenden Säure"
+    }
+  },
+  "common": {
+    "calculate": "Berechnen",
+    "reset": "Zurücksetzen",
+    "save": "Speichern",
+    "result": "Ergebnis",
+    "results": "Ergebnisse",
+    "info": "Info",
+    "close": "Schließen",
+    "noResults": "Kein Rechner gefunden",
+    "error": "Fehler",
+    "warning": "Warnung",
+    "success": "Erfolg",
+    "required": "Pflichtfeld",
+    "invalidValue": "Ungültiger Wert",
+    "unit": "Einheit",
+    "copy": "Kopieren",
+    "copied": "In die Zwischenablage kopiert",
+    "showFormula": "Formel anzeigen",
+    "hideFormula": "Formel ausblenden"
+  },
+  "footer": {
+    "description": "Professionelle Rechner für Weinbereitung",
+    "viewOnGithub": "Auf GitHub ansehen",
+    "madeWith": "Erstellt mit",
+    "by": "von"
+  },
+  "errors": {
+    "volumeRequired": "Volumen ist erforderlich",
+    "positiveValue": "Wert muss positiv sein",
+    "targetGreaterThanCurrent": "Zielwert muss größer als aktueller Wert sein",
+    "invalidRange": "Wert außerhalb des zulässigen Bereichs",
+    "calculationError": "Berechnungsfehler"
+  },
+  "units": {
+    "liters": "L",
+    "grams": "g",
+    "kilograms": "kg",
+    "milligrams": "mg",
+    "milliliters": "mL",
+    "percent": "%",
+    "gPerL": "g/L",
+    "mgPerL": "mg/L",
+    "gPerHl": "g/hL"
+  },
+  "themes": {
+    "title": "Erscheinungsbild",
+    "mode": "Modus",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "colorTheme": "Farbthema",
+    "wine": "Wein",
+    "ocean": "Ozean",
+    "forest": "Wald",
+    "lavender": "Lavendel",
+    "sunset": "Sonnenuntergang"
+  },
+  "accessibility": {
+    "title": "Barrierefreiheit",
+    "highContrast": "Hoher Kontrast",
+    "highContrastDesc": "Dickere Ränder und erhöhte Kontraste",
+    "reducedMotion": "Animationen Deaktivieren",
+    "reducedMotionDesc": "Entfernt Animationen und Übergänge (empfohlen bei Kopfschmerzen/Epilepsie)",
+    "largeText": "Großer Text",
+    "largeTextDesc": "Vergrößert die Textgröße um 12%",
+    "keyboardNav": "Tastaturnavigation",
+    "skipToContent": "Zum Hauptinhalt springen",
+    "settings": "Barrierefreiheitseinstellungen"
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "appearance": "Erscheinungsbild",
+    "accessibility": "Barrierefreiheit",
+    "language": "Sprache",
+    "reset": "Auf Standard zurücksetzen",
+    "resetConfirm": "Alle Einstellungen auf Standardwerte zurücksetzen?",
+    "resetSuccess": "Einstellungen erfolgreich zurückgesetzt",
+    "export": "Einstellungen exportieren",
+    "import": "Einstellungen importieren"
+  }
+}

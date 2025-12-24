@@ -1,0 +1,16 @@
+{
+  "additionRate": "Taux d'ajout souhaité d'acide (g/L)",
+  "volume": "Volume de vin/fermentation/jus (L)",
+  "results": {
+    "amountKg": "Kilogrammes d'acide à ajouter",
+    "amountG": "Grammes d'acide à ajouter"
+  },
+  "info": "Lors d'ajouts à une fermentation rouge, cette formule ne tient pas compte du rapport jus/solides (peaux de raisin, pépins, etc.).",
+  "formula": {
+    "description": "Formule AWRI pour le calcul d'ajout d'acide",
+    "steps": [
+      "Quantité (kg) = (Taux d'ajout × Volume) / 1000",
+      "Quantité (g) = Taux d'ajout × Volume"
+    ]
+  }
+}

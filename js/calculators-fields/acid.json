@@ -5,7 +5,7 @@
     {
       "id": "additionRate",
       "type": "number",
-      "label": "calculators.acid.additionRate",
+      "label": "additionRate",
       "min": 0,
       "step": 0.1,
       "placeholder": "10",
@@ -14,7 +14,7 @@
     {
       "id": "volume",
       "type": "number",
-      "label": "calculators.acid.volume",
+      "label": "volume",
       "min": 0,
       "step": 0.1,
       "placeholder": "1",

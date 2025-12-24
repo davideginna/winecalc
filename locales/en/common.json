@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "home": "Home",
+    "calculators": "Calculators",
+    "about": "About"
+  },
+  "hero": {
+    "title": "Professional Winemaking Calculators",
+    "subtitle": "Precise tools for winemaking. Calculate SO2, acidity, fortification and more.",
+    "searchPlaceholder": "Search for a calculator..."
+  },
+  "categories": {
+    "chemical": "Chemical Additions",
+    "specialized": "Specialized Calculations",
+    "reference": "Reference Tools",
+    "sensory": "Sensory Analysis",
+    "additional": "Additional Resources"
+  },
+  "calculators": {
+    "acid": {
+      "title": "Acid Addition",
+      "description": "Calculate amount of acid to add"
+    }
+  },
+  "common": {
+    "calculate": "Calculate",
+    "reset": "Reset",
+    "save": "Save",
+    "result": "Result",
+    "results": "Results",
+    "info": "Info",
+    "close": "Close",
+    "noResults": "No calculator found",
+    "error": "Error",
+    "warning": "Warning",
+    "success": "Success",
+    "required": "Required field",
+    "invalidValue": "Invalid value",
+    "unit": "Unit",
+    "copy": "Copy",
+    "copied": "Copied to clipboard",
+    "showFormula": "Show formula",
+    "hideFormula": "Hide formula"
+  },
+  "footer": {
+    "description": "Professional winemaking calculators",
+    "viewOnGithub": "View on GitHub",
+    "madeWith": "Made with",
+    "by": "by"
+  },
+  "errors": {
+    "volumeRequired": "Volume is required",
+    "positiveValue": "Value must be positive",
+    "targetGreaterThanCurrent": "Target value must be greater than current",
+    "invalidRange": "Value out of allowed range",
+    "calculationError": "Calculation error"
+  },
+  "units": {
+    "liters": "L",
+    "grams": "g",
+    "kilograms": "kg",
+    "milligrams": "mg",
+    "milliliters": "mL",
+    "percent": "%",
+    "gPerL": "g/L",
+    "mgPerL": "mg/L",
+    "gPerHl": "g/hL"
+  },
+  "themes": {
+    "title": "Appearance",
+    "mode": "Mode",
+    "light": "Light",
+    "dark": "Dark",
+    "colorTheme": "Color Theme",
+    "wine": "Wine",
+    "ocean": "Ocean",
+    "forest": "Forest",
+    "lavender": "Lavender",
+    "sunset": "Sunset"
+  },
+  "accessibility": {
+    "title": "Accessibility",
+    "highContrast": "High Contrast",
+    "highContrastDesc": "Thicker borders and increased contrasts",
+    "reducedMotion": "Disable Animations",
+    "reducedMotionDesc": "Removes animations and transitions (recommended for headaches/epilepsy)",
+    "largeText": "Large Text",
+    "largeTextDesc": "Increases text size by 12%",
+    "keyboardNav": "Keyboard Navigation",
+    "skipToContent": "Skip to main content",
+    "settings": "Accessibility Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "appearance": "Appearance",
+    "accessibility": "Accessibility",
+    "language": "Language",
+    "reset": "Reset to defaults",
+    "resetConfirm": "Reset all settings to defaults?",
+    "resetSuccess": "Settings reset successfully",
+    "export": "Export settings",
+    "import": "Import settings"
+  }
+}

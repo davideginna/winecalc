@@ -1,0 +1,104 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "calculators": "Calculadoras",
+    "about": "Acerca de"
+  },
+  "hero": {
+    "title": "Calculadoras Enológicas Profesionales",
+    "subtitle": "Herramientas precisas para la vinificación. Calcula SO2, acidez, fortificación y más.",
+    "searchPlaceholder": "Buscar una calculadora..."
+  },
+  "categories": {
+    "chemical": "Adiciones Químicas",
+    "specialized": "Cálculos Especializados",
+    "reference": "Herramientas de Referencia",
+    "sensory": "Análisis Sensorial",
+    "additional": "Recursos Adicionales"
+  },
+  "calculators": {
+    "acid": {
+      "title": "Adición de Ácido",
+      "description": "Calcula la cantidad de ácido a agregar"
+    }
+  },
+  "common": {
+    "calculate": "Calcular",
+    "reset": "Restablecer",
+    "save": "Guardar",
+    "result": "Resultado",
+    "results": "Resultados",
+    "info": "Info",
+    "close": "Cerrar",
+    "noResults": "No se encontró ninguna calculadora",
+    "error": "Error",
+    "warning": "Advertencia",
+    "success": "Éxito",
+    "required": "Campo obligatorio",
+    "invalidValue": "Valor no válido",
+    "unit": "Unidad",
+    "copy": "Copiar",
+    "copied": "Copiado al portapapeles",
+    "showFormula": "Mostrar fórmula",
+    "hideFormula": "Ocultar fórmula"
+  },
+  "footer": {
+    "description": "Calculadoras profesionales para enología",
+    "viewOnGithub": "Ver en GitHub",
+    "madeWith": "Hecho con",
+    "by": "por"
+  },
+  "errors": {
+    "volumeRequired": "El volumen es obligatorio",
+    "positiveValue": "El valor debe ser positivo",
+    "targetGreaterThanCurrent": "El valor objetivo debe ser mayor que el actual",
+    "invalidRange": "Valor fuera del rango permitido",
+    "calculationError": "Error de cálculo"
+  },
+  "units": {
+    "liters": "L",
+    "grams": "g",
+    "kilograms": "kg",
+    "milligrams": "mg",
+    "milliliters": "mL",
+    "percent": "%",
+    "gPerL": "g/L",
+    "mgPerL": "mg/L",
+    "gPerHl": "g/hL"
+  },
+  "themes": {
+    "title": "Apariencia",
+    "mode": "Modo",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "colorTheme": "Tema de Color",
+    "wine": "Vino",
+    "ocean": "Océano",
+    "forest": "Bosque",
+    "lavender": "Lavanda",
+    "sunset": "Atardecer"
+  },
+  "accessibility": {
+    "title": "Accesibilidad",
+    "highContrast": "Alto Contraste",
+    "highContrastDesc": "Bordes más gruesos y contrastes aumentados",
+    "reducedMotion": "Desactivar Animaciones",
+    "reducedMotionDesc": "Elimina animaciones y transiciones (recomendado para dolores de cabeza/epilepsia)",
+    "largeText": "Texto Grande",
+    "largeTextDesc": "Aumenta el tamaño del texto en un 12%",
+    "keyboardNav": "Navegación por Teclado",
+    "skipToContent": "Saltar al contenido principal",
+    "settings": "Configuración de Accesibilidad"
+  },
+  "settings": {
+    "title": "Configuración",
+    "appearance": "Apariencia",
+    "accessibility": "Accesibilidad",
+    "language": "Idioma",
+    "reset": "Restablecer valores predeterminados",
+    "resetConfirm": "¿Restablecer toda la configuración a los valores predeterminados?",
+    "resetSuccess": "Configuración restablecida con éxito",
+    "export": "Exportar configuración",
+    "import": "Importar configuración"
+  }
+}

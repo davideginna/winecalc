@@ -34,6 +34,10 @@ export const ResultsRenderer = {
      * Render calculation results
      */
     async render(calculatorId, result) {
+        // Ensure calculator translations are loaded
+        const currentLang = WineCalcI18n.getCurrentLanguage();
+        await WineCalcI18n.loadCalculatorTranslations(calculatorId, currentLang);
+
         const container = document.getElementById('resultsContainer');
         if (!container) {
             console.error('Results container not found');
@@ -164,10 +168,9 @@ export const ResultsRenderer = {
         const t = WineCalcI18n.t;
 
         // Try calculator-specific translation
-        const specificKey = `calculators.${calculatorId}.results.${key}`;
-        const translated = t(specificKey);
+        const translated = t(`results.${key}`, { ns: calculatorId, defaultValue: null });
 
-        if (translated && translated !== specificKey) {
+        if (translated) {
             return translated;
         }
 
@@ -342,7 +345,7 @@ export const ResultsRenderer = {
      * Render formula section
      */
     renderFormula(calculatorId, t) {
-        const formulaData = t(`calculators.${calculatorId}.formula`, { returnObjects: true });
+        const formulaData = t('formula', { ns: calculatorId, returnObjects: true, defaultValue: null });
 
         if (!formulaData || typeof formulaData === 'string') {
             return '';
