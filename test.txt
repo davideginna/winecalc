@@ -72,7 +72,7 @@ Perfetto! L'applicazione WineCalc è stata creata con successo e testata. Ecco i
   - Mobile-first: Ottimizzata per smartphone                                                                                                                                                  
   - Ricerca: Barra di ricerca per filtrare i calcolatori                                                                                                                                      
   - Multilingua: Switcher lingue nel menu                                                                                                                                                     
-  - Formule accurate: Basate su standard enologici AWRI                                                                                                                                       
+  - Formule accurate: Basate su standard enologici                                                                                                                                   
   - Design moderno: Interfaccia pulita e professionale                                                                                                                                        
   - Offline-ready: Funziona anche senza connessione (dopo il primo caricamento)                                                                                                               
                                                                                                                                                                                               
