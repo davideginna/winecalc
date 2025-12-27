@@ -1,0 +1,14 @@
+{
+  "carbonAmount": "Menge an Kohle (mg/L)",
+  "volume": "Volumen von Wein/Saft (L)",
+  "results": {
+    "amountG": "Zuzufügende Kohle"
+  },
+  "info": "Aktivkohle wird verwendet, um Farbe, Fehlaromen und bestimmte Verbindungen aus Wein oder Saft zu entfernen. Mit Vorsicht verwenden, da auch erwünschte Verbindungen entfernt werden können. Typische Dosierung: 20-200 mg/L.",
+  "formula": {
+    "description": "Formel zur Berechnung der Kohlezugabe",
+    "steps": [
+      "Menge (g) = (Kohle mg/L × Volumen L) / 1000"
+    ]
+  }
+}

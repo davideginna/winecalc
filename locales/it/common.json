@@ -29,6 +29,10 @@
     "bentonite": {
       "title": "Bentonite",
       "description": "Calcola l'aggiunta di bentonite per la chiarifica proteica"
+    },
+    "carbon": {
+      "title": "Carbone Attivo",
+      "description": "Calcola l'aggiunta di carbone attivo per la rimozione di colore e odori"
     }
   },
   "common": {
@@ -131,6 +135,10 @@
       "additionRateDesc": "- Tasso di aggiunta desiderato di bentonite per litro di vino",
       "volumeDesc": "- Volume totale di vino/mosto/succo da trattare",
       "concentrationDesc": "- Concentrazione della soluzione di bentonite preparata (peso/volume %)"
+    },
+    "carbon": {
+      "carbonAmountDesc": "- Quantità di carbone attivo da utilizzare per litro",
+      "volumeDesc": "- Volume totale di vino/succo da trattare"
     }
   }
 }

@@ -29,6 +29,10 @@
     "bentonite": {
       "title": "Bentonite",
       "description": "Calculez l'ajout de bentonite pour le collage protéique"
+    },
+    "carbon": {
+      "title": "Charbon Actif",
+      "description": "Calculez l'ajout de charbon actif pour l'élimination de la couleur et des odeurs"
     }
   },
   "common": {
@@ -131,6 +135,10 @@
       "additionRateDesc": "- Taux d'ajout souhaité de bentonite par litre de vin",
       "volumeDesc": "- Volume total de vin/fermentation/jus à traiter",
       "concentrationDesc": "- Concentration de la solution de bentonite préparée (poids/volume %)"
+    },
+    "carbon": {
+      "carbonAmountDesc": "- Quantité de charbon actif à utiliser par litre",
+      "volumeDesc": "- Volume total de vin/jus à traiter"
     }
   }
 }

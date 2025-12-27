@@ -29,6 +29,10 @@
     "bentonite": {
       "title": "Bentonit",
       "description": "Berechnen Sie die Bentonit-Zugabe zur Proteinschönung"
+    },
+    "carbon": {
+      "title": "Aktivkohle",
+      "description": "Berechnen Sie die Aktivkohle-Zugabe zur Farb- und Geruchsentfernung"
     }
   },
   "common": {
@@ -131,6 +135,10 @@
       "additionRateDesc": "- Gewünschte Zugaberate von Bentonit pro Liter Wein",
       "volumeDesc": "- Gesamtvolumen von Wein/Gärung/Saft zu behandeln",
       "concentrationDesc": "- Konzentration der vorbereiteten Bentonitlösung (Gewicht/Volumen %)"
+    },
+    "carbon": {
+      "carbonAmountDesc": "- Menge an Aktivkohle pro Liter zu verwenden",
+      "volumeDesc": "- Gesamtvolumen von Wein/Saft zu behandeln"
     }
   }
 }

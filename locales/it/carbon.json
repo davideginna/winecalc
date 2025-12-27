@@ -1,0 +1,14 @@
+{
+  "carbonAmount": "Quantità di carbone (mg/L)",
+  "volume": "Volume di vino/succo (L)",
+  "results": {
+    "amountG": "Carbone da aggiungere"
+  },
+  "info": "Il carbone attivo viene utilizzato per rimuovere colore, odori sgradevoli e alcuni composti dal vino o dal succo. Utilizzare con cautela in quanto può rimuovere anche composti desiderabili. Dosaggio tipico: 20-200 mg/L.",
+  "formula": {
+    "description": "Formula per calcolo aggiunta carbone",
+    "steps": [
+      "Quantità (g) = (Carbone mg/L × Volume L) / 1000"
+    ]
+  }
+}

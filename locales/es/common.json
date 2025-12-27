@@ -29,6 +29,10 @@
     "bentonite": {
       "title": "Bentonita",
       "description": "Calcula la adición de bentonita para la clarificación proteica"
+    },
+    "carbon": {
+      "title": "Carbón Activado",
+      "description": "Calcula la adición de carbón activado para eliminación de color y olores"
     }
   },
   "common": {
@@ -131,6 +135,10 @@
       "additionRateDesc": "- Tasa de adición deseada de bentonita por litro de vino",
       "volumeDesc": "- Volumen total de vino/fermentación/mosto a tratar",
       "concentrationDesc": "- Concentración de la solución de bentonita preparada (peso/volumen %)"
+    },
+    "carbon": {
+      "carbonAmountDesc": "- Cantidad de carbón activado a utilizar por litro",
+      "volumeDesc": "- Volumen total de vino/mosto a tratar"
     }
   }
 }

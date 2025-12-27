@@ -1,0 +1,14 @@
+{
+  "carbonAmount": "Quantité de charbon (mg/L)",
+  "volume": "Volume de vin/jus (L)",
+  "results": {
+    "amountG": "Charbon à ajouter"
+  },
+  "info": "Le charbon actif est utilisé pour éliminer la couleur, les odeurs désagréables et certains composés du vin ou du jus. À utiliser avec précaution car il peut également éliminer des composés souhaitables. Dosage typique : 20-200 mg/L.",
+  "formula": {
+    "description": "Formule de calcul d'ajout de charbon",
+    "steps": [
+      "Quantité (g) = (Charbon mg/L × Volume L) / 1000"
+    ]
+  }
+}

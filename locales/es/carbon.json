@@ -1,0 +1,14 @@
+{
+  "carbonAmount": "Cantidad de carbón (mg/L)",
+  "volume": "Volumen de vino/mosto (L)",
+  "results": {
+    "amountG": "Carbón a agregar"
+  },
+  "info": "El carbón activado se utiliza para eliminar color, olores desagradables y ciertos compuestos del vino o mosto. Usar con precaución ya que también puede eliminar compuestos deseables. Dosificación típica: 20-200 mg/L.",
+  "formula": {
+    "description": "Fórmula para cálculo de adición de carbón",
+    "steps": [
+      "Cantidad (g) = (Carbón mg/L × Volumen L) / 1000"
+    ]
+  }
+}

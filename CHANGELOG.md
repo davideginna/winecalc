@@ -23,6 +23,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Returns volume of solution needed in liters
   - Complete formula documentation in formulas page
   - Translations for all 5 languages (IT, EN, FR, ES, DE)
+- **Carbon Addition Calculator**
+  - New calculator for activated carbon (charcoal) addition
+  - Used to remove color, off-odors, and certain compounds from wine/juice
+  - Calculates amount in grams based on:
+    - Amount of carbon (mg/L)
+    - Volume of wine/juice (L)
+  - Includes warnings about careful use
+  - Complete formula documentation in formulas page
+  - Translations for all 5 languages (IT, EN, FR, ES, DE)
 - **Automatic Formula Translation System**
   - Generic translation system in `formulas.html` that works for all calculators
   - No need to modify JavaScript when adding new formulas
@@ -59,12 +68,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Refactored `formulas.html` translation logic to be generic and reusable
 - Created `formulas/ascorbic-acid.html` template
 - Created `formulas/bentonite.html` template
+- Created `formulas/carbon.html` template
 - Created `js/calculators/ascorbic-acid.js` calculator module
 - Created `js/calculators/bentonite.js` calculator module
+- Created `js/calculators/carbon.js` calculator module
 - Created `js/calculators-fields/ascorbic-acid.json` field configuration
+- Created `js/calculators-fields/carbon.json` field configuration
 - Updated `js/calculators-fields/bentonite.json` field configuration
 - Created namespace translations in `locales/*/ascorbic-acid.json` (5 languages)
 - Created namespace translations in `locales/*/bentonite.json` (5 languages)
+- Created namespace translations in `locales/*/carbon.json` (5 languages)
 - Added field descriptions in all `locales/*/common.json` files
 - Validated all JSON files for syntax correctness
 

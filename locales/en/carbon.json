@@ -1,0 +1,14 @@
+{
+  "carbonAmount": "Amount of carbon (mg/L)",
+  "volume": "Volume of wine/juice (L)",
+  "results": {
+    "amountG": "Carbon to add"
+  },
+  "info": "Activated carbon is used to remove color, off-odors, and certain compounds from wine or juice. Use with caution as it can also remove desirable compounds. Typical dosage: 20-200 mg/L.",
+  "formula": {
+    "description": "Formula for carbon addition calculation",
+    "steps": [
+      "Amount (g) = (Carbon mg/L × Volume L) / 1000"
+    ]
+  }
+}

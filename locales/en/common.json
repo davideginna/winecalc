@@ -29,6 +29,10 @@
     "bentonite": {
       "title": "Bentonite",
       "description": "Calculate bentonite addition for protein fining"
+    },
+    "carbon": {
+      "title": "Activated Carbon",
+      "description": "Calculate activated carbon addition for color and odor removal"
     }
   },
   "common": {
@@ -131,6 +135,10 @@
       "additionRateDesc": "- Desired addition rate of bentonite per liter of wine",
       "volumeDesc": "- Total volume of wine/ferment/juice to treat",
       "concentrationDesc": "- Concentration of prepared bentonite solution (weight/volume %)"
+    },
+    "carbon": {
+      "carbonAmountDesc": "- Amount of activated carbon to use per liter",
+      "volumeDesc": "- Total volume of wine/juice to treat"
     }
   }
 }
