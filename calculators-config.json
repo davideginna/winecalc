@@ -7,6 +7,14 @@
       "icon": "bi-droplet",
       "jsFile": "js/calculators/acid.js",
       "priority": 2
+    },
+    {
+      "id": "ascorbic-acid",
+      "enabled": true,
+      "category": "chemical",
+      "icon": "bi-shield-check",
+      "jsFile": "js/calculators/ascorbic-acid.js",
+      "priority": 3
     }
   ]
 }

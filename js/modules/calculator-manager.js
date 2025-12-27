@@ -161,7 +161,9 @@ export const CalculatorManager = {
      * Check if calculator module is available
      */
     isCalculatorAvailable(calculatorId) {
-        return typeof window[`calculate_${calculatorId}`] === 'function';
+        // Convert hyphens to underscores for function name (e.g., "ascorbic-acid" -> "ascorbic_acid")
+        const functionName = calculatorId.replace(/-/g, '_');
+        return typeof window[`calculate_${functionName}`] === 'function';
     },
 
     /**

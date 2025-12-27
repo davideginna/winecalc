@@ -1,13 +1,13 @@
 # 🍷 WineCalc - Calcolatori Enologici Professionali
 
-Applicazione web mobile-first per calcoli enologici professionali, ispirata ai calcolatori AWRI (Australian Wine Research Institute).
+Applicazione web mobile-first per calcoli enologici professionali.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.3-purple.svg)](https://getbootstrap.com/)
 
 ## 🌟 Caratteristiche
 
-- ✅ **34+ Calcolatori Enologici** - Tutti i calcolatori disponibili sul sito AWRI
+- ✅ **Calcolatori Enologici Professionali**
 - 🌍 **Multilingua** - Supporto completo per IT, EN, FR, ES, DE
 - 📱 **Mobile-First** - Design ottimizzato per smartphone e tablet
 - 🎨 **Interfaccia Moderna** - Bootstrap 5 con tema personalizzato ispirato al vino

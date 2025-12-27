@@ -1,0 +1,38 @@
+{
+  "info": true,
+  "alertType": "warning",
+  "fields": [
+    {
+      "id": "additionRate",
+      "type": "number",
+      "label": "additionRate",
+      "min": 0,
+      "step": 1,
+      "placeholder": "50",
+      "required": true
+    },
+    {
+      "id": "volume",
+      "type": "number",
+      "label": "volume",
+      "min": 0,
+      "step": 0.1,
+      "placeholder": "100",
+      "required": true
+    }
+  ],
+  "results": {
+    "order": ["amountG", "amountKg", "amountMg"],
+    "units": {
+      "amountG": "g",
+      "amountKg": "kg",
+      "amountMg": "mg"
+    },
+    "decimals": {
+      "amountG": 2,
+      "amountKg": 3,
+      "amountMg": 0
+    },
+    "formula": true
+  }
+}

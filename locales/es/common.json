@@ -21,6 +21,10 @@
     "acid": {
       "title": "Adición de Ácido",
       "description": "Calcula la cantidad de ácido a agregar"
+    },
+    "ascorbic-acid": {
+      "title": "Ácido Ascórbico",
+      "description": "Calcula la adición de ácido ascórbico para la conservación del vino"
     }
   },
   "common": {
@@ -114,6 +118,10 @@
     "acid": {
       "additionRateDesc": "- Cantidad de ácido a agregar por litro de vino",
       "volumeDesc": "- Volumen total de vino/fermentación/mosto a tratar"
+    },
+    "ascorbic-acid": {
+      "additionRateDesc": "- Cantidad deseada de ácido ascórbico a añadir por litro de vino",
+      "volumeDesc": "- Volumen total de vino a tratar"
     }
   }
 }

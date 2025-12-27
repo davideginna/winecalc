@@ -66,15 +66,6 @@ Crea `formulas/[calculator-id].html` con la struttura della formula:
     <h6><i class="bi bi-info-circle me-2"></i><span data-i18n="formulas.notes">Note Importanti</span></h6>
     <p class="mb-0" id="[calculator-id]InfoNote"></p>
 </div>
-
-<!-- Source -->
-<p class="text-muted small mt-3">
-    <i class="bi bi-link-45deg"></i>
-    <span data-i18n="formulas.source">Fonte</span>:
-    <a href="https://..." target="_blank" rel="noopener">
-        AWRI - Australian Wine Research Institute
-    </a>
-</p>
 ```
 
 ### 2. Aggiungi il Collapse in formulas.html

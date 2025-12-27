@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-WineCalc is a mobile-first web application for professional oenological (winemaking) calculations, inspired by AWRI (Australian Wine Research Institute) calculators. It's a static web application built with vanilla JavaScript ES6+ modules, Bootstrap 5, and i18next for internationalization.
+WineCalc is a mobile-first web application for professional oenological (winemaking) calculations. It's a static web application built with vanilla JavaScript ES6+ modules, Bootstrap 5, and i18next for internationalization.
 
 ## Development Commands
 
@@ -177,4 +177,4 @@ Include formulas as comments in calculator modules:
 // Formula: Amount = (Volume × Difference) / (Factor × 1000)
 ```
 
-This helps maintain accuracy and allows validation against AWRI sources.
+This helps maintain accuracy and allows validation against reference sources.

@@ -21,6 +21,10 @@
     "acid": {
       "title": "Säurezusatz",
       "description": "Berechnen Sie die Menge der zuzufügenden Säure"
+    },
+    "ascorbic-acid": {
+      "title": "Ascorbinsäure",
+      "description": "Berechnen Sie die Ascorbinsäure-Zugabe zur Weinkonservierung"
     }
   },
   "common": {
@@ -114,6 +118,10 @@
     "acid": {
       "additionRateDesc": "- Säuremenge pro Liter Wein hinzuzufügen",
       "volumeDesc": "- Gesamtvolumen von Wein/Gärung/Saft zu behandeln"
+    },
+    "ascorbic-acid": {
+      "additionRateDesc": "- Gewünschte Menge an Ascorbinsäure pro Liter Wein hinzuzufügen",
+      "volumeDesc": "- Gesamtvolumen des zu behandelnden Weins"
     }
   }
 }

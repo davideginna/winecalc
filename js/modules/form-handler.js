@@ -72,7 +72,9 @@ export const FormHandler = {
      * Execute calculator calculation
      */
     async executeCalculation(calculatorId, data) {
-        const calculatorFunction = window[`calculate_${calculatorId}`];
+        // Convert hyphens to underscores for function name (e.g., "ascorbic-acid" -> "ascorbic_acid")
+        const functionName = calculatorId.replace(/-/g, '_');
+        const calculatorFunction = window[`calculate_${functionName}`];
 
         if (typeof calculatorFunction === 'function') {
             try {

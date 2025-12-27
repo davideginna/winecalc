@@ -1,0 +1,18 @@
+{
+  "volume": "Volume de vin (L)",
+  "additionRate": "Taux d'addition souhaité (mg/L)",
+  "results": {
+    "amountG": "Grammes d'acide ascorbique à ajouter",
+    "amountKg": "Kilogrammes d'acide ascorbique à ajouter",
+    "amountMg": "Milligrammes d'acide ascorbique à ajouter"
+  },
+  "info": "L'acide ascorbique (vitamine C) est un antioxydant utilisé en vinification. Il doit être utilisé en conjonction avec le SO2 pour une protection efficace. Dosage typique : 50-100 mg/L.",
+  "formula": {
+    "description": "Formule pour le calcul d'addition d'acide ascorbique",
+    "steps": [
+      "Quantité (g) = (Volume L × Taux d'addition mg/L) / 1000",
+      "Quantité (kg) = Quantité (g) / 1000",
+      "Quantité (mg) = Volume L × Taux d'addition mg/L"
+    ]
+  }
+}

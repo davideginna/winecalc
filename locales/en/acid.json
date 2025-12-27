@@ -7,7 +7,7 @@
   },
   "info": "When making additions to a red fermentation, this formula does not take into account the ratio of juice to solids (grapeskins, seeds, etc.).",
   "formula": {
-    "description": "AWRI formula for acid addition calculation",
+    "description": "Formula for acid addition calculation",
     "steps": [
       "Amount (kg) = (Addition rate × Volume) / 1000",
       "Amount (g) = Addition rate × Volume"

@@ -1,0 +1,18 @@
+{
+  "volume": "Weinvolumen (L)",
+  "additionRate": "Gewünschte Zugaberate (mg/L)",
+  "results": {
+    "amountG": "Gramm Ascorbinsäure hinzuzufügen",
+    "amountKg": "Kilogramm Ascorbinsäure hinzuzufügen",
+    "amountMg": "Milligramm Ascorbinsäure hinzuzufügen"
+  },
+  "info": "Ascorbinsäure (Vitamin C) ist ein Antioxidans, das in der Weinherstellung verwendet wird. Es sollte in Verbindung mit SO2 für einen wirksamen Schutz verwendet werden. Typische Dosierung: 50-100 mg/L.",
+  "formula": {
+    "description": "Formel für Ascorbinsäure-Zugabeberechnung",
+    "steps": [
+      "Menge (g) = (Volumen L × Zugaberate mg/L) / 1000",
+      "Menge (kg) = Menge (g) / 1000",
+      "Menge (mg) = Volumen L × Zugaberate mg/L"
+    ]
+  }
+}

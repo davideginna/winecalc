@@ -7,7 +7,7 @@
   },
   "info": "Bei Zugaben zu einer Rotweingärung berücksichtigt diese Formel nicht das Verhältnis von Saft zu Feststoffen (Traubenschalen, Kerne usw.).",
   "formula": {
-    "description": "AWRI-Formel zur Berechnung der Säurezugabe",
+    "description": "Formel zur Berechnung der Säurezugabe",
     "steps": [
       "Menge (kg) = (Zugaberate × Volumen) / 1000",
       "Menge (g) = Zugaberate × Volumen"

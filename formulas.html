@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="WineCalc - Formule matematiche per calcoli enologici. Documentazione completa delle formule AWRI.">
-    <meta name="keywords" content="vino, enologia, formule, matematica, AWRI, wine, winemaking">
+        content="WineCalc - Formule matematiche per calcoli enologici. Documentazione completa delle formule.">
+    <meta name="keywords" content="vino, enologia, formule, matematica, wine, winemaking">
     <meta name="author" content="WineCalc">
 
     <title>Formule - WineCalc</title>
@@ -121,6 +121,26 @@
                     </div>
                     <div class="collapse" id="acidFormula">
                         <div class="card-body" id="acidFormulaContent">
+                            <!-- Content will be loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ascorbic Acid Addition Formula -->
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-wine text-white" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#ascorbic-acidFormula" aria-expanded="false" aria-controls="ascorbic-acidFormula">
+                        <h4 class="mb-0 d-flex justify-content-between align-items-center">
+                            <span>
+                                <i class="bi bi-shield-check me-2"></i>
+                                <span data-i18n="calculators.ascorbic-acid.title">Acido Ascorbico</span>
+                            </span>
+                            <i class="bi bi-chevron-down"></i>
+                        </h4>
+                    </div>
+                    <div class="collapse" id="ascorbic-acidFormula">
+                        <div class="card-body" id="ascorbic-acidFormulaContent">
                             <!-- Content will be loaded dynamically -->
                         </div>
                     </div>
@@ -288,39 +308,46 @@
                 }
             });
 
-            // Special handling for acid calculator
-            if (calculatorId === 'acid') {
-                // Formula description and steps
-                const formulaData = t('formula', { ns: 'acid', returnObjects: true, defaultValue: null });
-                if (formulaData) {
-                    const descEl = document.getElementById('acidFormulaDescription');
-                    if (descEl) descEl.textContent = formulaData.description || '';
+            // Generic handling for all calculators
+            // Formula description and steps
+            const formulaData = t('formula', { ns: calculatorId, returnObjects: true, defaultValue: null });
+            if (formulaData) {
+                const descEl = document.getElementById(`${calculatorId}FormulaDescription`);
+                if (descEl) descEl.textContent = formulaData.description || '';
 
-                    const stepsContainer = document.getElementById('acidFormulaSteps');
-                    if (stepsContainer && formulaData.steps) {
-                        stepsContainer.innerHTML = formulaData.steps.map((step, i) => `
-                            <div class="font-monospace small mb-1 p-2 bg-light rounded">${i + 1}. ${step}</div>
-                        `).join('');
-                    }
+                const stepsContainer = document.getElementById(`${calculatorId}FormulaSteps`);
+                if (stepsContainer && formulaData.steps) {
+                    stepsContainer.innerHTML = formulaData.steps.map((step, i) => `
+                        <div class="font-monospace small mb-1 p-2 bg-light rounded">${i + 1}. ${step}</div>
+                    `).join('');
                 }
+            }
 
-                // Input labels
-                const additionRateEl = document.getElementById('acidInputAdditionRate');
-                if (additionRateEl) additionRateEl.textContent = t('additionRate', { ns: 'acid' });
+            // Dynamically find and translate all input/output elements
+            const container = document.getElementById(`${calculatorId}FormulaContent`);
+            if (container) {
+                // Find all elements with IDs starting with calculatorId + "Input" or "Output"
+                container.querySelectorAll(`[id^="${calculatorId}Input"], [id^="${calculatorId}Output"]`).forEach(el => {
+                    const fieldName = el.id.replace(`${calculatorId}Input`, '').replace(`${calculatorId}Output`, '');
+                    const isOutput = el.id.includes('Output');
 
-                const volumeEl = document.getElementById('acidInputVolume');
-                if (volumeEl) volumeEl.textContent = t('volume', { ns: 'acid' });
-
-                // Output labels
-                const amountKgEl = document.getElementById('acidOutputAmountKg');
-                if (amountKgEl) amountKgEl.textContent = t('results.amountKg', { ns: 'acid' });
-
-                const amountGEl = document.getElementById('acidOutputAmountG');
-                if (amountGEl) amountGEl.textContent = t('results.amountG', { ns: 'acid' });
+                    if (fieldName) {
+                        // Convert first letter to lowercase for translation key
+                        const key = fieldName.charAt(0).toLowerCase() + fieldName.slice(1);
+                        const translationKey = isOutput ? `results.${key}` : key;
+                        const translation = t(translationKey, { ns: calculatorId });
+                        if (translation && translation !== translationKey) {
+                            el.textContent = translation;
+                        }
+                    }
+                });
 
                 // Info note
-                const infoEl = document.getElementById('acidInfoNote');
-                if (infoEl) infoEl.textContent = t('info', { ns: 'acid' });
+                const infoEl = document.getElementById(`${calculatorId}InfoNote`);
+                if (infoEl) {
+                    const infoText = t('info', { ns: calculatorId });
+                    if (infoText) infoEl.textContent = infoText;
+                }
             }
         }
 

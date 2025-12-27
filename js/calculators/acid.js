@@ -2,7 +2,6 @@
 
 /**
  * Calculate acid addition for wine
- * Based on AWRI calculator: https://www.awri.com.au/industry_support/winemaking_resources/calculators/acid/
  *
  * @param {Object} data - Input data
  * @param {number} data.additionRate - Desired addition rate of acid in g/L

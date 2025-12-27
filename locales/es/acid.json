@@ -7,7 +7,7 @@
   },
   "info": "Al hacer adiciones a una fermentación tinta, esta fórmula no tiene en cuenta la proporción de jugo a sólidos (hollejos, semillas, etc.).",
   "formula": {
-    "description": "Fórmula AWRI para el cálculo de adición de ácido",
+    "description": "Fórmula para el cálculo de adición de ácido",
     "steps": [
       "Cantidad (kg) = (Tasa de adición × Volumen) / 1000",
       "Cantidad (g) = Tasa de adición × Volumen"

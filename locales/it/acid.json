@@ -7,7 +7,7 @@
   },
   "info": "Questa formula non tiene conto del rapporto tra succo e solidi (vinacce, semi, ecc.) nelle fermentazioni rosse.",
   "formula": {
-    "description": "Formula AWRI per calcolo aggiunta acido",
+    "description": "Formula per calcolo aggiunta acido",
     "steps": [
       "Quantità (kg) = (Tasso aggiunta × Volume) / 1000",
       "Quantità (g) = Tasso aggiunta × Volume"

@@ -1,0 +1,18 @@
+{
+  "volume": "Volume of wine (L)",
+  "additionRate": "Desired addition rate (mg/L)",
+  "results": {
+    "amountG": "Grams of ascorbic acid to add",
+    "amountKg": "Kilograms of ascorbic acid to add",
+    "amountMg": "Milligrams of ascorbic acid to add"
+  },
+  "info": "Ascorbic acid (vitamin C) is an antioxidant used in winemaking. It should be used in conjunction with SO2 for effective protection. Typical dosage: 50-100 mg/L.",
+  "formula": {
+    "description": "Formula for ascorbic acid addition calculation",
+    "steps": [
+      "Amount (g) = (Volume L × Addition rate mg/L) / 1000",
+      "Amount (kg) = Amount (g) / 1000",
+      "Amount (mg) = Volume L × Addition rate mg/L"
+    ]
+  }
+}

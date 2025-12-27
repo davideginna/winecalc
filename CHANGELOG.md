@@ -5,6 +5,53 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-12-27
+
+### Added
+- **Ascorbic Acid Calculator**
+  - New calculator for ascorbic acid addition in wine preservation
+  - Calculates amounts in grams, kilograms, and milligrams
+  - Includes warnings about use with SO2
+  - Complete formula documentation in formulas page
+  - Translations for all 5 languages (IT, EN, FR, ES, DE)
+- **Automatic Formula Translation System**
+  - Generic translation system in `formulas.html` that works for all calculators
+  - No need to modify JavaScript when adding new formulas
+  - Automatic field detection using naming conventions
+  - Supports both input and output field translations
+
+### Changed
+- **Calculator ID Naming System**
+  - Calculator IDs can now include hyphens (e.g., "ascorbic-acid")
+  - System automatically converts hyphens to underscores for function names
+  - Updated `form-handler.js` and `calculator-manager.js` to handle conversion
+  - Maintains consistency with URL-friendly naming
+- **Removed External References**
+  - Removed all AWRI references from code comments
+  - Removed all AWRI references from translations (10 files across 5 languages)
+  - Removed source links from formula templates
+  - Updated all documentation to use generic "reference calculator" terminology
+  - Updated README.md and CLAUDE.md to remove external dependencies
+- **Updated Documentation**
+  - Expanded `ADDING_CALCULATOR_GUIDE.md` with Step 6 for formulas
+  - Updated examples to reflect new naming conventions
+  - Added detailed instructions for formula page integration
+  - Removed all external calculator references
+
+### Fixed
+- **Calculator Function Resolution**
+  - Fixed issue where calculators with hyphens in ID couldn't be found
+  - Calculator IDs like "ascorbic-acid" now correctly resolve to `calculate_ascorbic_acid()`
+  - Proper validation before executing calculator functions
+
+### Technical
+- Updated `js/modules/form-handler.js` to convert hyphens to underscores
+- Updated `js/modules/calculator-manager.js` for hyphenated ID support
+- Refactored `formulas.html` translation logic to be generic and reusable
+- Created `formulas/ascorbic-acid.html` template
+- Added field descriptions in all `locales/*/common.json` files
+- Validated all JSON files for syntax correctness
+
 ## [1.1.0] - 2025-12-24
 
 ### Added

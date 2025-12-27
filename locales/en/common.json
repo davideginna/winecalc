@@ -21,6 +21,10 @@
     "acid": {
       "title": "Acid Addition",
       "description": "Calculate amount of acid to add"
+    },
+    "ascorbic-acid": {
+      "title": "Ascorbic Acid",
+      "description": "Calculate ascorbic acid addition for wine preservation"
     }
   },
   "common": {
@@ -114,6 +118,10 @@
     "acid": {
       "additionRateDesc": "- Amount of acid to add per liter of wine",
       "volumeDesc": "- Total volume of wine/ferment/juice to treat"
+    },
+    "ascorbic-acid": {
+      "additionRateDesc": "- Desired amount of ascorbic acid to add per liter of wine",
+      "volumeDesc": "- Total volume of wine to treat"
     }
   }
 }
