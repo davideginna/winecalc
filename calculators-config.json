@@ -15,6 +15,14 @@
       "icon": "bi-shield-check",
       "jsFile": "js/calculators/ascorbic-acid.js",
       "priority": 3
+    },
+    {
+      "id": "bentonite",
+      "enabled": true,
+      "category": "chemical",
+      "icon": "bi-funnel",
+      "jsFile": "js/calculators/bentonite.js",
+      "priority": 4
     }
   ]
 }

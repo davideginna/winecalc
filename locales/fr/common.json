@@ -25,6 +25,10 @@
     "ascorbic-acid": {
       "title": "Acide Ascorbique",
       "description": "Calculez l'ajout d'acide ascorbique pour la conservation du vin"
+    },
+    "bentonite": {
+      "title": "Bentonite",
+      "description": "Calculez l'ajout de bentonite pour le collage protéique"
     }
   },
   "common": {
@@ -122,6 +126,11 @@
     "ascorbic-acid": {
       "additionRateDesc": "- Quantité désirée d'acide ascorbique à ajouter par litre de vin",
       "volumeDesc": "- Volume total de vin à traiter"
+    },
+    "bentonite": {
+      "additionRateDesc": "- Taux d'ajout souhaité de bentonite par litre de vin",
+      "volumeDesc": "- Volume total de vin/fermentation/jus à traiter",
+      "concentrationDesc": "- Concentration de la solution de bentonite préparée (poids/volume %)"
     }
   }
 }

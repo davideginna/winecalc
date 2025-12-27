@@ -1,0 +1,16 @@
+{
+  "additionRate": "Gewünschte Zugaberate von Bentonit (g/L)",
+  "volume": "Volumen von Wein/Gärung/Saft (L)",
+  "concentration": "Konzentration der Bentonitlösung (% w/v)",
+  "results": {
+    "solutionVolume": "Zuzufügendes Lösungsvolumen"
+  },
+  "info": "Bentonit ist ein Ton, der als Schönungsmittel verwendet wird, um instabile Proteine aus dem Wein zu entfernen. Dieser Rechner bestimmt das Volumen der vorbereiteten Bentonitlösung, das dem Wein zugesetzt werden soll.",
+  "formula": {
+    "description": "Formel zur Berechnung des Bentonitlösungsvolumens",
+    "steps": [
+      "Gesamtbentonit (g) = Zugaberate (g/L) × Volumen (L)",
+      "Lösungsvolumen (L) = Gesamtbentonit (g) / (Konzentration % × 10)"
+    ]
+  }
+}

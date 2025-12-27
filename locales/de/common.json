@@ -25,6 +25,10 @@
     "ascorbic-acid": {
       "title": "Ascorbinsäure",
       "description": "Berechnen Sie die Ascorbinsäure-Zugabe zur Weinkonservierung"
+    },
+    "bentonite": {
+      "title": "Bentonit",
+      "description": "Berechnen Sie die Bentonit-Zugabe zur Proteinschönung"
     }
   },
   "common": {
@@ -122,6 +126,11 @@
     "ascorbic-acid": {
       "additionRateDesc": "- Gewünschte Menge an Ascorbinsäure pro Liter Wein hinzuzufügen",
       "volumeDesc": "- Gesamtvolumen des zu behandelnden Weins"
+    },
+    "bentonite": {
+      "additionRateDesc": "- Gewünschte Zugaberate von Bentonit pro Liter Wein",
+      "volumeDesc": "- Gesamtvolumen von Wein/Gärung/Saft zu behandeln",
+      "concentrationDesc": "- Konzentration der vorbereiteten Bentonitlösung (Gewicht/Volumen %)"
     }
   }
 }

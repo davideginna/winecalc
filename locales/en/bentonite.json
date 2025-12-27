@@ -1,0 +1,16 @@
+{
+  "additionRate": "Desired addition rate of bentonite (g/L)",
+  "volume": "Volume of wine/ferment/juice (L)",
+  "concentration": "Concentration of bentonite solution (% w/v)",
+  "results": {
+    "solutionVolume": "Volume of solution to add"
+  },
+  "info": "Bentonite is a clay used as a fining agent to remove unstable proteins from wine. This calculator determines the volume of prepared bentonite solution to add to the wine.",
+  "formula": {
+    "description": "Formula for bentonite solution volume calculation",
+    "steps": [
+      "Total bentonite (g) = Addition rate (g/L) × Volume (L)",
+      "Solution volume (L) = Total bentonite (g) / (Concentration % × 10)"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "additionRate": "Taux d'ajout souhaité de bentonite (g/L)",
+  "volume": "Volume de vin/fermentation/jus (L)",
+  "concentration": "Concentration de la solution de bentonite (% p/v)",
+  "results": {
+    "solutionVolume": "Volume de solution à ajouter"
+  },
+  "info": "La bentonite est une argile utilisée comme agent de clarification pour éliminer les protéines instables du vin. Ce calculateur détermine le volume de solution de bentonite préparée à ajouter au vin.",
+  "formula": {
+    "description": "Formule de calcul du volume de solution de bentonite",
+    "steps": [
+      "Bentonite totale (g) = Taux d'ajout (g/L) × Volume (L)",
+      "Volume de solution (L) = Bentonite totale (g) / (Concentration % × 10)"
+    ]
+  }
+}

@@ -14,6 +14,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Includes warnings about use with SO2
   - Complete formula documentation in formulas page
   - Translations for all 5 languages (IT, EN, FR, ES, DE)
+- **Bentonite Addition Calculator**
+  - New calculator for bentonite fining agent addition
+  - Calculates volume of bentonite solution to add based on:
+    - Desired addition rate (g/L)
+    - Volume of wine/ferment/juice (L)
+    - Concentration of prepared bentonite solution (% w/v)
+  - Returns volume of solution needed in liters
+  - Complete formula documentation in formulas page
+  - Translations for all 5 languages (IT, EN, FR, ES, DE)
 - **Automatic Formula Translation System**
   - Generic translation system in `formulas.html` that works for all calculators
   - No need to modify JavaScript when adding new formulas
@@ -49,6 +58,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated `js/modules/calculator-manager.js` for hyphenated ID support
 - Refactored `formulas.html` translation logic to be generic and reusable
 - Created `formulas/ascorbic-acid.html` template
+- Created `formulas/bentonite.html` template
+- Created `js/calculators/ascorbic-acid.js` calculator module
+- Created `js/calculators/bentonite.js` calculator module
+- Created `js/calculators-fields/ascorbic-acid.json` field configuration
+- Updated `js/calculators-fields/bentonite.json` field configuration
+- Created namespace translations in `locales/*/ascorbic-acid.json` (5 languages)
+- Created namespace translations in `locales/*/bentonite.json` (5 languages)
 - Added field descriptions in all `locales/*/common.json` files
 - Validated all JSON files for syntax correctness
 

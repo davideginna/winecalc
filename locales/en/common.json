@@ -25,6 +25,10 @@
     "ascorbic-acid": {
       "title": "Ascorbic Acid",
       "description": "Calculate ascorbic acid addition for wine preservation"
+    },
+    "bentonite": {
+      "title": "Bentonite",
+      "description": "Calculate bentonite addition for protein fining"
     }
   },
   "common": {
@@ -122,6 +126,11 @@
     "ascorbic-acid": {
       "additionRateDesc": "- Desired amount of ascorbic acid to add per liter of wine",
       "volumeDesc": "- Total volume of wine to treat"
+    },
+    "bentonite": {
+      "additionRateDesc": "- Desired addition rate of bentonite per liter of wine",
+      "volumeDesc": "- Total volume of wine/ferment/juice to treat",
+      "concentrationDesc": "- Concentration of prepared bentonite solution (weight/volume %)"
     }
   }
 }

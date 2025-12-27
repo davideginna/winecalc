@@ -1,0 +1,16 @@
+{
+  "additionRate": "Tasso di aggiunta desiderato (g/L)",
+  "volume": "Volume di vino/mosto/succo (L)",
+  "concentration": "Concentrazione soluzione bentonite (% w/v)",
+  "results": {
+    "solutionVolume": "Volume di soluzione da aggiungere"
+  },
+  "info": "La bentonite è un'argilla utilizzata come chiarificante per rimuovere le proteine instabili dal vino. Questo calcolatore determina il volume di soluzione di bentonite già preparata da aggiungere al vino.",
+  "formula": {
+    "description": "Formula per calcolo volume soluzione bentonite",
+    "steps": [
+      "Bentonite totale (g) = Tasso aggiunta (g/L) × Volume (L)",
+      "Volume soluzione (L) = Bentonite totale (g) / (Concentrazione % × 10)"
+    ]
+  }
+}

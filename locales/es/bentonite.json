@@ -1,0 +1,16 @@
+{
+  "additionRate": "Tasa de adición deseada de bentonita (g/L)",
+  "volume": "Volumen de vino/fermentación/mosto (L)",
+  "concentration": "Concentración de la solución de bentonita (% p/v)",
+  "results": {
+    "solutionVolume": "Volumen de solución a agregar"
+  },
+  "info": "La bentonita es una arcilla utilizada como agente clarificante para eliminar proteínas inestables del vino. Este calculador determina el volumen de solución de bentonita preparada para agregar al vino.",
+  "formula": {
+    "description": "Fórmula para cálculo del volumen de solución de bentonita",
+    "steps": [
+      "Bentonita total (g) = Tasa de adición (g/L) × Volumen (L)",
+      "Volumen de solución (L) = Bentonita total (g) / (Concentración % × 10)"
+    ]
+  }
+}

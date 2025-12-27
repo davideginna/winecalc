@@ -3,34 +3,41 @@
   "alertType": "info",
   "fields": [
     {
+      "id": "additionRate",
+      "type": "number",
+      "label": "additionRate",
+      "min": 0,
+      "step": 0.1,
+      "placeholder": "0.5",
+      "required": true
+    },
+    {
       "id": "volume",
       "type": "number",
-      "label": "calculators.bentonite.volume",
+      "label": "volume",
       "min": 0,
       "step": 0.1,
       "placeholder": "100",
       "required": true
     },
     {
-      "id": "dosage",
+      "id": "concentration",
       "type": "number",
-      "label": "calculators.bentonite.dosage",
+      "label": "concentration",
       "min": 0,
-      "step": 1,
-      "placeholder": "30",
-      "required": true,
-      "helpText": "Tipico: 20-80 g/hL"
+      "step": 0.1,
+      "placeholder": "10",
+      "required": true
     }
   ],
   "results": {
-    "order": ["amount", "water"],
+    "order": ["solutionVolume"],
     "units": {
-      "amount": "g",
-      "water": "mL"
+      "solutionVolume": "L"
     },
     "decimals": {
-      "amount": 1,
-      "water": 0
-    }
+      "solutionVolume": 3
+    },
+    "formula": true
   }
 }
