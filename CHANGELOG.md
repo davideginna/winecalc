@@ -7,11 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.3.0] - 2025-12-28
 
+### Fixed
+- **PWA Installation and Logo Display**
+  - Fixed logo not displaying by changing from absolute paths (`/assets/`) to relative paths (`assets/`)
+  - Fixed PWA not being installable by updating `manifest.json` with relative paths (`start_url: "."`, `scope: "."`)
+  - Changed `orientation` from `portrait-primary` to `any` for better flexibility
+  - Updated service worker to use relative paths (`./index.html` instead of `/index.html`)
+  - Added `pwa-install.js`, icons, and logo to service worker precache list
+  - Created `.htaccess` for Apache servers with proper MIME types and cache control
+  - Created `_headers` for Netlify deployments with PWA-optimized cache strategy
+  - Added `prefer_related_applications: false` to manifest to prefer PWA over native apps
+
 ### Added
 - **New Navbar Logo** - Replaced emoji icon and text with professional logo-white.png image
   - Responsive sizing: 40px on desktop, 32px on mobile
   - Maintains aspect ratio automatically
   - Smooth hover animation
+
+### Changed
+- **Standardized UI Across Pages**
+  - Unified navbar order: Home → Formule (mobile only) → Lingue → Formule (desktop icon) → Dark Mode → Settings
+  - Formule link now responsive: full link with icon on mobile, icon-only on desktop
+  - Settings modal now identical on both index.html and formulas.html
+  - Settings modal includes full feature set: Theme Mode, Color Theme (5 themes), Accessibility options (High Contrast, Reduced Motion, Large Text), Reset button
+  - Consistent styling with wine-themed header and centered modal
 - **Progressive Web App (PWA) Support**
   - Full PWA implementation with offline functionality
   - App can now be installed on mobile and desktop devices
@@ -61,10 +80,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Notes added to all 5 languages (IT, EN, FR, ES, DE)
 
 ### Technical
+- **PWA Path Corrections**
+  - Updated all HTML files to use relative paths (removed leading slashes)
+  - Updated `manifest.json`: `start_url: "."`, `scope: "."`, `orientation: "any"`
+  - Updated `service-worker.js` PRECACHE_URLS to use `./` prefix
+  - Added service worker cache entries for logo, icons, and pwa-install.js
+  - Created `.htaccess` with PWA MIME types and cache control headers
+  - Created `_headers` for Netlify with optimized caching strategy
 - **Navbar Logo Implementation**
   - Updated `index.html` and `formulas.html` to use `<img>` tag with logo-white.png
   - Added `.navbar-logo` CSS class with responsive height (40px desktop, 32px mobile)
   - Updated `.navbar-brand` padding for better logo alignment
+- **UI Standardization**
+  - Updated `formulas.html` navbar to match `index.html` responsive structure (d-lg-none/d-none d-lg-block)
+  - Replaced simplified settings modal in `formulas.html` with full-featured version from `index.html`
+  - Unified element IDs (highContrastSwitch, reducedMotionSwitch, largeTextSwitch instead of highContrast, reducedMotion, largeText)
 - **PWA Files Created**
   - Created `/manifest.json` - Web App Manifest with app metadata, icons, shortcuts
   - Created `/service-worker.js` - Service Worker with precaching and runtime caching

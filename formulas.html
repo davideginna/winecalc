@@ -13,11 +13,11 @@
     <link rel="icon" type="image/jpeg" href="assets/icons/favicon/favicon.jpg">
 
     <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#6d1b3d">
 
     <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="/assets/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="WineCalc">
@@ -42,7 +42,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-wine sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.html">
-                <img src="/assets/img/logo-white.png" alt="WineCalc" class="navbar-logo">
+                <img src="assets/img/logo-white.png" alt="WineCalc" class="navbar-logo">
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -55,7 +55,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item d-lg-none">
                         <a class="nav-link active" href="formulas.html">
                             <i class="bi bi-calculator"></i> <span data-i18n="nav.formulas">Formule</span>
                         </a>
@@ -72,6 +72,11 @@
                             <li><a class="dropdown-item lang-switch" href="#" data-lang="es">🇪🇸 Español</a></li>
                             <li><a class="dropdown-item lang-switch" href="#" data-lang="de">🇩🇪 Deutsch</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item d-none d-lg-block">
+                        <a class="nav-link active btn btn-link" href="formulas.html" aria-label="Formulas">
+                            <i class="bi bi-calculator"></i>
+                        </a>
                     </li>
                     <li class="nav-item">
                         <button class="nav-link btn btn-link" id="darkModeToggle" aria-label="Toggle dark mode">
@@ -355,49 +360,138 @@
         </div>
     </footer>
 
-    <!-- Settings Modal (same as index.html) -->
+    <!-- Settings Modal -->
     <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="settingsModalLabel" data-i18n="settings.title">Impostazioni</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header bg-wine text-white">
+                    <h5 class="modal-title" id="settingsModalLabel">
+                        <i class="bi bi-gear me-2"></i>
+                        <span data-i18n="settings.title">Impostazioni</span>
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Theme Settings -->
-                    <h6 data-i18n="themes.title">Aspetto</h6>
-                    <div class="mb-3">
-                        <label class="form-label" data-i18n="themes.mode">Modalità</label>
-                        <div class="btn-group w-100" role="group">
-                            <input type="radio" class="btn-check" name="theme-mode" id="lightMode" value="light">
-                            <label class="btn btn-outline-secondary" for="lightMode" data-i18n="themes.light">Chiaro</label>
-                            <input type="radio" class="btn-check" name="theme-mode" id="darkMode" value="dark">
-                            <label class="btn btn-outline-secondary" for="darkMode" data-i18n="themes.dark">Scuro</label>
+                    <!-- Appearance Settings -->
+                    <div class="settings-section mb-4">
+                        <h6 class="fw-bold mb-3">
+                            <i class="bi bi-palette me-2"></i>
+                            <span data-i18n="settings.appearance">Aspetto</span>
+                        </h6>
+
+                        <!-- Theme Mode (Light/Dark) -->
+                        <div class="mb-3">
+                            <label class="form-label" data-i18n="themes.mode">Modalità</label>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-outline-primary-theme flex-fill theme-mode-btn"
+                                    data-theme="light">
+                                    <i class="bi bi-sun me-2"></i>
+                                    <span data-i18n="themes.light">Chiaro</span>
+                                </button>
+                                <button class="btn btn-outline-primary-theme flex-fill theme-mode-btn"
+                                    data-theme="dark">
+                                    <i class="bi bi-moon-stars me-2"></i>
+                                    <span data-i18n="themes.dark">Scuro</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Color Theme -->
+                        <div class="mb-3">
+                            <label class="form-label" data-i18n="themes.colorTheme">Tema Colore</label>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn"
+                                        data-color-theme="wine">
+                                        🍷 <span data-i18n="themes.wine">Vino</span>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn"
+                                        data-color-theme="ocean">
+                                        🌊 <span data-i18n="themes.ocean">Oceano</span>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn"
+                                        data-color-theme="forest">
+                                        🌲 <span data-i18n="themes.forest">Foresta</span>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn"
+                                        data-color-theme="lavender">
+                                        💜 <span data-i18n="themes.lavender">Lavanda</span>
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary-theme w-100 color-theme-btn"
+                                        data-color-theme="sunset">
+                                        🌅 <span data-i18n="themes.sunset">Tramonto</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+                    <hr>
+
                     <!-- Accessibility Settings -->
-                    <h6 class="mt-4" data-i18n="accessibility.title">Accessibilità</h6>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" id="highContrast">
-                        <label class="form-check-label" for="highContrast">
-                            <span data-i18n="accessibility.highContrast">Alto Contrasto</span>
-                            <small class="text-muted d-block" data-i18n="accessibility.highContrastDesc">Bordi più spessi e contrasti aumentati</small>
-                        </label>
+                    <div class="settings-section mb-4">
+                        <h6 class="fw-bold mb-3">
+                            <i class="bi bi-universal-access me-2"></i>
+                            <span data-i18n="accessibility.title">Accessibilità</span>
+                        </h6>
+
+                        <!-- High Contrast -->
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="highContrastSwitch">
+                                <label class="form-check-label" for="highContrastSwitch">
+                                    <i class="bi bi-circle-half me-2"></i>
+                                    <strong data-i18n="accessibility.highContrast">Alto Contrasto</strong>
+                                </label>
+                            </div>
+                            <small class="text-muted ms-4" data-i18n="accessibility.highContrastDesc">Bordi più spessi e
+                                contrasti aumentati</small>
+                        </div>
+
+                        <!-- Reduced Motion -->
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="reducedMotionSwitch">
+                                <label class="form-check-label" for="reducedMotionSwitch">
+                                    <i class="bi bi-pause-circle me-2"></i>
+                                    <strong data-i18n="accessibility.reducedMotion">Disabilita Animazioni</strong>
+                                </label>
+                            </div>
+                            <small class="text-muted ms-4" data-i18n="accessibility.reducedMotionDesc">Rimuove
+                                animazioni e transizioni (consigliato per mal di testa/epilessia)</small>
+                        </div>
+
+                        <!-- Large Text -->
+                        <div class="mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch" id="largeTextSwitch">
+                                <label class="form-check-label" for="largeTextSwitch">
+                                    <i class="bi bi-type me-2"></i>
+                                    <strong data-i18n="accessibility.largeText">Testo Grande</strong>
+                                </label>
+                            </div>
+                            <small class="text-muted ms-4" data-i18n="accessibility.largeTextDesc">Aumenta dimensione
+                                testo del 12%</small>
+                        </div>
                     </div>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" id="reducedMotion">
-                        <label class="form-check-label" for="reducedMotion">
-                            <span data-i18n="accessibility.reducedMotion">Disabilita Animazioni</span>
-                            <small class="text-muted d-block" data-i18n="accessibility.reducedMotionDesc">Rimuove animazioni e transizioni</small>
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="largeText">
-                        <label class="form-check-label" for="largeText">
-                            <span data-i18n="accessibility.largeText">Testo Grande</span>
-                            <small class="text-muted d-block" data-i18n="accessibility.largeTextDesc">Aumenta dimensione testo del 12%</small>
-                        </label>
+
+                    <hr>
+
+                    <!-- Reset Button -->
+                    <div class="d-grid">
+                        <button class="btn btn-outline-secondary" id="resetSettingsBtn">
+                            <i class="bi bi-arrow-counterclockwise me-2"></i>
+                            <span data-i18n="settings.reset">Ripristina predefinite</span>
+                        </button>
                     </div>
                 </div>
             </div>

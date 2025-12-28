@@ -1,0 +1,27 @@
+# Netlify Headers for PWA
+
+# Service Worker - No Cache
+/service-worker.js
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
+
+# Manifest - Cache for 1 hour
+/manifest.json
+  Cache-Control: public, max-age=3600
+  Content-Type: application/manifest+json
+
+# Images - Cache for 1 week
+/assets/*
+  Cache-Control: public, max-age=604800
+
+# HTML - Cache for 1 hour
+/*.html
+  Cache-Control: public, max-age=3600
+
+# CSS/JS - Cache for 1 day
+/css/*
+  Cache-Control: public, max-age=86400
+
+/js/*
+  Cache-Control: public, max-age=86400

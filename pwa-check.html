@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WineCalc PWA Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .check-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ccc;
+        }
+        .check-item.success {
+            border-left-color: #28a745;
+        }
+        .check-item.error {
+            border-left-color: #dc3545;
+        }
+        .check-item.warning {
+            border-left-color: #ffc107;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+        }
+        h1 {
+            color: #6d1b3d;
+        }
+        .status {
+            font-weight: bold;
+        }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .warning { color: #ffc107; }
+    </style>
+</head>
+<body>
+    <h1>🍷 WineCalc PWA Status Check</h1>
+    <p>Questa pagina verifica se la PWA è configurata correttamente.</p>
+
+    <div id="checks"></div>
+
+    <script>
+        const checksContainer = document.getElementById('checks');
+
+        function addCheck(title, status, message, details = null) {
+            const div = document.createElement('div');
+            div.className = `check-item ${status}`;
+
+            let html = `<h3>${title}: <span class="status ${status}">${status.toUpperCase()}</span></h3>`;
+            html += `<p>${message}</p>`;
+            if (details) {
+                html += `<pre>${JSON.stringify(details, null, 2)}</pre>`;
+            }
+
+            div.innerHTML = html;
+            checksContainer.appendChild(div);
+        }
+
+        // Check 1: HTTPS
+        const isHttps = location.protocol === 'https:' || location.hostname === 'localhost';
+        addCheck(
+            '1. HTTPS Check',
+            isHttps ? 'success' : 'error',
+            isHttps
+                ? 'Il sito è servito su HTTPS o localhost ✓'
+                : 'Il sito deve essere servito su HTTPS per funzionare come PWA! Attualmente su: ' + location.protocol
+        );
+
+        // Check 2: Service Worker Support
+        const hasServiceWorker = 'serviceWorker' in navigator;
+        addCheck(
+            '2. Service Worker Support',
+            hasServiceWorker ? 'success' : 'error',
+            hasServiceWorker
+                ? 'Il browser supporta Service Workers ✓'
+                : 'Il browser NON supporta Service Workers'
+        );
+
+        // Check 3: Service Worker Registration
+        if (hasServiceWorker) {
+            navigator.serviceWorker.getRegistration().then(registration => {
+                if (registration) {
+                    addCheck(
+                        '3. Service Worker Registration',
+                        'success',
+                        'Service Worker registrato correttamente ✓',
+                        {
+                            scope: registration.scope,
+                            state: registration.active?.state || 'installing',
+                            updateFound: registration.installing ? 'Yes' : 'No'
+                        }
+                    );
+                } else {
+                    addCheck(
+                        '3. Service Worker Registration',
+                        'error',
+                        'Service Worker NON è registrato. Verifica che service-worker.js sia accessibile.'
+                    );
+                }
+            });
+        }
+
+        // Check 4: Manifest
+        fetch('manifest.json')
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+            })
+            .then(manifest => {
+                addCheck(
+                    '4. Manifest File',
+                    'success',
+                    'manifest.json è accessibile e valido ✓',
+                    {
+                        name: manifest.name,
+                        short_name: manifest.short_name,
+                        start_url: manifest.start_url,
+                        display: manifest.display,
+                        icons: manifest.icons.length + ' icone definite'
+                    }
+                );
+            })
+            .catch(error => {
+                addCheck(
+                    '4. Manifest File',
+                    'error',
+                    'Impossibile caricare manifest.json: ' + error.message
+                );
+            });
+
+        // Check 5: BeforeInstallPrompt Event
+        let installPromptFired = false;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            installPromptFired = true;
+            addCheck(
+                '5. Install Prompt',
+                'success',
+                'L\'evento beforeinstallprompt è stato trigggerato! L\'app è installabile ✓'
+            );
+        });
+
+        setTimeout(() => {
+            if (!installPromptFired && isHttps && hasServiceWorker) {
+                addCheck(
+                    '5. Install Prompt',
+                    'warning',
+                    'L\'evento beforeinstallprompt non è stato triggerato. Possibili cause: (1) L\'app è già installata, (2) Il browser non supporta l\'installazione PWA, (3) I criteri PWA non sono completamente soddisfatti.'
+                );
+            }
+        }, 3000);
+
+        // Check 6: Cache API
+        const hasCacheAPI = 'caches' in window;
+        addCheck(
+            '6. Cache API Support',
+            hasCacheAPI ? 'success' : 'error',
+            hasCacheAPI
+                ? 'Il browser supporta Cache API ✓'
+                : 'Il browser NON supporta Cache API'
+        );
+
+        // Check 7: Icons
+        const iconSizes = [72, 96, 128, 144, 152, 192, 384, 512];
+        let iconsChecked = 0;
+        let iconsFound = 0;
+
+        iconSizes.forEach(size => {
+            fetch(`assets/icons/icon-${size}x${size}.png`, { method: 'HEAD' })
+                .then(response => {
+                    iconsChecked++;
+                    if (response.ok) iconsFound++;
+
+                    if (iconsChecked === iconSizes.length) {
+                        addCheck(
+                            '7. PWA Icons',
+                            iconsFound === iconSizes.length ? 'success' : 'warning',
+                            `${iconsFound}/${iconSizes.length} icone PWA trovate`,
+                            iconSizes.map(s => `${s}x${s}: ${iconsFound >= iconsChecked ? '✓' : '✗'}`)
+                        );
+                    }
+                });
+        });
+
+        // Check 8: App in Standalone Mode
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches ||
+                            window.navigator.standalone === true;
+        addCheck(
+            '8. Standalone Mode',
+            isStandalone ? 'success' : 'warning',
+            isStandalone
+                ? 'L\'app è in esecuzione in modalità standalone (installata) ✓'
+                : 'L\'app è in esecuzione nel browser (non ancora installata)'
+        );
+    </script>
+</body>
+</html>
