@@ -14,11 +14,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Input validation tests: empty values, NaN, negative values, zero values
   - Calculation accuracy tests with known inputs/outputs
   - Test scripts: `npm test`, `npm run test:watch`, `npm run test:coverage`
-  - GitHub Actions workflow for continuous integration
-  - Tests run automatically on push to main/develop branches
+  - Test documentation in `tests/README.md` and `TESTING.md`
+- **Unified CI/CD Pipeline**
+  - Single GitHub Actions workflow for test + deploy
+  - Automatic deployment to GitHub Pages after tests pass
+  - Manual workflow dispatch with emergency options
+  - `skip_tests` option for emergency deploys (bypasses tests)
+  - `deploy` option to force deploy on non-main branches
+  - Intelligent job dependencies: deploy only if tests pass
+  - Detailed summary report for each run
   - Multi-version Node.js testing (18.x, 20.x)
-  - Coverage reports generated automatically
-  - Test documentation in `tests/README.md`
+  - Coverage reports uploaded to Codecov automatically
+  - Complete documentation in `.github/workflows/README.md`
+- **Node.js Development Server**
+  - Added `serve` package for local development
+  - New npm scripts: `npm start` and `npm run dev`
+  - Replaces Python HTTP server with faster Node.js alternative
+  - Same functionality, same port (8000)
+  - Documentation in `DEVELOPMENT.md`
 
 ### Changed
 - **Code Refactoring - Naming Convention Standardization**
