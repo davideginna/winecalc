@@ -85,6 +85,14 @@
     "madeWith": "Fatto con",
     "by": "da"
   },
+  "pwa": {
+    "install": {
+      "title": "Installa WineCalc",
+      "description": "Accedi ai calcolatori anche offline!",
+      "button": "Installa",
+      "dismiss": "Più tardi"
+    }
+  },
   "errors": {
     "volumeRequired": "Il volume è obbligatorio",
     "positiveValue": "Il valore deve essere positivo",

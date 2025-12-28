@@ -471,3 +471,107 @@ footer a:hover {
         border-width: 2px;
     }
 }
+
+/* PWA Install Banner */
+.pwa-install-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--wine-primary), var(--wine-secondary));
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1040;
+    transform: translateY(100%);
+    transition: transform 0.3s ease-in-out;
+    display: none;
+}
+
+.pwa-install-banner.show {
+    display: block;
+    transform: translateY(0);
+}
+
+.pwa-install-banner .container-fluid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pwa-install-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.pwa-install-banner-text {
+    flex: 1;
+}
+
+.pwa-install-banner-text h6 {
+    margin: 0 0 0.25rem 0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.pwa-install-banner-text p {
+    margin: 0;
+    font-size: 0.875rem;
+    opacity: 0.95;
+}
+
+.pwa-install-banner-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.pwa-install-banner .btn {
+    white-space: nowrap;
+}
+
+.pwa-install-banner .btn-light {
+    background: white;
+    color: var(--wine-primary);
+    border: none;
+    font-weight: 600;
+}
+
+.pwa-install-banner .btn-light:hover {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--wine-primary);
+}
+
+.pwa-install-banner .btn-close-white {
+    filter: brightness(0) invert(1);
+}
+
+/* Mobile adjustments for PWA banner */
+@media (max-width: 576px) {
+    .pwa-install-banner {
+        padding: 0.75rem;
+    }
+
+    .pwa-install-banner-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .pwa-install-banner-text h6 {
+        font-size: 0.9rem;
+    }
+
+    .pwa-install-banner-text p {
+        font-size: 0.8rem;
+    }
+
+    .pwa-install-banner-actions {
+        width: 100%;
+    }
+
+    .pwa-install-banner-actions .btn {
+        flex: 1;
+    }
+}

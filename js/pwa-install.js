@@ -46,17 +46,30 @@ window.addEventListener('beforeinstallprompt', (event) => {
   // Store the event for later use
   deferredPrompt = event;
 
-  // Show custom install button
+  // Check if dismiss preference has expired
+  checkDismissExpiry();
+
+  // Show custom install banner
   showInstallButton();
 });
 
-// Show install button
+// Show install banner
 function showInstallButton() {
+  // Check if user previously dismissed the banner
+  const dismissed = localStorage.getItem('pwa-install-dismissed');
+  if (dismissed === 'true') {
+    return;
+  }
+
+  const installBanner = document.getElementById('pwa-install-banner');
   const installButton = document.getElementById('pwa-install-button');
+  const dismissButton = document.getElementById('pwa-install-dismiss');
 
-  if (installButton) {
-    installButton.style.display = 'block';
+  if (installBanner && installButton) {
+    // Show the banner with animation
+    installBanner.classList.add('show');
 
+    // Handle install button click
     installButton.addEventListener('click', async () => {
       if (!deferredPrompt) return;
 
@@ -70,9 +83,33 @@ function showInstallButton() {
       // Clear the deferred prompt
       deferredPrompt = null;
 
-      // Hide the install button
-      installButton.style.display = 'none';
+      // Hide the banner
+      installBanner.classList.remove('show');
     });
+
+    // Handle dismiss button click
+    if (dismissButton) {
+      dismissButton.addEventListener('click', () => {
+        // Hide the banner
+        installBanner.classList.remove('show');
+
+        // Remember user preference for 7 days
+        localStorage.setItem('pwa-install-dismissed', 'true');
+        localStorage.setItem('pwa-install-dismissed-date', new Date().toISOString());
+      });
+    }
+  }
+}
+
+// Check if dismiss preference has expired (7 days)
+function checkDismissExpiry() {
+  const dismissDate = localStorage.getItem('pwa-install-dismissed-date');
+  if (dismissDate) {
+    const daysSinceDismiss = (new Date() - new Date(dismissDate)) / (1000 * 60 * 60 * 24);
+    if (daysSinceDismiss > 7) {
+      localStorage.removeItem('pwa-install-dismissed');
+      localStorage.removeItem('pwa-install-dismissed-date');
+    }
   }
 }
 
@@ -126,14 +163,18 @@ window.addEventListener('load', () => {
 window.addEventListener('appinstalled', (event) => {
   console.log('✅ PWA installed successfully');
 
-  // Hide install button
-  const installButton = document.getElementById('pwa-install-button');
-  if (installButton) {
-    installButton.style.display = 'none';
+  // Hide install banner
+  const installBanner = document.getElementById('pwa-install-banner');
+  if (installBanner) {
+    installBanner.classList.remove('show');
   }
 
   // Clear the deferred prompt
   deferredPrompt = null;
+
+  // Clear dismiss preference
+  localStorage.removeItem('pwa-install-dismissed');
+  localStorage.removeItem('pwa-install-dismissed-date');
 
   // Track analytics
   // trackEvent('pwa', 'install');

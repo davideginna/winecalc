@@ -85,6 +85,14 @@
     "madeWith": "Erstellt mit",
     "by": "von"
   },
+  "pwa": {
+    "install": {
+      "title": "WineCalc installieren",
+      "description": "Zugriff auf Rechner auch offline!",
+      "button": "Installieren",
+      "dismiss": "Später"
+    }
+  },
   "errors": {
     "volumeRequired": "Volumen ist erforderlich",
     "positiveValue": "Wert muss positiv sein",

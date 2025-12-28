@@ -12,15 +12,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Full PWA implementation with offline functionality
   - App can now be installed on mobile and desktop devices
   - Service Worker caching for offline access
-  - Install prompt handler with custom install button
+  - **Custom install banner** - Beautiful bottom banner with install/dismiss buttons
+  - Install banner remembers user preference for 7 days when dismissed
   - Update notifications for new versions
-  - 8 optimized PWA icons (72x72 to 512x512)
+  - 8 optimized PWA icons generated from logo-sfondo.png (72x72 to 512x512)
   - Web App Manifest with shortcuts to Calculators and Formulas pages
   - Apple iOS PWA support (apple-touch-icon, meta tags)
   - Cache-first strategy for static resources (HTML, CSS, JS, Bootstrap, i18next)
   - Runtime caching for dynamic resources (calculators, translations, formulas)
   - PWA utility functions (isPWA detection, cache clearing, update checking)
   - Automatic cache versioning (v1.3.0)
+  - Install banner translations in all 5 languages (IT, EN, FR, ES, DE)
 - **Diammonium Phosphate (DAP) Calculators (3 variants)**
   - **DAP Pre-Fermentation Calculator**
     - Determines amount of DAP needed to increase YAN (Yeast Assimilable Nitrogen) before fermentation
@@ -58,10 +60,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **PWA Files Created**
   - Created `/manifest.json` - Web App Manifest with app metadata, icons, shortcuts
   - Created `/service-worker.js` - Service Worker with precaching and runtime caching
-  - Created `/js/pwa-install.js` - Install prompt handler and update notifications
-  - Generated 8 PWA icon sizes from existing favicon (72x72, 96x96, 128x128, 144x144, 152x152, 192x192, 384x384, 512x512)
-  - Added PWA references to `index.html` (manifest link, theme-color meta, apple-touch-icon, pwa-install.js)
-  - Added PWA references to `formulas.html` (manifest link, theme-color meta, apple-touch-icon, pwa-install.js)
+  - Created `/js/pwa-install.js` - Install prompt handler with banner management and localStorage persistence
+  - Generated 8 PWA icon sizes from `assets/img/logo-sfondo.png` (72x72, 96x96, 128x128, 144x144, 152x152, 192x192, 384x384, 512x512)
+  - Added PWA install banner HTML to `index.html` and `formulas.html`
+  - Added PWA banner styles to `css/styles.css` with responsive mobile layout
+  - Added PWA references to both HTML files (manifest link, theme-color meta, apple-touch-icon, pwa-install.js)
+  - Added PWA install translations to all 5 `locales/*/common.json` files (pwa.install.title, description, button, dismiss)
 - Created `js/calculators/dap-pre-fermentation.js` with YAN difference calculation
 - Created `js/calculators/dap-addition.js` with simple DAP amount calculation
 - Created `js/calculators/yan-dap-converter.js` with bidirectional conversion logic

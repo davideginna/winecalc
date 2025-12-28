@@ -85,6 +85,14 @@
     "madeWith": "Hecho con",
     "by": "por"
   },
+  "pwa": {
+    "install": {
+      "title": "Instalar WineCalc",
+      "description": "¡Accede a las calculadoras incluso sin conexión!",
+      "button": "Instalar",
+      "dismiss": "Más tarde"
+    }
+  },
   "errors": {
     "volumeRequired": "El volumen es obligatorio",
     "positiveValue": "El valor debe ser positivo",
