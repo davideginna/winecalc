@@ -45,6 +45,18 @@
     "creme-of-tartar": {
       "title": "Weinstein",
       "description": "Berechnen Sie Weinstein-Zugabe für Kältestabilisierung"
+    },
+    "dap-pre-fermentation": {
+      "title": "DAP (Vor-Gärung)",
+      "description": "Berechnen Sie DAP zur Erhöhung von YAN vor der Gärung"
+    },
+    "dap-addition": {
+      "title": "DAP-Zugabe",
+      "description": "Berechnen Sie DAP-Zugabe während der Gärung"
+    },
+    "yan-dap-converter": {
+      "title": "YAN/DAP-Konverter",
+      "description": "Konvertieren zwischen YAN und DAP"
     }
   },
   "common": {
@@ -78,7 +90,9 @@
     "positiveValue": "Wert muss positiv sein",
     "targetGreaterThanCurrent": "Zielwert muss größer als aktueller Wert sein",
     "invalidRange": "Wert außerhalb des zulässigen Bereichs",
-    "calculationError": "Berechnungsfehler"
+    "calculationError": "Berechnungsfehler",
+    "invalidInput": "Bitte geben Sie mindestens einen gültigen Wert ein",
+    "invalidVolume": "Volumen muss größer als Null sein"
   },
   "units": {
     "liters": "L",

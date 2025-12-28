@@ -1,0 +1,17 @@
+{
+  "yanAmount": "Quantità di YAN (mg/L)",
+  "dapAmount": "Quantità di DAP (mg/L)",
+  "results": {
+    "yanResult": "YAN equivalente",
+    "dapResult": "DAP equivalente"
+  },
+  "info": "Questo calcolo assume che circa 4.7 mg/L di DAP equivalgano a 1 mg/L di YAN. L'azoto assimilabile dal lievito (YAN), quando misurato chimicamente, è solitamente riportato come la somma della concentrazione di azoto aminico libero degli amminoacidi primari (FAN) (esclusa la Prolina) e della concentrazione di azoto ammoniacale: YAN (azoto assimilabile dal lievito) = FAN (azoto aminico libero) + Azoto ammoniacale. Inserire uno dei due valori per convertirlo. Se si inseriscono entrambi i valori, la conversione da YAN a DAP avrà la precedenza.",
+  "formula": {
+    "description": "Formula per conversione YAN/DAP",
+    "steps": [
+      "DAP (mg/L) = YAN (mg/L) × 4.7",
+      "YAN (mg/L) = DAP (mg/L) / 4.7",
+      "Dove 4.7 mg/L DAP ≈ 1 mg/L YAN"
+    ]
+  }
+}

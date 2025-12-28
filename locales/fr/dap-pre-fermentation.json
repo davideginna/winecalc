@@ -1,0 +1,18 @@
+{
+  "initialYan": "Niveau initial mesuré de YAN (mg/L)",
+  "requiredYan": "Niveau requis de YAN initial (mg/L)",
+  "volume": "Volume ou quantité de fermentation (L ou kg)",
+  "volumeUnit": "Unité de volume",
+  "results": {
+    "dapAmount": "DAP à ajouter"
+  },
+  "info": "Ce calculateur détermine la quantité de DAP nécessaire pour augmenter le YAN d'une quantité donnée, en supposant que 1 mg/L de YAN équivaut à environ 4,7 mg/L de DAP. NOTES IMPORTANTES : • Ce calcul est valable lorsque le niveau de YAN a été prédéterminé avant ou à la récolte et avant le début de la fermentation • Une analyse YAN peut être effectuée dans la semaine précédant la récolte • Le YAN total ne doit pas dépasser 400 mg/L car la levure pourrait ne pas consommer plus que cette quantité • L'exigence minimale de YAN pour une fermentation sans risque de jus clarifié en conditions anaérobies devrait dépasser environ 150 mg/L • La teneur en YAN d'un jus doit être déterminée par analyse chimique avant d'effectuer un ajout de DAP • Si YAN est <150 mg/L, le DAP doit être ajouté avant l'inoculation pour assurer une formation adéquate de biomasse de levure • Cette formule ne tient pas compte du rapport entre le jus et les solides (peaux de raisin, pépins, etc.)",
+  "formula": {
+    "description": "Formule de calcul du DAP (pré-fermentation)",
+    "steps": [
+      "Différence YAN (mg/L) = YAN requis - YAN initial",
+      "Quantité DAP (g) = (Différence YAN × Volume) / (4,7 × 1000)",
+      "Où 4,7 mg/L DAP ≈ 1 mg/L YAN"
+    ]
+  }
+}

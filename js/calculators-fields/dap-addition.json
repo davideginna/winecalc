@@ -1,0 +1,41 @@
+{
+  "info": true,
+  "alertType": "warning",
+  "fields": [
+    {
+      "id": "dapRequired",
+      "type": "number",
+      "label": "dapRequired",
+      "step": "0.1",
+      "min": "0",
+      "placeholder": "500"
+    },
+    {
+      "id": "volume",
+      "type": "number",
+      "label": "volume",
+      "step": "0.01",
+      "min": "0",
+      "placeholder": "1000"
+    },
+    {
+      "id": "volumeUnit",
+      "type": "select",
+      "label": "volumeUnit",
+      "options": [
+        { "value": "L", "label": "L" },
+        { "value": "kg", "label": "kg" }
+      ]
+    }
+  ],
+  "results": {
+    "order": ["dapAmount"],
+    "units": {
+      "dapAmount": "g"
+    },
+    "decimals": {
+      "dapAmount": 2
+    },
+    "formula": true
+  }
+}

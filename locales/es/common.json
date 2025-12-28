@@ -45,6 +45,18 @@
     "creme-of-tartar": {
       "title": "Cremor Tártaro",
       "description": "Calcula adición de cremor tártaro para estabilización en frío"
+    },
+    "dap-pre-fermentation": {
+      "title": "DAP (Pre-Fermentación)",
+      "description": "Calcula DAP para aumentar YAN antes de la fermentación"
+    },
+    "dap-addition": {
+      "title": "Adición de DAP",
+      "description": "Calcula adición de DAP durante la fermentación"
+    },
+    "yan-dap-converter": {
+      "title": "Convertidor YAN/DAP",
+      "description": "Convierte entre YAN y DAP"
     }
   },
   "common": {
@@ -78,7 +90,9 @@
     "positiveValue": "El valor debe ser positivo",
     "targetGreaterThanCurrent": "El valor objetivo debe ser mayor que el actual",
     "invalidRange": "Valor fuera del rango permitido",
-    "calculationError": "Error de cálculo"
+    "calculationError": "Error de cálculo",
+    "invalidInput": "Por favor ingrese al menos un valor válido",
+    "invalidVolume": "El volumen debe ser mayor que cero"
   },
   "units": {
     "liters": "L",

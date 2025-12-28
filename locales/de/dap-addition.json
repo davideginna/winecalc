@@ -1,0 +1,15 @@
+{
+  "dapRequired": "Erforderliche DAP-Menge (mg/L)",
+  "volume": "Volumen oder Menge der Gärung (L oder kg)",
+  "volumeUnit": "Volumeneinheit",
+  "results": {
+    "dapAmount": "Zuzufügendes DAP"
+  },
+  "info": "Diese Berechnung ist nützlich für die Zugabe von DAP zu einem gärenden Most. WICHTIGE HINWEISE: • Wenn H₂S während der ersten Hälfte der Gärung festgestellt wird, können bis zu 100 mg/L YAN (ca. 500 mg/L DAP) zugegeben werden, aber beachten Sie, dass nicht alle Hefestämme auf DAP-Zugabe reagieren • H₂S, das während der späten Stadien der Gärung produziert wird, reagiert nicht auf DAP-Zugabe • DAP-Zugaben sollten mit Vorsicht erfolgen, da: Restlicher Stickstoff kann das Wachstum von Verderbnishefen nach der Gärung stimulieren; Restliches Phosphat erhöht den Phosphatgehalt des Weins, der 400 mg/L als Phosphor nicht überschreiten sollte (beachten Sie, dass 1,7 g/L DAP 400 mg/L Phosphor entspricht, bei der Berechnung des Gesamtphosphors den Phosphatgehalt des Mostes berücksichtigen) • Diese Formel berücksichtigt nicht das Verhältnis von Most zu Feststoffen (Traubenschalen, Kerne usw.)",
+  "formula": {
+    "description": "Formel zur DAP-Zugabeberechnung",
+    "steps": [
+      "DAP-Menge (g) = (DAP mg/L × Volumen L) / 1000"
+    ]
+  }
+}

@@ -55,6 +55,30 @@
       "icon": "bi-snow",
       "jsFile": "js/calculators/creme-of-tartar.js",
       "priority": 8
+    },
+    {
+      "id": "dap-pre-fermentation",
+      "enabled": true,
+      "category": "chemical",
+      "icon": "bi-flask",
+      "jsFile": "js/calculators/dap-pre-fermentation.js",
+      "priority": 9
+    },
+    {
+      "id": "dap-addition",
+      "enabled": true,
+      "category": "chemical",
+      "icon": "bi-plus-circle",
+      "jsFile": "js/calculators/dap-addition.js",
+      "priority": 10
+    },
+    {
+      "id": "yan-dap-converter",
+      "enabled": true,
+      "category": "reference",
+      "icon": "bi-arrow-left-right",
+      "jsFile": "js/calculators/yan-dap-converter.js",
+      "priority": 11
     }
   ]
 }

@@ -45,6 +45,18 @@
     "creme-of-tartar": {
       "title": "Crème de Tartre",
       "description": "Calculez l'ajout de crème de tartre pour stabilisation à froid"
+    },
+    "dap-pre-fermentation": {
+      "title": "DAP (Pré-Fermentation)",
+      "description": "Calculez le DAP pour augmenter le YAN avant la fermentation"
+    },
+    "dap-addition": {
+      "title": "Ajout de DAP",
+      "description": "Calculez l'ajout de DAP pendant la fermentation"
+    },
+    "yan-dap-converter": {
+      "title": "Convertisseur YAN/DAP",
+      "description": "Convertir entre YAN et DAP"
     }
   },
   "common": {
@@ -78,7 +90,9 @@
     "positiveValue": "La valeur doit être positive",
     "targetGreaterThanCurrent": "La valeur cible doit être supérieure à l'actuelle",
     "invalidRange": "Valeur hors de la plage autorisée",
-    "calculationError": "Erreur de calcul"
+    "calculationError": "Erreur de calcul",
+    "invalidInput": "Veuillez entrer au moins une valeur valide",
+    "invalidVolume": "Le volume doit être supérieur à zéro"
   },
   "units": {
     "liters": "L",

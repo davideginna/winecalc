@@ -1,0 +1,49 @@
+{
+  "info": true,
+  "alertType": "info",
+  "fields": [
+    {
+      "id": "initialYan",
+      "type": "number",
+      "label": "initialYan",
+      "step": "0.1",
+      "min": "0",
+      "placeholder": "100"
+    },
+    {
+      "id": "requiredYan",
+      "type": "number",
+      "label": "requiredYan",
+      "step": "0.1",
+      "min": "0",
+      "placeholder": "200"
+    },
+    {
+      "id": "volume",
+      "type": "number",
+      "label": "volume",
+      "step": "0.01",
+      "min": "0",
+      "placeholder": "1000"
+    },
+    {
+      "id": "volumeUnit",
+      "type": "select",
+      "label": "volumeUnit",
+      "options": [
+        { "value": "L", "label": "L" },
+        { "value": "kg", "label": "kg" }
+      ]
+    }
+  ],
+  "results": {
+    "order": ["dapAmount"],
+    "units": {
+      "dapAmount": "g"
+    },
+    "decimals": {
+      "dapAmount": 2
+    },
+    "formula": true
+  }
+}

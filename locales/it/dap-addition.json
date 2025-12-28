@@ -1,0 +1,15 @@
+{
+  "dapRequired": "Quantità di DAP richiesta (mg/L)",
+  "volume": "Volume o quantità di mosto (L o kg)",
+  "volumeUnit": "Unità volume",
+  "results": {
+    "dapAmount": "DAP da aggiungere"
+  },
+  "info": "Questo calcolo è utile per aggiungere DAP a un mosto in fermentazione. NOTE IMPORTANTI: • Se viene rilevato H₂S durante la prima metà della fermentazione, si possono aggiungere fino a 100 mg/L di YAN (circa 500 mg/L di DAP), ma non tutti i ceppi di lievito rispondono all'aggiunta di DAP • L'H₂S prodotto durante le fasi finali della fermentazione non risponde all'aggiunta di DAP • Le aggiunte di DAP devono essere effettuate con cura poiché: l'azoto residuo può stimolare la crescita di lieviti alteranti dopo la fermentazione; il fosfato residuo aumenta il contenuto di fosfato del vino, che non deve superare 400 mg/L come fosforo (1.7 g/L DAP equivale a 400 mg/L fosforo, nel calcolo del fosforo totale considerare il contenuto di fosfato del mosto) • Questa formula non tiene conto del rapporto tra mosto e solidi (bucce d'uva, semi, ecc.)",
+  "formula": {
+    "description": "Formula per calcolo aggiunta DAP",
+    "steps": [
+      "Quantità DAP (g) = (DAP mg/L × Volume L) / 1000"
+    ]
+  }
+}

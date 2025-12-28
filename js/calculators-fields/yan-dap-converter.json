@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "id": "yanAmount",
+      "type": "number",
+      "label": "yanAmount",
+      "step": "0.1",
+      "min": "0",
+      "placeholder": "150",
+      "required": false
+    },
+    {
+      "id": "dapAmount",
+      "type": "number",
+      "label": "dapAmount",
+      "step": "0.1",
+      "min": "0",
+      "placeholder": "705",
+      "required": false
+    }
+  ],
+  "results": {
+    "order": ["yanResult", "dapResult"],
+    "units": {
+      "yanResult": "mg/L",
+      "dapResult": "mg/L"
+    },
+    "decimals": {
+      "yanResult": 2,
+      "dapResult": 2
+    },
+    "formula": true
+  }
+}

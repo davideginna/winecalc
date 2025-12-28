@@ -1,0 +1,15 @@
+{
+  "dapRequired": "Amount of DAP required (mg/L)",
+  "volume": "Volume or quantity of ferment (L or kg)",
+  "volumeUnit": "Volume unit",
+  "results": {
+    "dapAmount": "DAP to add"
+  },
+  "info": "This calculation is useful for adding DAP to a fermenting must. IMPORTANT NOTES: • If H₂S is detected during the first half of fermentation up to 100 mg/L of YAN (approx. 500 mg/L of DAP) can be added, but note that not all yeast strains respond to DAP addition • H₂S that is produced during the late stages of fermentation does not respond to DAP addition • DAP additions should be made with care since: residual nitrogen can stimulate growth of spoilage yeast following fermentation; residual phosphate increases the phosphate content of wine, which should not exceed 400 mg/L as phosphorus (note that 1.7 g/L DAP is equivalent to 400 mg/L phosphorous, when calculating total phosphorus, take into account juice/must phosphate content) • This formula does not take into account the ratio of juice to solids (grape skins, seeds, etc.)",
+  "formula": {
+    "description": "Formula for DAP addition calculation",
+    "steps": [
+      "DAP amount (g) = (DAP mg/L × Volume L) / 1000"
+    ]
+  }
+}

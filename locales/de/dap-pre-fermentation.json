@@ -1,0 +1,18 @@
+{
+  "initialYan": "Anfänglicher gemessener YAN-Wert (mg/L)",
+  "requiredYan": "Erforderlicher YAN-Startwert (mg/L)",
+  "volume": "Volumen oder Menge der Gärung (L oder kg)",
+  "volumeUnit": "Volumeneinheit",
+  "results": {
+    "dapAmount": "Zuzufügendes DAP"
+  },
+  "info": "Dieser Rechner bestimmt die Menge an DAP, die benötigt wird, um YAN um einen bestimmten Betrag zu erhöhen, unter der Annahme, dass 1 mg/L YAN ca. 4,7 mg/L DAP entspricht. WICHTIGE HINWEISE: • Diese Berechnung ist gültig, wenn der YAN-Wert vor oder bei der Ernte und vor Beginn der Gärung vorbestimmt wurde • Eine YAN-Analyse kann innerhalb einer Woche vor der Ernte durchgeführt werden • Der Gesamt-YAN sollte 400 mg/L nicht überschreiten, da Hefe möglicherweise nicht mehr als diese Menge verbrauchen kann • Die Mindestanforderung an YAN für eine risikofreie Gärung von geklärtem Most unter anaeroben Bedingungen sollte ca. 150 mg/L überschreiten • Der YAN-Gehalt eines Mostes sollte durch chemische Analyse bestimmt werden, bevor eine DAP-Zugabe erfolgt • Wenn YAN <150 mg/L ist, sollte DAP vor der Beimpfung zugegeben werden, um eine angemessene Bildung von Hefebiomasse sicherzustellen • Diese Formel berücksichtigt nicht das Verhältnis von Most zu Feststoffen (Traubenschalen, Kerne usw.)",
+  "formula": {
+    "description": "Formel zur DAP-Berechnung (Vor-Gärung)",
+    "steps": [
+      "YAN-Differenz (mg/L) = Erforderlicher YAN - Anfänglicher YAN",
+      "DAP-Menge (g) = (YAN-Differenz × Volumen) / (4,7 × 1000)",
+      "Wobei 4,7 mg/L DAP ≈ 1 mg/L YAN"
+    ]
+  }
+}

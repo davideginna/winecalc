@@ -8,8 +8,7 @@
       "label": "copperRate",
       "min": 0,
       "step": 0.01,
-      "placeholder": "0.5",
-      "required": true
+      "placeholder": "0.5"
     },
     {
       "id": "volume",
@@ -17,8 +16,7 @@
       "label": "volume",
       "min": 0,
       "step": 0.1,
-      "placeholder": "750",
-      "required": true
+      "placeholder": "750"
     },
     {
       "id": "volumeUnit",
@@ -27,8 +25,7 @@
       "options": [
         { "value": "mL", "label": "mL" },
         { "value": "L", "label": "L" }
-      ],
-      "required": true
+      ]
     },
     {
       "id": "stockConcentration",
@@ -36,8 +33,7 @@
       "label": "stockConcentration",
       "min": 0,
       "step": 0.1,
-      "placeholder": "10",
-      "required": true
+      "placeholder": "10"
     },
     {
       "id": "stockUnit",
@@ -46,8 +42,7 @@
       "options": [
         { "value": "percent", "label": "%" },
         { "value": "gPerL", "label": "g/L" }
-      ],
-      "required": true
+      ]
     }
   ],
   "results": {

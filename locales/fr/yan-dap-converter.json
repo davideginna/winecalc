@@ -1,0 +1,17 @@
+{
+  "yanAmount": "Quantité de YAN (mg/L)",
+  "dapAmount": "Quantité de DAP (mg/L)",
+  "results": {
+    "yanResult": "YAN équivalent",
+    "dapResult": "DAP équivalent"
+  },
+  "info": "Ce calcul suppose qu'environ 4,7 mg/L de DAP équivalent à 1 mg/L de YAN. L'azote assimilable par les levures (YAN), lorsqu'il est mesuré chimiquement, est généralement rapporté comme la somme de la concentration d'azote aminé libre des acides aminés primaires (FAN) (excluant la Proline) et de la concentration d'azote ammoniacal : YAN (azote assimilable par les levures) = FAN (azote aminé libre) + Azote ammoniacal. Entrer l'une des deux mesures pour la convertir. Si les deux valeurs sont saisies, la conversion de YAN en DAP a la priorité.",
+  "formula": {
+    "description": "Formule de conversion YAN/DAP",
+    "steps": [
+      "DAP (mg/L) = YAN (mg/L) × 4,7",
+      "YAN (mg/L) = DAP (mg/L) / 4,7",
+      "Où 4,7 mg/L DAP ≈ 1 mg/L YAN"
+    ]
+  }
+}

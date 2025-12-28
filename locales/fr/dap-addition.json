@@ -1,0 +1,15 @@
+{
+  "dapRequired": "Quantité de DAP requise (mg/L)",
+  "volume": "Volume ou quantité de fermentation (L ou kg)",
+  "volumeUnit": "Unité de volume",
+  "results": {
+    "dapAmount": "DAP à ajouter"
+  },
+  "info": "Ce calcul est utile pour ajouter du DAP à un moût en fermentation. NOTES IMPORTANTES : • Si H₂S est détecté pendant la première moitié de la fermentation, jusqu'à 100 mg/L de YAN (environ 500 mg/L de DAP) peuvent être ajoutés, mais notez que toutes les souches de levure ne répondent pas à l'ajout de DAP • Le H₂S produit pendant les dernières étapes de la fermentation ne répond pas à l'ajout de DAP • Les ajouts de DAP doivent être effectués avec précaution car : l'azote résiduel peut stimuler la croissance de levures d'altération après la fermentation ; le phosphate résiduel augmente la teneur en phosphate du vin, qui ne doit pas dépasser 400 mg/L en phosphore (notez que 1,7 g/L de DAP équivaut à 400 mg/L de phosphore, lors du calcul du phosphore total, tenir compte de la teneur en phosphate du jus/moût) • Cette formule ne tient pas compte du rapport entre le jus et les solides (peaux de raisin, pépins, etc.)",
+  "formula": {
+    "description": "Formule de calcul d'ajout de DAP",
+    "steps": [
+      "Quantité DAP (g) = (DAP mg/L × Volume L) / 1000"
+    ]
+  }
+}

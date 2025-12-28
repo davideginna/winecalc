@@ -5,6 +5,58 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-12-28
+
+### Added
+- **Diammonium Phosphate (DAP) Calculators (3 variants)**
+  - **DAP Pre-Fermentation Calculator**
+    - Determines amount of DAP needed to increase YAN (Yeast Assimilable Nitrogen) before fermentation
+    - Inputs: Initial YAN level (mg/L), Required YAN level (mg/L), Volume (L or kg)
+    - Calculates DAP in grams (2 decimals)
+    - Assumes 4.7 mg/L DAP ≈ 1 mg/L YAN
+    - Includes critical warnings about YAN limits (150-400 mg/L range)
+    - Instructions for pre-harvest YAN analysis and inoculation timing
+  - **DAP Addition Calculator**
+    - For adding DAP to fermenting must (during fermentation)
+    - Inputs: Amount of DAP required (mg/L), Volume (L or kg)
+    - Calculates DAP in grams (2 decimals)
+    - Includes warnings about H₂S removal timing and spoilage yeast risks
+    - Guidance on phosphate limits (400 mg/L as phosphorus)
+  - **YAN/DAP Converter**
+    - Bidirectional converter between YAN and DAP
+    - Inputs: YAN amount (mg/L) OR DAP amount (mg/L)
+    - Returns both YAN and DAP equivalents
+    - If both values entered, YAN to DAP conversion takes precedence
+    - Includes explanation of YAN composition (FAN + Ammonium nitrogen)
+    - Category: Reference Tools
+  - All three calculators include comprehensive technical notes about nitrogen management
+  - Complete formula documentation in formulas page
+  - Translations for all 5 languages (IT, EN, FR, ES, DE)
+- **Enhanced Notes for Copper Sulfate Calculators**
+  - Added 5 critical operational notes to both large and small volume calculators:
+    - Dilution and addition procedure (drip into tank while rummaging with gas)
+    - Sensory-based addition requirements
+    - Preference for copper sulfate over DAP for late-fermentation H₂S
+    - Formula ratio clarification (3.93 parts copper sulfate = 1 part Cu2+)
+    - Requirement for follow-up analysis verification
+  - Notes added to all 5 languages (IT, EN, FR, ES, DE)
+
+### Technical
+- Created `js/calculators/dap-pre-fermentation.js` with YAN difference calculation
+- Created `js/calculators/dap-addition.js` with simple DAP amount calculation
+- Created `js/calculators/yan-dap-converter.js` with bidirectional conversion logic
+- Created `js/calculators-fields/dap-pre-fermentation.json` with 4 fields (including volume unit selector)
+- Created `js/calculators-fields/dap-addition.json` with 3 fields (including volume unit selector)
+- Created `js/calculators-fields/yan-dap-converter.json` with optional fields for bidirectional input
+- Created `formulas/dap-pre-fermentation.html` template
+- Created `formulas/dap-addition.html` template
+- Created `formulas/yan-dap-converter.html` template
+- Updated `calculators-config.json` with 3 new entries (priorities 9, 10, 11)
+- Updated `formulas.html` with 3 new collapsible formula sections
+- Updated all 5 `locales/*/common.json` files with calculator titles and descriptions
+- Created 15 calculator-specific translation files (3 calculators × 5 languages)
+- Updated 10 copper sulfate translation files with enhanced operational notes
+
 ## [1.2.0] - 2025-12-27
 
 ### Added

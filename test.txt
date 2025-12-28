@@ -1,269 +1,52 @@
-Perfetto! L'applicazione WineCalc è stata creata con successo e testata. Ecco il riepilogo completo:                                                                                        
-                                                                                                                                                                                              
-  ✅ Applicazione Completata                                                                                                                                                                  
-                                                                                                                                                                                              
-  WineCalc è ora pronta e funzionante in locale!                                                                                                                                              
-                                                                                                                                                                                              
-  🎯 Cosa è stato implementato:                                                                                                                                                               
-                                                                                                                                                                                              
-  1. Homepage responsive con Bootstrap 5.3.3                                                                                                                                                  
-  2. Sistema multilingua completo (IT, EN, FR, ES, DE)                                                                                                                                        
-  3. 4 Calcolatori funzionanti:                                                                                                                                                               
-    - ✅ SO2 (Anidride Solforosa)                                                                                                                                                             
-    - ✅ Acid Addition (Aggiunta Acidi)                                                                                                                                                       
-    - ✅ Fortification (Fortificazione)                                                                                                                                                       
-    - ✅ General Conversion (Conversioni)                                                                                                                                                     
-  4. Tema personalizzato con palette ispirata al vino (bordeaux, oro, verde uva)                                                                                                              
-  5. README.md con istruzioni complete                                                                                                                                                        
-  6. .gitignore per repository pulito                                                                                                                                                         
-                                                                                                                                                                                              
-  ---                                                                                                                                                                                         
-  🚀 Come accedere all'applicazione                                                                                                                                                           
-                                                                                                                                                                                              
-  Da Computer:                                                                                                                                                                                
-                                                                                                                                                                                              
-  L'applicazione è già in esecuzione! Apri il browser e vai su:                                                                                                                               
-                                                                                                                                                                                              
-  http://localhost:8000                                                                                                                                                                       
-                                                                                                                                                                                              
-  Da Smartphone (stessa rete WiFi):                                                                                                                                                           
-                                                                                                                                                                                              
-  1. Trova l'IP del tuo computer:                                                                                                                                                             
-  ip addr show | grep "inet " | grep -v 127.0.0.1                                                                                                                                             
-  2. Sul telefono, apri il browser e vai su:                                                                                                                                                  
-  http://[TUO_IP]:8000                                                                                                                                                                        
-  2. Esempio: http://192.168.1.100:8000                                                                                                                                                       
-                                                                                                                                                                                              
-  ---                                                                                                                                                                                         
-  📤 Pubblicare su GitHub                                                                                                                                                                     
-                                                                                                                                                                                              
-  1. Crea il repository su GitHub:                                                                                                                                                            
-                                                                                                                                                                                              
-  # Inizializza git                                                                                                                                                                           
-  git init                                                                                                                                                                                    
-                                                                                                                                                                                              
-  # Aggiungi tutti i file                                                                                                                                                                     
-  git add .                                                                                                                                                                                   
-                                                                                                                                                                                              
-  # Primo commit                                                                                                                                                                              
-  git commit -m "Initial commit: WineCalc - Calcolatori Enologici Professionali"                                                                                                              
-                                                                                                                                                                                              
-  # Crea un nuovo repository su GitHub (vai su github.com/new)                                                                                                                                
-  # Poi collega il repository remoto:                                                                                                                                                         
-  git remote add origin https://github.com/TUO_USERNAME/winecalc.git                                                                                                                          
-                                                                                                                                                                                              
-  # Push del codice                                                                                                                                                                           
-  git branch -M main                                                                                                                                                                          
-  git push -u origin main                                                                                                                                                                     
-                                                                                                                                                                                              
-  2. Attiva GitHub Pages:                                                                                                                                                                     
-                                                                                                                                                                                              
-  1. Vai su Settings del repository                                                                                                                                                           
-  2. Scorri fino a Pages                                                                                                                                                                      
-  3. In Source seleziona: Branch main, Folder / (root)                                                                                                                                        
-  4. Salva                                                                                                                                                                                    
-                                                                                                                                                                                              
-  Dopo 1-2 minuti, l'app sarà disponibile su:                                                                                                                                                 
-  https://TUO_USERNAME.github.io/winecalc                                                                                                                                                     
-                                                                                                                                                                                              
-  ---                                                                                                                                                                                         
-  📱 Caratteristiche dell'App                                                                                                                                                                 
-                                                                                                                                                                                              
-  - Mobile-first: Ottimizzata per smartphone                                                                                                                                                  
-  - Ricerca: Barra di ricerca per filtrare i calcolatori                                                                                                                                      
-  - Multilingua: Switcher lingue nel menu                                                                                                                                                     
-  - Formule accurate: Basate su standard enologici                                                                                                                                   
-  - Design moderno: Interfaccia pulita e professionale                                                                                                                                        
-  - Offline-ready: Funziona anche senza connessione (dopo il primo caricamento)                                                                                                               
-                                                                                                                                                                                              
-  ---                                                                                                                                                                                         
-  🔧 Prossimi passi (opzionali)                                                                                                                                                               
-                                                                                                                                                                                              
-  Per espandere l'applicazione, puoi:                                                                                                                                                         
-                                                                                                                                                                                              
-  1. Aggiungere i rimanenti 30 calcolatori seguendo lo stesso pattern dei 4 implementati                                                                                                      
-  2. Implementare PWA per installazione su smartphone                                                                                                                                         
-  3. Aggiungere export PDF/CSV dei risultati                                                                                                                                                  
-  4. Creare grafici per visualizzare i dati                                                                                                                                                   
-  5. Aggiungere più lingue (es. Portoghese, Greco, etc.)                                                                                                                                      
-                                                                                                                                                                                              
-  Tutti i file sono nella directory /home/davide/Documents/personale/sitogit e sono pronti per essere modificati e estesi!                                                                    
-                                                                                                                                                                                              
-  Buona vinificazione! 🍷  
+https://www.awri.com.au/industry_support/winemaking_resources/calculators/diammonium_phosphate/
 
+3 calcolatori
 
+1 DIAMMONIUM PHOSPHATE (PRE-FERMENTATION) ADDITION
+input 
+Initial measured level of YAN mg/L
+Required level of starting YAN mg/L
+Volume of ferment or Quantity of ferment L oppure kg
 
-  ----------------------------------
-  📊 LISTA CALCOLATORI MANCANTI (26/34)                                                                                                                                                       
-                                                                                                                                                                                              
-  ✅ IMPLEMENTATI (8/34)                                                                                                                                                                      
-                                                                                                                                                                                              
-  1. SO2                                                                                                                                                                                      
-  2. Acid Addition                                                                                                                                                                            
-  3. Bentonite                                                                                                                                                                                
-  4. Fortification                                                                                                                                                                            
-  5. Water Addition                                                                                                                                                                           
-  6. Conversion (General)                                                                                                                                                                     
-  7. DAP                                                                                                                                                                                      
-  8. Ascorbic Acid                                                                                                                                                                            
-                                                                                                                                                                                              
-  ---                                                                                                                                                                                         
-  ⏳ MANCANTI (26/34)                                                                                                                                                                         
-                                                                                                                                                                                              
-  🔵 AGGIUNTE CHIMICHE (Semplici) - ~2500 token cad.                                                                                                                                          
-                                                                                                                                                                                              
-  9. Copper Sulfate (Solfato di rame - rimozione H2S)                                                                                                                                         
-    - Token stimati: ~2500                                                                                                                                                                    
-    - Formula: dosaggio × volume                                                                                                                                                              
-    - Note: limiti legali, cautele                                                                                                                                                            
-  10. Sorbic Acid (Acido sorbico - conservante)                                                                                                                                               
-    - Token stimati: ~2500                                                                                                                                                                    
-    - Formula: g/hL × volume                                                                                                                                                                  
-    - Note: combinazione con SO2                                                                                                                                                              
-  11. Tannin Addition (Aggiuntatannini)                                                                                                                                                       
-    - Token stimati: ~2800                                                                                                                                                                    
-    - Formula: dosaggio per stile vino                                                                                                                                                        
-    - Note: tipi tannino, timing                                                                                                                                                              
-  12. Isinglass (Colla di pesce - chiarifica)                                                                                                                                                 
-    - Token stimati: ~2600                                                                                                                                                                    
-    - Formula: g/hL, preparazione                                                                                                                                                             
-    - Note: idratazione, allergie                                                                                                                                                             
-  13. PVPP (Polivinilpolipirrolidone - rimozione polifenoli)                                                                                                                                  
-    - Token stimati: ~2700                                                                                                                                                                    
-    - Formula: dosaggio preventivo/correttivo                                                                                                                                                 
-    - Note: limiti, recupero                                                                                                                                                                  
-  14. PMS Addition (Potassium Metabisulfite - già coperto da SO2?)                                                                                                                            
-    - Token stimati: ~1500 (se separato)                                                                                                                                                      
-    - Potrebbe essere integrato in SO2    
-                                                                                                                                                                                                 
-  🟡 AGGIUNTE CHIMICHE (Medie) - ~3500 token cad.                                                                                                                                             
-                                                                                                                                                                                              
-  15. Deacidification (Disacidificazione)                                                                                                                                                     
-    - Token stimati: ~3800                                                                                                                                                                    
-    - Formule: K2CO3, CaCO3, KHCO3                                                                                                                                                            
-    - Note: precipitazione tartrati, pH                                                                                                                                                       
-  16. Crème of Tartar (Bitartrato di potassio)                                                                                                                                                
-    - Token stimati: ~3200                                                                                                                                                                    
-    - Formula: stabilizzazione tartarica                                                                                                                                                      
-    - Note: freddo preventivo                                                                                                                                                                 
-  17. Carbon Addition (Carbone attivo - decolorazione)                                                                                                                                        
-    - Token stimati: ~3500                                                                                                                                                                    
-    - Formula: dosaggio per difetto                                                                                                                                                           
-    - Note: rischi, sovradosaggio                                                                                                                                                             
-  18. Hydrogen Peroxide (Acqua ossigenata - rimozione H2S)                                                                                                                                    
-    - Token stimati: ~3400                                                                                                                                                                    
-    - Formula: dosaggio molto basso                                                                                                                                                           
-    - Note: pericoli, legalità                                                                                                                                                                
-                                                                                                                                                                                              
-  🟠 CALCOLI SPECIALIZZATI (Complessi) - ~4500 token cad.                                                                                                                                     
-                                                                                                                                                                                              
-  19. Ferro Cyanide Trial (Ferrocianuro - derame)                                                                                                                                             
-    - Token stimati: ~5000                                                                                                                                                                    
-    - Formula: trial bench + scala                                                                                                                                                            
-    - Note: molto pericoloso, precisione critica                                                                                                                                              
-  20. Fining Trial (Trial chiarifica generica)                                                                                                                                                
-    - Token stimati: ~4800                                                                                                                                                                    
-    - Formula: scala da bench a batch                                                                                                                                                         
-    - Note: multipli agenti                                                                                                                                                                   
-  21. GJC Addition (Pearson Square) (Concentrato mosto)                                                                                                                                       
-    - Token stimati: ~4200                                                                                                                                                                    
-    - Formula: Pearson Square                                                                                                                                                                 
-    - Note: regolamentazione, zuccheri                                                                                                                                                        
-  22. Micro-Oxygenation (Micro-ossigenazione)                                                                                                                                                 
-    - Token stimati: ~5500                                                                                                                                                                    
-    - Formula: mg O2/L/mese                                                                                                                                                                   
-    - Note: parametri tempo, temperatura                                                                                                                                                      
-  23. Molecular SO2 Addition (SO2 molecolare)                                                                                                                                                 
-    - Token stimati: ~4500                                                                                                                                                                    
-    - Formula: pH-dependent                                                                                                                                                                   
-    - Note: curve pH, efficacia                                                                                                                                                               
-                                                                                                                                                                                              
-  🟢 STRUMENTI RIFERIMENTO (Medi) - ~3000 token cad.
-                                                                                                                                                                                                
-  24. Acidity Units Interconversion (Conversione acidità)                                                                                                                                     
-    - Token stimati: ~3200                                                                                                                                                                    
-    - Formula: g/L ↔ % ↔ meq/L                                                                                                                                                                
-    - Note: acidi diversi                                                                                                                                                                     
-  25. Laboratory Stock Solution (Soluzioni stock laboratorio)                                                                                                                                 
-    - Token stimati: ~3500                                                                                                                                                                    
-    - Formula: molarità, diluizioni                                                                                                                                                           
-    - Note: conservazione                                                                                                                                                                     
-  26. Winery Stock Solution (Soluzioni stock cantina)                                                                                                                                         
-    - Token stimati: ~3400                                                                                                                                                                    
-    - Formula: preparazione additivi                                                                                                                                                          
-    - Note: stabilità                                                                                                                                                                         
-                                                                                                                                                                                              
-  🟣 ANALISI SENSORIALE (Statistici) - ~4000 token cad.                                                                                                                                       
-                                                                                                                                                                                              
-  27. Paired Preference Test (Test preferenza accoppiato)                                                                                                                                     
-    - Token stimati: ~4200                                                                                                                                                                    
-    - Formula: statistica binomiale                                                                                                                                                           
-    - Note: significatività                                                                                                                                                                   
-  28. Same/Different Test (Test uguale/diverso)                                                                                                                                               
-    - Token stimati: ~4000                                                                                                                                                                    
-    - Formula: test chi-quadro                                                                                                                                                                
-    - Note: panel size                                                                                                                                                                        
-  29. Duo-Trio Test (Test duo-trio)                                                                                                                                                           
-    - Token stimati: ~4100                                                                                                                                                                    
-    - Formula: probabilità                                                                                                                                                                    
-    - Note: design sperimentale                                                                                                                                                               
-  30. Paired Comparison Test (Confronto accoppiato)                                                                                                                                           
-    - Token stimati: ~3900                                                                                                                                                                    
-    - Formula: t-test                                                                                                                                                                         
-    - Note: scale rating                                                                                                                                                                      
-  31. Triangle Test (Test triangolo)                                                                                                                                                          
-    - Token stimati: ~4300                                                                                                                                                                    
-    - Formula: tavole statistiche                                                                                                                                                             
-    - Note: livelli confidenza                                                                                                                                                                
-                                                                                                                                                                                              
-  🔴 RISORSE AGGIUNTIVE (Complessi) - ~5000 token cad.                                                                                                                                        
-                                                                                                                                                                                              
-  32. Methanol Proportion Calculator (Proporzione metanolo)
-     - Token stimati: ~4500                                                                                                                                                                    
-    - Formula: da pectina, fermentazione                                                                                                                                                      
-    - Note: limiti sicurezza                                                                                                                                                                  
-  33. Number of Standard Drinks (Unità alcoliche standard)                                                                                                                                    
-    - Token stimati: ~3000                                                                                                                                                                    
-    - Formula: volume × ABV / 14g                                                                                                                                                             
-    - Note: standard internazionali                                                                                                                                                           
-  34. Winery Refrigeration Demand (Fabbisogno refrigerazione)                                                                                                                                 
-    - Token stimati: ~5800                                                                                                                                                                    
-    - Formula: BTU, kW, tonnellate                                                                                                                                                            
-    - Note: perdite, isolamento                                                                                                                                                               
-                                                                                                                                                                                              
-  ---                                                                                                                                                                                         
-  📈 STIMA TOKEN TOTALE                                                                                                                                                                       
-                                                                                                                                                                                              
-  | Categoria         | Calcolatori | Token Medi | Totale  |                                                                                                                                  
-  |-------------------|-------------|------------|---------|                                                                                                                                  
-  | Aggiunte Semplici | 6           | 2,600      | ~15,600 |                                                                                                                                  
-  | Aggiunte Medie    | 4           | 3,500      | ~14,000 |                                                                                                                                  
-  | Specializzati     | 5           | 4,800      | ~24,000 |                                                                                                                                  
-  | Riferimento       | 3           | 3,400      | ~10,200 |                                                                                                                                  
-  | Sensoriali        | 5           | 4,100      | ~20,500 |                                                                                                                                  
-  | Risorse           | 3           | 4,400      | ~13,200 |                                                                                                                                  
-  | TOTALE            | 26          | ~3,750     | ~97,500 |                                                                                                                                  
-                                                                                                                                                                                              
-  Token disponibili rimasti: ~110,000                                                                                                                                                         
-                                                                                                                                                                                              
-  Puoi implementarne circa: 29 calcolatori (tutti i mancanti!)                                                                                                                                
-                                                                                                                                                                                              
-  ---                                                                                                                                                                                         
-  🎯 RACCOMANDAZIONI PRIORITÀ                                                                                                                                                                 
-                                                                                                                                                                                              
-  ALTA (più usati in enologia):                                                                                                                                                               
-  - Copper Sulfate                                                                                                                                                                            
-  - Sorbic Acid                                                                                                                                                                               
-  - Tannin                                                                                                                                                                                    
-  - Deacidification                                                                                                                                                                           
-  - Micro-Oxygenation                                                                                                                                                                         
-                                                                                                                                                                                              
-  MEDIA (utili ma meno frequenti):                                                                                                                                                            
-  - PVPP                                                                                                                                                                                      
-  - Fining Trial                                                                                                                                                                              
-  - GJC Addition                  
-    - Acidity Interconversion                                                                                                                                                                   
-                                                                                                                                                                                              
-  BASSA (nice-to-have):                                                                                                                                                                       
-  - Test sensoriali (più accademici)                                                                                                                                                          
-  - Winery refrigeration             
+risultato g
+
+note: 
+This calculator determines the amount of DAP needed to increase YAN by a given amount, assuming 1 mg/L of YAN is equivalent to approx. 4.7 mg/L of DAP.
+This calculation is valid when YAN level has been pre-determined prior to or at harvest and before onset of fermentation. A YAN analysis can be carried out within one week before harvest.
+Total YAN should not exceed 400 mg/L since yeast might fail to consume more than this amount.
+The minimum requirement of YAN for a risk free fermentation of clarified juice under anaerobic conditions should exceed approx. 150 mg/L (reviewed by Bell & Henschke 2005, AWRI reprint #875).
+The YAN content of a juice should be determined by chemical analysis before making a DAP addition. Contact AWRI’s Analytical Service for further information.
+If YAN is <150 mg/L, DAP should be added before inoculation to ensure adequate formation of yeast biomass.
+This formula does not take into account the ratio of juice to solids (grape skins, seeds, etc.).
+
+2 DIAMMONIUM PHOSPHATE (NH4)2HPO4 ADDITION
+input 
+Amount of DAP required mg/l
+Volume of ferment or Quantity of ferment L oppure kg
+risultato g
+
+note:
+
+This calculation is useful for adding DAP to a fermenting must.
+If H2S is detected during the first half of fermentation up to 100 mg/L of YAN (approx. 500 mg/L of DAP) can be added, but note that not all yeast strains respond to DAP addition.
+H2S that is produced during the late stages of fermentation does not respond to DAP addition.
+DAP additions should be made with care since:
+Residual nitrogen can stimulate growth of spoilage yeast following fermentation.
+Residual phosphate increases the phosphate content of wine, which should not exceed 400 mg/L as phosphorus. Note that 1.7 g/L DAP is equivalent to 400 mg/L phosphorous, when calculating total phosphorus, take into account juice/must phosphate content.
+This formula does not take into account the ratio of juice to solids (grape skins, seeds, etc.).
+
+3 THE YAN EQUIVALENCE OF DIAMMONIUM PHOSPHATE
+input 
+Enter either measurement to convert it
+
+Amount of YAN mg/l
+Amount of DAP mg/L
+questo è un convertitore. converte YAN in DAP e viceversa. se si compila entrambi i campi input la coversione prevalente è YAN in DAP
+
+note
+This calculation assumes approx 4.7 mg/L of DAP is equivalent to 1 mg/L of YAN.
+Yeast assimilable nitrogen (YAN), when measured chemically, is usually reported as the sum of free amino nitrogen concentration of primary amino acids (FAN) (excluding Proline) and ammonium nitrogen concentration:
+YAN (yeast assimilable nitrogen) = FAN (free amino nitrogen) + Ammonium nitrogen
+
+There is considerable literature on the use of DAP and its implications on fermentation, contact the AWRI for advice and assistance on developing the correct management strategy applicable to your requirements.
+

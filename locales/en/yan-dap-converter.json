@@ -1,0 +1,17 @@
+{
+  "yanAmount": "Amount of YAN (mg/L)",
+  "dapAmount": "Amount of DAP (mg/L)",
+  "results": {
+    "yanResult": "YAN equivalent",
+    "dapResult": "DAP equivalent"
+  },
+  "info": "This calculation assumes approx 4.7 mg/L of DAP is equivalent to 1 mg/L of YAN. Yeast assimilable nitrogen (YAN), when measured chemically, is usually reported as the sum of free amino nitrogen concentration of primary amino acids (FAN) (excluding Proline) and ammonium nitrogen concentration: YAN (yeast assimilable nitrogen) = FAN (free amino nitrogen) + Ammonium nitrogen. Enter either measurement to convert it. If both values are entered, YAN to DAP conversion takes precedence.",
+  "formula": {
+    "description": "Formula for YAN/DAP conversion",
+    "steps": [
+      "DAP (mg/L) = YAN (mg/L) × 4.7",
+      "YAN (mg/L) = DAP (mg/L) / 4.7",
+      "Where 4.7 mg/L DAP ≈ 1 mg/L YAN"
+    ]
+  }
+}

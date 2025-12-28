@@ -1,0 +1,17 @@
+{
+  "yanAmount": "YAN-Menge (mg/L)",
+  "dapAmount": "DAP-Menge (mg/L)",
+  "results": {
+    "yanResult": "YAN-Äquivalent",
+    "dapResult": "DAP-Äquivalent"
+  },
+  "info": "Diese Berechnung nimmt an, dass ca. 4,7 mg/L DAP 1 mg/L YAN entsprechen. Hefeverwertbarer Stickstoff (YAN) wird, wenn chemisch gemessen, üblicherweise als Summe der Konzentration an freiem Aminostickstoff primärer Aminosäuren (FAN) (ohne Prolin) und Ammoniumstickstoffkonzentration angegeben: YAN (hefeverwertbarer Stickstoff) = FAN (freier Aminostickstoff) + Ammoniumstickstoff. Einen der beiden Werte eingeben, um ihn zu konvertieren. Wenn beide Werte eingegeben werden, hat die Konvertierung von YAN zu DAP Vorrang.",
+  "formula": {
+    "description": "Formel zur YAN/DAP-Konvertierung",
+    "steps": [
+      "DAP (mg/L) = YAN (mg/L) × 4,7",
+      "YAN (mg/L) = DAP (mg/L) / 4,7",
+      "Wobei 4,7 mg/L DAP ≈ 1 mg/L YAN"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "initialYan": "Livello iniziale misurato di YAN (mg/L)",
+  "requiredYan": "Livello richiesto di YAN iniziale (mg/L)",
+  "volume": "Volume o quantità di mosto (L o kg)",
+  "volumeUnit": "Unità volume",
+  "results": {
+    "dapAmount": "DAP da aggiungere"
+  },
+  "info": "Questo calcolatore determina la quantità di DAP necessaria per aumentare lo YAN di una data quantità, assumendo che 1 mg/L di YAN equivalga a circa 4.7 mg/L di DAP. NOTE IMPORTANTI: • Questo calcolo è valido quando il livello di YAN è stato predeterminato prima o al momento della vendemmia e prima dell'inizio della fermentazione • Un'analisi YAN può essere effettuata entro una settimana prima della vendemmia • Lo YAN totale non deve superare 400 mg/L poiché il lievito potrebbe non consumarne più di questa quantità • Il requisito minimo di YAN per una fermentazione senza rischi di mosto chiarificato in condizioni anaerobiche dovrebbe superare circa 150 mg/L • Il contenuto di YAN di un mosto deve essere determinato mediante analisi chimica prima di effettuare un'aggiunta di DAP • Se YAN è <150 mg/L, il DAP deve essere aggiunto prima dell'inoculazione per garantire un'adeguata formazione di biomassa di lievito • Questa formula non tiene conto del rapporto tra mosto e solidi (bucce d'uva, semi, ecc.)",
+  "formula": {
+    "description": "Formula per calcolo DAP (pre-fermentazione)",
+    "steps": [
+      "Differenza YAN (mg/L) = YAN richiesto - YAN iniziale",
+      "Quantità DAP (g) = (Differenza YAN × Volume) / (4.7 × 1000)",
+      "Dove 4.7 mg/L DAP ≈ 1 mg/L YAN"
+    ]
+  }
+}

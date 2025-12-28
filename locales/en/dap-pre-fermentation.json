@@ -1,0 +1,18 @@
+{
+  "initialYan": "Initial measured level of YAN (mg/L)",
+  "requiredYan": "Required level of starting YAN (mg/L)",
+  "volume": "Volume or quantity of ferment (L or kg)",
+  "volumeUnit": "Volume unit",
+  "results": {
+    "dapAmount": "DAP to add"
+  },
+  "info": "This calculator determines the amount of DAP needed to increase YAN by a given amount, assuming 1 mg/L of YAN is equivalent to approx. 4.7 mg/L of DAP. IMPORTANT NOTES: • This calculation is valid when YAN level has been pre-determined prior to or at harvest and before onset of fermentation • A YAN analysis can be carried out within one week before harvest • Total YAN should not exceed 400 mg/L since yeast might fail to consume more than this amount • The minimum requirement of YAN for a risk free fermentation of clarified juice under anaerobic conditions should exceed approx. 150 mg/L • The YAN content of a juice should be determined by chemical analysis before making a DAP addition • If YAN is <150 mg/L, DAP should be added before inoculation to ensure adequate formation of yeast biomass • This formula does not take into account the ratio of juice to solids (grape skins, seeds, etc.)",
+  "formula": {
+    "description": "Formula for DAP calculation (pre-fermentation)",
+    "steps": [
+      "YAN difference (mg/L) = Required YAN - Initial YAN",
+      "DAP amount (g) = (YAN difference × Volume) / (4.7 × 1000)",
+      "Where 4.7 mg/L DAP ≈ 1 mg/L YAN"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "dapRequired": "Cantidad de DAP requerida (mg/L)",
+  "volume": "Volumen o cantidad de fermentación (L o kg)",
+  "volumeUnit": "Unidad de volumen",
+  "results": {
+    "dapAmount": "DAP a agregar"
+  },
+  "info": "Este cálculo es útil para agregar DAP a un mosto en fermentación. NOTAS IMPORTANTES: • Si se detecta H₂S durante la primera mitad de la fermentación, se pueden agregar hasta 100 mg/L de YAN (aprox. 500 mg/L de DAP), pero tenga en cuenta que no todas las cepas de levadura responden a la adición de DAP • El H₂S que se produce durante las etapas finales de la fermentación no responde a la adición de DAP • Las adiciones de DAP deben realizarse con cuidado ya que: el nitrógeno residual puede estimular el crecimiento de levaduras de deterioro después de la fermentación; el fosfato residual aumenta el contenido de fosfato del vino, que no debe exceder 400 mg/L como fósforo (tenga en cuenta que 1,7 g/L de DAP equivale a 400 mg/L de fósforo, al calcular el fósforo total, tenga en cuenta el contenido de fosfato del mosto) • Esta fórmula no tiene en cuenta la proporción de mosto a sólidos (pieles de uva, semillas, etc.)",
+  "formula": {
+    "description": "Fórmula para cálculo de adición de DAP",
+    "steps": [
+      "Cantidad DAP (g) = (DAP mg/L × Volumen L) / 1000"
+    ]
+  }
+}

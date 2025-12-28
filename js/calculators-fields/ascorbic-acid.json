@@ -8,8 +8,7 @@
       "label": "additionRate",
       "min": 0,
       "step": 1,
-      "placeholder": "50",
-      "required": true
+      "placeholder": "50"
     },
     {
       "id": "volume",
@@ -17,8 +16,7 @@
       "label": "volume",
       "min": 0,
       "step": 0.1,
-      "placeholder": "100",
-      "required": true
+      "placeholder": "100"
     }
   ],
   "results": {

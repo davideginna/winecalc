@@ -1,0 +1,17 @@
+{
+  "yanAmount": "Cantidad de YAN (mg/L)",
+  "dapAmount": "Cantidad de DAP (mg/L)",
+  "results": {
+    "yanResult": "YAN equivalente",
+    "dapResult": "DAP equivalente"
+  },
+  "info": "Este cálculo asume que aprox. 4,7 mg/L de DAP equivalen a 1 mg/L de YAN. El nitrógeno asimilable por levaduras (YAN), cuando se mide químicamente, generalmente se reporta como la suma de la concentración de nitrógeno amino libre de aminoácidos primarios (FAN) (excluyendo Prolina) y concentración de nitrógeno amoniacal: YAN (nitrógeno asimilable por levaduras) = FAN (nitrógeno amino libre) + Nitrógeno amoniacal. Ingrese cualquiera de las dos medidas para convertirla. Si se ingresan ambos valores, la conversión de YAN a DAP tiene precedencia.",
+  "formula": {
+    "description": "Fórmula para conversión YAN/DAP",
+    "steps": [
+      "DAP (mg/L) = YAN (mg/L) × 4,7",
+      "YAN (mg/L) = DAP (mg/L) / 4,7",
+      "Donde 4,7 mg/L DAP ≈ 1 mg/L YAN"
+    ]
+  }
+}
