@@ -31,6 +31,22 @@
       "icon": "bi-circle-fill",
       "jsFile": "js/calculators/carbon.js",
       "priority": 5
+    },
+    {
+      "id": "copper-sulfate-large",
+      "enabled": true,
+      "category": "chemical",
+      "icon": "bi-hexagon",
+      "jsFile": "js/calculators/copper-sulfate-large.js",
+      "priority": 6
+    },
+    {
+      "id": "copper-sulfate-small",
+      "enabled": true,
+      "category": "chemical",
+      "icon": "bi-eyedropper",
+      "jsFile": "js/calculators/copper-sulfate-small.js",
+      "priority": 7
     }
   ]
 }

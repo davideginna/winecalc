@@ -32,6 +32,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Includes warnings about careful use
   - Complete formula documentation in formulas page
   - Translations for all 5 languages (IT, EN, FR, ES, DE)
+- **Copper Sulfate Calculators (2 variants)**
+  - **Large Volume Calculator** - for tanks, barrels, large volumes
+    - Calculates CuSO₄·5H₂O weight in grams
+    - Inputs: Desired Cu2+ addition rate (mg/L), Wine volume (L)
+    - Used to remove hydrogen sulfide (H₂S) and mercaptans
+  - **Small Volume Calculator** - for bench trials, glass, small volumes
+    - Calculates stock solution volume needed (mL and µL)
+    - Inputs: Cu2+ rate (mg/L), Volume (mL or L), Stock concentration (% or g/L)
+    - Supports unit selection for volume and concentration
+  - Both calculators include warnings about legal limits and proper use
+  - Complete formula documentation in formulas page
+  - Translations for all 5 languages (IT, EN, FR, ES, DE)
 - **Automatic Formula Translation System**
   - Generic translation system in `formulas.html` that works for all calculators
   - No need to modify JavaScript when adding new formulas
@@ -61,6 +73,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Fixed issue where calculators with hyphens in ID couldn't be found
   - Calculator IDs like "ascorbic-acid" now correctly resolve to `calculate_ascorbic_acid()`
   - Proper validation before executing calculator functions
+- **Mobile UI - Icon Circles**
+  - Fixed icon circles appearing oval instead of round on mobile devices
+  - Added `aspect-ratio: 1/1` and `flex-shrink: 0` to maintain perfect circles
+  - Added `min-width` and `min-height` constraints on mobile viewports
 
 ### Technical
 - Updated `js/modules/form-handler.js` to convert hyphens to underscores
@@ -69,16 +85,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Created `formulas/ascorbic-acid.html` template
 - Created `formulas/bentonite.html` template
 - Created `formulas/carbon.html` template
+- Created `formulas/copper-sulfate-large.html` template
+- Created `formulas/copper-sulfate-small.html` template
 - Created `js/calculators/ascorbic-acid.js` calculator module
 - Created `js/calculators/bentonite.js` calculator module
 - Created `js/calculators/carbon.js` calculator module
+- Created `js/calculators/copper-sulfate-large.js` calculator module
+- Created `js/calculators/copper-sulfate-small.js` calculator module
 - Created `js/calculators-fields/ascorbic-acid.json` field configuration
 - Created `js/calculators-fields/carbon.json` field configuration
+- Created `js/calculators-fields/copper-sulfate-large.json` field configuration
+- Created `js/calculators-fields/copper-sulfate-small.json` field configuration (with select fields)
 - Updated `js/calculators-fields/bentonite.json` field configuration
 - Created namespace translations in `locales/*/ascorbic-acid.json` (5 languages)
 - Created namespace translations in `locales/*/bentonite.json` (5 languages)
 - Created namespace translations in `locales/*/carbon.json` (5 languages)
+- Created namespace translations in `locales/*/copper-sulfate-large.json` (5 languages)
+- Created namespace translations in `locales/*/copper-sulfate-small.json` (5 languages)
 - Added field descriptions in all `locales/*/common.json` files
+- Updated `css/styles.css` to fix icon circle aspect ratio on mobile
 - Validated all JSON files for syntax correctness
 
 ## [1.1.0] - 2025-12-24

@@ -1,0 +1,22 @@
+{
+  "copperRate": "Gewünschte Zugaberate von Kupfer (Cu2+) (mg/L)",
+  "volume": "Volumen von Wein/Saft",
+  "volumeUnit": "Volumeneinheit",
+  "stockConcentration": "Konzentration der Stammlösung CuSO₄·5H₂O",
+  "stockUnit": "Konzentrationseinheit",
+  "results": {
+    "solutionVolumeMl": "Zuzufügendes Lösungsvolumen",
+    "solutionVolumeUl": "Zuzufügendes Lösungsvolumen"
+  },
+  "info": "Kupfersulfat wird verwendet, um Schwefelwasserstoff (H₂S) und Mercaptane aus dem Wein zu entfernen. Dieser Rechner ist für Versuche im kleinen Maßstab (Glas, Laborversuch). Mit Vorsicht verwenden und gesetzliche Grenzen beachten.",
+  "formula": {
+    "description": "Formel zur Berechnung des Kupfersulfatlösungsvolumens (kleine Volumina)",
+    "steps": [
+      "Gesamt-Cu (mg) = Cu²⁺ (mg/L) × Volumen (L)",
+      "Benötigtes CuSO₄·5H₂O (mg) = Gesamt-Cu (mg) / 0.2545",
+      "Wenn Stock in %, konvertieren: Stock (g/L) = % × 10",
+      "Lösungsvolumen (mL) = CuSO₄·5H₂O (mg) / Stock (g/L)",
+      "Lösungsvolumen (µL) = Volumen (mL) × 1000"
+    ]
+  }
+}

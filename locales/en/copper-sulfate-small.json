@@ -1,0 +1,22 @@
+{
+  "copperRate": "Desired addition rate of Copper (Cu2+) (mg/L)",
+  "volume": "Volume of wine/juice",
+  "volumeUnit": "Volume unit",
+  "stockConcentration": "Stock concentration of CuSO₄·5H₂O",
+  "stockUnit": "Concentration unit",
+  "results": {
+    "solutionVolumeMl": "Volume of solution to add",
+    "solutionVolumeUl": "Volume of solution to add"
+  },
+  "info": "Copper sulfate is used to remove hydrogen sulfide (H₂S) and mercaptans from wine. This calculator is for small-scale trials (glass, bench trial). Use with caution and observe legal limits.",
+  "formula": {
+    "description": "Formula for copper sulfate solution volume calculation (small volumes)",
+    "steps": [
+      "Total Cu (mg) = Cu²⁺ (mg/L) × Volume (L)",
+      "CuSO₄·5H₂O needed (mg) = Total Cu (mg) / 0.2545",
+      "If stock in %, convert: stock (g/L) = % × 10",
+      "Solution volume (mL) = CuSO₄·5H₂O (mg) / stock (g/L)",
+      "Solution volume (µL) = Volume (mL) × 1000"
+    ]
+  }
+}

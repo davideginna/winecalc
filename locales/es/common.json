@@ -33,6 +33,14 @@
     "carbon": {
       "title": "Carbón Activado",
       "description": "Calcula la adición de carbón activado para eliminación de color y olores"
+    },
+    "copper-sulfate-large": {
+      "title": "Sulfato de Cobre (Gran Volumen)",
+      "description": "Calcula sulfato de cobre para grandes volúmenes (tanques, barricas)"
+    },
+    "copper-sulfate-small": {
+      "title": "Sulfato de Cobre (Pequeño Volumen)",
+      "description": "Calcula solución de sulfato de cobre para pruebas de laboratorio"
     }
   },
   "common": {
@@ -139,6 +147,17 @@
     "carbon": {
       "carbonAmountDesc": "- Cantidad de carbón activado a utilizar por litro",
       "volumeDesc": "- Volumen total de vino/mosto a tratar"
+    },
+    "copper-sulfate-large": {
+      "copperRateDesc": "- Tasa de adición deseada de cobre por litro",
+      "volumeDesc": "- Volumen total de vino/fermentación a tratar"
+    },
+    "copper-sulfate-small": {
+      "copperRateDesc": "- Tasa de adición deseada de cobre por litro",
+      "volumeDesc": "- Volumen de vino/mosto a tratar",
+      "volumeUnitDesc": "- Unidad de medida para el volumen (mL o L)",
+      "stockConcentrationDesc": "- Concentración de la solución stock CuSO₄·5H₂O preparada",
+      "stockUnitDesc": "- Unidad de medida para la concentración (% o g/L)"
     }
   }
 }

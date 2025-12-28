@@ -1,0 +1,22 @@
+{
+  "copperRate": "Tasa de adición deseada de Cobre (Cu2+) (mg/L)",
+  "volume": "Volumen de vino/mosto",
+  "volumeUnit": "Unidad de volumen",
+  "stockConcentration": "Concentración de solución stock CuSO₄·5H₂O",
+  "stockUnit": "Unidad de concentración",
+  "results": {
+    "solutionVolumeMl": "Volumen de solución a agregar",
+    "solutionVolumeUl": "Volumen de solución a agregar"
+  },
+  "info": "El sulfato de cobre se utiliza para eliminar sulfuro de hidrógeno (H₂S) y mercaptanos del vino. Esta calculadora es para pruebas a pequeña escala (vaso, prueba de laboratorio). Usar con precaución y respetar los límites legales.",
+  "formula": {
+    "description": "Fórmula para cálculo del volumen de solución de sulfato de cobre (pequeños volúmenes)",
+    "steps": [
+      "Cu total (mg) = Cu²⁺ (mg/L) × Volumen (L)",
+      "CuSO₄·5H₂O necesario (mg) = Cu total (mg) / 0.2545",
+      "Si stock en %, convertir: stock (g/L) = % × 10",
+      "Volumen de solución (mL) = CuSO₄·5H₂O (mg) / stock (g/L)",
+      "Volumen de solución (µL) = Volumen (mL) × 1000"
+    ]
+  }
+}

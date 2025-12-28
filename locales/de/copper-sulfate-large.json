@@ -1,0 +1,15 @@
+{
+  "copperRate": "Gewünschte Zugaberate von Kupfer (Cu2+) (mg/L)",
+  "volume": "Volumen von Wein/Gärung (L)",
+  "results": {
+    "copperSulfateG": "Zuzufügendes Kupfersulfat (CuSO₄·5H₂O)"
+  },
+  "info": "Kupfersulfat wird verwendet, um Schwefelwasserstoff (H₂S) und Mercaptane aus dem Wein zu entfernen. Mit Vorsicht verwenden und gesetzliche Grenzen beachten. Typische Dosierung: 0.1-1.0 mg/L Cu2+. Gesetzliche Grenzen variieren je nach Land.",
+  "formula": {
+    "description": "Formel zur Berechnung von Kupfersulfat (große Volumina)",
+    "steps": [
+      "CuSO₄·5H₂O (g) = (Cu²⁺ mg/L × Volumen L) / (1000 × 0.2545)",
+      "Wobei 0.2545 der Prozentsatz von Cu in CuSO₄·5H₂O (25.45%) ist"
+    ]
+  }
+}

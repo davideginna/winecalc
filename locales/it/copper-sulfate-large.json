@@ -1,0 +1,15 @@
+{
+  "copperRate": "Tasso di aggiunta desiderato di Rame (Cu2+) (mg/L)",
+  "volume": "Volume di vino/mosto (L)",
+  "results": {
+    "copperSulfateG": "Solfato di rame (CuSO₄·5H₂O) da aggiungere"
+  },
+  "info": "Il solfato di rame viene utilizzato per rimuovere acido solfidrico (H₂S) e mercaptani dal vino. Utilizzare con cautela e rispettare i limiti legali. Dosaggio tipico: 0.1-1.0 mg/L di Cu2+. Limiti legali variano per paese.",
+  "formula": {
+    "description": "Formula per calcolo solfato di rame (grandi volumi)",
+    "steps": [
+      "CuSO₄·5H₂O (g) = (Cu²⁺ mg/L × Volume L) / (1000 × 0.2545)",
+      "Dove 0.2545 è la percentuale di Cu nel CuSO₄·5H₂O (25.45%)"
+    ]
+  }
+}

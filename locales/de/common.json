@@ -33,6 +33,14 @@
     "carbon": {
       "title": "Aktivkohle",
       "description": "Berechnen Sie die Aktivkohle-Zugabe zur Farb- und Geruchsentfernung"
+    },
+    "copper-sulfate-large": {
+      "title": "Kupfersulfat (Großes Volumen)",
+      "description": "Berechnen Sie Kupfersulfat für große Volumina (Tanks, Fässer)"
+    },
+    "copper-sulfate-small": {
+      "title": "Kupfersulfat (Kleines Volumen)",
+      "description": "Berechnen Sie Kupfersulfatlösung für Laborversuche"
     }
   },
   "common": {
@@ -139,6 +147,17 @@
     "carbon": {
       "carbonAmountDesc": "- Menge an Aktivkohle pro Liter zu verwenden",
       "volumeDesc": "- Gesamtvolumen von Wein/Saft zu behandeln"
+    },
+    "copper-sulfate-large": {
+      "copperRateDesc": "- Gewünschte Zugaberate von Kupfer pro Liter",
+      "volumeDesc": "- Gesamtvolumen von Wein/Gärung zu behandeln"
+    },
+    "copper-sulfate-small": {
+      "copperRateDesc": "- Gewünschte Zugaberate von Kupfer pro Liter",
+      "volumeDesc": "- Volumen von Wein/Saft zu behandeln",
+      "volumeUnitDesc": "- Maßeinheit für das Volumen (mL oder L)",
+      "stockConcentrationDesc": "- Konzentration der vorbereiteten CuSO₄·5H₂O-Stammlösung",
+      "stockUnitDesc": "- Maßeinheit für die Konzentration (% oder g/L)"
     }
   }
 }

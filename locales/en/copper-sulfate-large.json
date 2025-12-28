@@ -1,0 +1,15 @@
+{
+  "copperRate": "Desired addition rate of Copper (Cu2+) (mg/L)",
+  "volume": "Volume of wine/ferment (L)",
+  "results": {
+    "copperSulfateG": "Copper sulfate (CuSO₄·5H₂O) to add"
+  },
+  "info": "Copper sulfate is used to remove hydrogen sulfide (H₂S) and mercaptans from wine. Use with caution and observe legal limits. Typical dosage: 0.1-1.0 mg/L Cu2+. Legal limits vary by country.",
+  "formula": {
+    "description": "Formula for copper sulfate calculation (large volumes)",
+    "steps": [
+      "CuSO₄·5H₂O (g) = (Cu²⁺ mg/L × Volume L) / (1000 × 0.2545)",
+      "Where 0.2545 is the percentage of Cu in CuSO₄·5H₂O (25.45%)"
+    ]
+  }
+}

@@ -33,6 +33,14 @@
     "carbon": {
       "title": "Charbon Actif",
       "description": "Calculez l'ajout de charbon actif pour l'élimination de la couleur et des odeurs"
+    },
+    "copper-sulfate-large": {
+      "title": "Sulfate de Cuivre (Grand Volume)",
+      "description": "Calculez le sulfate de cuivre pour grands volumes (cuves, fûts)"
+    },
+    "copper-sulfate-small": {
+      "title": "Sulfate de Cuivre (Petit Volume)",
+      "description": "Calculez la solution de sulfate de cuivre pour essais de laboratoire"
     }
   },
   "common": {
@@ -139,6 +147,17 @@
     "carbon": {
       "carbonAmountDesc": "- Quantité de charbon actif à utiliser par litre",
       "volumeDesc": "- Volume total de vin/jus à traiter"
+    },
+    "copper-sulfate-large": {
+      "copperRateDesc": "- Taux d'ajout souhaité de cuivre par litre",
+      "volumeDesc": "- Volume total de vin/fermentation à traiter"
+    },
+    "copper-sulfate-small": {
+      "copperRateDesc": "- Taux d'ajout souhaité de cuivre par litre",
+      "volumeDesc": "- Volume de vin/jus à traiter",
+      "volumeUnitDesc": "- Unité de mesure pour le volume (mL ou L)",
+      "stockConcentrationDesc": "- Concentration de la solution stock CuSO₄·5H₂O préparée",
+      "stockUnitDesc": "- Unité de mesure pour la concentration (% ou g/L)"
     }
   }
 }

@@ -33,6 +33,14 @@
     "carbon": {
       "title": "Activated Carbon",
       "description": "Calculate activated carbon addition for color and odor removal"
+    },
+    "copper-sulfate-large": {
+      "title": "Copper Sulfate (Large Volume)",
+      "description": "Calculate copper sulfate for large volumes (tanks, barrels)"
+    },
+    "copper-sulfate-small": {
+      "title": "Copper Sulfate (Small Volume)",
+      "description": "Calculate copper sulfate solution for bench trials"
     }
   },
   "common": {
@@ -139,6 +147,17 @@
     "carbon": {
       "carbonAmountDesc": "- Amount of activated carbon to use per liter",
       "volumeDesc": "- Total volume of wine/juice to treat"
+    },
+    "copper-sulfate-large": {
+      "copperRateDesc": "- Desired addition rate of copper per liter",
+      "volumeDesc": "- Total volume of wine/ferment to treat"
+    },
+    "copper-sulfate-small": {
+      "copperRateDesc": "- Desired addition rate of copper per liter",
+      "volumeDesc": "- Volume of wine/juice to treat",
+      "volumeUnitDesc": "- Unit of measurement for volume (mL or L)",
+      "stockConcentrationDesc": "- Concentration of prepared CuSO₄·5H₂O stock solution",
+      "stockUnitDesc": "- Unit of measurement for concentration (% or g/L)"
     }
   }
 }

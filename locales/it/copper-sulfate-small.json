@@ -1,0 +1,22 @@
+{
+  "copperRate": "Tasso di aggiunta desiderato di Rame (Cu2+) (mg/L)",
+  "volume": "Volume di vino/succo",
+  "volumeUnit": "Unità volume",
+  "stockConcentration": "Concentrazione soluzione stock CuSO₄·5H₂O",
+  "stockUnit": "Unità concentrazione",
+  "results": {
+    "solutionVolumeMl": "Volume soluzione da aggiungere",
+    "solutionVolumeUl": "Volume soluzione da aggiungere"
+  },
+  "info": "Il solfato di rame viene utilizzato per rimuovere acido solfidrico (H₂S) e mercaptani dal vino. Questo calcolatore è per prove in piccola scala (bicchiere, prova di laboratorio). Utilizzare con cautela e rispettare i limiti legali.",
+  "formula": {
+    "description": "Formula per calcolo volume soluzione solfato di rame (piccoli volumi)",
+    "steps": [
+      "Cu totale (mg) = Cu²⁺ (mg/L) × Volume (L)",
+      "CuSO₄·5H₂O necessario (mg) = Cu totale (mg) / 0.2545",
+      "Se stock in %, convertire: stock (g/L) = % × 10",
+      "Volume soluzione (mL) = CuSO₄·5H₂O (mg) / stock (g/L)",
+      "Volume soluzione (µL) = Volume (mL) × 1000"
+    ]
+  }
+}

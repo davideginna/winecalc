@@ -33,6 +33,14 @@
     "carbon": {
       "title": "Carbone Attivo",
       "description": "Calcola l'aggiunta di carbone attivo per la rimozione di colore e odori"
+    },
+    "copper-sulfate-large": {
+      "title": "Solfato di Rame (Grandi Volumi)",
+      "description": "Calcola solfato di rame per grandi volumi (tini, botti)"
+    },
+    "copper-sulfate-small": {
+      "title": "Solfato di Rame (Piccoli Volumi)",
+      "description": "Calcola soluzione solfato di rame per prove in piccola scala"
     }
   },
   "common": {
@@ -139,6 +147,17 @@
     "carbon": {
       "carbonAmountDesc": "- Quantità di carbone attivo da utilizzare per litro",
       "volumeDesc": "- Volume totale di vino/succo da trattare"
+    },
+    "copper-sulfate-large": {
+      "copperRateDesc": "- Tasso di aggiunta desiderato di rame per litro",
+      "volumeDesc": "- Volume totale di vino/mosto da trattare"
+    },
+    "copper-sulfate-small": {
+      "copperRateDesc": "- Tasso di aggiunta desiderato di rame per litro",
+      "volumeDesc": "- Volume di vino/succo da trattare",
+      "volumeUnitDesc": "- Unità di misura per il volume (mL o L)",
+      "stockConcentrationDesc": "- Concentrazione della soluzione stock di CuSO₄·5H₂O preparata",
+      "stockUnitDesc": "- Unità di misura per la concentrazione (% o g/L)"
     }
   }
 }

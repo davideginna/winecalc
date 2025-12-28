@@ -1,0 +1,15 @@
+{
+  "copperRate": "Tasa de adición deseada de Cobre (Cu2+) (mg/L)",
+  "volume": "Volumen de vino/fermentación (L)",
+  "results": {
+    "copperSulfateG": "Sulfato de cobre (CuSO₄·5H₂O) a agregar"
+  },
+  "info": "El sulfato de cobre se utiliza para eliminar sulfuro de hidrógeno (H₂S) y mercaptanos del vino. Usar con precaución y respetar los límites legales. Dosificación típica: 0.1-1.0 mg/L Cu2+. Los límites legales varían según el país.",
+  "formula": {
+    "description": "Fórmula para cálculo de sulfato de cobre (grandes volúmenes)",
+    "steps": [
+      "CuSO₄·5H₂O (g) = (Cu²⁺ mg/L × Volumen L) / (1000 × 0.2545)",
+      "Donde 0.2545 es el porcentaje de Cu en CuSO₄·5H₂O (25.45%)"
+    ]
+  }
+}

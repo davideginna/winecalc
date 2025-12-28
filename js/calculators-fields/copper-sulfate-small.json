@@ -1,0 +1,65 @@
+{
+  "info": true,
+  "alertType": "warning",
+  "fields": [
+    {
+      "id": "copperRate",
+      "type": "number",
+      "label": "copperRate",
+      "min": 0,
+      "step": 0.01,
+      "placeholder": "0.5",
+      "required": true
+    },
+    {
+      "id": "volume",
+      "type": "number",
+      "label": "volume",
+      "min": 0,
+      "step": 0.1,
+      "placeholder": "750",
+      "required": true
+    },
+    {
+      "id": "volumeUnit",
+      "type": "select",
+      "label": "volumeUnit",
+      "options": [
+        { "value": "mL", "label": "mL" },
+        { "value": "L", "label": "L" }
+      ],
+      "required": true
+    },
+    {
+      "id": "stockConcentration",
+      "type": "number",
+      "label": "stockConcentration",
+      "min": 0,
+      "step": 0.1,
+      "placeholder": "10",
+      "required": true
+    },
+    {
+      "id": "stockUnit",
+      "type": "select",
+      "label": "stockUnit",
+      "options": [
+        { "value": "percent", "label": "%" },
+        { "value": "gPerL", "label": "g/L" }
+      ],
+      "required": true
+    }
+  ],
+  "results": {
+    "order": ["solutionVolumeMl", "solutionVolumeUl"],
+    "units": {
+      "solutionVolumeMl": "mL",
+      "solutionVolumeUl": "µL"
+    },
+    "decimals": {
+      "solutionVolumeMl": 2,
+      "solutionVolumeUl": 0
+    },
+    "formula": true
+  }
+}

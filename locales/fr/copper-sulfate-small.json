@@ -1,0 +1,22 @@
+{
+  "copperRate": "Taux d'ajout souhaité de Cuivre (Cu2+) (mg/L)",
+  "volume": "Volume de vin/jus",
+  "volumeUnit": "Unité de volume",
+  "stockConcentration": "Concentration de la solution stock CuSO₄·5H₂O",
+  "stockUnit": "Unité de concentration",
+  "results": {
+    "solutionVolumeMl": "Volume de solution à ajouter",
+    "solutionVolumeUl": "Volume de solution à ajouter"
+  },
+  "info": "Le sulfate de cuivre est utilisé pour éliminer le sulfure d'hydrogène (H₂S) et les mercaptans du vin. Ce calculateur est pour des essais à petite échelle (verre, essai de laboratoire). À utiliser avec précaution et respecter les limites légales.",
+  "formula": {
+    "description": "Formule de calcul du volume de solution de sulfate de cuivre (petits volumes)",
+    "steps": [
+      "Cu total (mg) = Cu²⁺ (mg/L) × Volume (L)",
+      "CuSO₄·5H₂O nécessaire (mg) = Cu total (mg) / 0.2545",
+      "Si stock en %, convertir : stock (g/L) = % × 10",
+      "Volume de solution (mL) = CuSO₄·5H₂O (mg) / stock (g/L)",
+      "Volume de solution (µL) = Volume (mL) × 1000"
+    ]
+  }
+}
