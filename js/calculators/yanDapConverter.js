@@ -16,7 +16,7 @@ function calculateYanDapConverter(data) {
     const YAN_TO_DAP_RATIO = 4.7;
 
     // If both values provided, YAN to DAP conversion takes precedence
-    if (yanAmount !== undefined && yanAmount !== null && yanAmount !== '') {
+    if (yanAmount !== undefined && yanAmount !== null && yanAmount !== '' && yanAmount !== 0) {
         const yan = parseFloat(yanAmount);
         if (isNaN(yan) || yan < 0) {
             throw new Error(window.WineCalcI18n.t('errors.invalidInput'));
@@ -32,7 +32,7 @@ function calculateYanDapConverter(data) {
     }
 
     // If only DAP provided, convert to YAN
-    if (dapAmount !== undefined && dapAmount !== null && dapAmount !== '') {
+    if (dapAmount !== undefined && dapAmount !== null && dapAmount !== '' && dapAmount !== 0) {
         const dap = parseFloat(dapAmount);
         if (isNaN(dap) || dap < 0) {
             throw new Error(window.WineCalcI18n.t('errors.invalidInput'));

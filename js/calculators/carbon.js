@@ -11,15 +11,15 @@
  * @param {number} data.volume - Volume of wine/juice in liters
  * @returns {Object} Calculation results
  */
-function calculate_carbon(data) {
+function calculateCarbon(data) {
     const { carbonAmount, volume } = data;
 
     // Validation
-    if (!carbonAmount || carbonAmount <= 0) {
+    if (!carbonAmount || isNaN(carbonAmount) || carbonAmount <= 0) {
         throw new Error(WineCalcI18n.t('errors.positiveValue'));
     }
 
-    if (!volume || volume <= 0) {
+    if (!volume || isNaN(volume) || volume <= 0) {
         throw new Error(WineCalcI18n.t('errors.volumeRequired'));
     }
 
@@ -32,4 +32,4 @@ function calculate_carbon(data) {
 }
 
 // Export function
-window.calculate_carbon = calculate_carbon;
+window.calculateCarbon = calculateCarbon;

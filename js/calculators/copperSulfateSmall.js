@@ -21,15 +21,15 @@ function calculateCopperSulfateSmall(data) {
     const { copperRate, volume, volumeUnit, stockConcentration, stockUnit } = data;
 
     // Validation
-    if (!copperRate || copperRate <= 0) {
+    if (!copperRate || isNaN(copperRate) || copperRate <= 0) {
         throw new Error(WineCalcI18n.t('errors.positiveValue'));
     }
 
-    if (!volume || volume <= 0) {
+    if (!volume || isNaN(volume) || volume <= 0) {
         throw new Error(WineCalcI18n.t('errors.volumeRequired'));
     }
 
-    if (!stockConcentration || stockConcentration <= 0) {
+    if (!stockConcentration || isNaN(stockConcentration) || stockConcentration <= 0) {
         throw new Error(WineCalcI18n.t('errors.positiveValue'));
     }
 

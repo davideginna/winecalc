@@ -12,10 +12,10 @@ function calculateDapAddition(data) {
     const { dapRequired, volume } = data;
 
     // Validation
-    if (!dapRequired || dapRequired < 0) {
+    if (dapRequired === undefined || dapRequired === null || isNaN(dapRequired) || dapRequired < 0) {
         throw new Error(window.WineCalcI18n.t('errors.invalidInput'));
     }
-    if (!volume || volume <= 0) {
+    if (!volume || isNaN(volume) || volume <= 0) {
         throw new Error(window.WineCalcI18n.t('errors.invalidVolume'));
     }
 

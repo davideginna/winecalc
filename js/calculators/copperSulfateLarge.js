@@ -18,11 +18,11 @@ function calculateCopperSulfateLarge(data) {
     const { copperRate, volume } = data;
 
     // Validation
-    if (!copperRate || copperRate <= 0) {
+    if (!copperRate || isNaN(copperRate) || copperRate <= 0) {
         throw new Error(WineCalcI18n.t('errors.positiveValue'));
     }
 
-    if (!volume || volume <= 0) {
+    if (!volume || isNaN(volume) || volume <= 0) {
         throw new Error(WineCalcI18n.t('errors.volumeRequired'));
     }
 

@@ -15,19 +15,19 @@
  * @param {number} data.concentration - Concentration of bentonite solution (w/v %)
  * @returns {Object} Calculation results
  */
-function calculate_bentonite(data) {
+function calculateBentonite(data) {
     const { additionRate, volume, concentration } = data;
 
     // Validation
-    if (!additionRate || additionRate <= 0) {
+    if (!additionRate || isNaN(additionRate) || additionRate <= 0) {
         throw new Error(WineCalcI18n.t('errors.positiveValue'));
     }
 
-    if (!volume || volume <= 0) {
+    if (!volume || isNaN(volume) || volume <= 0) {
         throw new Error(WineCalcI18n.t('errors.volumeRequired'));
     }
 
-    if (!concentration || concentration <= 0) {
+    if (!concentration || isNaN(concentration) || concentration <= 0) {
         throw new Error(WineCalcI18n.t('errors.positiveValue'));
     }
 
@@ -45,4 +45,4 @@ function calculate_bentonite(data) {
 }
 
 // Export function
-window.calculate_bentonite = calculate_bentonite;
+window.calculateBentonite = calculateBentonite;

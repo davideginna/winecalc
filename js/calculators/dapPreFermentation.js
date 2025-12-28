@@ -15,13 +15,13 @@ function calculateDapPreFermentation(data) {
     const { initialYan, requiredYan, volume } = data;
 
     // Validation
-    if (!initialYan || initialYan < 0) {
+    if (initialYan === undefined || initialYan === null || isNaN(initialYan) || initialYan < 0) {
         throw new Error(window.WineCalcI18n.t('errors.invalidInput'));
     }
-    if (!requiredYan || requiredYan < 0) {
+    if (requiredYan === undefined || requiredYan === null || isNaN(requiredYan) || requiredYan < 0) {
         throw new Error(window.WineCalcI18n.t('errors.invalidInput'));
     }
-    if (!volume || volume <= 0) {
+    if (!volume || isNaN(volume) || volume <= 0) {
         throw new Error(window.WineCalcI18n.t('errors.invalidVolume'));
     }
 

@@ -8,15 +8,15 @@
  * @param {number} data.volume - Volume of wine/ferment/juice in liters
  * @returns {Object} Calculation results
  */
-function calculate_acid(data) {
+function calculateAcid(data) {
     const { additionRate, volume } = data;
 
     // Validation
-    if (!volume || volume <= 0) {
+    if (!volume || isNaN(volume) || volume <= 0) {
         throw new Error(WineCalcI18n.t('errors.volumeRequired'));
     }
 
-    if (!additionRate || additionRate <= 0) {
+    if (!additionRate || isNaN(additionRate) || additionRate <= 0) {
         throw new Error(WineCalcI18n.t('errors.positiveValue'));
     }
 
@@ -34,4 +34,4 @@ function calculate_acid(data) {
 }
 
 // Export function
-window.calculate_acid = calculate_acid;
+window.calculateAcid = calculateAcid;
