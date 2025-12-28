@@ -72,6 +72,11 @@ jobs:
       (needs.test.result == 'success' || inputs.skip_tests == true) &&
       (github.ref == 'refs/heads/main' || inputs.deploy == true)
 
+    # Environment necessario per GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     # Permessi necessari per GitHub Pages
     permissions:
       contents: read
