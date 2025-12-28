@@ -8,7 +8,7 @@
     "solutionVolumeMl": "Volume of solution to add",
     "solutionVolumeUl": "Volume of solution to add"
   },
-  "info": "Copper sulfate is used to remove hydrogen sulfide (H₂S) and mercaptans from wine. This calculator is for small-scale trials (glass, bench trial). Use with caution and observe legal limits.",
+  "info": "Copper sulfate is used to remove hydrogen sulfide (H₂S) and mercaptans from wine. This calculator is for small-scale trials (glass, bench trial). IMPORTANT NOTES: • Dilute copper sulfate in water, drip into tank which is rummaging with gas • Additions should be based on sensory requirements • When attempting to remove H₂S towards the end of the fermentation, it is preferable to add Copper Sulfate rather than DAP • This formula assumes 3.93 parts of copper sulfate is equivalent to 1 part of Cu2+ • Verify any additions by follow-up analysis",
   "formula": {
     "description": "Formula for copper sulfate solution volume calculation (small volumes)",
     "steps": [

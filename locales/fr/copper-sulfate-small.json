@@ -8,7 +8,7 @@
     "solutionVolumeMl": "Volume de solution à ajouter",
     "solutionVolumeUl": "Volume de solution à ajouter"
   },
-  "info": "Le sulfate de cuivre est utilisé pour éliminer le sulfure d'hydrogène (H₂S) et les mercaptans du vin. Ce calculateur est pour des essais à petite échelle (verre, essai de laboratoire). À utiliser avec précaution et respecter les limites légales.",
+  "info": "Le sulfate de cuivre est utilisé pour éliminer le sulfure d'hydrogène (H₂S) et les mercaptans du vin. Ce calculateur est pour des essais à petite échelle (verre, essai de laboratoire). NOTES IMPORTANTES : • Diluer le sulfate de cuivre dans l'eau, ajouter au goutte-à-goutte dans la cuve en remontage avec gaz • Les ajouts doivent être basés sur les exigences sensorielles • Lors de la tentative d'élimination de H₂S vers la fin de la fermentation, il est préférable d'ajouter du sulfate de cuivre plutôt que du DAP • Cette formule suppose que 3,93 parties de sulfate de cuivre équivalent à 1 partie de Cu2+ • Vérifier tous les ajouts par analyse de suivi",
   "formula": {
     "description": "Formule de calcul du volume de solution de sulfate de cuivre (petits volumes)",
     "steps": [

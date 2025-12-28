@@ -8,7 +8,7 @@
     "solutionVolumeMl": "Volume soluzione da aggiungere",
     "solutionVolumeUl": "Volume soluzione da aggiungere"
   },
-  "info": "Il solfato di rame viene utilizzato per rimuovere acido solfidrico (H₂S) e mercaptani dal vino. Questo calcolatore è per prove in piccola scala (bicchiere, prova di laboratorio). Utilizzare con cautela e rispettare i limiti legali.",
+  "info": "Il solfato di rame viene utilizzato per rimuovere acido solfidrico (H₂S) e mercaptani dal vino. Questo calcolatore è per prove in piccola scala (bicchiere, prova di laboratorio). NOTE IMPORTANTI: • Diluire il solfato di rame in acqua, aggiungere a goccia nel serbatoio in rimontaggio con gas • Le aggiunte devono basarsi su requisiti sensoriali • Quando si tenta di rimuovere H₂S verso la fine della fermentazione, è preferibile aggiungere solfato di rame piuttosto che DAP • Questa formula presuppone che 3.93 parti di solfato di rame equivalgano a 1 parte di Cu2+ • Verificare eventuali aggiunte con analisi di follow-up",
   "formula": {
     "description": "Formula per calcolo volume soluzione solfato di rame (piccoli volumi)",
     "steps": [

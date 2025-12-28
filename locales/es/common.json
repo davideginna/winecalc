@@ -41,6 +41,10 @@
     "copper-sulfate-small": {
       "title": "Sulfato de Cobre (Pequeño Volumen)",
       "description": "Calcula solución de sulfato de cobre para pruebas de laboratorio"
+    },
+    "creme-of-tartar": {
+      "title": "Cremor Tártaro",
+      "description": "Calcula adición de cremor tártaro para estabilización en frío"
     }
   },
   "common": {
@@ -158,6 +162,10 @@
       "volumeUnitDesc": "- Unidad de medida para el volumen (mL o L)",
       "stockConcentrationDesc": "- Concentración de la solución stock CuSO₄·5H₂O preparada",
       "stockUnitDesc": "- Unidad de medida para la concentración (% o g/L)"
+    },
+    "creme-of-tartar": {
+      "additionRateDesc": "- Tasa de adición deseada de cremor tártaro por litro",
+      "volumeDesc": "- Volumen total de vino a estabilizar"
     }
   }
 }

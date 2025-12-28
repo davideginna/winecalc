@@ -1,0 +1,14 @@
+{
+  "additionRate": "Gewünschte Zugaberate von Weinstein (mg/L)",
+  "volume": "Volumen von Wein (L)",
+  "results": {
+    "amountKg": "Zuzufügender Weinstein"
+  },
+  "info": "Weinstein (Kaliumbitartrat) wird zur Kältestabilisierung von Wein verwendet. WICHTIGE HINWEISE: • FSO2 vor der Kältestabilisierung anpassen • NUR zugeben wenn Temp < 0°C • Tank mindestens vier Stunden nach Zugabe zirkulieren • pH < 3,65 anstreben • Bei Impftemperatur filtern sobald kältestabil • Kältestabilität nach Zugabe überprüfen",
+  "formula": {
+    "description": "Formel zur Berechnung der Weinstein-Zugabe",
+    "steps": [
+      "Menge (kg) = (Zugaberate mg/L × Volumen L) / 1.000.000"
+    ]
+  }
+}

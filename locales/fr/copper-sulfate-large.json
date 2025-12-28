@@ -4,7 +4,7 @@
   "results": {
     "copperSulfateG": "Sulfate de cuivre (CuSO₄·5H₂O) à ajouter"
   },
-  "info": "Le sulfate de cuivre est utilisé pour éliminer le sulfure d'hydrogène (H₂S) et les mercaptans du vin. À utiliser avec précaution et respecter les limites légales. Dosage typique : 0.1-1.0 mg/L Cu2+. Les limites légales varient selon les pays.",
+  "info": "Le sulfate de cuivre est utilisé pour éliminer le sulfure d'hydrogène (H₂S) et les mercaptans du vin. NOTES IMPORTANTES : • Diluer le sulfate de cuivre dans l'eau, ajouter au goutte-à-goutte dans la cuve en remontage avec gaz • Les ajouts doivent être basés sur les exigences sensorielles • Lors de la tentative d'élimination de H₂S vers la fin de la fermentation, il est préférable d'ajouter du sulfate de cuivre plutôt que du DAP • Cette formule suppose que 3,93 parties de sulfate de cuivre équivalent à 1 partie de Cu2+ • Vérifier tous les ajouts par analyse de suivi",
   "formula": {
     "description": "Formule de calcul du sulfate de cuivre (grands volumes)",
     "steps": [

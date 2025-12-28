@@ -41,6 +41,10 @@
     "copper-sulfate-small": {
       "title": "Copper Sulfate (Small Volume)",
       "description": "Calculate copper sulfate solution for bench trials"
+    },
+    "creme-of-tartar": {
+      "title": "Crème of Tartar",
+      "description": "Calculate crème of tartar addition for cold stabilization"
     }
   },
   "common": {
@@ -158,6 +162,10 @@
       "volumeUnitDesc": "- Unit of measurement for volume (mL or L)",
       "stockConcentrationDesc": "- Concentration of prepared CuSO₄·5H₂O stock solution",
       "stockUnitDesc": "- Unit of measurement for concentration (% or g/L)"
+    },
+    "creme-of-tartar": {
+      "additionRateDesc": "- Desired addition rate of crème of tartar per liter",
+      "volumeDesc": "- Total volume of wine to stabilize"
     }
   }
 }

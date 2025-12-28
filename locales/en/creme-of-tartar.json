@@ -1,0 +1,14 @@
+{
+  "additionRate": "Desired addition rate of Crème of Tartar (mg/L)",
+  "volume": "Volume of wine (L)",
+  "results": {
+    "amountKg": "Crème of Tartar to add"
+  },
+  "info": "Crème of tartar (potassium bitartrate) is used for cold stabilization of wine. IMPORTANT NOTES: • Adjust FSO2 before cold stabilising • Only add when temp < 0°C • Circulate tank for minimum of four hours after any addition • Aim to keep pH < 3.65 • Filter at seeding temperature once cold stable • Verify cold stability post addition",
+  "formula": {
+    "description": "Formula for crème of tartar addition calculation",
+    "steps": [
+      "Amount (kg) = (Addition rate mg/L × Volume L) / 1,000,000"
+    ]
+  }
+}

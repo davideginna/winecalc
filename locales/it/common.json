@@ -41,6 +41,10 @@
     "copper-sulfate-small": {
       "title": "Solfato di Rame (Piccoli Volumi)",
       "description": "Calcola soluzione solfato di rame per prove in piccola scala"
+    },
+    "creme-of-tartar": {
+      "title": "Cremor Tartaro",
+      "description": "Calcola aggiunta cremor tartaro per stabilizzazione a freddo"
     }
   },
   "common": {
@@ -158,6 +162,10 @@
       "volumeUnitDesc": "- Unità di misura per il volume (mL o L)",
       "stockConcentrationDesc": "- Concentrazione della soluzione stock di CuSO₄·5H₂O preparata",
       "stockUnitDesc": "- Unità di misura per la concentrazione (% o g/L)"
+    },
+    "creme-of-tartar": {
+      "additionRateDesc": "- Tasso di aggiunta desiderato di cremor tartaro per litro",
+      "volumeDesc": "- Volume totale di vino da stabilizzare"
     }
   }
 }

@@ -1,0 +1,14 @@
+{
+  "additionRate": "Taux d'ajout souhaité de Crème de Tartre (mg/L)",
+  "volume": "Volume de vin (L)",
+  "results": {
+    "amountKg": "Crème de Tartre à ajouter"
+  },
+  "info": "La crème de tartre (bitartrate de potassium) est utilisée pour la stabilisation à froid du vin. NOTES IMPORTANTES : • Ajuster FSO2 avant la stabilisation à froid • Ajouter UNIQUEMENT quand temp < 0°C • Faire circuler la cuve pendant minimum quatre heures après l'ajout • Viser à maintenir pH < 3,65 • Filtrer à la température d'ensemencement une fois stable à froid • Vérifier la stabilité à froid après l'ajout",
+  "formula": {
+    "description": "Formule de calcul d'ajout de crème de tartre",
+    "steps": [
+      "Quantité (kg) = (Taux d'ajout mg/L × Volume L) / 1.000.000"
+    ]
+  }
+}

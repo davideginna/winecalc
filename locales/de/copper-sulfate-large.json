@@ -4,7 +4,7 @@
   "results": {
     "copperSulfateG": "Zuzufügendes Kupfersulfat (CuSO₄·5H₂O)"
   },
-  "info": "Kupfersulfat wird verwendet, um Schwefelwasserstoff (H₂S) und Mercaptane aus dem Wein zu entfernen. Mit Vorsicht verwenden und gesetzliche Grenzen beachten. Typische Dosierung: 0.1-1.0 mg/L Cu2+. Gesetzliche Grenzen variieren je nach Land.",
+  "info": "Kupfersulfat wird verwendet, um Schwefelwasserstoff (H₂S) und Mercaptane aus dem Wein zu entfernen. WICHTIGE HINWEISE: • Kupfersulfat in Wasser verdünnen, tropfenweise in Tank zugeben während Umpumpen mit Gas • Zugaben sollten auf sensorischen Anforderungen basieren • Beim Versuch H₂S am Ende der Gärung zu entfernen, ist es vorzuziehen Kupfersulfat anstatt DAP zuzugeben • Diese Formel nimmt an, dass 3,93 Teile Kupfersulfat 1 Teil Cu2+ entsprechen • Alle Zugaben durch Folgeanalyse überprüfen",
   "formula": {
     "description": "Formel zur Berechnung von Kupfersulfat (große Volumina)",
     "steps": [

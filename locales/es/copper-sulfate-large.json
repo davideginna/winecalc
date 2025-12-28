@@ -4,7 +4,7 @@
   "results": {
     "copperSulfateG": "Sulfato de cobre (CuSO₄·5H₂O) a agregar"
   },
-  "info": "El sulfato de cobre se utiliza para eliminar sulfuro de hidrógeno (H₂S) y mercaptanos del vino. Usar con precaución y respetar los límites legales. Dosificación típica: 0.1-1.0 mg/L Cu2+. Los límites legales varían según el país.",
+  "info": "El sulfato de cobre se utiliza para eliminar sulfuro de hidrógeno (H₂S) y mercaptanos del vino. NOTAS IMPORTANTES: • Diluir el sulfato de cobre en agua, añadir gota a gota en el tanque en remontado con gas • Las adiciones deben basarse en requisitos sensoriales • Al intentar eliminar H₂S hacia el final de la fermentación, es preferible añadir sulfato de cobre en lugar de DAP • Esta fórmula asume que 3,93 partes de sulfato de cobre equivalen a 1 parte de Cu2+ • Verificar cualquier adición mediante análisis de seguimiento",
   "formula": {
     "description": "Fórmula para cálculo de sulfato de cobre (grandes volúmenes)",
     "steps": [

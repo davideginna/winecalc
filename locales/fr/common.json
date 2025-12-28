@@ -41,6 +41,10 @@
     "copper-sulfate-small": {
       "title": "Sulfate de Cuivre (Petit Volume)",
       "description": "Calculez la solution de sulfate de cuivre pour essais de laboratoire"
+    },
+    "creme-of-tartar": {
+      "title": "Crème de Tartre",
+      "description": "Calculez l'ajout de crème de tartre pour stabilisation à froid"
     }
   },
   "common": {
@@ -158,6 +162,10 @@
       "volumeUnitDesc": "- Unité de mesure pour le volume (mL ou L)",
       "stockConcentrationDesc": "- Concentration de la solution stock CuSO₄·5H₂O préparée",
       "stockUnitDesc": "- Unité de mesure pour la concentration (% ou g/L)"
+    },
+    "creme-of-tartar": {
+      "additionRateDesc": "- Taux d'ajout souhaité de crème de tartre par litre",
+      "volumeDesc": "- Volume total de vin à stabiliser"
     }
   }
 }

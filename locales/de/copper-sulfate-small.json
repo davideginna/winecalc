@@ -8,7 +8,7 @@
     "solutionVolumeMl": "Zuzufügendes Lösungsvolumen",
     "solutionVolumeUl": "Zuzufügendes Lösungsvolumen"
   },
-  "info": "Kupfersulfat wird verwendet, um Schwefelwasserstoff (H₂S) und Mercaptane aus dem Wein zu entfernen. Dieser Rechner ist für Versuche im kleinen Maßstab (Glas, Laborversuch). Mit Vorsicht verwenden und gesetzliche Grenzen beachten.",
+  "info": "Kupfersulfat wird verwendet, um Schwefelwasserstoff (H₂S) und Mercaptane aus dem Wein zu entfernen. Dieser Rechner ist für Versuche im kleinen Maßstab (Glas, Laborversuch). WICHTIGE HINWEISE: • Kupfersulfat in Wasser verdünnen, tropfenweise in Tank zugeben während Umpumpen mit Gas • Zugaben sollten auf sensorischen Anforderungen basieren • Beim Versuch H₂S am Ende der Gärung zu entfernen, ist es vorzuziehen Kupfersulfat anstatt DAP zuzugeben • Diese Formel nimmt an, dass 3,93 Teile Kupfersulfat 1 Teil Cu2+ entsprechen • Alle Zugaben durch Folgeanalyse überprüfen",
   "formula": {
     "description": "Formel zur Berechnung des Kupfersulfatlösungsvolumens (kleine Volumina)",
     "steps": [

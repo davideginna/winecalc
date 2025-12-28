@@ -4,7 +4,7 @@
   "results": {
     "copperSulfateG": "Copper sulfate (CuSO₄·5H₂O) to add"
   },
-  "info": "Copper sulfate is used to remove hydrogen sulfide (H₂S) and mercaptans from wine. Use with caution and observe legal limits. Typical dosage: 0.1-1.0 mg/L Cu2+. Legal limits vary by country.",
+  "info": "Copper sulfate is used to remove hydrogen sulfide (H₂S) and mercaptans from wine. IMPORTANT NOTES: • Dilute copper sulfate in water, drip into tank which is rummaging with gas • Additions should be based on sensory requirements • When attempting to remove H₂S towards the end of the fermentation, it is preferable to add Copper Sulfate rather than DAP • This formula assumes 3.93 parts of copper sulfate is equivalent to 1 part of Cu2+ • Verify any additions by follow-up analysis",
   "formula": {
     "description": "Formula for copper sulfate calculation (large volumes)",
     "steps": [

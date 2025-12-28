@@ -41,6 +41,10 @@
     "copper-sulfate-small": {
       "title": "Kupfersulfat (Kleines Volumen)",
       "description": "Berechnen Sie Kupfersulfatlösung für Laborversuche"
+    },
+    "creme-of-tartar": {
+      "title": "Weinstein",
+      "description": "Berechnen Sie Weinstein-Zugabe für Kältestabilisierung"
     }
   },
   "common": {
@@ -158,6 +162,10 @@
       "volumeUnitDesc": "- Maßeinheit für das Volumen (mL oder L)",
       "stockConcentrationDesc": "- Konzentration der vorbereiteten CuSO₄·5H₂O-Stammlösung",
       "stockUnitDesc": "- Maßeinheit für die Konzentration (% oder g/L)"
+    },
+    "creme-of-tartar": {
+      "additionRateDesc": "- Gewünschte Zugaberate von Weinstein pro Liter",
+      "volumeDesc": "- Gesamtvolumen von Wein zu stabilisieren"
     }
   }
 }

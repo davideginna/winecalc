@@ -47,6 +47,14 @@
       "icon": "bi-eyedropper",
       "jsFile": "js/calculators/copper-sulfate-small.js",
       "priority": 7
+    },
+    {
+      "id": "creme-of-tartar",
+      "enabled": true,
+      "category": "chemical",
+      "icon": "bi-snow",
+      "jsFile": "js/calculators/creme-of-tartar.js",
+      "priority": 8
     }
   ]
 }

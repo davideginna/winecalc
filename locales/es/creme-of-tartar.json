@@ -1,0 +1,14 @@
+{
+  "additionRate": "Tasa de adición deseada de Cremor Tártaro (mg/L)",
+  "volume": "Volumen de vino (L)",
+  "results": {
+    "amountKg": "Cremor Tártaro a agregar"
+  },
+  "info": "El cremor tártaro (bitartrato de potasio) se utiliza para la estabilización en frío del vino. NOTAS IMPORTANTES: • Ajustar FSO2 antes de estabilizar en frío • Agregar SOLO cuando temp < 0°C • Circular el tanque durante mínimo cuatro horas después de la adición • Mantener pH < 3,65 • Filtrar a temperatura de siembra una vez estable en frío • Verificar estabilidad en frío después de la adición",
+  "formula": {
+    "description": "Fórmula para cálculo de adición de cremor tártaro",
+    "steps": [
+      "Cantidad (kg) = (Tasa de adición mg/L × Volumen L) / 1.000.000"
+    ]
+  }
+}

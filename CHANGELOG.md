@@ -34,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Translations for all 5 languages (IT, EN, FR, ES, DE)
 - **Copper Sulfate Calculators (2 variants)**
   - **Large Volume Calculator** - for tanks, barrels, large volumes
-    - Calculates CuSO₄·5H₂O weight in grams
+    - Calculates CuSO₄·5H₂O weight in grams (2 decimals)
     - Inputs: Desired Cu2+ addition rate (mg/L), Wine volume (L)
     - Used to remove hydrogen sulfide (H₂S) and mercaptans
   - **Small Volume Calculator** - for bench trials, glass, small volumes
@@ -42,6 +42,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Inputs: Cu2+ rate (mg/L), Volume (mL or L), Stock concentration (% or g/L)
     - Supports unit selection for volume and concentration
   - Both calculators include warnings about legal limits and proper use
+  - Complete formula documentation in formulas page
+  - Translations for all 5 languages (IT, EN, FR, ES, DE)
+- **Crème of Tartar Calculator**
+  - New calculator for potassium bitartrate (crème of tartar) addition
+  - Used for cold stabilization to prevent tartrate crystal formation
+  - Calculates amount in kilograms based on:
+    - Desired addition rate (mg/L)
+    - Volume of wine (L)
+  - Includes critical warnings: Only add when temperature < 0°C
+  - Complete instructions for mixing and cold stabilization process
   - Complete formula documentation in formulas page
   - Translations for all 5 languages (IT, EN, FR, ES, DE)
 - **Automatic Formula Translation System**
@@ -87,21 +97,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Created `formulas/carbon.html` template
 - Created `formulas/copper-sulfate-large.html` template
 - Created `formulas/copper-sulfate-small.html` template
+- Created `formulas/creme-of-tartar.html` template
 - Created `js/calculators/ascorbic-acid.js` calculator module
 - Created `js/calculators/bentonite.js` calculator module
 - Created `js/calculators/carbon.js` calculator module
-- Created `js/calculators/copper-sulfate-large.js` calculator module
+- Created `js/calculators/copper-sulfate-large.js` calculator module (2 decimals precision)
 - Created `js/calculators/copper-sulfate-small.js` calculator module
+- Created `js/calculators/creme-of-tartar.js` calculator module
 - Created `js/calculators-fields/ascorbic-acid.json` field configuration
 - Created `js/calculators-fields/carbon.json` field configuration
 - Created `js/calculators-fields/copper-sulfate-large.json` field configuration
 - Created `js/calculators-fields/copper-sulfate-small.json` field configuration (with select fields)
+- Created `js/calculators-fields/creme-of-tartar.json` field configuration
 - Updated `js/calculators-fields/bentonite.json` field configuration
 - Created namespace translations in `locales/*/ascorbic-acid.json` (5 languages)
 - Created namespace translations in `locales/*/bentonite.json` (5 languages)
 - Created namespace translations in `locales/*/carbon.json` (5 languages)
 - Created namespace translations in `locales/*/copper-sulfate-large.json` (5 languages)
 - Created namespace translations in `locales/*/copper-sulfate-small.json` (5 languages)
+- Created namespace translations in `locales/*/creme-of-tartar.json` (5 languages)
 - Added field descriptions in all `locales/*/common.json` files
 - Updated `css/styles.css` to fix icon circle aspect ratio on mobile
 - Validated all JSON files for syntax correctness
