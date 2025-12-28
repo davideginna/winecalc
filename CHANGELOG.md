@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.0] - 2025-12-28
 
 ### Added
+- **New Navbar Logo** - Replaced emoji icon and text with professional logo-white.png image
+  - Responsive sizing: 40px on desktop, 32px on mobile
+  - Maintains aspect ratio automatically
+  - Smooth hover animation
 - **Progressive Web App (PWA) Support**
   - Full PWA implementation with offline functionality
   - App can now be installed on mobile and desktop devices
@@ -57,6 +61,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Notes added to all 5 languages (IT, EN, FR, ES, DE)
 
 ### Technical
+- **Navbar Logo Implementation**
+  - Updated `index.html` and `formulas.html` to use `<img>` tag with logo-white.png
+  - Added `.navbar-logo` CSS class with responsive height (40px desktop, 32px mobile)
+  - Updated `.navbar-brand` padding for better logo alignment
 - **PWA Files Created**
   - Created `/manifest.json` - Web App Manifest with app metadata, icons, shortcuts
   - Created `/service-worker.js` - Service Worker with precaching and runtime caching
