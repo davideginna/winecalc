@@ -10,6 +10,7 @@ Applicazione web mobile-first per calcoli enologici professionali.
 - ✅ **Calcolatori Enologici Professionali**
 - 🌍 **Multilingua** - Supporto completo per IT, EN, FR, ES, DE
 - 📱 **Mobile-First** - Design ottimizzato per smartphone e tablet
+- 📲 **Progressive Web App (PWA)** - Installabile su mobile e desktop, funziona offline
 - 🎨 **Interfaccia Moderna** - Bootstrap 5 con tema personalizzato ispirato al vino
 - ⚡ **Veloce e Leggero** - Nessuna dipendenza backend, solo HTML/CSS/JS
 - 🔧 **Open Source** - Codice libero e modificabile
@@ -106,6 +107,30 @@ Per testare l'app dal tuo smartphone sulla rete locale:
    ```
    Esempio: `http://192.168.1.100:8000`
 
+## 📲 Installazione PWA (Progressive Web App)
+
+WineCalc può essere installato come app nativa su smartphone e desktop:
+
+### Su Mobile (Android/iOS)
+1. Apri l'app nel browser (Chrome/Safari)
+2. Cerca l'opzione "Aggiungi a schermata home" o "Installa app"
+3. Su Android: tap sul menu (⋮) > "Installa app" o "Aggiungi a schermata Home"
+4. Su iOS/Safari: tap sul pulsante condividi > "Aggiungi a schermata Home"
+
+### Su Desktop (Chrome/Edge)
+1. Apri l'app nel browser
+2. Cerca l'icona di installazione nella barra degli indirizzi
+3. Oppure: Menu > "Installa WineCalc"
+
+### Vantaggi della PWA
+- ✅ **Funziona offline** - Accesso ai calcolatori senza connessione
+- ✅ **Icona sulla schermata home** - Avvio rapido come un'app nativa
+- ✅ **Nessun app store** - Installazione diretta dal browser
+- ✅ **Aggiornamenti automatici** - Sempre l'ultima versione
+- ✅ **Esperienza nativa** - Schermo intero, niente barre del browser
+
+> **Nota**: La PWA richiede HTTPS per funzionare. Su localhost non è necessario, ma per l'installazione da remoto serve un certificato SSL.
+
 
 ## 🔧 Tecnologie Utilizzate
 
@@ -115,6 +140,8 @@ Per testare l'app dal tuo smartphone sulla rete locale:
 - **Bootstrap 5.3.3** - Framework CSS responsive
 - **Bootstrap Icons** - Icone
 - **i18next** - Gestione multilingua
+- **Service Worker** - Funzionalità offline e caching
+- **Web App Manifest** - Installabilità PWA
 
 ## 🏗️ Architettura e Flusso Dati
 
