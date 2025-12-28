@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2025-12-29
+
+### Changed
+- **Code Refactoring - Naming Convention Standardization**
+  - Migrated all calculator files and functions from kebab-case to camelCase naming convention
+  - Eliminated runtime string conversions for improved performance and code maintainability
+  - 7 calculators refactored: ascorbicAcid, copperSulfateLarge, copperSulfateSmall, cremeOfTartar, dapPreFermentation, dapAddition, yanDapConverter
+  - Calculator IDs in `calculators-config.json` now use camelCase (e.g., `ascorbicAcid` instead of `ascorbic-acid`)
+  - Function names updated to camelCase (e.g., `calculateAscorbicAcid` instead of `calculate_ascorbic_acid`)
+  - All translation keys updated to use camelCase (e.g., `calculators.ascorbicAcid.title`)
+  - Formula template files and IDs updated to camelCase
+
+### Technical
+- **File Renames (49 files total)**
+  - Renamed 7 calculator JS files (e.g., `ascorbic-acid.js` → `ascorbicAcid.js`)
+  - Renamed 7 field configuration files (e.g., `ascorbic-acid.json` → `ascorbicAcid.json`)
+  - Renamed 35 translation files across 5 languages (7 calculators × 5 languages)
+  - Renamed 7 formula template files (e.g., `ascorbic-acid.html` → `ascorbicAcid.html`)
+- **Function Updates**
+  - Updated function declarations from snake_case to camelCase
+  - Updated window exports to use camelCase (e.g., `window.calculateAscorbicAcid`)
+  - Added window exports to dapPreFermentation.js, dapAddition.js, yanDapConverter.js
+- **Configuration Updates**
+  - Updated `calculators-config.json` with new camelCase IDs and file paths
+  - Updated `common.json` in all 5 languages with camelCase keys
+  - Updated `formulas.html` with camelCase collapse IDs and data-i18n keys
+- **Code Cleanup**
+  - Removed kebab-case to snake_case conversion logic from `calculator-loader.js`
+  - Simplified function lookup to use camelCase directly
+  - Function name pattern: calculatorId "ascorbicAcid" → function "calculateAscorbicAcid"
+
 ## [1.3.0] - 2025-12-28
 
 ### Fixed
@@ -25,6 +56,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Smooth hover animation
 
 ### Changed
+- **Performance Optimization - Calculator Function Caching**
+  - Eliminated runtime string conversions (kebab-case to snake_case)
+  - Calculator functions are now cached in a Map when modules are loaded
+  - `calculator-manager.js` and `form-handler.js` now use cached function references
+  - Performance improvement: O(1) Map lookup instead of string conversion on every calculation
+  - Implementation: Added `calculatorFunctions` Map to `app-state.js` with helper methods
 - **Standardized UI Across Pages**
   - Unified navbar order: Home → Formule (mobile only) → Lingue → Formule (desktop icon) → Dark Mode → Settings
   - Formule link now responsive: full link with icon on mobile, icon-only on desktop
@@ -80,6 +117,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Notes added to all 5 languages (IT, EN, FR, ES, DE)
 
 ### Technical
+- **Performance Optimization Implementation**
+  - Added `calculatorFunctions` Map to `AppState` in `app-state.js`
+  - Added `registerCalculatorFunction()`, `getCalculatorFunction()`, `hasCalculatorFunction()` methods to `StateManager`
+  - Updated `calculator-loader.js` to cache function reference after loading module
+  - Updated `calculator-manager.js` to use `StateManager.hasCalculatorFunction()` (removed string conversion)
+  - Updated `form-handler.js` to use `StateManager.getCalculatorFunction()` (removed string conversion)
+  - Conversion from kebab-case to snake_case now happens only once at module load time
 - **PWA Path Corrections**
   - Updated all HTML files to use relative paths (removed leading slashes)
   - Updated `manifest.json`: `start_url: "."`, `scope: "."`, `orientation: "any"`

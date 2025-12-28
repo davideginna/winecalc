@@ -14,7 +14,7 @@
  * @param {number} data.volume - Volume of wine/ferment in liters
  * @returns {Object} Calculation results
  */
-function calculate_copper_sulfate_large(data) {
+function calculateCopperSulfateLarge(data) {
     const { copperRate, volume } = data;
 
     // Validation
@@ -39,4 +39,4 @@ function calculate_copper_sulfate_large(data) {
 }
 
 // Export function
-window.calculate_copper_sulfate_large = calculate_copper_sulfate_large;
+window.calculateCopperSulfateLarge = calculateCopperSulfateLarge;

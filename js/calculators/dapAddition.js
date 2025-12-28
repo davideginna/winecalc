@@ -8,7 +8,7 @@
  * DAP amount (g) = (DAP mg/L × Volume L) / 1000
  */
 
-function calculate_dap_addition(data) {
+function calculateDapAddition(data) {
     const { dapRequired, volume } = data;
 
     // Validation
@@ -27,3 +27,6 @@ function calculate_dap_addition(data) {
         dapAmount: Math.round(dapAmount * 100) / 100  // 2 decimals
     };
 }
+
+// Export function
+window.calculateDapAddition = calculateDapAddition;

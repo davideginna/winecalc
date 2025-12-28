@@ -11,7 +11,7 @@
  * Where 4.7 mg/L DAP ≈ 1 mg/L YAN
  */
 
-function calculate_dap_pre_fermentation(data) {
+function calculateDapPreFermentation(data) {
     const { initialYan, requiredYan, volume } = data;
 
     // Validation
@@ -45,3 +45,6 @@ function calculate_dap_pre_fermentation(data) {
         dapAmount: Math.round(dapAmount * 100) / 100  // 2 decimals
     };
 }
+
+// Export function
+window.calculateDapPreFermentation = calculateDapPreFermentation;

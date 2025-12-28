@@ -21,7 +21,11 @@ export const AppState = {
         language: 'it',
         theme: 'light',
         colorTheme: 'wine'
-    }
+    },
+
+    // Calculator function cache (performance optimization)
+    // Maps calculator ID to function reference
+    calculatorFunctions: new Map()
 };
 
 /**
@@ -153,5 +157,28 @@ export const StateManager = {
     initialize() {
         this.loadHistory();
         console.log('State manager initialized');
+    },
+
+    /**
+     * Register calculator function (performance optimization)
+     * Caches the function reference to avoid repeated string conversions
+     */
+    registerCalculatorFunction(calculatorId, functionRef) {
+        AppState.calculatorFunctions.set(calculatorId, functionRef);
+    },
+
+    /**
+     * Get calculator function from cache
+     * Returns the cached function reference or null
+     */
+    getCalculatorFunction(calculatorId) {
+        return AppState.calculatorFunctions.get(calculatorId) || null;
+    },
+
+    /**
+     * Check if calculator function is registered
+     */
+    hasCalculatorFunction(calculatorId) {
+        return AppState.calculatorFunctions.has(calculatorId);
     }
 };

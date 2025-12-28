@@ -22,7 +22,7 @@
       "title": "Ajout d'Acide",
       "description": "Calculez la quantité d'acide à ajouter"
     },
-    "ascorbic-acid": {
+    "ascorbicAcid": {
       "title": "Acide Ascorbique",
       "description": "Calculez l'ajout d'acide ascorbique pour la conservation du vin"
     },
@@ -34,27 +34,27 @@
       "title": "Charbon Actif",
       "description": "Calculez l'ajout de charbon actif pour l'élimination de la couleur et des odeurs"
     },
-    "copper-sulfate-large": {
+    "copperSulfateLarge": {
       "title": "Sulfate de Cuivre (Grand Volume)",
       "description": "Calculez le sulfate de cuivre pour grands volumes (cuves, fûts)"
     },
-    "copper-sulfate-small": {
+    "copperSulfateSmall": {
       "title": "Sulfate de Cuivre (Petit Volume)",
       "description": "Calculez la solution de sulfate de cuivre pour essais de laboratoire"
     },
-    "creme-of-tartar": {
+    "cremeOfTartar": {
       "title": "Crème de Tartre",
       "description": "Calculez l'ajout de crème de tartre pour stabilisation à froid"
     },
-    "dap-pre-fermentation": {
+    "dapPreFermentation": {
       "title": "DAP (Pré-Fermentation)",
       "description": "Calculez le DAP pour augmenter le YAN avant la fermentation"
     },
-    "dap-addition": {
+    "dapAddition": {
       "title": "Ajout de DAP",
       "description": "Calculez l'ajout de DAP pendant la fermentation"
     },
-    "yan-dap-converter": {
+    "yanDapConverter": {
       "title": "Convertisseur YAN/DAP",
       "description": "Convertir entre YAN et DAP"
     }
@@ -161,7 +161,7 @@
       "additionRateDesc": "- Quantité d'acide à ajouter par litre de vin",
       "volumeDesc": "- Volume total de vin/fermentation/jus à traiter"
     },
-    "ascorbic-acid": {
+    "ascorbicAcid": {
       "additionRateDesc": "- Quantité désirée d'acide ascorbique à ajouter par litre de vin",
       "volumeDesc": "- Volume total de vin à traiter"
     },
@@ -174,18 +174,18 @@
       "carbonAmountDesc": "- Quantité de charbon actif à utiliser par litre",
       "volumeDesc": "- Volume total de vin/jus à traiter"
     },
-    "copper-sulfate-large": {
+    "copperSulfateLarge": {
       "copperRateDesc": "- Taux d'ajout souhaité de cuivre par litre",
       "volumeDesc": "- Volume total de vin/fermentation à traiter"
     },
-    "copper-sulfate-small": {
+    "copperSulfateSmall": {
       "copperRateDesc": "- Taux d'ajout souhaité de cuivre par litre",
       "volumeDesc": "- Volume de vin/jus à traiter",
       "volumeUnitDesc": "- Unité de mesure pour le volume (mL ou L)",
       "stockConcentrationDesc": "- Concentration de la solution stock CuSO₄·5H₂O préparée",
       "stockUnitDesc": "- Unité de mesure pour la concentration (% ou g/L)"
     },
-    "creme-of-tartar": {
+    "cremeOfTartar": {
       "additionRateDesc": "- Taux d'ajout souhaité de crème de tartre par litre",
       "volumeDesc": "- Volume total de vin à stabiliser"
     }

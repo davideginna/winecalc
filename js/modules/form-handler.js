@@ -72,11 +72,10 @@ export const FormHandler = {
      * Execute calculator calculation
      */
     async executeCalculation(calculatorId, data) {
-        // Convert hyphens to underscores for function name (e.g., "ascorbic-acid" -> "ascorbic_acid")
-        const functionName = calculatorId.replace(/-/g, '_');
-        const calculatorFunction = window[`calculate_${functionName}`];
+        // Get cached calculator function reference (performance optimization)
+        const calculatorFunction = StateManager.getCalculatorFunction(calculatorId);
 
-        if (typeof calculatorFunction === 'function') {
+        if (calculatorFunction) {
             try {
                 // Call calculator function
                 const result = calculatorFunction(data);

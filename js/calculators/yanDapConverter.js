@@ -10,7 +10,7 @@
  * Where 4.7 mg/L DAP ≈ 1 mg/L YAN
  */
 
-function calculate_yan_dap_converter(data) {
+function calculateYanDapConverter(data) {
     const { yanAmount, dapAmount } = data;
 
     const YAN_TO_DAP_RATIO = 4.7;
@@ -50,3 +50,6 @@ function calculate_yan_dap_converter(data) {
     // If neither value provided
     throw new Error(window.WineCalcI18n.t('errors.invalidInput'));
 }
+
+// Export function
+window.calculateYanDapConverter = calculateYanDapConverter;

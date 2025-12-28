@@ -22,7 +22,7 @@
       "title": "Säurezusatz",
       "description": "Berechnen Sie die Menge der zuzufügenden Säure"
     },
-    "ascorbic-acid": {
+    "ascorbicAcid": {
       "title": "Ascorbinsäure",
       "description": "Berechnen Sie die Ascorbinsäure-Zugabe zur Weinkonservierung"
     },
@@ -34,27 +34,27 @@
       "title": "Aktivkohle",
       "description": "Berechnen Sie die Aktivkohle-Zugabe zur Farb- und Geruchsentfernung"
     },
-    "copper-sulfate-large": {
+    "copperSulfateLarge": {
       "title": "Kupfersulfat (Großes Volumen)",
       "description": "Berechnen Sie Kupfersulfat für große Volumina (Tanks, Fässer)"
     },
-    "copper-sulfate-small": {
+    "copperSulfateSmall": {
       "title": "Kupfersulfat (Kleines Volumen)",
       "description": "Berechnen Sie Kupfersulfatlösung für Laborversuche"
     },
-    "creme-of-tartar": {
+    "cremeOfTartar": {
       "title": "Weinstein",
       "description": "Berechnen Sie Weinstein-Zugabe für Kältestabilisierung"
     },
-    "dap-pre-fermentation": {
+    "dapPreFermentation": {
       "title": "DAP (Vor-Gärung)",
       "description": "Berechnen Sie DAP zur Erhöhung von YAN vor der Gärung"
     },
-    "dap-addition": {
+    "dapAddition": {
       "title": "DAP-Zugabe",
       "description": "Berechnen Sie DAP-Zugabe während der Gärung"
     },
-    "yan-dap-converter": {
+    "yanDapConverter": {
       "title": "YAN/DAP-Konverter",
       "description": "Konvertieren zwischen YAN und DAP"
     }
@@ -161,7 +161,7 @@
       "additionRateDesc": "- Säuremenge pro Liter Wein hinzuzufügen",
       "volumeDesc": "- Gesamtvolumen von Wein/Gärung/Saft zu behandeln"
     },
-    "ascorbic-acid": {
+    "ascorbicAcid": {
       "additionRateDesc": "- Gewünschte Menge an Ascorbinsäure pro Liter Wein hinzuzufügen",
       "volumeDesc": "- Gesamtvolumen des zu behandelnden Weins"
     },
@@ -174,18 +174,18 @@
       "carbonAmountDesc": "- Menge an Aktivkohle pro Liter zu verwenden",
       "volumeDesc": "- Gesamtvolumen von Wein/Saft zu behandeln"
     },
-    "copper-sulfate-large": {
+    "copperSulfateLarge": {
       "copperRateDesc": "- Gewünschte Zugaberate von Kupfer pro Liter",
       "volumeDesc": "- Gesamtvolumen von Wein/Gärung zu behandeln"
     },
-    "copper-sulfate-small": {
+    "copperSulfateSmall": {
       "copperRateDesc": "- Gewünschte Zugaberate von Kupfer pro Liter",
       "volumeDesc": "- Volumen von Wein/Saft zu behandeln",
       "volumeUnitDesc": "- Maßeinheit für das Volumen (mL oder L)",
       "stockConcentrationDesc": "- Konzentration der vorbereiteten CuSO₄·5H₂O-Stammlösung",
       "stockUnitDesc": "- Maßeinheit für die Konzentration (% oder g/L)"
     },
-    "creme-of-tartar": {
+    "cremeOfTartar": {
       "additionRateDesc": "- Gewünschte Zugaberate von Weinstein pro Liter",
       "volumeDesc": "- Gesamtvolumen von Wein zu stabilisieren"
     }

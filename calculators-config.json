@@ -9,11 +9,11 @@
       "priority": 2
     },
     {
-      "id": "ascorbic-acid",
+      "id": "ascorbicAcid",
       "enabled": true,
       "category": "chemical",
       "icon": "bi-shield-check",
-      "jsFile": "js/calculators/ascorbic-acid.js",
+      "jsFile": "js/calculators/ascorbicAcid.js",
       "priority": 3
     },
     {
@@ -33,51 +33,51 @@
       "priority": 5
     },
     {
-      "id": "copper-sulfate-large",
+      "id": "copperSulfateLarge",
       "enabled": true,
       "category": "chemical",
       "icon": "bi-hexagon",
-      "jsFile": "js/calculators/copper-sulfate-large.js",
+      "jsFile": "js/calculators/copperSulfateLarge.js",
       "priority": 6
     },
     {
-      "id": "copper-sulfate-small",
+      "id": "copperSulfateSmall",
       "enabled": true,
       "category": "chemical",
       "icon": "bi-eyedropper",
-      "jsFile": "js/calculators/copper-sulfate-small.js",
+      "jsFile": "js/calculators/copperSulfateSmall.js",
       "priority": 7
     },
     {
-      "id": "creme-of-tartar",
+      "id": "cremeOfTartar",
       "enabled": true,
       "category": "chemical",
       "icon": "bi-snow",
-      "jsFile": "js/calculators/creme-of-tartar.js",
+      "jsFile": "js/calculators/cremeOfTartar.js",
       "priority": 8
     },
     {
-      "id": "dap-pre-fermentation",
+      "id": "dapPreFermentation",
       "enabled": true,
       "category": "chemical",
       "icon": "bi-clipboard-data",
-      "jsFile": "js/calculators/dap-pre-fermentation.js",
+      "jsFile": "js/calculators/dapPreFermentation.js",
       "priority": 9
     },
     {
-      "id": "dap-addition",
+      "id": "dapAddition",
       "enabled": true,
       "category": "chemical",
       "icon": "bi-plus-circle",
-      "jsFile": "js/calculators/dap-addition.js",
+      "jsFile": "js/calculators/dapAddition.js",
       "priority": 10
     },
     {
-      "id": "yan-dap-converter",
+      "id": "yanDapConverter",
       "enabled": true,
       "category": "reference",
       "icon": "bi-arrow-left-right",
-      "jsFile": "js/calculators/yan-dap-converter.js",
+      "jsFile": "js/calculators/yanDapConverter.js",
       "priority": 11
     }
   ]

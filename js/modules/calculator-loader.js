@@ -157,6 +157,18 @@ export const CalculatorLoader = {
             // Dynamically load script
             await this.loadScript(calcConfig.jsFile);
 
+            // Cache the calculator function reference (performance optimization)
+            // Function name follows camelCase pattern: calculatorId "ascorbicAcid" → function "calculateAscorbicAcid"
+            const functionName = `calculate${calculatorId.charAt(0).toUpperCase()}${calculatorId.slice(1)}`;
+            const calculatorFunction = window[functionName];
+
+            if (typeof calculatorFunction === 'function') {
+                StateManager.registerCalculatorFunction(calculatorId, calculatorFunction);
+                console.log(`✓ Calculator function cached: ${calculatorId}`);
+            } else {
+                console.warn(`Calculator function not found: ${functionName}`);
+            }
+
             // Mark as loaded
             this.loadedModules.add(calculatorId);
 

@@ -22,7 +22,7 @@
       "title": "Acid Addition",
       "description": "Calculate amount of acid to add"
     },
-    "ascorbic-acid": {
+    "ascorbicAcid": {
       "title": "Ascorbic Acid",
       "description": "Calculate ascorbic acid addition for wine preservation"
     },
@@ -34,27 +34,27 @@
       "title": "Activated Carbon",
       "description": "Calculate activated carbon addition for color and odor removal"
     },
-    "copper-sulfate-large": {
+    "copperSulfateLarge": {
       "title": "Copper Sulfate (Large Volume)",
       "description": "Calculate copper sulfate for large volumes (tanks, barrels)"
     },
-    "copper-sulfate-small": {
+    "copperSulfateSmall": {
       "title": "Copper Sulfate (Small Volume)",
       "description": "Calculate copper sulfate solution for bench trials"
     },
-    "creme-of-tartar": {
+    "cremeOfTartar": {
       "title": "Crème of Tartar",
       "description": "Calculate crème of tartar addition for cold stabilization"
     },
-    "dap-pre-fermentation": {
+    "dapPreFermentation": {
       "title": "DAP (Pre-Fermentation)",
       "description": "Calculate DAP to increase YAN before fermentation"
     },
-    "dap-addition": {
+    "dapAddition": {
       "title": "DAP Addition",
       "description": "Calculate DAP addition during fermentation"
     },
-    "yan-dap-converter": {
+    "yanDapConverter": {
       "title": "YAN/DAP Converter",
       "description": "Convert between YAN and DAP"
     }
@@ -161,7 +161,7 @@
       "additionRateDesc": "- Amount of acid to add per liter of wine",
       "volumeDesc": "- Total volume of wine/ferment/juice to treat"
     },
-    "ascorbic-acid": {
+    "ascorbicAcid": {
       "additionRateDesc": "- Desired amount of ascorbic acid to add per liter of wine",
       "volumeDesc": "- Total volume of wine to treat"
     },
@@ -174,18 +174,18 @@
       "carbonAmountDesc": "- Amount of activated carbon to use per liter",
       "volumeDesc": "- Total volume of wine/juice to treat"
     },
-    "copper-sulfate-large": {
+    "copperSulfateLarge": {
       "copperRateDesc": "- Desired addition rate of copper per liter",
       "volumeDesc": "- Total volume of wine/ferment to treat"
     },
-    "copper-sulfate-small": {
+    "copperSulfateSmall": {
       "copperRateDesc": "- Desired addition rate of copper per liter",
       "volumeDesc": "- Volume of wine/juice to treat",
       "volumeUnitDesc": "- Unit of measurement for volume (mL or L)",
       "stockConcentrationDesc": "- Concentration of prepared CuSO₄·5H₂O stock solution",
       "stockUnitDesc": "- Unit of measurement for concentration (% or g/L)"
     },
-    "creme-of-tartar": {
+    "cremeOfTartar": {
       "additionRateDesc": "- Desired addition rate of crème of tartar per liter",
       "volumeDesc": "- Total volume of wine to stabilize"
     }

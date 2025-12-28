@@ -12,7 +12,7 @@
  * @param {number} data.additionRate - Desired addition rate in mg/L
  * @returns {Object} Calculation results
  */
-function calculate_ascorbic_acid(data) {
+function calculateAscorbicAcid(data) {
     const { additionRate, volume } = data;
 
     // Validation
@@ -46,4 +46,4 @@ function calculate_ascorbic_acid(data) {
 }
 
 // Export function
-window.calculate_ascorbic_acid = calculate_ascorbic_acid;
+window.calculateAscorbicAcid = calculateAscorbicAcid;

@@ -11,7 +11,7 @@
  * @param {number} data.volume - Volume of wine in liters
  * @returns {Object} Calculation results
  */
-function calculate_creme_of_tartar(data) {
+function calculateCremeOfTartar(data) {
     const { additionRate, volume } = data;
 
     // Validation
@@ -32,4 +32,4 @@ function calculate_creme_of_tartar(data) {
 }
 
 // Export function
-window.calculate_creme_of_tartar = calculate_creme_of_tartar;
+window.calculateCremeOfTartar = calculateCremeOfTartar;

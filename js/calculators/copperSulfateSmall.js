@@ -17,7 +17,7 @@
  * @param {string} data.stockUnit - Unit of stock concentration ("percent" or "gPerL")
  * @returns {Object} Calculation results
  */
-function calculate_copper_sulfate_small(data) {
+function calculateCopperSulfateSmall(data) {
     const { copperRate, volume, volumeUnit, stockConcentration, stockUnit } = data;
 
     // Validation
@@ -64,4 +64,4 @@ function calculate_copper_sulfate_small(data) {
 }
 
 // Export function
-window.calculate_copper_sulfate_small = calculate_copper_sulfate_small;
+window.calculateCopperSulfateSmall = calculateCopperSulfateSmall;
