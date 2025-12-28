@@ -8,25 +8,45 @@ WineCalc is a mobile-first web application for professional oenological (winemak
 
 ## Development Commands
 
+### Setup
+
+```bash
+# Install dependencies (first time only)
+npm install
+```
+
 ### Local Development Server
 
 The app requires a local server to avoid CORS issues with translation files:
 
 ```bash
-# Python 3 (recommended)
-python3 -m http.server 8000
+# Start server (Node.js with serve)
+npm start
 
-# Node.js alternative
-npx serve .
+# Or use the alias
+npm run dev
 
 # Then open browser at http://localhost:8000
 ```
 
 For mobile testing on local network, find your IP and use `http://[YOUR_IP]:8000`
 
+### Testing
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode (auto-rerun on changes)
+npm run test:watch
+
+# Run tests with coverage report
+npm run test:coverage
+```
+
 ### Testing on Mobile
 
-1. Start local server
+1. Start local server: `npm start`
 2. Find IP: `ifconfig | grep inet` (Linux/Mac) or `ipconfig` (Windows)
 3. Access from phone: `http://[IP]:8000`
 

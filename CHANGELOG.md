@@ -7,26 +7,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.4.0] - 2025-12-29
 
+### Added
+- **Automated Test Suite with Jest**
+  - Comprehensive test coverage for all 10 calculator functions (90%+ code coverage)
+  - 37 automated tests covering function existence, input validation, and calculation accuracy
+  - Input validation tests: empty values, NaN, negative values, zero values
+  - Calculation accuracy tests with known inputs/outputs
+  - Test scripts: `npm test`, `npm run test:watch`, `npm run test:coverage`
+  - GitHub Actions workflow for continuous integration
+  - Tests run automatically on push to main/develop branches
+  - Multi-version Node.js testing (18.x, 20.x)
+  - Coverage reports generated automatically
+  - Test documentation in `tests/README.md`
+
 ### Changed
 - **Code Refactoring - Naming Convention Standardization**
   - Migrated all calculator files and functions from kebab-case to camelCase naming convention
   - Eliminated runtime string conversions for improved performance and code maintainability
-  - 7 calculators refactored: ascorbicAcid, copperSulfateLarge, copperSulfateSmall, cremeOfTartar, dapPreFermentation, dapAddition, yanDapConverter
+  - 10 calculators refactored to camelCase: acid, ascorbicAcid, bentonite, carbon, copperSulfateLarge, copperSulfateSmall, cremeOfTartar, dapPreFermentation, dapAddition, yanDapConverter
   - Calculator IDs in `calculators-config.json` now use camelCase (e.g., `ascorbicAcid` instead of `ascorbic-acid`)
   - Function names updated to camelCase (e.g., `calculateAscorbicAcid` instead of `calculate_ascorbic_acid`)
   - All translation keys updated to use camelCase (e.g., `calculators.ascorbicAcid.title`)
   - Formula template files and IDs updated to camelCase
 
+### Fixed
+- **Input Validation - All Calculators**
+  - Fixed issue where empty form fields showed results instead of validation errors
+  - Added `isNaN()` checks to all numeric input validations
+  - All calculators now properly reject empty, null, NaN, and invalid values
+  - Improved error messages for better user feedback
+
 ### Technical
+- **Test Infrastructure**
+  - Created `package.json` with Jest configuration
+  - Created `tests/calculators.test.js` with 37 comprehensive tests
+  - Created `.github/workflows/test.yml` for CI/CD pipeline
+  - Added `tests/README.md` with testing documentation
+  - Test coverage: 90.09% statements, 90.57% branches, 100% functions
+  - All 10 calculator functions validated for existence and correct exports
 - **File Renames (49 files total)**
   - Renamed 7 calculator JS files (e.g., `ascorbic-acid.js` → `ascorbicAcid.js`)
   - Renamed 7 field configuration files (e.g., `ascorbic-acid.json` → `ascorbicAcid.json`)
   - Renamed 35 translation files across 5 languages (7 calculators × 5 languages)
   - Renamed 7 formula template files (e.g., `ascorbic-acid.html` → `ascorbicAcid.html`)
 - **Function Updates**
-  - Updated function declarations from snake_case to camelCase
+  - Updated ALL 10 calculator function declarations from snake_case to camelCase
   - Updated window exports to use camelCase (e.g., `window.calculateAscorbicAcid`)
   - Added window exports to dapPreFermentation.js, dapAddition.js, yanDapConverter.js
+  - Fixed acid.js, bentonite.js, carbon.js to match new naming convention
 - **Configuration Updates**
   - Updated `calculators-config.json` with new camelCase IDs and file paths
   - Updated `common.json` in all 5 languages with camelCase keys
@@ -35,6 +63,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Removed kebab-case to snake_case conversion logic from `calculator-loader.js`
   - Simplified function lookup to use camelCase directly
   - Function name pattern: calculatorId "ascorbicAcid" → function "calculateAscorbicAcid"
+- **Validation Improvements**
+  - Added `isNaN()` checks to all 10 calculator validation functions
+  - Enhanced error handling for edge cases (undefined, null, empty string, zero)
+  - Consistent validation pattern across all calculators
 
 ## [1.3.0] - 2025-12-28
 

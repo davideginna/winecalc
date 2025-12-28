@@ -39,7 +39,6 @@ yarn-error.log*
 
 # Node (if using npm for development tools)
 node_modules/
-package-lock.json
 yarn.lock
 
 # Build outputs (if any)

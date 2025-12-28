@@ -62,37 +62,50 @@ Applicazione web mobile-first per calcoli enologici professionali.
 
 ## 🚀 Avvio Rapido
 
-### Opzione 1: Python HTTP Server (Consigliato)
+### Opzione 1: npm (Consigliato)
 
 ```bash
-# Python 3
-python3 -m http.server 8000
+# Installa le dipendenze (solo la prima volta)
+npm install
 
-# Python 2
-python -m SimpleHTTPServer 8000
+# Avvia il server
+npm start
 
 # Apri il browser su:
 # http://localhost:8000
 ```
 
-### Opzione 2: Node.js HTTP Server
+### Opzione 2: Python HTTP Server
 
 ```bash
-# Installa serve globalmente (solo la prima volta)
-npm install -g serve
+# Python 3
+python3 -m http.server 8000
 
-# Avvia il server
-serve .
-
-# Oppure usa npx (senza installazione)
-npx serve .
+# Apri il browser su:
+# http://localhost:8000
 ```
+
+## 🧪 Testing
+
+```bash
+# Esegui tutti i test
+npm test
+
+# Esegui test con coverage
+npm run test:coverage
+
+# Esegui test in watch mode (auto-rerun)
+npm run test:watch
+```
+
+✅ **37 test automatici** - 90%+ code coverage
+✅ **GitHub Actions CI/CD** - Test automatici ad ogni push
 
 ## 📱 Accesso da Smartphone
 
 Per testare l'app dal tuo smartphone sulla rete locale:
 
-1. Avvia un server locale (es. `python3 -m http.server 8000`)
+1. Avvia il server: `npm start`
 2. Trova l'indirizzo IP del tuo computer:
    ```bash
    # Linux/Mac

@@ -1,0 +1,26 @@
+{
+  "name": "winecalc",
+  "version": "1.4.0",
+  "description": "Professional winemaking calculators",
+  "scripts": {
+    "start": "serve . -p 8000",
+    "dev": "serve . -p 8000",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "js/calculators/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "serve": "^14.2.4"
+  }
+}
