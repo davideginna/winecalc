@@ -11,8 +11,8 @@
     "description": "Formule de calcul du DAP (pré-fermentation)",
     "steps": [
       "Différence YAN (mg/L) = YAN requis - YAN initial",
-      "Quantité DAP (g) = (Différence YAN × Volume) / (4,7 × 1000)",
-      "Où 4,7 mg/L DAP ≈ 1 mg/L YAN"
+      "Quantité DAP (g) = (Différence YAN × Volume × 4,7) / 1000",
+      "Où 1 mg/L YAN ≈ 4,7 mg/L DAP"
     ]
   }
 }

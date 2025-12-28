@@ -60,7 +60,7 @@
       "id": "dap-pre-fermentation",
       "enabled": true,
       "category": "chemical",
-      "icon": "bi-flask",
+      "icon": "bi-clipboard-data",
       "jsFile": "js/calculators/dap-pre-fermentation.js",
       "priority": 9
     },

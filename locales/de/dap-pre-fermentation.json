@@ -11,8 +11,8 @@
     "description": "Formel zur DAP-Berechnung (Vor-Gärung)",
     "steps": [
       "YAN-Differenz (mg/L) = Erforderlicher YAN - Anfänglicher YAN",
-      "DAP-Menge (g) = (YAN-Differenz × Volumen) / (4,7 × 1000)",
-      "Wobei 4,7 mg/L DAP ≈ 1 mg/L YAN"
+      "DAP-Menge (g) = (YAN-Differenz × Volumen × 4,7) / 1000",
+      "Wobei 1 mg/L YAN ≈ 4,7 mg/L DAP"
     ]
   }
 }

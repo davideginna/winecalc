@@ -36,9 +36,10 @@ function calculate_dap_pre_fermentation(data) {
     }
 
     // Calculate DAP amount in grams
-    // Formula: (YAN difference mg/L × Volume L) / (4.7 × 1000)
+    // Formula: (YAN difference mg/L × Volume L × 4.7) / 1000
+    // Where 1 mg/L YAN = 4.7 mg/L DAP
     const YAN_TO_DAP_RATIO = 4.7;
-    const dapAmount = (yanDifference * volume) / (YAN_TO_DAP_RATIO * 1000);
+    const dapAmount = (yanDifference * volume * YAN_TO_DAP_RATIO) / 1000;
 
     return {
         dapAmount: Math.round(dapAmount * 100) / 100  // 2 decimals

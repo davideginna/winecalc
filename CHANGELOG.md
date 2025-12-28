@@ -119,8 +119,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Updated `form-handler.js` and `calculator-manager.js` to handle conversion
   - Maintains consistency with URL-friendly naming
 - **Removed External References**
-  - Removed all AWRI references from code comments
-  - Removed all AWRI references from translations (10 files across 5 languages)
   - Removed source links from formula templates
   - Updated all documentation to use generic "reference calculator" terminology
   - Updated README.md and CLAUDE.md to remove external dependencies
