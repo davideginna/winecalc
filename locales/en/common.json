@@ -2,7 +2,12 @@
   "nav": {
     "home": "Home",
     "calculators": "Calculators",
+    "calculatorsDesc": "Calculation tools for chemical additions and oenological corrections",
     "formulas": "Formulas",
+    "formulasDesc": "Complete documentation of mathematical formulas used",
+    "blend": "Blend",
+    "blendDesc": "Calculate proportions and characteristics of wine blends",
+    "explore": "Explore",
     "about": "About"
   },
   "hero": {
@@ -193,5 +198,18 @@
       "additionRateDesc": "- Desired addition rate of crème of tartar per liter",
       "volumeDesc": "- Total volume of wine to stabilize"
     }
+  },
+  "blend": {
+    "title": "Blend Calculators",
+    "subtitle": "Calculate proportions and characteristics of wine blends",
+    "comingSoon": "Coming Soon",
+    "comingSoonDesc": "We are developing advanced calculators for creating wine blends and mixes. Soon you will be able to calculate:",
+    "feature1": "Blend proportions (volumes and percentages)",
+    "feature2": "Resulting alcohol content",
+    "feature3": "Total acidity and pH of the blend",
+    "feature4": "Residual sugars",
+    "feature5": "Free and total SO2",
+    "feature6": "3+ component blends",
+    "backToCalculators": "Back to Calculators"
   }
 }

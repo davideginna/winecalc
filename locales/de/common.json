@@ -2,7 +2,12 @@
   "nav": {
     "home": "Startseite",
     "calculators": "Rechner",
+    "calculatorsDesc": "Berechnungswerkzeuge für chemische Zusätze und önologische Korrekturen",
     "formulas": "Formeln",
+    "formulasDesc": "Vollständige Dokumentation der verwendeten mathematischen Formeln",
+    "blend": "Verschnitt",
+    "blendDesc": "Berechnen Sie Proportionen und Eigenschaften von Weinverschnitten",
+    "explore": "Erkunden",
     "about": "Über"
   },
   "hero": {
@@ -193,5 +198,18 @@
       "additionRateDesc": "- Gewünschte Zugaberate von Weinstein pro Liter",
       "volumeDesc": "- Gesamtvolumen von Wein zu stabilisieren"
     }
+  },
+  "blend": {
+    "title": "Verschnitt-Rechner",
+    "subtitle": "Berechnen Sie Proportionen und Eigenschaften von Weinverschnitten",
+    "comingSoon": "Demnächst",
+    "comingSoonDesc": "Wir entwickeln fortgeschrittene Rechner zur Erstellung von Weinverschnitten. Bald können Sie berechnen:",
+    "feature1": "Verschnittproportionen (Volumina und Prozentsätze)",
+    "feature2": "Resultierender Alkoholgehalt",
+    "feature3": "Gesamtsäure und pH des Verschnitts",
+    "feature4": "Restzucker",
+    "feature5": "Freies und gesamt SO2",
+    "feature6": "Verschnitte mit 3+ Komponenten",
+    "backToCalculators": "Zurück zu Rechnern"
   }
 }

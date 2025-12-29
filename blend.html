@@ -5,16 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="WineCalc - Calcolatori professionali per l'enologia. Calcola SO2, acidità, fortificazione e molto altro.">
-    <meta name="keywords" content="vino, enologia, calcolatori, SO2, acidità, wine, winemaking">
+        content="WineCalc Blend - Calcolatori per miscele di vini. Calcola proporzioni e caratteristiche risultanti.">
+    <meta name="keywords" content="vino, enologia, blend, miscela, assemblaggio, wine, blending">
     <meta name="author" content="WineCalc">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="WineCalc - Calcolatori Enologici">
-    <meta property="og:description" content="Strumenti professionali per calcoli enologici">
-    <meta property="og:type" content="website">
-
-    <title>WineCalc - Calcolatori Enologici</title>
+    <title>Blend - WineCalc</title>
     <link rel="icon" type="image/jpeg" href="assets/icons/favicon/favicon.jpg">
 
     <!-- PWA Manifest -->
@@ -58,7 +53,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html" data-i18n="nav.home">Home</a>
+                        <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="calculators.html" data-i18n="nav.calculators">Calcolatori</a>
@@ -67,7 +62,7 @@
                         <a class="nav-link" href="formulas.html" data-i18n="nav.formulas">Formule</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="blend.html" data-i18n="nav.blend">Blend</a>
+                        <a class="nav-link active" href="blend.html" data-i18n="nav.blend">Blend</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -98,96 +93,103 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section bg-gradient-wine text-white py-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 fw-bold mb-3" data-i18n="hero.title">Calcolatori Enologici Professionali</h1>
-                    <p class="lead mb-4" data-i18n="hero.subtitle">Strumenti precisi per la vinificazione. Calcola SO2,
-                        acidità, fortificazione e molto altro.</p>
+    <!-- Main Content -->
+    <main class="container my-5" id="main-content">
+        <!-- Page Header -->
+        <div class="text-center mb-5">
+            <h1 class="display-4 mb-3">
+                <i class="bi bi-bezier2 text-wine"></i>
+                <span data-i18n="blend.title">Calcolatori Blend</span>
+            </h1>
+            <p class="lead text-muted" data-i18n="blend.subtitle">
+                Calcola proporzioni e caratteristiche di miscele di vini
+            </p>
+        </div>
+
+        <!-- Coming Soon Section -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body text-center p-5">
+                        <div class="icon-circle bg-accent-light mx-auto mb-4" style="width: 100px; height: 100px;">
+                            <i class="bi bi-bezier2 text-accent" style="font-size: 3rem;"></i>
+                        </div>
+                        <h2 class="h3 mb-4" data-i18n="blend.comingSoon">Prossimamente</h2>
+                        <p class="text-muted mb-4" data-i18n="blend.comingSoonDesc">
+                            Stiamo sviluppando calcolatori avanzati per la creazione di blend e miscele di vini. Presto potrai calcolare:
+                        </p>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span data-i18n="blend.feature1">Proporzioni di miscela (volumi e percentuali)</span>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span data-i18n="blend.feature2">Gradazione alcolica risultante</span>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span data-i18n="blend.feature3">Acidità totale e pH del blend</span>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span data-i18n="blend.feature4">Zuccheri residui</span>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span data-i18n="blend.feature5">SO2 libera e totale</span>
+                            </li>
+                            <li class="mb-2">
+                                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                <span data-i18n="blend.feature6">Blend a 3+ componenti</span>
+                            </li>
+                        </ul>
+                        <div class="mt-4">
+                            <a href="index.html" class="btn btn-primary-theme btn-lg">
+                                <i class="bi bi-arrow-left me-2"></i>
+                                <span data-i18n="blend.backToCalculators">Torna ai Calcolatori</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Navigation Cards Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <div class="row g-4">
-                <!-- Calculators Card -->
-                <div class="col-md-4">
-                    <a href="calculators.html" class="text-decoration-none">
-                        <div class="card h-100 shadow-sm hover-lift border-0">
-                            <div class="card-body text-center p-4">
-                                <div class="icon-circle bg-primary-light mx-auto mb-3">
-                                    <i class="bi bi-calculator-fill text-primary" style="font-size: 2rem;"></i>
-                                </div>
-                                <h3 class="card-title h4 mb-3" data-i18n="nav.calculators">Calcolatori</h3>
-                                <p class="card-text text-muted" data-i18n="nav.calculatorsDesc">Strumenti di calcolo per aggiunte chimiche e correzioni enologiche</p>
-                                <div class="mt-3">
-                                    <span class="btn btn-outline-primary-theme" data-i18n="nav.explore">Esplora</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Formulas Card -->
-                <div class="col-md-4">
-                    <a href="formulas.html" class="text-decoration-none">
-                        <div class="card h-100 shadow-sm hover-lift border-0">
-                            <div class="card-body text-center p-4">
-                                <div class="icon-circle bg-secondary-light mx-auto mb-3">
-                                    <i class="bi bi-mortarboard-fill text-secondary" style="font-size: 2rem;"></i>
-                                </div>
-                                <h3 class="card-title h4 mb-3" data-i18n="nav.formulas">Formule</h3>
-                                <p class="card-text text-muted" data-i18n="nav.formulasDesc">Documentazione completa delle formule matematiche utilizzate</p>
-                                <div class="mt-3">
-                                    <span class="btn btn-outline-primary-theme" data-i18n="nav.explore">Esplora</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Blend Card -->
-                <div class="col-md-4">
-                    <a href="blend.html" class="text-decoration-none">
-                        <div class="card h-100 shadow-sm hover-lift border-0">
-                            <div class="card-body text-center p-4">
-                                <div class="icon-circle bg-accent-light mx-auto mb-3">
-                                    <i class="bi bi-bezier2 text-accent" style="font-size: 2rem;"></i>
-                                </div>
-                                <h3 class="card-title h4 mb-3" data-i18n="nav.blend">Blend</h3>
-                                <p class="card-text text-muted" data-i18n="nav.blendDesc">Calcola proporzioni e caratteristiche di miscele di vini</p>
-                                <div class="mt-3">
-                                    <span class="btn btn-outline-primary-theme" data-i18n="nav.explore">Esplora</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- PWA Install Banner -->
-    <div class="modal fade" id="calculatorModal" tabindex="-1" aria-labelledby="calculatorModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header bg-wine text-white">
-                    <h5 class="modal-title" id="calculatorModalLabel">Calcolatore</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
+    <div class="pwa-install-banner" id="pwa-install-banner">
+        <div class="container-fluid">
+            <div class="pwa-install-banner-content">
+                <div class="pwa-install-banner-text">
+                    <h6>
+                        <i class="bi bi-download me-2"></i>
+                        <span data-i18n="pwa.install.title">Installa WineCalc</span>
+                    </h6>
+                    <p data-i18n="pwa.install.description">Accedi ai calcolatori anche offline!</p>
                 </div>
-                <div class="modal-body" id="calculatorContent">
-                    <!-- Calculator content will be loaded here -->
+                <div class="pwa-install-banner-actions">
+                    <button class="btn btn-light btn-sm" id="pwa-install-button">
+                        <i class="bi bi-download me-1"></i>
+                        <span data-i18n="pwa.install.button">Installa</span>
+                    </button>
+                    <button class="btn btn-link btn-sm text-white" id="pwa-install-dismiss">
+                        <span data-i18n="pwa.install.dismiss">Più tardi</span>
+                    </button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-muted py-4 mt-5">
+        <div class="container">
+            <p class="mb-2" data-i18n="footer.description">Calcolatori professionali per l'enologia</p>
+            <p class="small">
+                <span data-i18n="footer.madeWith">Fatto con</span> ❤️
+                <span data-i18n="footer.by">da</span> WineCalc
+            </p>
+        </div>
+    </footer>
 
     <!-- Settings Modal -->
     <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
@@ -327,68 +329,19 @@
         </div>
     </div>
 
-    <!-- PWA Install Banner -->
-    <div class="pwa-install-banner" id="pwa-install-banner">
-        <div class="container-fluid">
-            <div class="pwa-install-banner-content">
-                <div class="pwa-install-banner-text">
-                    <h6>
-                        <i class="bi bi-download me-2"></i>
-                        <span data-i18n="pwa.install.title">Installa WineCalc</span>
-                    </h6>
-                    <p data-i18n="pwa.install.description">Accedi ai calcolatori anche offline!</p>
-                </div>
-                <div class="pwa-install-banner-actions">
-                    <button class="btn btn-light btn-sm" id="pwa-install-button">
-                        <i class="bi bi-download me-1"></i>
-                        <span data-i18n="pwa.install.button">Installa</span>
-                    </button>
-                    <button class="btn btn-link btn-sm text-white" id="pwa-install-dismiss">
-                        <span data-i18n="pwa.install.dismiss">Più tardi</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>WineCalc</h5>
-                    <p class="text-muted" data-i18n="footer.description">Calcolatori professionali per l'enologia</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <p class="text-muted">
-                        <i class="bi bi-github me-2"></i>
-                        <a href="https://github.com/davideginna/winecalc" class="text-white text-decoration-none" data-i18n="footer.viewOnGithub">Vedi su
-                            GitHub</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap 5.3.3 JS Bundle -->
+    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <!-- i18next for internationalization -->
-    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.11/i18next.min.js"></script>
+    <!-- i18next -->
+    <script src="https://cdn.jsdelivr.net/npm/i18next@23.7.6/i18next.min.js"></script>
 
-    <!-- Global utilities and dependencies (loaded before ES6 modules) -->
+    <!-- Global utilities and i18n (non-modules) -->
     <script src="js/utils.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/theme-manager.js"></script>
     <script src="js/settings-ui.js"></script>
-
-    <!-- Calculator modules will be lazy loaded on demand -->
-    <!-- No preloading = faster initial page load! -->
-
-    <!-- Main application (ES6 module - entry point) -->
-    <script type="module" src="js/main.js"></script>
 
     <!-- PWA Install Handler -->
     <script src="js/pwa-install.js"></script>

@@ -2,7 +2,12 @@
   "nav": {
     "home": "Home",
     "calculators": "Calcolatori",
+    "calculatorsDesc": "Strumenti di calcolo per aggiunte chimiche e correzioni enologiche",
     "formulas": "Formule",
+    "formulasDesc": "Documentazione completa delle formule matematiche utilizzate",
+    "blend": "Blend",
+    "blendDesc": "Calcola proporzioni e caratteristiche di miscele di vini",
+    "explore": "Esplora",
     "about": "Info"
   },
   "hero": {
@@ -193,5 +198,18 @@
       "additionRateDesc": "- Tasso di aggiunta desiderato di cremor tartaro per litro",
       "volumeDesc": "- Volume totale di vino da stabilizzare"
     }
+  },
+  "blend": {
+    "title": "Calcolatori Blend",
+    "subtitle": "Calcola proporzioni e caratteristiche di miscele di vini",
+    "comingSoon": "Prossimamente",
+    "comingSoonDesc": "Stiamo sviluppando calcolatori avanzati per la creazione di blend e miscele di vini. Presto potrai calcolare:",
+    "feature1": "Proporzioni di miscela (volumi e percentuali)",
+    "feature2": "Gradazione alcolica risultante",
+    "feature3": "Acidità totale e pH del blend",
+    "feature4": "Zuccheri residui",
+    "feature5": "SO2 libera e totale",
+    "feature6": "Blend a 3+ componenti",
+    "backToCalculators": "Torna ai Calcolatori"
   }
 }

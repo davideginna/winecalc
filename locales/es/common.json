@@ -2,7 +2,12 @@
   "nav": {
     "home": "Inicio",
     "calculators": "Calculadoras",
+    "calculatorsDesc": "Herramientas de cálculo para adiciones químicas y correcciones enológicas",
     "formulas": "Fórmulas",
+    "formulasDesc": "Documentación completa de las fórmulas matemáticas utilizadas",
+    "blend": "Mezcla",
+    "blendDesc": "Calcula proporciones y características de mezclas de vinos",
+    "explore": "Explorar",
     "about": "Acerca de"
   },
   "hero": {
@@ -193,5 +198,18 @@
       "additionRateDesc": "- Tasa de adición deseada de cremor tártaro por litro",
       "volumeDesc": "- Volumen total de vino a estabilizar"
     }
+  },
+  "blend": {
+    "title": "Calculadoras de Mezcla",
+    "subtitle": "Calcula proporciones y características de mezclas de vinos",
+    "comingSoon": "Próximamente",
+    "comingSoonDesc": "Estamos desarrollando calculadoras avanzadas para crear mezclas de vinos. Pronto podrás calcular:",
+    "feature1": "Proporciones de mezcla (volúmenes y porcentajes)",
+    "feature2": "Contenido de alcohol resultante",
+    "feature3": "Acidez total y pH de la mezcla",
+    "feature4": "Azúcares residuales",
+    "feature5": "SO2 libre y total",
+    "feature6": "Mezclas de 3+ componentes",
+    "backToCalculators": "Volver a Calculadoras"
   }
 }

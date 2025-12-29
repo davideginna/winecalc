@@ -2,7 +2,12 @@
   "nav": {
     "home": "Accueil",
     "calculators": "Calculateurs",
+    "calculatorsDesc": "Outils de calcul pour ajouts chimiques et corrections œnologiques",
     "formulas": "Formules",
+    "formulasDesc": "Documentation complète des formules mathématiques utilisées",
+    "blend": "Assemblage",
+    "blendDesc": "Calculez les proportions et caractéristiques des assemblages de vins",
+    "explore": "Explorer",
     "about": "À propos"
   },
   "hero": {
@@ -193,5 +198,18 @@
       "additionRateDesc": "- Taux d'ajout souhaité de crème de tartre par litre",
       "volumeDesc": "- Volume total de vin à stabiliser"
     }
+  },
+  "blend": {
+    "title": "Calculateurs d'Assemblage",
+    "subtitle": "Calculez les proportions et caractéristiques des assemblages de vins",
+    "comingSoon": "Prochainement",
+    "comingSoonDesc": "Nous développons des calculateurs avancés pour créer des assemblages de vins. Bientôt vous pourrez calculer:",
+    "feature1": "Proportions d'assemblage (volumes et pourcentages)",
+    "feature2": "Teneur en alcool résultante",
+    "feature3": "Acidité totale et pH de l'assemblage",
+    "feature4": "Sucres résiduels",
+    "feature5": "SO2 libre et total",
+    "feature6": "Assemblages à 3+ composants",
+    "backToCalculators": "Retour aux Calculateurs"
   }
 }
