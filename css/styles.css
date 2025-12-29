@@ -3,8 +3,8 @@
 /* Global Styles */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    background-color: var(--wine-bg);
-    color: var(--wine-text);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@ main {
 
 .navbar-brand {
     font-size: 1.5rem;
-    transition: var(--wine-transition);
+    transition: var(--transition-base);
     padding: 0.5rem 0;
 }
 
@@ -177,17 +177,17 @@ main {
 /* Calculator Cards */
 .card {
     border: none;
-    border-radius: var(--wine-border-radius);
-    transition: var(--wine-transition);
+    border-radius: var(--border-radius);
+    transition: var(--transition-base);
     height: 100%;
 }
 
 .card:hover {
-    box-shadow: var(--wine-box-shadow-hover);
+    box-shadow: var(--shadow-lg);
 }
 
 .hover-lift {
-    transition: var(--wine-transition);
+    transition: var(--transition-base);
 }
 
 .icon-circle {
@@ -202,7 +202,7 @@ main {
 }
 
 .card-title {
-    color: var(--wine-primary);
+    color: var(--primary);
     margin-bottom: 0.75rem;
 }
 
@@ -216,7 +216,7 @@ section h2 {
     font-weight: 700;
     margin-bottom: 1.5rem;
     padding-bottom: 0.75rem;
-    border-bottom: 3px solid var(--wine-primary-light);
+    border-bottom: 3px solid var(--primary-light);
 }
 
 /* Badges */
@@ -229,11 +229,11 @@ section h2 {
 /* Calculator Modal */
 .modal-content {
     border: none;
-    border-radius: var(--wine-border-radius);
+    border-radius: var(--border-radius);
 }
 
 .modal-header {
-    border-radius: var(--wine-border-radius) var(--wine-border-radius) 0 0;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
 /* Calculator Form Styles */
@@ -243,7 +243,7 @@ section h2 {
 
 .calculator-form .form-label {
     font-weight: 600;
-    color: var(--wine-primary);
+    color: var(--primary);
     margin-bottom: 0.5rem;
 }
 
@@ -252,28 +252,28 @@ section h2 {
     border: 2px solid #e9ecef;
     border-radius: 8px;
     padding: 0.75rem 1rem;
-    transition: var(--wine-transition);
+    transition: var(--transition-base);
 }
 
 .calculator-form .form-control:hover,
 .calculator-form .form-select:hover {
-    border-color: var(--wine-primary-light);
+    border-color: var(--primary-light);
 }
 
 /* Results Section */
 .results-section {
-    background: linear-gradient(135deg, var(--wine-primary-light) 0%, var(--wine-secondary-light) 100%);
-    border-radius: var(--wine-border-radius);
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-light) 100%);
+    border-radius: var(--border-radius);
     padding: 2rem;
     margin-top: 2rem;
 }
 
 .result-item {
-    background: var(--wine-white);
+    background: var(--bg-primary);
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 1rem;
-    box-shadow: var(--wine-box-shadow);
+    box-shadow: var(--shadow-sm);
 }
 
 .result-item:last-child {
@@ -282,27 +282,27 @@ section h2 {
 
 .result-label {
     font-size: 0.9rem;
-    color: var(--wine-text-muted);
+    color: var(--text-muted);
     margin-bottom: 0.25rem;
 }
 
 .result-value {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--wine-primary);
+    color: var(--primary);
 }
 
 .result-unit {
     font-size: 1rem;
-    color: var(--wine-text-muted);
+    color: var(--text-muted);
     margin-left: 0.5rem;
 }
 
 /* Info Alert */
 .alert-info {
-    background-color: var(--wine-secondary-light);
-    border-color: var(--wine-secondary);
-    color: var(--wine-text);
+    background-color: var(--secondary-light);
+    border-color: var(--secondary);
+    color: var(--text-primary);
 }
 
 /* Buttons */
@@ -310,7 +310,7 @@ section h2 {
     border-radius: 8px;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
-    transition: var(--wine-transition);
+    transition: var(--transition-base);
 }
 
 .btn-lg {
@@ -329,8 +329,8 @@ footer a:hover {
 
 /* Loading Spinner */
 .spinner-wine {
-    border-color: var(--wine-primary-light);
-    border-top-color: var(--wine-primary);
+    border-color: var(--primary-light);
+    border-top-color: var(--primary);
 }
 
 /* No Results */
@@ -368,7 +368,7 @@ footer a:hover {
 }
 
 .breadcrumb-item.active {
-    color: var(--wine-primary);
+    color: var(--primary);
 }
 
 /* Responsive Design */
@@ -467,7 +467,7 @@ footer a:hover {
 
     .results-section {
         background: white;
-        border: 2px solid var(--wine-primary);
+        border: 2px solid var(--primary);
     }
 }
 
@@ -475,14 +475,14 @@ footer a:hover {
 .btn:focus,
 .form-control:focus,
 .form-select:focus {
-    outline: 3px solid var(--wine-primary);
+    outline: 3px solid var(--primary);
     outline-offset: 2px;
 }
 
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
     .card {
-        border: 2px solid var(--wine-primary);
+        border: 2px solid var(--primary);
     }
 
     .btn-outline-wine {
@@ -496,7 +496,7 @@ footer a:hover {
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(135deg, var(--wine-primary), var(--wine-secondary));
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     padding: 1rem;
     box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
@@ -551,14 +551,14 @@ footer a:hover {
 
 .pwa-install-banner .btn-light {
     background: white;
-    color: var(--wine-primary);
+    color: var(--primary);
     border: none;
     font-weight: 600;
 }
 
 .pwa-install-banner .btn-light:hover {
     background: rgba(255, 255, 255, 0.9);
-    color: var(--wine-primary);
+    color: var(--primary);
 }
 
 .pwa-install-banner .btn-close-white {
