@@ -1,13 +1,13 @@
 {
-  "additionRate": "Gewünschte Säurezugaberate (g/L)",
+  "additionRate": "Gewünschte Weinsäure-Zugaberate (g/L)",
   "volume": "Volumen von Wein/Gärung/Saft (L)",
   "results": {
-    "amountKg": "Kilogramm Säure zuzufügen",
-    "amountG": "Gramm Säure zuzufügen"
+    "amountKg": "Kilogramm Weinsäure zuzufügen",
+    "amountG": "Gramm Weinsäure zuzufügen"
   },
-  "info": "Bei Zugaben zu einer Rotweingärung berücksichtigt diese Formel nicht das Verhältnis von Saft zu Feststoffen (Traubenschalen, Kerne usw.).",
+  "info": "Weinsäure (L(+)-Weinsäure) ist die wichtigste Säure in der europäischen Weinherstellung zur Säurekorrektur. Bei Zugaben zu einer Rotweingärung berücksichtigt diese Formel nicht das Verhältnis von Saft zu Feststoffen (Traubenschalen, Kerne usw.). Standard-Zugabe: 1 g/L erhöht die Gesamtsäure um etwa 1 g/L.",
   "formula": {
-    "description": "Formel zur Berechnung der Säurezugabe",
+    "description": "Formel zur Berechnung der Weinsäure-Zugabe",
     "steps": [
       "Menge (kg) = (Zugaberate × Volumen) / 1000",
       "Menge (g) = Zugaberate × Volumen"

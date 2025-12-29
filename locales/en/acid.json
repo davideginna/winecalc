@@ -1,13 +1,13 @@
 {
-  "additionRate": "Desired addition rate of acid (g/L)",
+  "additionRate": "Desired addition rate of tartaric acid (g/L)",
   "volume": "Volume of wine/ferment/juice (L)",
   "results": {
-    "amountKg": "Kilograms of acid to add",
-    "amountG": "Grams of acid to add"
+    "amountKg": "Kilograms of tartaric acid to add",
+    "amountG": "Grams of tartaric acid to add"
   },
-  "info": "When making additions to a red fermentation, this formula does not take into account the ratio of juice to solids (grapeskins, seeds, etc.).",
+  "info": "Tartaric acid (L(+)-tartaric acid) is the primary acid used in European winemaking for acidity correction. When making additions to a red fermentation, this formula does not take into account the ratio of juice to solids (grapeskins, seeds, etc.). Standard addition: 1 g/L increases total acidity by approximately 1 g/L.",
   "formula": {
-    "description": "Formula for acid addition calculation",
+    "description": "Formula for tartaric acid addition calculation",
     "steps": [
       "Amount (kg) = (Addition rate × Volume) / 1000",
       "Amount (g) = Addition rate × Volume"

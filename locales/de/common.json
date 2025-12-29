@@ -23,8 +23,8 @@
       "description": "Berechnen Sie die PMS-Zugabe für SO2-Management"
     },
     "acid": {
-      "title": "Säurezusatz",
-      "description": "Berechnen Sie die Menge der zuzufügenden Säure"
+      "title": "Weinsäurezusatz",
+      "description": "Berechnen Sie die Weinsäure-Zugabe zur Säurekorrektur"
     },
     "ascorbicAcid": {
       "title": "Ascorbinsäure",

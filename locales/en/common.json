@@ -23,8 +23,8 @@
       "description": "Calculate PMS addition for SO2 management"
     },
     "acid": {
-      "title": "Acid Addition",
-      "description": "Calculate amount of acid to add"
+      "title": "Tartaric Acid Addition",
+      "description": "Calculate tartaric acid addition for acidity correction"
     },
     "ascorbicAcid": {
       "title": "Ascorbic Acid",

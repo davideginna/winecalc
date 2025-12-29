@@ -1,10 +1,14 @@
-/* WineCalc - Acid Addition Calculator */
+/* WineCalc - Tartaric Acid Addition Calculator */
 
 /**
- * Calculate acid addition for wine
+ * Calculate tartaric acid addition for wine
+ *
+ * Tartaric acid (L(+)-tartaric acid, C4H6O6) is the primary acid used
+ * in European winemaking for acidity correction.
+ * Standard addition: 1 g/L increases total acidity by approximately 1 g/L
  *
  * @param {Object} data - Input data
- * @param {number} data.additionRate - Desired addition rate of acid in g/L
+ * @param {number} data.additionRate - Desired addition rate of tartaric acid in g/L
  * @param {number} data.volume - Volume of wine/ferment/juice in liters
  * @returns {Object} Calculation results
  */

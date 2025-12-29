@@ -1,13 +1,13 @@
 {
-  "additionRate": "Tasa de adición deseada de ácido (g/L)",
+  "additionRate": "Tasa de adición deseada de ácido tartárico (g/L)",
   "volume": "Volumen de vino/fermentación/mosto (L)",
   "results": {
-    "amountKg": "Kilogramos de ácido a agregar",
-    "amountG": "Gramos de ácido a agregar"
+    "amountKg": "Kilogramos de ácido tartárico a agregar",
+    "amountG": "Gramos de ácido tartárico a agregar"
   },
-  "info": "Al hacer adiciones a una fermentación tinta, esta fórmula no tiene en cuenta la proporción de jugo a sólidos (hollejos, semillas, etc.).",
+  "info": "El ácido tartárico (ácido L(+)-tartárico) es el ácido principal utilizado en enología europea para la corrección de acidez. Al hacer adiciones a una fermentación tinta, esta fórmula no tiene en cuenta la proporción de jugo a sólidos (hollejos, semillas, etc.). Adición estándar: 1 g/L aumenta la acidez total aproximadamente 1 g/L.",
   "formula": {
-    "description": "Fórmula para el cálculo de adición de ácido",
+    "description": "Fórmula para el cálculo de adición de ácido tartárico",
     "steps": [
       "Cantidad (kg) = (Tasa de adición × Volumen) / 1000",
       "Cantidad (g) = Tasa de adición × Volumen"

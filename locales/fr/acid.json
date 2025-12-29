@@ -1,13 +1,13 @@
 {
-  "additionRate": "Taux d'ajout souhaité d'acide (g/L)",
+  "additionRate": "Taux d'ajout souhaité d'acide tartrique (g/L)",
   "volume": "Volume de vin/fermentation/jus (L)",
   "results": {
-    "amountKg": "Kilogrammes d'acide à ajouter",
-    "amountG": "Grammes d'acide à ajouter"
+    "amountKg": "Kilogrammes d'acide tartrique à ajouter",
+    "amountG": "Grammes d'acide tartrique à ajouter"
   },
-  "info": "Lors d'ajouts à une fermentation rouge, cette formule ne tient pas compte du rapport jus/solides (peaux de raisin, pépins, etc.).",
+  "info": "L'acide tartrique (acide L(+)-tartrique) est l'acide principal utilisé en œnologie européenne pour la correction d'acidité. Lors d'ajouts à une fermentation rouge, cette formule ne tient pas compte du rapport jus/solides (peaux de raisin, pépins, etc.). Ajout standard : 1 g/L augmente l'acidité totale d'environ 1 g/L.",
   "formula": {
-    "description": "Formule pour le calcul d'ajout d'acide",
+    "description": "Formule pour le calcul d'ajout d'acide tartrique",
     "steps": [
       "Quantité (kg) = (Taux d'ajout × Volume) / 1000",
       "Quantité (g) = Taux d'ajout × Volume"

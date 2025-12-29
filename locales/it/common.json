@@ -23,8 +23,8 @@
       "description": "Calcola l'aggiunta di PMS per la gestione dell'SO2"
     },
     "acid": {
-      "title": "Aggiunta Acido",
-      "description": "Calcola la quantità di acido da aggiungere"
+      "title": "Aggiunta Acido Tartarico",
+      "description": "Calcola l'aggiunta di acido tartarico per la correzione dell'acidità"
     },
     "ascorbicAcid": {
       "title": "Acido Ascorbico",
