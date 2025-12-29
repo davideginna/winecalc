@@ -1,0 +1,15 @@
+{
+  "so2Rate": "Gewünschte Zugaberate als SO2 (mg/L)",
+  "volume": "Volumen von Wein/Most (L)",
+  "results": {
+    "pmsGrams": "Gramm Kaliummetabisulfit (K2S2O5) zum Hinzufügen"
+  },
+  "info": "Beachten Sie, dass nicht das gesamte SO2 in freies SO2 umgewandelt wird. Die Umwandlung in freies SO2 hängt stark von verschiedenen Faktoren ab, einschließlich und nicht beschränkt auf Temperatur, pH-Wert und Trübung. Diese Formel geht davon aus, dass 100% einer PMS-Lösung 57% als SO2 freisetzt.",
+  "formula": {
+    "description": "Formel zur Berechnung der Kaliummetabisulfit (PMS) Zugabe",
+    "steps": [
+      "PMS (g) = (SO2-Rate mg/L × Volumen L) / 570",
+      "Wobei 570 = 1000 / 0.57 (PMS setzt 57% als SO2 frei)"
+    ]
+  }
+}

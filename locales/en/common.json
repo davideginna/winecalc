@@ -18,6 +18,10 @@
     "additional": "Additional Resources"
   },
   "calculators": {
+    "pms": {
+      "title": "Potassium Metabisulphite (PMS)",
+      "description": "Calculate PMS addition for SO2 management"
+    },
     "acid": {
       "title": "Acid Addition",
       "description": "Calculate amount of acid to add"

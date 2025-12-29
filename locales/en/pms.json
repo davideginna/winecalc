@@ -1,0 +1,15 @@
+{
+  "so2Rate": "Desired addition rate as SO2 (mg/L)",
+  "volume": "Volume of wine/juice (L)",
+  "results": {
+    "pmsGrams": "Grams of Potassium Metabisulphite (K2S2O5) to add"
+  },
+  "info": "Be aware not all SO2 is converted to Free SO2. Conversion to Free SO2 is strongly linked to a number of factors including and not restricted to temperature, pH and turbidity. This formula assumes that 100% of a PMS solution liberates 57% as SO2.",
+  "formula": {
+    "description": "Formula for Potassium Metabisulphite (PMS) addition calculation",
+    "steps": [
+      "PMS (g) = (SO2 rate mg/L × Volume L) / 570",
+      "Where 570 = 1000 / 0.57 (PMS liberates 57% as SO2)"
+    ]
+  }
+}

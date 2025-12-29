@@ -1,6 +1,14 @@
 {
   "calculators": [
     {
+      "id": "pms",
+      "enabled": true,
+      "category": "chemical",
+      "icon": "bi-shield-fill-check",
+      "jsFile": "js/calculators/pms.js",
+      "priority": 1
+    },
+    {
       "id": "acid",
       "enabled": true,
       "category": "chemical",

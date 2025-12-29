@@ -32,6 +32,7 @@ require('../js/calculators/cremeOfTartar.js');
 require('../js/calculators/dapPreFermentation.js');
 require('../js/calculators/dapAddition.js');
 require('../js/calculators/yanDapConverter.js');
+require('../js/calculators/pms.js');
 
 describe('Calculator Functions Exist', () => {
     test('calculateAcid exists', () => {
@@ -72,6 +73,10 @@ describe('Calculator Functions Exist', () => {
 
     test('calculateYanDapConverter exists', () => {
         expect(typeof window.calculateYanDapConverter).toBe('function');
+    });
+
+    test('calculatePms exists', () => {
+        expect(typeof window.calculatePms).toBe('function');
     });
 });
 
@@ -258,6 +263,58 @@ describe('YAN/DAP Converter', () => {
     });
 });
 
+describe('PMS (Potassium Metabisulphite) Calculator', () => {
+    const calc = () => window.calculatePms;
+
+    test('throws error on empty volume', () => {
+        expect(() => calc()({ so2Rate: 30, volume: null })).toThrow('Volume is required');
+    });
+
+    test('throws error on NaN volume', () => {
+        expect(() => calc()({ so2Rate: 30, volume: NaN })).toThrow('Volume is required');
+    });
+
+    test('throws error on negative volume', () => {
+        expect(() => calc()({ so2Rate: 30, volume: -10 })).toThrow('Volume is required');
+    });
+
+    test('throws error on empty so2Rate', () => {
+        expect(() => calc()({ so2Rate: null, volume: 100 })).toThrow('Value must be positive');
+    });
+
+    test('throws error on NaN so2Rate', () => {
+        expect(() => calc()({ so2Rate: NaN, volume: 100 })).toThrow('Value must be positive');
+    });
+
+    test('throws error on negative so2Rate', () => {
+        expect(() => calc()({ so2Rate: -5, volume: 100 })).toThrow('Value must be positive');
+    });
+
+    test('calculates correctly with valid inputs', () => {
+        const result = calc()({ so2Rate: 30, volume: 100 });
+        // PMS (g) = (30 * 100) / 570 = 5.26
+        expect(result.pmsGrams).toBeCloseTo(5.26, 2);
+    });
+
+    test('calculates correctly with larger volume', () => {
+        const result = calc()({ so2Rate: 50, volume: 1000 });
+        // PMS (g) = (50 * 1000) / 570 = 87.72
+        expect(result.pmsGrams).toBeCloseTo(87.72, 2);
+    });
+
+    test('calculates correctly with small values', () => {
+        const result = calc()({ so2Rate: 20, volume: 10 });
+        // PMS (g) = (20 * 10) / 570 = 0.35
+        expect(result.pmsGrams).toBeCloseTo(0.35, 2);
+    });
+
+    test('returns correct number of decimals (2)', () => {
+        const result = calc()({ so2Rate: 30, volume: 100 });
+        const decimals = result.pmsGrams.toString().split('.')[1]?.length || 0;
+        expect(decimals).toBeLessThanOrEqual(2);
+    });
+});
+
 describe('Input Validation - All Calculators', () => {
     test('all calculators reject empty objects', () => {
         expect(() => window.calculateAcid({})).toThrow();
@@ -270,5 +327,6 @@ describe('Input Validation - All Calculators', () => {
         expect(() => window.calculateDapPreFermentation({})).toThrow();
         expect(() => window.calculateDapAddition({})).toThrow();
         expect(() => window.calculateYanDapConverter({})).toThrow();
+        expect(() => window.calculatePms({})).toThrow();
     });
 });

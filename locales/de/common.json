@@ -18,6 +18,10 @@
     "additional": "Zusätzliche Ressourcen"
   },
   "calculators": {
+    "pms": {
+      "title": "Kaliummetabisulfit (PMS)",
+      "description": "Berechnen Sie die PMS-Zugabe für SO2-Management"
+    },
     "acid": {
       "title": "Säurezusatz",
       "description": "Berechnen Sie die Menge der zuzufügenden Säure"

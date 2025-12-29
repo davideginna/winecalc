@@ -18,6 +18,10 @@
     "additional": "Recursos Adicionales"
   },
   "calculators": {
+    "pms": {
+      "title": "Metabisulfito de Potasio (PMS)",
+      "description": "Calcula la adición de PMS para la gestión del SO2"
+    },
     "acid": {
       "title": "Adición de Ácido",
       "description": "Calcula la cantidad de ácido a agregar"

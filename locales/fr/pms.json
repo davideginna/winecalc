@@ -1,0 +1,15 @@
+{
+  "so2Rate": "Taux d'addition souhaité en SO2 (mg/L)",
+  "volume": "Volume de vin/moût (L)",
+  "results": {
+    "pmsGrams": "Grammes de Métabisulfite de Potassium (K2S2O5) à ajouter"
+  },
+  "info": "Attention, tout le SO2 n'est pas converti en SO2 libre. La conversion en SO2 libre est fortement liée à plusieurs facteurs, notamment la température, le pH et la turbidité. Cette formule suppose que 100% d'une solution de PMS libère 57% sous forme de SO2.",
+  "formula": {
+    "description": "Formule pour le calcul de l'addition de Métabisulfite de Potassium (PMS)",
+    "steps": [
+      "PMS (g) = (Taux SO2 mg/L × Volume L) / 570",
+      "Où 570 = 1000 / 0.57 (PMS libère 57% sous forme de SO2)"
+    ]
+  }
+}
