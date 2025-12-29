@@ -106,49 +106,149 @@
             </p>
         </div>
 
-        <!-- Coming Soon Section -->
-        <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="card shadow-sm border-0">
-                    <div class="card-body text-center p-5">
-                        <div class="icon-circle bg-accent-light mx-auto mb-4" style="width: 100px; height: 100px;">
-                            <i class="bi bi-bezier2 text-accent" style="font-size: 3rem;"></i>
+        <!-- Tanks Management Section -->
+        <div class="row">
+            <!-- Tanks List (Left Column) -->
+            <div class="col-lg-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-header bg-wine text-white d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">
+                            <i class="bi bi-bucket me-2"></i>
+                            <span data-i18n="blend.tanks.title">Le Mie Vasche</span>
+                        </h5>
+                        <button class="btn btn-light btn-sm" id="addTankBtn">
+                            <i class="bi bi-plus-lg"></i>
+                        </button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="tanksList" class="list-group list-group-flush">
+                            <!-- Tanks will be loaded here -->
+                            <div class="text-center p-5 text-muted" id="emptyTanksMessage">
+                                <i class="bi bi-bucket" style="font-size: 3rem; opacity: 0.3;"></i>
+                                <p class="mt-3 mb-0" data-i18n="blend.tanks.empty">Nessuna vasca. Aggiungine una!</p>
+                            </div>
                         </div>
-                        <h2 class="h3 mb-4" data-i18n="blend.comingSoon">Prossimamente</h2>
-                        <p class="text-muted mb-4" data-i18n="blend.comingSoonDesc">
-                            Stiamo sviluppando calcolatori avanzati per la creazione di blend e miscele di vini. Presto potrai calcolare:
-                        </p>
-                        <ul class="list-unstyled text-start mb-4">
-                            <li class="mb-2">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span data-i18n="blend.feature1">Proporzioni di miscela (volumi e percentuali)</span>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span data-i18n="blend.feature2">Gradazione alcolica risultante</span>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span data-i18n="blend.feature3">Acidità totale e pH del blend</span>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span data-i18n="blend.feature4">Zuccheri residui</span>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span data-i18n="blend.feature5">SO2 libera e totale</span>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check-circle-fill text-success me-2"></i>
-                                <span data-i18n="blend.feature6">Blend a 3+ componenti</span>
-                            </li>
-                        </ul>
-                        <div class="mt-4">
-                            <a href="index.html" class="btn btn-primary-theme btn-lg">
-                                <i class="bi bi-arrow-left me-2"></i>
-                                <span data-i18n="blend.backToCalculators">Torna ai Calcolatori</span>
-                            </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tank Form (Right Column) -->
+            <div class="col-lg-8 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-wine text-white">
+                        <h5 class="mb-0">
+                            <i class="bi bi-pencil-square me-2"></i>
+                            <span id="tankFormTitle" data-i18n="blend.tankForm.add">Aggiungi Vasca</span>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="tankForm">
+                            <input type="hidden" id="tankId">
+
+                            <!-- Tank Name -->
+                            <div class="mb-3">
+                                <label for="tankName" class="form-label" data-i18n="blend.tankForm.name">Nome Vasca</label>
+                                <input type="text" class="form-control" id="tankName">
+                            </div>
+
+                            <!-- Capacity & Volume -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="tankCapacity" class="form-label" data-i18n="blend.tankForm.capacity">Capienza</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="tankCapacity" step="0.1" min="0">
+                                        <select class="form-select" id="tankCapacityUnit" style="max-width: 80px;">
+                                            <option value="L">L</option>
+                                            <option value="hL" selected>hL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="tankVolume" class="form-label" data-i18n="blend.tankForm.currentVolume">Volume Contenuto</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="tankVolume" step="0.1" min="0">
+                                        <select class="form-select" id="tankVolumeUnit" style="max-width: 80px;">
+                                            <option value="L">L</option>
+                                            <option value="hL" selected>hL</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <!-- Wine Parameters -->
+                            <h6 class="mb-3" data-i18n="blend.tankForm.wineParams">Parametri del Vino</h6>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="alcoholPercent" class="form-label" data-i18n="blend.tankForm.alcohol">Gradazione Alcolica (%)</label>
+                                    <input type="number" class="form-control" id="alcoholPercent" step="0.1" min="0" max="20">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="totalAcidity" class="form-label" data-i18n="blend.tankForm.acidity">Acidità Totale (g/L)</label>
+                                    <input type="number" class="form-control" id="totalAcidity" step="0.1" min="0">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="pH" class="form-label" data-i18n="blend.tankForm.ph">pH</label>
+                                    <input type="number" class="form-control" id="pH" step="0.01" min="0" max="14">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="residualSugars" class="form-label" data-i18n="blend.tankForm.sugars">Zuccheri Residui (g/L)</label>
+                                    <input type="number" class="form-control" id="residualSugars" step="0.1" min="0">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="freeSO2" class="form-label" data-i18n="blend.tankForm.freeSO2">SO2 Libera (mg/L)</label>
+                                    <input type="number" class="form-control" id="freeSO2" step="1" min="0">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="totalSO2" class="form-label" data-i18n="blend.tankForm.totalSO2">SO2 Totale (mg/L)</label>
+                                    <input type="number" class="form-control" id="totalSO2" step="1" min="0">
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="tankNotes" class="form-label" data-i18n="blend.tankForm.notes">Note (opzionale)</label>
+                                <textarea class="form-control" id="tankNotes" rows="2"></textarea>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-primary-theme">
+                                    <i class="bi bi-save me-2"></i>
+                                    <span id="saveTankBtnText" data-i18n="blend.tankForm.save">Salva Vasca</span>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary" id="cancelTankBtn">
+                                    <i class="bi bi-x-lg me-2"></i>
+                                    <span data-i18n="blend.tankForm.cancel">Annulla</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blend Calculator Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-wine text-white">
+                        <h5 class="mb-0">
+                            <i class="bi bi-bezier2 me-2"></i>
+                            <span data-i18n="blend.calculator.title">Calcolatore Blend</span>
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="blendCalculatorContent" class="text-center p-5 text-muted">
+                            <i class="bi bi-info-circle" style="font-size: 3rem; opacity: 0.3;"></i>
+                            <p class="mt-3 mb-0" data-i18n="blend.calculator.needTanks">Aggiungi almeno 2 vasche per calcolare un blend</p>
                         </div>
                     </div>
                 </div>
@@ -345,6 +445,9 @@
 
     <!-- PWA Install Handler -->
     <script src="js/pwa-install.js"></script>
+
+    <!-- Blend Manager -->
+    <script src="js/blend-manager.js"></script>
 </body>
 
 </html>

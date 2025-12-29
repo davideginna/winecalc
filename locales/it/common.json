@@ -109,7 +109,8 @@
     "invalidRange": "Valore fuori dal range consentito",
     "calculationError": "Errore nel calcolo",
     "invalidInput": "Inserire almeno un valore valido",
-    "invalidVolume": "Il volume deve essere maggiore di zero"
+    "invalidVolume": "Il volume deve essere maggiore di zero",
+    "saveFailed": "Salvataggio fallito. Riprova."
   },
   "units": {
     "liters": "L",
@@ -202,14 +203,49 @@
   "blend": {
     "title": "Calcolatori Blend",
     "subtitle": "Calcola proporzioni e caratteristiche di miscele di vini",
-    "comingSoon": "Prossimamente",
-    "comingSoonDesc": "Stiamo sviluppando calcolatori avanzati per la creazione di blend e miscele di vini. Presto potrai calcolare:",
-    "feature1": "Proporzioni di miscela (volumi e percentuali)",
-    "feature2": "Gradazione alcolica risultante",
-    "feature3": "Acidità totale e pH del blend",
-    "feature4": "Zuccheri residui",
-    "feature5": "SO2 libera e totale",
-    "feature6": "Blend a 3+ componenti",
-    "backToCalculators": "Torna ai Calcolatori"
+    "tanks": {
+      "title": "Le Mie Vasche",
+      "empty": "Nessuna vasca. Aggiungine una!",
+      "saved": "Vasca salvata con successo!",
+      "confirmDelete": "Eliminare questa vasca?"
+    },
+    "tankForm": {
+      "add": "Aggiungi Vasca",
+      "edit": "Modifica Vasca",
+      "save": "Salva Vasca",
+      "update": "Aggiorna Vasca",
+      "cancel": "Annulla",
+      "name": "Nome Vasca",
+      "capacity": "Capienza",
+      "currentVolume": "Volume Contenuto",
+      "wineParams": "Parametri del Vino",
+      "alcohol": "Gradazione Alcolica (%)",
+      "acidity": "Acidità Totale (g/L)",
+      "ph": "pH",
+      "sugars": "Zuccheri Residui (g/L)",
+      "freeSO2": "SO2 Libera (mg/L)",
+      "totalSO2": "SO2 Totale (mg/L)",
+      "notes": "Note (opzionale)"
+    },
+    "calculator": {
+      "title": "Calcolatore Blend",
+      "needTanks": "Aggiungi almeno 2 vasche per calcolare un blend",
+      "selectTanks": "Seleziona le vasche da miscelare",
+      "volumeToUse": "Volume da usare (L)",
+      "calculate": "Calcola Blend",
+      "enterVolume": "Inserisci un volume valido per tutte le vasche selezionate",
+      "selectAtLeast2": "Seleziona almeno 2 vasche"
+    },
+    "results": {
+      "title": "Risultati Blend",
+      "proportions": "Proporzioni",
+      "parameters": "Parametri del Blend"
+    },
+    "validation": {
+      "nameRequired": "Il nome della vasca è obbligatorio",
+      "capacityRequired": "La capienza deve essere maggiore di zero",
+      "volumeRequired": "Il volume deve essere maggiore di zero",
+      "alcoholRequired": "La gradazione alcolica deve essere tra 0 e 20%"
+    }
   }
 }

@@ -109,7 +109,8 @@
     "invalidRange": "Valeur hors de la plage autorisée",
     "calculationError": "Erreur de calcul",
     "invalidInput": "Veuillez entrer au moins une valeur valide",
-    "invalidVolume": "Le volume doit être supérieur à zéro"
+    "invalidVolume": "Le volume doit être supérieur à zéro",
+    "saveFailed": "Échec de la sauvegarde. Veuillez réessayer."
   },
   "units": {
     "liters": "L",
@@ -202,14 +203,49 @@
   "blend": {
     "title": "Calculateurs d'Assemblage",
     "subtitle": "Calculez les proportions et caractéristiques des assemblages de vins",
-    "comingSoon": "Prochainement",
-    "comingSoonDesc": "Nous développons des calculateurs avancés pour créer des assemblages de vins. Bientôt vous pourrez calculer:",
-    "feature1": "Proportions d'assemblage (volumes et pourcentages)",
-    "feature2": "Teneur en alcool résultante",
-    "feature3": "Acidité totale et pH de l'assemblage",
-    "feature4": "Sucres résiduels",
-    "feature5": "SO2 libre et total",
-    "feature6": "Assemblages à 3+ composants",
-    "backToCalculators": "Retour aux Calculateurs"
+    "tanks": {
+      "title": "Mes Cuves",
+      "empty": "Aucune cuve. Ajoutez-en une!",
+      "saved": "Cuve enregistrée avec succès!",
+      "confirmDelete": "Supprimer cette cuve?"
+    },
+    "tankForm": {
+      "add": "Ajouter une Cuve",
+      "edit": "Modifier la Cuve",
+      "save": "Enregistrer la Cuve",
+      "update": "Mettre à Jour la Cuve",
+      "cancel": "Annuler",
+      "name": "Nom de la Cuve",
+      "capacity": "Capacité",
+      "currentVolume": "Volume Actuel",
+      "wineParams": "Paramètres du Vin",
+      "alcohol": "Teneur en Alcool (%)",
+      "acidity": "Acidité Totale (g/L)",
+      "ph": "pH",
+      "sugars": "Sucres Résiduels (g/L)",
+      "freeSO2": "SO2 Libre (mg/L)",
+      "totalSO2": "SO2 Total (mg/L)",
+      "notes": "Notes (facultatif)"
+    },
+    "calculator": {
+      "title": "Calculateur d'Assemblage",
+      "needTanks": "Ajoutez au moins 2 cuves pour calculer un assemblage",
+      "selectTanks": "Sélectionner les cuves à assembler",
+      "volumeToUse": "Volume à utiliser (L)",
+      "calculate": "Calculer l'Assemblage",
+      "enterVolume": "Entrez un volume valide pour toutes les cuves sélectionnées",
+      "selectAtLeast2": "Sélectionnez au moins 2 cuves"
+    },
+    "results": {
+      "title": "Résultats de l'Assemblage",
+      "proportions": "Proportions",
+      "parameters": "Paramètres de l'Assemblage"
+    },
+    "validation": {
+      "nameRequired": "Le nom de la cuve est obligatoire",
+      "capacityRequired": "La capacité doit être supérieure à zéro",
+      "volumeRequired": "Le volume doit être supérieur à zéro",
+      "alcoholRequired": "La teneur en alcool doit être entre 0 et 20%"
+    }
   }
 }

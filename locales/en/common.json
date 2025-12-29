@@ -109,7 +109,8 @@
     "invalidRange": "Value out of allowed range",
     "calculationError": "Calculation error",
     "invalidInput": "Please enter at least one valid value",
-    "invalidVolume": "Volume must be greater than zero"
+    "invalidVolume": "Volume must be greater than zero",
+    "saveFailed": "Save failed. Please try again."
   },
   "units": {
     "liters": "L",
@@ -202,14 +203,49 @@
   "blend": {
     "title": "Blend Calculators",
     "subtitle": "Calculate proportions and characteristics of wine blends",
-    "comingSoon": "Coming Soon",
-    "comingSoonDesc": "We are developing advanced calculators for creating wine blends and mixes. Soon you will be able to calculate:",
-    "feature1": "Blend proportions (volumes and percentages)",
-    "feature2": "Resulting alcohol content",
-    "feature3": "Total acidity and pH of the blend",
-    "feature4": "Residual sugars",
-    "feature5": "Free and total SO2",
-    "feature6": "3+ component blends",
-    "backToCalculators": "Back to Calculators"
+    "tanks": {
+      "title": "My Tanks",
+      "empty": "No tanks. Add one!",
+      "saved": "Tank saved successfully!",
+      "confirmDelete": "Delete this tank?"
+    },
+    "tankForm": {
+      "add": "Add Tank",
+      "edit": "Edit Tank",
+      "save": "Save Tank",
+      "update": "Update Tank",
+      "cancel": "Cancel",
+      "name": "Tank Name",
+      "capacity": "Capacity",
+      "currentVolume": "Current Volume",
+      "wineParams": "Wine Parameters",
+      "alcohol": "Alcohol Content (%)",
+      "acidity": "Total Acidity (g/L)",
+      "ph": "pH",
+      "sugars": "Residual Sugars (g/L)",
+      "freeSO2": "Free SO2 (mg/L)",
+      "totalSO2": "Total SO2 (mg/L)",
+      "notes": "Notes (optional)"
+    },
+    "calculator": {
+      "title": "Blend Calculator",
+      "needTanks": "Add at least 2 tanks to calculate a blend",
+      "selectTanks": "Select tanks to blend",
+      "volumeToUse": "Volume to use (L)",
+      "calculate": "Calculate Blend",
+      "enterVolume": "Enter a valid volume for all selected tanks",
+      "selectAtLeast2": "Select at least 2 tanks"
+    },
+    "results": {
+      "title": "Blend Results",
+      "proportions": "Proportions",
+      "parameters": "Blend Parameters"
+    },
+    "validation": {
+      "nameRequired": "Tank name is required",
+      "capacityRequired": "Capacity must be greater than zero",
+      "volumeRequired": "Volume must be greater than zero",
+      "alcoholRequired": "Alcohol content must be between 0 and 20%"
+    }
   }
 }

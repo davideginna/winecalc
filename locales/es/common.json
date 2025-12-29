@@ -109,7 +109,8 @@
     "invalidRange": "Valor fuera del rango permitido",
     "calculationError": "Error de cálculo",
     "invalidInput": "Por favor ingrese al menos un valor válido",
-    "invalidVolume": "El volumen debe ser mayor que cero"
+    "invalidVolume": "El volumen debe ser mayor que cero",
+    "saveFailed": "Error al guardar. Inténtalo de nuevo."
   },
   "units": {
     "liters": "L",
@@ -202,14 +203,49 @@
   "blend": {
     "title": "Calculadoras de Mezcla",
     "subtitle": "Calcula proporciones y características de mezclas de vinos",
-    "comingSoon": "Próximamente",
-    "comingSoonDesc": "Estamos desarrollando calculadoras avanzadas para crear mezclas de vinos. Pronto podrás calcular:",
-    "feature1": "Proporciones de mezcla (volúmenes y porcentajes)",
-    "feature2": "Contenido de alcohol resultante",
-    "feature3": "Acidez total y pH de la mezcla",
-    "feature4": "Azúcares residuales",
-    "feature5": "SO2 libre y total",
-    "feature6": "Mezclas de 3+ componentes",
-    "backToCalculators": "Volver a Calculadoras"
+    "tanks": {
+      "title": "Mis Depósitos",
+      "empty": "No hay depósitos. ¡Añade uno!",
+      "saved": "¡Depósito guardado con éxito!",
+      "confirmDelete": "¿Eliminar este depósito?"
+    },
+    "tankForm": {
+      "add": "Añadir Depósito",
+      "edit": "Editar Depósito",
+      "save": "Guardar Depósito",
+      "update": "Actualizar Depósito",
+      "cancel": "Cancelar",
+      "name": "Nombre del Depósito",
+      "capacity": "Capacidad",
+      "currentVolume": "Volumen Actual",
+      "wineParams": "Parámetros del Vino",
+      "alcohol": "Contenido de Alcohol (%)",
+      "acidity": "Acidez Total (g/L)",
+      "ph": "pH",
+      "sugars": "Azúcares Residuales (g/L)",
+      "freeSO2": "SO2 Libre (mg/L)",
+      "totalSO2": "SO2 Total (mg/L)",
+      "notes": "Notas (opcional)"
+    },
+    "calculator": {
+      "title": "Calculadora de Mezcla",
+      "needTanks": "Añade al menos 2 depósitos para calcular una mezcla",
+      "selectTanks": "Selecciona los depósitos a mezclar",
+      "volumeToUse": "Volumen a usar (L)",
+      "calculate": "Calcular Mezcla",
+      "enterVolume": "Introduce un volumen válido para todos los depósitos seleccionados",
+      "selectAtLeast2": "Selecciona al menos 2 depósitos"
+    },
+    "results": {
+      "title": "Resultados de la Mezcla",
+      "proportions": "Proporciones",
+      "parameters": "Parámetros de la Mezcla"
+    },
+    "validation": {
+      "nameRequired": "El nombre del depósito es obligatorio",
+      "capacityRequired": "La capacidad debe ser mayor que cero",
+      "volumeRequired": "El volumen debe ser mayor que cero",
+      "alcoholRequired": "El contenido de alcohol debe estar entre 0 y 20%"
+    }
   }
 }

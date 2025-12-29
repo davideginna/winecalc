@@ -3,7 +3,7 @@
  * Provides offline functionality and caching for the PWA
  */
 
-const CACHE_NAME = 'winecalc-v1.4.0';
+const CACHE_NAME = 'winecalc-v1.5.2';
 const RUNTIME_CACHE = 'winecalc-runtime';
 
 // Files to cache on install
@@ -21,6 +21,7 @@ const PRECACHE_URLS = [
   './js/theme-manager.js',
   './js/settings-ui.js',
   './js/pwa-install.js',
+  './js/blend-manager.js',
   './js/modules/app-state.js',
   './js/modules/calculator-loader.js',
   './js/modules/calculator-manager.js',
