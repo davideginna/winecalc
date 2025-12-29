@@ -247,7 +247,12 @@
       "limitedVolume": "Begrenztes Volumen",
       "combination": "Kombination",
       "available": "verfügbar",
-      "showingTop5": "Zeige die 5 besten Kombinationen"
+      "showingTop5": "Zeige die 5 besten Kombinationen",
+      "emptyTank": "Tank vollständig zu leeren",
+      "noEmptyTank": "Keine - freie Berechnung",
+      "emptyTankHelp": "Wenn ausgewählt, verwendet die Berechnung das gesamte verfügbare Volumen dieses Tanks",
+      "emptied": "Geleert",
+      "totalVolume": "Gesamtvolumen"
     },
     "results": {
       "title": "Verschnitt-Ergebnisse",

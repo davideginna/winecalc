@@ -247,7 +247,12 @@
       "limitedVolume": "Volume Limité",
       "combination": "Combinaison",
       "available": "disponibles",
-      "showingTop5": "Affichage des 5 meilleures combinaisons"
+      "showingTop5": "Affichage des 5 meilleures combinaisons",
+      "emptyTank": "Cuve à vider complètement",
+      "noEmptyTank": "Aucune - calcul libre",
+      "emptyTankHelp": "Si sélectionnée, le calcul utilisera tout le volume disponible de cette cuve",
+      "emptied": "Vidée",
+      "totalVolume": "volume total"
     },
     "results": {
       "title": "Résultats de l'Assemblage",

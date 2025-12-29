@@ -247,7 +247,12 @@
       "limitedVolume": "Limited Volume",
       "combination": "Combination",
       "available": "available",
-      "showingTop5": "Showing top 5 best combinations"
+      "showingTop5": "Showing top 5 best combinations",
+      "emptyTank": "Tank to empty completely",
+      "noEmptyTank": "None - free calculation",
+      "emptyTankHelp": "If selected, calculation will use all available volume from this tank",
+      "emptied": "Emptied",
+      "totalVolume": "total volume"
     },
     "results": {
       "title": "Blend Results",

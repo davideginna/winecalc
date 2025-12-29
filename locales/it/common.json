@@ -247,7 +247,12 @@
       "limitedVolume": "Volume Limitato",
       "combination": "Combinazione",
       "available": "disponibili",
-      "showingTop5": "Mostrando le prime 5 combinazioni migliori"
+      "showingTop5": "Mostrando le prime 5 combinazioni migliori",
+      "emptyTank": "Vasca da svuotare completamente",
+      "noEmptyTank": "Nessuna - calcolo libero",
+      "emptyTankHelp": "Se selezionata, il calcolo userà tutto il volume disponibile di questa vasca",
+      "emptied": "Svuotata",
+      "totalVolume": "volume totale"
     },
     "results": {
       "title": "Risultati Blend",

@@ -247,7 +247,12 @@
       "limitedVolume": "Volumen Limitado",
       "combination": "Combinación",
       "available": "disponibles",
-      "showingTop5": "Mostrando las 5 mejores combinaciones"
+      "showingTop5": "Mostrando las 5 mejores combinaciones",
+      "emptyTank": "Depósito a vaciar completamente",
+      "noEmptyTank": "Ninguno - cálculo libre",
+      "emptyTankHelp": "Si se selecciona, el cálculo usará todo el volumen disponible de este depósito",
+      "emptied": "Vaciado",
+      "totalVolume": "volumen total"
     },
     "results": {
       "title": "Resultados de la Mezcla",

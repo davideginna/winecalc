@@ -405,6 +405,26 @@ class BlendManager {
                     </div>
                 </div>
 
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <label class="form-label">
+                            ${WineCalcI18n.t('blend.calculator.emptyTank') || 'Vasca da svuotare completamente'}
+                            <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
+                        </label>
+                        <select class="form-select" id="emptyTankSelect">
+                            <option value="">${WineCalcI18n.t('blend.calculator.noEmptyTank') || 'Nessuna - calcolo libero'}</option>
+                            ${this.tanks.map(tank => `
+                                <option value="${tank.id}">
+                                    ${this.escapeHtml(tank.name)} (${tank.volume} ${tank.volumeUnit} - ${tank.alcoholPercent}% vol)
+                                </option>
+                            `).join('')}
+                        </select>
+                        <small class="form-text text-muted">
+                            ${WineCalcI18n.t('blend.calculator.emptyTankHelp') || 'Se selezionata, il calcolo userà tutto il volume disponibile di questa vasca'}
+                        </small>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary-theme btn-lg w-100">
@@ -507,6 +527,7 @@ class BlendManager {
         const targetAlcohol = parseFloat(document.getElementById('targetAlcohol').value);
         const targetAcidity = parseFloat(document.getElementById('targetAcidity').value) || null;
         const targetPH = parseFloat(document.getElementById('targetPH').value) || null;
+        const emptyTankId = document.getElementById('emptyTankSelect').value;
 
         // Validation
         if (!targetAlcohol || targetAlcohol <= 0 || targetAlcohol > 20) {
@@ -517,15 +538,31 @@ class BlendManager {
         // Find all possible 2-tank combinations
         const combinations = [];
 
-        for (let i = 0; i < this.tanks.length; i++) {
-            for (let j = i + 1; j < this.tanks.length; j++) {
-                const tankA = this.tanks[i];
-                const tankB = this.tanks[j];
+        if (emptyTankId) {
+            // User wants to empty a specific tank
+            const emptyTank = this.tanks.find(t => t.id === emptyTankId);
 
-                // Calculate combination
-                const combo = this.calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetPH);
+            // Try blending with all other tanks
+            for (const otherTank of this.tanks) {
+                if (otherTank.id === emptyTankId) continue;
+
+                const combo = this.calculateTwoTankBlend(emptyTank, otherTank, targetAlcohol, targetAcidity, targetPH, emptyTankId);
                 if (combo) {
                     combinations.push(combo);
+                }
+            }
+        } else {
+            // Normal calculation - try all combinations
+            for (let i = 0; i < this.tanks.length; i++) {
+                for (let j = i + 1; j < this.tanks.length; j++) {
+                    const tankA = this.tanks[i];
+                    const tankB = this.tanks[j];
+
+                    // Calculate combination
+                    const combo = this.calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetPH);
+                    if (combo) {
+                        combinations.push(combo);
+                    }
                 }
             }
         }
@@ -539,10 +576,10 @@ class BlendManager {
         combinations.sort((a, b) => b.score - a.score);
 
         // Display results
-        this.displayTargetBlendResults(combinations, { alcohol: targetAlcohol, acidity: targetAcidity, pH: targetPH });
+        this.displayTargetBlendResults(combinations, { alcohol: targetAlcohol, acidity: targetAcidity, pH: targetPH }, emptyTankId);
     }
 
-    calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetPH) {
+    calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetPH, emptyTankId = null) {
         const alcoholA = tankA.alcoholPercent;
         const alcoholB = tankB.alcoholPercent;
 
@@ -555,21 +592,52 @@ class BlendManager {
             return null; // Same alcohol, can't blend to different target
         }
 
-        // Calculate proportion: V_A / V_B = (target - B) / (A - target)
-        const ratio = (targetAlcohol - alcoholB) / (alcoholA - targetAlcohol);
-
-        if (ratio <= 0) {
-            return null; // Invalid ratio
-        }
-
-        // Calculate volumes (normalize to total 100L for display)
-        const totalVolume = 100; // Reference volume
-        const volumeA = (totalVolume * ratio) / (1 + ratio);
-        const volumeB = totalVolume - volumeA;
-
         // Get max available volumes
         const maxVolumeA = this.convertToLiters(tankA.volume, tankA.volumeUnit);
         const maxVolumeB = this.convertToLiters(tankB.volume, tankB.volumeUnit);
+
+        let volumeA, volumeB, totalVolume;
+
+        if (emptyTankId) {
+            // One tank must be emptied completely
+            if (tankA.id === emptyTankId) {
+                // Empty tank A completely
+                volumeA = maxVolumeA;
+                // Calculate how much B is needed: V_B = V_A * (A - target) / (target - B)
+                volumeB = volumeA * (alcoholA - targetAlcohol) / (targetAlcohol - alcoholB);
+
+                if (volumeB <= 0 || volumeB > maxVolumeB) {
+                    return null; // Not feasible
+                }
+            } else if (tankB.id === emptyTankId) {
+                // Empty tank B completely
+                volumeB = maxVolumeB;
+                // Calculate how much A is needed: V_A = V_B * (target - B) / (A - target)
+                volumeA = volumeB * (targetAlcohol - alcoholB) / (alcoholA - targetAlcohol);
+
+                if (volumeA <= 0 || volumeA > maxVolumeA) {
+                    return null; // Not feasible
+                }
+            } else {
+                // Normal calculation (no tank to empty in this combination)
+                const ratio = (targetAlcohol - alcoholB) / (alcoholA - targetAlcohol);
+                if (ratio <= 0) return null;
+
+                totalVolume = 100;
+                volumeA = (totalVolume * ratio) / (1 + ratio);
+                volumeB = totalVolume - volumeA;
+            }
+
+            totalVolume = volumeA + volumeB;
+        } else {
+            // Normal calculation: normalize to 100L
+            const ratio = (targetAlcohol - alcoholB) / (alcoholA - targetAlcohol);
+            if (ratio <= 0) return null;
+
+            totalVolume = 100;
+            volumeA = (totalVolume * ratio) / (1 + ratio);
+            volumeB = totalVolume - volumeA;
+        }
 
         // Calculate percentages
         const percentA = (volumeA / totalVolume) * 100;
@@ -623,7 +691,7 @@ class BlendManager {
         };
     }
 
-    displayTargetBlendResults(combinations, targets) {
+    displayTargetBlendResults(combinations, targets, emptyTankId = null) {
         const container = document.getElementById('targetBlendResults');
 
         let html = `
@@ -658,10 +726,14 @@ class BlendManager {
                                     </div>
                                     <div class="flex-grow-1">
                                         <strong>${this.escapeHtml(combo.tankA.name)}</strong>
+                                        ${emptyTankId && combo.tankA.id === emptyTankId ?
+                                            `<span class="badge bg-info ms-2">${WineCalcI18n.t('blend.calculator.emptied') || 'Svuotata'}</span>` : ''}
                                         <br>
                                         <small class="text-muted">
                                             ${combo.volumeA.toFixed(1)} L
-                                            ${!combo.feasible && combo.volumeA > combo.maxVolumeA
+                                            ${emptyTankId && combo.tankA.id === emptyTankId
+                                                ? `<span class="text-info">(${WineCalcI18n.t('blend.calculator.totalVolume') || 'volume totale'})</span>`
+                                                : !combo.feasible && combo.volumeA > combo.maxVolumeA
                                                 ? `<span class="text-warning">(max: ${combo.maxVolumeA.toFixed(1)} L)</span>`
                                                 : `(${WineCalcI18n.t('blend.calculator.available') || 'disponibili'}: ${combo.maxVolumeA.toFixed(1)} L)`}
                                         </small>
@@ -675,10 +747,14 @@ class BlendManager {
                                     </div>
                                     <div class="flex-grow-1">
                                         <strong>${this.escapeHtml(combo.tankB.name)}</strong>
+                                        ${emptyTankId && combo.tankB.id === emptyTankId ?
+                                            `<span class="badge bg-info ms-2">${WineCalcI18n.t('blend.calculator.emptied') || 'Svuotata'}</span>` : ''}
                                         <br>
                                         <small class="text-muted">
                                             ${combo.volumeB.toFixed(1)} L
-                                            ${!combo.feasible && combo.volumeB > combo.maxVolumeB
+                                            ${emptyTankId && combo.tankB.id === emptyTankId
+                                                ? `<span class="text-info">(${WineCalcI18n.t('blend.calculator.totalVolume') || 'volume totale'})</span>`
+                                                : !combo.feasible && combo.volumeB > combo.maxVolumeB
                                                 ? `<span class="text-warning">(max: ${combo.maxVolumeB.toFixed(1)} L)</span>`
                                                 : `(${WineCalcI18n.t('blend.calculator.available') || 'disponibili'}: ${combo.maxVolumeB.toFixed(1)} L)`}
                                         </small>
