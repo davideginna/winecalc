@@ -86,7 +86,8 @@
     "copy": "Copiar",
     "copied": "Copiado al portapapeles",
     "showFormula": "Mostrar fórmula",
-    "hideFormula": "Ocultar fórmula"
+    "hideFormula": "Ocultar fórmula",
+    "optional": "opcional"
   },
   "footer": {
     "description": "Calculadoras profesionales para enología",
@@ -230,11 +231,23 @@
     "calculator": {
       "title": "Calculadora de Mezcla",
       "needTanks": "Añade al menos 2 depósitos para calcular una mezcla",
+      "fromTanks": "Desde Depósitos",
+      "fromTarget": "Desde Objetivo",
       "selectTanks": "Selecciona los depósitos a mezclar",
       "volumeToUse": "Volumen a usar (L)",
       "calculate": "Calcular Mezcla",
       "enterVolume": "Introduce un volumen válido para todos los depósitos seleccionados",
-      "selectAtLeast2": "Selecciona al menos 2 depósitos"
+      "selectAtLeast2": "Selecciona al menos 2 depósitos",
+      "targetTitle": "Establece los parámetros deseados para la mezcla",
+      "suggest": "Sugerir Combinaciones",
+      "noSolutions": "No se encontró combinación para alcanzar los parámetros objetivo",
+      "foundSolutions": "Encontradas",
+      "possibleCombinations": "combinaciones posibles",
+      "feasible": "Factible",
+      "limitedVolume": "Volumen Limitado",
+      "combination": "Combinación",
+      "available": "disponibles",
+      "showingTop5": "Mostrando las 5 mejores combinaciones"
     },
     "results": {
       "title": "Resultados de la Mezcla",

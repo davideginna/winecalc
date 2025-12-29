@@ -279,6 +279,43 @@ class BlendManager {
 
     renderBlendCalculator() {
         let html = `
+            <!-- Nav Tabs -->
+            <ul class="nav nav-tabs mb-4" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="from-tanks-tab" data-bs-toggle="tab"
+                            data-bs-target="#from-tanks" type="button" role="tab">
+                        <i class="bi bi-bucket me-2"></i>
+                        ${WineCalcI18n.t('blend.calculator.fromTanks') || 'Da Vasche'}
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="from-target-tab" data-bs-toggle="tab"
+                            data-bs-target="#from-target" type="button" role="tab">
+                        <i class="bi bi-bullseye me-2"></i>
+                        ${WineCalcI18n.t('blend.calculator.fromTarget') || 'Da Target'}
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- From Tanks Tab -->
+                <div class="tab-pane fade show active" id="from-tanks" role="tabpanel">
+                    ${this.renderFromTanksCalculator()}
+                </div>
+
+                <!-- From Target Tab -->
+                <div class="tab-pane fade" id="from-target" role="tabpanel">
+                    ${this.renderFromTargetCalculator()}
+                </div>
+            </div>
+        `;
+
+        return html;
+    }
+
+    renderFromTanksCalculator() {
+        let html = `
             <form id="blendCalculatorForm">
                 <div class="row mb-4">
                     <div class="col-12">
@@ -332,6 +369,57 @@ class BlendManager {
         return html;
     }
 
+    renderFromTargetCalculator() {
+        let html = `
+            <form id="targetBlendForm">
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <h6 class="mb-3">${WineCalcI18n.t('blend.calculator.targetTitle') || 'Imposta i parametri desiderati per il blend'}</h6>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <label class="form-label fw-bold">
+                            ${WineCalcI18n.t('blend.tankForm.alcohol') || 'Gradazione Alcolica'} (%)
+                            <span class="text-danger">*</span>
+                        </label>
+                        <input type="number" class="form-control" id="targetAlcohol"
+                               step="0.1" min="0" max="20" placeholder="14.5" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">
+                            ${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità Totale'} (g/L)
+                            <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
+                        </label>
+                        <input type="number" class="form-control" id="targetAcidity"
+                               step="0.1" min="0" placeholder="5.5">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">
+                            ${WineCalcI18n.t('blend.tankForm.ph') || 'pH'}
+                            <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
+                        </label>
+                        <input type="number" class="form-control" id="targetPH"
+                               step="0.01" min="0" max="14" placeholder="3.5">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary-theme btn-lg w-100">
+                            <i class="bi bi-lightbulb me-2"></i>
+                            ${WineCalcI18n.t('blend.calculator.suggest') || 'Suggerisci Combinazioni'}
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <div id="targetBlendResults" class="mt-4" style="display: none;"></div>
+        `;
+
+        return html;
+    }
+
     setupBlendCalculatorListeners() {
         // Card click listeners
         document.querySelectorAll('.blend-tank-card').forEach(card => {
@@ -364,10 +452,22 @@ class BlendManager {
         });
 
         // Form submit
-        document.getElementById('blendCalculatorForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.calculateBlend();
-        });
+        const blendForm = document.getElementById('blendCalculatorForm');
+        if (blendForm) {
+            blendForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.calculateBlend();
+            });
+        }
+
+        // Target blend form submit
+        const targetForm = document.getElementById('targetBlendForm');
+        if (targetForm) {
+            targetForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                this.calculateTargetBlend();
+            });
+        }
     }
 
     calculateBlend() {
@@ -401,6 +501,229 @@ class BlendManager {
         // Calculate blend
         const result = this.performBlendCalculation(selectedTanks);
         this.displayBlendResults(result, selectedTanks);
+    }
+
+    calculateTargetBlend() {
+        const targetAlcohol = parseFloat(document.getElementById('targetAlcohol').value);
+        const targetAcidity = parseFloat(document.getElementById('targetAcidity').value) || null;
+        const targetPH = parseFloat(document.getElementById('targetPH').value) || null;
+
+        // Validation
+        if (!targetAlcohol || targetAlcohol <= 0 || targetAlcohol > 20) {
+            this.showToast(WineCalcI18n.t('blend.validation.alcoholRequired') || 'La gradazione alcolica deve essere tra 0 e 20%', 'warning');
+            return;
+        }
+
+        // Find all possible 2-tank combinations
+        const combinations = [];
+
+        for (let i = 0; i < this.tanks.length; i++) {
+            for (let j = i + 1; j < this.tanks.length; j++) {
+                const tankA = this.tanks[i];
+                const tankB = this.tanks[j];
+
+                // Calculate combination
+                const combo = this.calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetPH);
+                if (combo) {
+                    combinations.push(combo);
+                }
+            }
+        }
+
+        if (combinations.length === 0) {
+            this.showToast(WineCalcI18n.t('blend.calculator.noSolutions') || 'Nessuna combinazione trovata per raggiungere i parametri target', 'info');
+            return;
+        }
+
+        // Sort by score (best first)
+        combinations.sort((a, b) => b.score - a.score);
+
+        // Display results
+        this.displayTargetBlendResults(combinations, { alcohol: targetAlcohol, acidity: targetAcidity, pH: targetPH });
+    }
+
+    calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetPH) {
+        const alcoholA = tankA.alcoholPercent;
+        const alcoholB = tankB.alcoholPercent;
+
+        // Check if target is achievable
+        if (targetAlcohol < Math.min(alcoholA, alcoholB) || targetAlcohol > Math.max(alcoholA, alcoholB)) {
+            return null; // Target not in range
+        }
+
+        if (Math.abs(alcoholA - alcoholB) < 0.01) {
+            return null; // Same alcohol, can't blend to different target
+        }
+
+        // Calculate proportion: V_A / V_B = (target - B) / (A - target)
+        const ratio = (targetAlcohol - alcoholB) / (alcoholA - targetAlcohol);
+
+        if (ratio <= 0) {
+            return null; // Invalid ratio
+        }
+
+        // Calculate volumes (normalize to total 100L for display)
+        const totalVolume = 100; // Reference volume
+        const volumeA = (totalVolume * ratio) / (1 + ratio);
+        const volumeB = totalVolume - volumeA;
+
+        // Get max available volumes
+        const maxVolumeA = this.convertToLiters(tankA.volume, tankA.volumeUnit);
+        const maxVolumeB = this.convertToLiters(tankB.volume, tankB.volumeUnit);
+
+        // Calculate percentages
+        const percentA = (volumeA / totalVolume) * 100;
+        const percentB = (volumeB / totalVolume) * 100;
+
+        // Calculate resulting parameters
+        const resultAcidity = tankA.totalAcidity && tankB.totalAcidity
+            ? (tankA.totalAcidity * volumeA + tankB.totalAcidity * volumeB) / totalVolume
+            : null;
+
+        const resultPH = tankA.pH && tankB.pH
+            ? -Math.log10((Math.pow(10, -tankA.pH) * volumeA + Math.pow(10, -tankB.pH) * volumeB) / totalVolume)
+            : null;
+
+        // Calculate compatibility score (0-100)
+        let score = 100;
+
+        // Deduct if not enough volume available
+        if (volumeA > maxVolumeA || volumeB > maxVolumeB) {
+            score -= 30;
+        }
+
+        // Bonus if target acidity matches
+        if (targetAcidity && resultAcidity) {
+            const acidityDiff = Math.abs(resultAcidity - targetAcidity);
+            score -= acidityDiff * 5; // Deduct 5 points per g/L difference
+        }
+
+        // Bonus if target pH matches
+        if (targetPH && resultPH) {
+            const phDiff = Math.abs(resultPH - targetPH);
+            score -= phDiff * 20; // Deduct 20 points per pH unit difference
+        }
+
+        score = Math.max(0, Math.min(100, score)); // Clamp between 0-100
+
+        return {
+            tankA,
+            tankB,
+            volumeA,
+            volumeB,
+            percentA,
+            percentB,
+            maxVolumeA,
+            maxVolumeB,
+            resultAlcohol: targetAlcohol,
+            resultAcidity,
+            resultPH,
+            score,
+            feasible: volumeA <= maxVolumeA && volumeB <= maxVolumeB
+        };
+    }
+
+    displayTargetBlendResults(combinations, targets) {
+        const container = document.getElementById('targetBlendResults');
+
+        let html = `
+            <div class="alert alert-success">
+                <i class="bi bi-check-circle me-2"></i>
+                ${WineCalcI18n.t('blend.calculator.foundSolutions') || 'Trovate'} <strong>${combinations.length}</strong>
+                ${WineCalcI18n.t('blend.calculator.possibleCombinations') || 'combinazioni possibili'}
+            </div>
+        `;
+
+        combinations.slice(0, 5).forEach((combo, index) => {
+            const badgeClass = combo.feasible ? 'bg-success' : 'bg-warning';
+            const badgeText = combo.feasible
+                ? (WineCalcI18n.t('blend.calculator.feasible') || 'Fattibile')
+                : (WineCalcI18n.t('blend.calculator.limitedVolume') || 'Volume Limitato');
+
+            html += `
+                <div class="card mb-3 ${!combo.feasible ? 'border-warning' : ''}">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h6 class="mb-0">
+                                ${WineCalcI18n.t('blend.calculator.combination') || 'Combinazione'} ${index + 1}
+                            </h6>
+                            <span class="badge ${badgeClass}">${badgeText}</span>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="me-3" style="width: 60px;">
+                                        <strong>${Math.round(combo.percentA)}%</strong>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <strong>${this.escapeHtml(combo.tankA.name)}</strong>
+                                        <br>
+                                        <small class="text-muted">
+                                            ${combo.volumeA.toFixed(1)} L
+                                            ${!combo.feasible && combo.volumeA > combo.maxVolumeA
+                                                ? `<span class="text-warning">(max: ${combo.maxVolumeA.toFixed(1)} L)</span>`
+                                                : `(${WineCalcI18n.t('blend.calculator.available') || 'disponibili'}: ${combo.maxVolumeA.toFixed(1)} L)`}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-center mb-2">
+                                    <div class="me-3" style="width: 60px;">
+                                        <strong>${Math.round(combo.percentB)}%</strong>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <strong>${this.escapeHtml(combo.tankB.name)}</strong>
+                                        <br>
+                                        <small class="text-muted">
+                                            ${combo.volumeB.toFixed(1)} L
+                                            ${!combo.feasible && combo.volumeB > combo.maxVolumeB
+                                                ? `<span class="text-warning">(max: ${combo.maxVolumeB.toFixed(1)} L)</span>`
+                                                : `(${WineCalcI18n.t('blend.calculator.available') || 'disponibili'}: ${combo.maxVolumeB.toFixed(1)} L)`}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="row">
+                            <div class="col-4">
+                                <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.alcohol') || 'Gradazione'}</small>
+                                <strong class="text-success">${combo.resultAlcohol.toFixed(2)}%</strong>
+                            </div>
+                            ${combo.resultAcidity ? `
+                                <div class="col-4">
+                                    <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità'}</small>
+                                    <strong>${combo.resultAcidity.toFixed(2)} g/L</strong>
+                                    ${targets.acidity ? `<small class="text-muted">(target: ${targets.acidity})</small>` : ''}
+                                </div>
+                            ` : ''}
+                            ${combo.resultPH ? `
+                                <div class="col-4">
+                                    <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.ph') || 'pH'}</small>
+                                    <strong>${combo.resultPH.toFixed(2)}</strong>
+                                    ${targets.pH ? `<small class="text-muted">(target: ${targets.pH})</small>` : ''}
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        if (combinations.length > 5) {
+            html += `
+                <p class="text-muted text-center">
+                    ${WineCalcI18n.t('blend.calculator.showingTop5') || 'Mostrando le prime 5 combinazioni migliori'}
+                </p>
+            `;
+        }
+
+        container.innerHTML = html;
+        container.style.display = 'block';
     }
 
     performBlendCalculation(tanks) {

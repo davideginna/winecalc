@@ -86,7 +86,8 @@
     "copy": "Copy",
     "copied": "Copied to clipboard",
     "showFormula": "Show formula",
-    "hideFormula": "Hide formula"
+    "hideFormula": "Hide formula",
+    "optional": "optional"
   },
   "footer": {
     "description": "Professional winemaking calculators",
@@ -230,11 +231,23 @@
     "calculator": {
       "title": "Blend Calculator",
       "needTanks": "Add at least 2 tanks to calculate a blend",
+      "fromTanks": "From Tanks",
+      "fromTarget": "From Target",
       "selectTanks": "Select tanks to blend",
       "volumeToUse": "Volume to use (L)",
       "calculate": "Calculate Blend",
       "enterVolume": "Enter a valid volume for all selected tanks",
-      "selectAtLeast2": "Select at least 2 tanks"
+      "selectAtLeast2": "Select at least 2 tanks",
+      "targetTitle": "Set desired blend parameters",
+      "suggest": "Suggest Combinations",
+      "noSolutions": "No combination found to reach target parameters",
+      "foundSolutions": "Found",
+      "possibleCombinations": "possible combinations",
+      "feasible": "Feasible",
+      "limitedVolume": "Limited Volume",
+      "combination": "Combination",
+      "available": "available",
+      "showingTop5": "Showing top 5 best combinations"
     },
     "results": {
       "title": "Blend Results",

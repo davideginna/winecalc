@@ -86,7 +86,8 @@
     "copy": "Copia",
     "copied": "Copiato negli appunti",
     "showFormula": "Mostra formula",
-    "hideFormula": "Nascondi formula"
+    "hideFormula": "Nascondi formula",
+    "optional": "opzionale"
   },
   "footer": {
     "description": "Calcolatori professionali per l'enologia",
@@ -230,11 +231,23 @@
     "calculator": {
       "title": "Calcolatore Blend",
       "needTanks": "Aggiungi almeno 2 vasche per calcolare un blend",
+      "fromTanks": "Da Vasche",
+      "fromTarget": "Da Target",
       "selectTanks": "Seleziona le vasche da miscelare",
       "volumeToUse": "Volume da usare (L)",
       "calculate": "Calcola Blend",
       "enterVolume": "Inserisci un volume valido per tutte le vasche selezionate",
-      "selectAtLeast2": "Seleziona almeno 2 vasche"
+      "selectAtLeast2": "Seleziona almeno 2 vasche",
+      "targetTitle": "Imposta i parametri desiderati per il blend",
+      "suggest": "Suggerisci Combinazioni",
+      "noSolutions": "Nessuna combinazione trovata per raggiungere i parametri target",
+      "foundSolutions": "Trovate",
+      "possibleCombinations": "combinazioni possibili",
+      "feasible": "Fattibile",
+      "limitedVolume": "Volume Limitato",
+      "combination": "Combinazione",
+      "available": "disponibili",
+      "showingTop5": "Mostrando le prime 5 combinazioni migliori"
     },
     "results": {
       "title": "Risultati Blend",

@@ -86,7 +86,8 @@
     "copy": "Kopieren",
     "copied": "In die Zwischenablage kopiert",
     "showFormula": "Formel anzeigen",
-    "hideFormula": "Formel ausblenden"
+    "hideFormula": "Formel ausblenden",
+    "optional": "optional"
   },
   "footer": {
     "description": "Professionelle Rechner für Weinbereitung",
@@ -230,11 +231,23 @@
     "calculator": {
       "title": "Verschnitt-Rechner",
       "needTanks": "Fügen Sie mindestens 2 Tanks hinzu, um einen Verschnitt zu berechnen",
+      "fromTanks": "Von Tanks",
+      "fromTarget": "Von Ziel",
       "selectTanks": "Tanks zum Verschneiden auswählen",
       "volumeToUse": "Zu verwendendes Volumen (L)",
       "calculate": "Verschnitt Berechnen",
       "enterVolume": "Geben Sie ein gültiges Volumen für alle ausgewählten Tanks ein",
-      "selectAtLeast2": "Wählen Sie mindestens 2 Tanks aus"
+      "selectAtLeast2": "Wählen Sie mindestens 2 Tanks aus",
+      "targetTitle": "Gewünschte Verschnitt-Parameter festlegen",
+      "suggest": "Kombinationen Vorschlagen",
+      "noSolutions": "Keine Kombination gefunden, um Zielparameter zu erreichen",
+      "foundSolutions": "Gefunden",
+      "possibleCombinations": "mögliche Kombinationen",
+      "feasible": "Machbar",
+      "limitedVolume": "Begrenztes Volumen",
+      "combination": "Kombination",
+      "available": "verfügbar",
+      "showingTop5": "Zeige die 5 besten Kombinationen"
     },
     "results": {
       "title": "Verschnitt-Ergebnisse",
