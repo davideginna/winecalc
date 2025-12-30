@@ -253,7 +253,9 @@
       "noEmptyTank": "Keine - freie Berechnung",
       "emptyTankHelp": "Wenn ausgewählt, verwendet die Berechnung das gesamte verfügbare Volumen dieses Tanks",
       "emptied": "Geleert",
-      "totalVolume": "Gesamtvolumen"
+      "totalVolume": "Gesamtvolumen",
+      "min": "Min",
+      "max": "Max"
     },
     "results": {
       "title": "Verschnitt-Ergebnisse",

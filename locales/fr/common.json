@@ -253,7 +253,9 @@
       "noEmptyTank": "Aucune - calcul libre",
       "emptyTankHelp": "Si sélectionnée, le calcul utilisera tout le volume disponible de cette cuve",
       "emptied": "Vidée",
-      "totalVolume": "volume total"
+      "totalVolume": "volume total",
+      "min": "Min",
+      "max": "Max"
     },
     "results": {
       "title": "Résultats de l'Assemblage",

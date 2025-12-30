@@ -253,7 +253,9 @@
       "noEmptyTank": "Ninguno - cálculo libre",
       "emptyTankHelp": "Si se selecciona, el cálculo usará todo el volumen disponible de este depósito",
       "emptied": "Vaciado",
-      "totalVolume": "volumen total"
+      "totalVolume": "volumen total",
+      "min": "Mín",
+      "max": "Máx"
     },
     "results": {
       "title": "Resultados de la Mezcla",

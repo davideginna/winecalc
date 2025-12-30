@@ -253,7 +253,9 @@
       "noEmptyTank": "None - free calculation",
       "emptyTankHelp": "If selected, calculation will use all available volume from this tank",
       "emptied": "Emptied",
-      "totalVolume": "total volume"
+      "totalVolume": "total volume",
+      "min": "Min",
+      "max": "Max"
     },
     "results": {
       "title": "Blend Results",

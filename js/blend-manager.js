@@ -572,8 +572,9 @@ class BlendManager {
                     </div>
                 </div>
 
+                <!-- Alcohol (required - single value) -->
                 <div class="row mb-3">
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <label class="form-label fw-bold">
                             ${WineCalcI18n.t('blend.tankForm.alcohol') || 'Gradazione Alcolica'} (%)
                             <span class="text-danger">*</span>
@@ -581,37 +582,149 @@ class BlendManager {
                         <input type="number" class="form-control" id="targetAlcohol"
                                step="0.1" min="0" max="20" placeholder="14.5">
                     </div>
-                    <div class="col-md-3">
+                </div>
+
+                <!-- Total Acidity Range -->
+                <div class="row mb-3">
+                    <div class="col-12">
                         <label class="form-label">
                             ${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità Totale'} (g/L)
                             <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
                         </label>
-                        <input type="number" class="form-control" id="targetAcidity"
-                               step="0.1" min="0" placeholder="5.5">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.min') || 'Min'}</span>
+                            <input type="number" class="form-control" id="targetAcidityMin"
+                                   step="0.1" min="0" placeholder="5.0">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.max') || 'Max'}</span>
+                            <input type="number" class="form-control" id="targetAcidityMax"
+                                   step="0.1" min="0" placeholder="6.0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Volatile Acidity Range -->
+                <div class="row mb-3">
+                    <div class="col-12">
                         <label class="form-label">
                             ${WineCalcI18n.t('blend.tankForm.volatileAcidity') || 'Acidità Volatile'} (g/L)
                             <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
                         </label>
-                        <input type="number" class="form-control" id="targetVolatileAcidity"
-                               step="0.01" min="0" placeholder="0.5">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.min') || 'Min'}</span>
+                            <input type="number" class="form-control" id="targetVolatileAcidityMin"
+                                   step="0.01" min="0" placeholder="0.3">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.max') || 'Max'}</span>
+                            <input type="number" class="form-control" id="targetVolatileAcidityMax"
+                                   step="0.01" min="0" placeholder="0.7">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- pH Range -->
+                <div class="row mb-3">
+                    <div class="col-12">
                         <label class="form-label">
                             ${WineCalcI18n.t('blend.tankForm.ph') || 'pH'}
                             <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
                         </label>
-                        <input type="number" class="form-control" id="targetPH"
-                               step="0.01" min="0" max="14" placeholder="3.5">
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.min') || 'Min'}</span>
+                            <input type="number" class="form-control" id="targetPHMin"
+                                   step="0.01" min="0" max="14" placeholder="3.3">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.max') || 'Max'}</span>
+                            <input type="number" class="form-control" id="targetPHMax"
+                                   step="0.01" min="0" max="14" placeholder="3.7">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Residual Sugars Range -->
+                <div class="row mb-3">
+                    <div class="col-12">
                         <label class="form-label">
                             ${WineCalcI18n.t('blend.tankForm.sugars') || 'Zuccheri Residui'} (g/L)
                             <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
                         </label>
-                        <input type="number" class="form-control" id="targetSugars"
-                               step="0.1" min="0" placeholder="2.0">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.min') || 'Min'}</span>
+                            <input type="number" class="form-control" id="targetSugarsMin"
+                                   step="0.1" min="0" placeholder="1.5">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.max') || 'Max'}</span>
+                            <input type="number" class="form-control" id="targetSugarsMax"
+                                   step="0.1" min="0" placeholder="2.5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Free SO2 Range -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label">
+                            ${WineCalcI18n.t('blend.tankForm.freeSO2') || 'SO2 Libera'} (mg/L)
+                            <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.min') || 'Min'}</span>
+                            <input type="number" class="form-control" id="targetFreeSO2Min"
+                                   step="1" min="0" placeholder="20">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.max') || 'Max'}</span>
+                            <input type="number" class="form-control" id="targetFreeSO2Max"
+                                   step="1" min="0" placeholder="35">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total SO2 Range -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label">
+                            ${WineCalcI18n.t('blend.tankForm.totalSO2') || 'SO2 Totale'} (mg/L)
+                            <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.min') || 'Min'}</span>
+                            <input type="number" class="form-control" id="targetTotalSO2Min"
+                                   step="1" min="0" placeholder="80">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text">${WineCalcI18n.t('blend.calculator.max') || 'Max'}</span>
+                            <input type="number" class="form-control" id="targetTotalSO2Max"
+                                   step="1" min="0" placeholder="120">
+                        </div>
                     </div>
                 </div>
 
@@ -757,10 +870,44 @@ class BlendManager {
         this.clearBlendErrors('targetBlendErrorContainer');
 
         const targetAlcohol = parseFloat(document.getElementById('targetAlcohol').value);
-        const targetAcidity = parseFloat(document.getElementById('targetAcidity').value) || null;
-        const targetVolatileAcidity = parseFloat(document.getElementById('targetVolatileAcidity').value) || null;
-        const targetPH = parseFloat(document.getElementById('targetPH').value) || null;
-        const targetSugars = parseFloat(document.getElementById('targetSugars').value) || null;
+
+        // Read ranges for optional parameters
+        const targetAcidityMin = parseFloat(document.getElementById('targetAcidityMin').value) || null;
+        const targetAcidityMax = parseFloat(document.getElementById('targetAcidityMax').value) || null;
+        const targetAcidity = targetAcidityMin !== null || targetAcidityMax !== null
+            ? { min: targetAcidityMin, max: targetAcidityMax }
+            : null;
+
+        const targetVolatileAcidityMin = parseFloat(document.getElementById('targetVolatileAcidityMin').value) || null;
+        const targetVolatileAcidityMax = parseFloat(document.getElementById('targetVolatileAcidityMax').value) || null;
+        const targetVolatileAcidity = targetVolatileAcidityMin !== null || targetVolatileAcidityMax !== null
+            ? { min: targetVolatileAcidityMin, max: targetVolatileAcidityMax }
+            : null;
+
+        const targetPHMin = parseFloat(document.getElementById('targetPHMin').value) || null;
+        const targetPHMax = parseFloat(document.getElementById('targetPHMax').value) || null;
+        const targetPH = targetPHMin !== null || targetPHMax !== null
+            ? { min: targetPHMin, max: targetPHMax }
+            : null;
+
+        const targetSugarsMin = parseFloat(document.getElementById('targetSugarsMin').value) || null;
+        const targetSugarsMax = parseFloat(document.getElementById('targetSugarsMax').value) || null;
+        const targetSugars = targetSugarsMin !== null || targetSugarsMax !== null
+            ? { min: targetSugarsMin, max: targetSugarsMax }
+            : null;
+
+        const targetFreeSO2Min = parseFloat(document.getElementById('targetFreeSO2Min').value) || null;
+        const targetFreeSO2Max = parseFloat(document.getElementById('targetFreeSO2Max').value) || null;
+        const targetFreeSO2 = targetFreeSO2Min !== null || targetFreeSO2Max !== null
+            ? { min: targetFreeSO2Min, max: targetFreeSO2Max }
+            : null;
+
+        const targetTotalSO2Min = parseFloat(document.getElementById('targetTotalSO2Min').value) || null;
+        const targetTotalSO2Max = parseFloat(document.getElementById('targetTotalSO2Max').value) || null;
+        const targetTotalSO2 = targetTotalSO2Min !== null || targetTotalSO2Max !== null
+            ? { min: targetTotalSO2Min, max: targetTotalSO2Max }
+            : null;
+
         const emptyTankId = document.getElementById('emptyTankSelect').value;
 
         // Validation
@@ -780,7 +927,7 @@ class BlendManager {
             for (const otherTank of this.tanks) {
                 if (otherTank.id === emptyTankId) continue;
 
-                const combo = this.calculateTwoTankBlend(emptyTank, otherTank, targetAlcohol, targetAcidity, targetVolatileAcidity, targetPH, targetSugars, emptyTankId);
+                const combo = this.calculateTwoTankBlend(emptyTank, otherTank, targetAlcohol, targetAcidity, targetVolatileAcidity, targetPH, targetSugars, targetFreeSO2, targetTotalSO2, emptyTankId);
                 if (combo) {
                     combinations.push(combo);
                 }
@@ -793,7 +940,7 @@ class BlendManager {
                     const tankB = this.tanks[j];
 
                     // Calculate combination
-                    const combo = this.calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetVolatileAcidity, targetPH, targetSugars);
+                    const combo = this.calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetVolatileAcidity, targetPH, targetSugars, targetFreeSO2, targetTotalSO2);
                     if (combo) {
                         combinations.push(combo);
                     }
@@ -813,10 +960,18 @@ class BlendManager {
         combinations.sort((a, b) => b.score - a.score);
 
         // Display results
-        this.displayTargetBlendResults(combinations, { alcohol: targetAlcohol, acidity: targetAcidity, volatileAcidity: targetVolatileAcidity, pH: targetPH, sugars: targetSugars }, emptyTankId);
+        this.displayTargetBlendResults(combinations, {
+            alcohol: targetAlcohol,
+            acidity: targetAcidity,
+            volatileAcidity: targetVolatileAcidity,
+            pH: targetPH,
+            sugars: targetSugars,
+            freeSO2: targetFreeSO2,
+            totalSO2: targetTotalSO2
+        }, emptyTankId);
     }
 
-    calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetVolatileAcidity, targetPH, targetSugars, emptyTankId = null) {
+    calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetVolatileAcidity, targetPH, targetSugars, targetFreeSO2, targetTotalSO2, emptyTankId = null) {
         const alcoholA = tankA.alcoholPercent;
         const alcoholB = tankB.alcoholPercent;
 
@@ -897,6 +1052,14 @@ class BlendManager {
             ? (tankA.residualSugars * volumeA + tankB.residualSugars * volumeB) / totalVolume
             : null;
 
+        const resultFreeSO2 = tankA.freeSO2 !== null && tankB.freeSO2 !== null
+            ? (tankA.freeSO2 * volumeA + tankB.freeSO2 * volumeB) / totalVolume
+            : null;
+
+        const resultTotalSO2 = tankA.totalSO2 !== null && tankB.totalSO2 !== null
+            ? (tankA.totalSO2 * volumeA + tankB.totalSO2 * volumeB) / totalVolume
+            : null;
+
         // Calculate compatibility score (0-100)
         let score = 100;
 
@@ -905,28 +1068,71 @@ class BlendManager {
             score -= 30;
         }
 
-        // Bonus if target acidity matches
-        if (targetAcidity && resultAcidity) {
-            const acidityDiff = Math.abs(resultAcidity - targetAcidity);
-            score -= acidityDiff * 5; // Deduct 5 points per g/L difference
+        // Score based on range matching for acidity
+        if (targetAcidity && resultAcidity !== null) {
+            const min = targetAcidity.min !== null ? targetAcidity.min : -Infinity;
+            const max = targetAcidity.max !== null ? targetAcidity.max : Infinity;
+            if (resultAcidity < min) {
+                score -= (min - resultAcidity) * 5; // Deduct 5 points per g/L below min
+            } else if (resultAcidity > max) {
+                score -= (resultAcidity - max) * 5; // Deduct 5 points per g/L above max
+            }
+            // If in range, no deduction (bonus for being in range)
         }
 
-        // Bonus if target volatile acidity matches
+        // Score based on range matching for volatile acidity
         if (targetVolatileAcidity && resultVolatileAcidity !== null) {
-            const volatileAcidityDiff = Math.abs(resultVolatileAcidity - targetVolatileAcidity);
-            score -= volatileAcidityDiff * 10; // Deduct 10 points per g/L difference
+            const min = targetVolatileAcidity.min !== null ? targetVolatileAcidity.min : -Infinity;
+            const max = targetVolatileAcidity.max !== null ? targetVolatileAcidity.max : Infinity;
+            if (resultVolatileAcidity < min) {
+                score -= (min - resultVolatileAcidity) * 10; // Deduct 10 points per g/L below min
+            } else if (resultVolatileAcidity > max) {
+                score -= (resultVolatileAcidity - max) * 10; // Deduct 10 points per g/L above max
+            }
         }
 
-        // Bonus if target pH matches
-        if (targetPH && resultPH) {
-            const phDiff = Math.abs(resultPH - targetPH);
-            score -= phDiff * 20; // Deduct 20 points per pH unit difference
+        // Score based on range matching for pH
+        if (targetPH && resultPH !== null) {
+            const min = targetPH.min !== null ? targetPH.min : -Infinity;
+            const max = targetPH.max !== null ? targetPH.max : Infinity;
+            if (resultPH < min) {
+                score -= (min - resultPH) * 20; // Deduct 20 points per pH unit below min
+            } else if (resultPH > max) {
+                score -= (resultPH - max) * 20; // Deduct 20 points per pH unit above max
+            }
         }
 
-        // Bonus if target sugars matches
+        // Score based on range matching for sugars
         if (targetSugars && resultSugars !== null) {
-            const sugarsDiff = Math.abs(resultSugars - targetSugars);
-            score -= sugarsDiff * 3; // Deduct 3 points per g/L difference
+            const min = targetSugars.min !== null ? targetSugars.min : -Infinity;
+            const max = targetSugars.max !== null ? targetSugars.max : Infinity;
+            if (resultSugars < min) {
+                score -= (min - resultSugars) * 3; // Deduct 3 points per g/L below min
+            } else if (resultSugars > max) {
+                score -= (resultSugars - max) * 3; // Deduct 3 points per g/L above max
+            }
+        }
+
+        // Score based on range matching for free SO2
+        if (targetFreeSO2 && resultFreeSO2 !== null) {
+            const min = targetFreeSO2.min !== null ? targetFreeSO2.min : -Infinity;
+            const max = targetFreeSO2.max !== null ? targetFreeSO2.max : Infinity;
+            if (resultFreeSO2 < min) {
+                score -= (min - resultFreeSO2) * 0.5; // Deduct 0.5 points per mg/L below min
+            } else if (resultFreeSO2 > max) {
+                score -= (resultFreeSO2 - max) * 0.5; // Deduct 0.5 points per mg/L above max
+            }
+        }
+
+        // Score based on range matching for total SO2
+        if (targetTotalSO2 && resultTotalSO2 !== null) {
+            const min = targetTotalSO2.min !== null ? targetTotalSO2.min : -Infinity;
+            const max = targetTotalSO2.max !== null ? targetTotalSO2.max : Infinity;
+            if (resultTotalSO2 < min) {
+                score -= (min - resultTotalSO2) * 0.3; // Deduct 0.3 points per mg/L below min
+            } else if (resultTotalSO2 > max) {
+                score -= (resultTotalSO2 - max) * 0.3; // Deduct 0.3 points per mg/L above max
+            }
         }
 
         score = Math.max(0, Math.min(100, score)); // Clamp between 0-100
@@ -945,9 +1151,30 @@ class BlendManager {
             resultVolatileAcidity,
             resultPH,
             resultSugars,
+            resultFreeSO2,
+            resultTotalSO2,
             score,
             feasible: volumeA <= maxVolumeA && volumeB <= maxVolumeB
         };
+    }
+
+    formatTargetRange(range) {
+        if (!range) return '';
+        if (range.min !== null && range.max !== null) {
+            return `${range.min} - ${range.max}`;
+        } else if (range.min !== null) {
+            return `≥ ${range.min}`;
+        } else if (range.max !== null) {
+            return `≤ ${range.max}`;
+        }
+        return '';
+    }
+
+    isInRange(value, range) {
+        if (!range || value === null) return true;
+        const min = range.min !== null ? range.min : -Infinity;
+        const max = range.max !== null ? range.max : Infinity;
+        return value >= min && value <= max;
     }
 
     displayTargetBlendResults(combinations, targets, emptyTankId = null) {
@@ -1029,32 +1256,46 @@ class BlendManager {
                                 <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.alcohol') || 'Gradazione'}</small>
                                 <strong class="text-success">${combo.resultAlcohol.toFixed(2)}%</strong>
                             </div>
-                            ${combo.resultAcidity ? `
+                            ${combo.resultAcidity !== null ? `
                                 <div class="col-md-3">
                                     <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità'}</small>
-                                    <strong>${combo.resultAcidity.toFixed(2)} g/L</strong>
-                                    ${targets.acidity ? `<br><small class="text-muted">(target: ${targets.acidity})</small>` : ''}
+                                    <strong class="${this.isInRange(combo.resultAcidity, targets.acidity) ? 'text-success' : 'text-warning'}">${combo.resultAcidity.toFixed(2)} g/L</strong>
+                                    ${targets.acidity ? `<br><small class="text-muted">(${this.formatTargetRange(targets.acidity)})</small>` : ''}
                                 </div>
                             ` : ''}
                             ${combo.resultVolatileAcidity !== null ? `
                                 <div class="col-md-3">
                                     <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.volatileAcidity') || 'Acidità Volatile'}</small>
-                                    <strong>${combo.resultVolatileAcidity.toFixed(2)} g/L</strong>
-                                    ${targets.volatileAcidity ? `<br><small class="text-muted">(target: ${targets.volatileAcidity})</small>` : ''}
+                                    <strong class="${this.isInRange(combo.resultVolatileAcidity, targets.volatileAcidity) ? 'text-success' : 'text-warning'}">${combo.resultVolatileAcidity.toFixed(2)} g/L</strong>
+                                    ${targets.volatileAcidity ? `<br><small class="text-muted">(${this.formatTargetRange(targets.volatileAcidity)})</small>` : ''}
                                 </div>
                             ` : ''}
-                            ${combo.resultPH ? `
+                            ${combo.resultPH !== null ? `
                                 <div class="col-md-3">
                                     <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.ph') || 'pH'}</small>
-                                    <strong>${combo.resultPH.toFixed(2)}</strong>
-                                    ${targets.pH ? `<br><small class="text-muted">(target: ${targets.pH})</small>` : ''}
+                                    <strong class="${this.isInRange(combo.resultPH, targets.pH) ? 'text-success' : 'text-warning'}">${combo.resultPH.toFixed(2)}</strong>
+                                    ${targets.pH ? `<br><small class="text-muted">(${this.formatTargetRange(targets.pH)})</small>` : ''}
                                 </div>
                             ` : ''}
                             ${combo.resultSugars !== null ? `
                                 <div class="col-md-3">
                                     <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.sugars') || 'Zuccheri'}</small>
-                                    <strong>${combo.resultSugars.toFixed(2)} g/L</strong>
-                                    ${targets.sugars ? `<br><small class="text-muted">(target: ${targets.sugars})</small>` : ''}
+                                    <strong class="${this.isInRange(combo.resultSugars, targets.sugars) ? 'text-success' : 'text-warning'}">${combo.resultSugars.toFixed(2)} g/L</strong>
+                                    ${targets.sugars ? `<br><small class="text-muted">(${this.formatTargetRange(targets.sugars)})</small>` : ''}
+                                </div>
+                            ` : ''}
+                            ${combo.resultFreeSO2 !== null ? `
+                                <div class="col-md-3">
+                                    <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.freeSO2') || 'SO2 Libera'}</small>
+                                    <strong class="${this.isInRange(combo.resultFreeSO2, targets.freeSO2) ? 'text-success' : 'text-warning'}">${combo.resultFreeSO2.toFixed(0)} mg/L</strong>
+                                    ${targets.freeSO2 ? `<br><small class="text-muted">(${this.formatTargetRange(targets.freeSO2)})</small>` : ''}
+                                </div>
+                            ` : ''}
+                            ${combo.resultTotalSO2 !== null ? `
+                                <div class="col-md-3">
+                                    <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.totalSO2') || 'SO2 Totale'}</small>
+                                    <strong class="${this.isInRange(combo.resultTotalSO2, targets.totalSO2) ? 'text-success' : 'text-warning'}">${combo.resultTotalSO2.toFixed(0)} mg/L</strong>
+                                    ${targets.totalSO2 ? `<br><small class="text-muted">(${this.formatTargetRange(targets.totalSO2)})</small>` : ''}
                                 </div>
                             ` : ''}
                         </div>

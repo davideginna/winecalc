@@ -253,7 +253,9 @@
       "noEmptyTank": "Nessuna - calcolo libero",
       "emptyTankHelp": "Se selezionata, il calcolo userà tutto il volume disponibile di questa vasca",
       "emptied": "Svuotata",
-      "totalVolume": "volume totale"
+      "totalVolume": "volume totale",
+      "min": "Min",
+      "max": "Max"
     },
     "results": {
       "title": "Risultati Blend",
