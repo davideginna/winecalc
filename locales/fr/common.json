@@ -234,6 +234,7 @@
       "needTanks": "Ajoutez au moins 2 cuves pour calculer un assemblage",
       "fromTanks": "Depuis Cuves",
       "fromTarget": "Depuis Cible",
+      "random": "Aléatoire",
       "selectTanks": "Sélectionner les cuves à assembler",
       "volumeToUse": "Volume à utiliser (L)",
       "calculate": "Calculer l'Assemblage",
@@ -256,6 +257,37 @@
       "totalVolume": "volume total",
       "min": "Min",
       "max": "Max"
+    },
+    "random": {
+      "mode1": {
+        "title": "Entièrement Automatique",
+        "description": "Sélectionne automatiquement 2-3 cuves aléatoires et génère des volumes aléatoires pour l'assemblage."
+      },
+      "mode2": {
+        "title": "Aléatoire avec Sélection",
+        "description": "Sélectionnez les cuves que vous souhaitez assembler, le système générera des volumes aléatoires pour vous."
+      },
+      "mode3": {
+        "title": "Multi Aléatoire - Meilleurs",
+        "description": "Génère des combinaisons aléatoires et affiche les meilleures.",
+        "iterations": "Combinaisons à générer",
+        "toShow": "Meilleurs à afficher",
+        "generate": "Générer et Trouver les Meilleures",
+        "generated": "Générés",
+        "blends": "assemblages aléatoires",
+        "showing": "Voici les meilleurs"
+      },
+      "numTanks": "Nombre de cuves à assembler",
+      "generate": "Générer un Assemblage Aléatoire",
+      "notEnoughTanks": "Pas assez de cuves",
+      "need": "Besoin d'au moins",
+      "tanks": "cuves",
+      "score": "Score",
+      "validation": {
+        "iterations": "Entrez un nombre entre 1 et 100",
+        "toShow": "Entrez un nombre entre 1 et 100",
+        "toShowTooMany": "Ne peut pas être supérieur aux combinaisons à générer"
+      }
     },
     "results": {
       "title": "Résultats de l'Assemblage",

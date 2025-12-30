@@ -234,6 +234,7 @@
       "needTanks": "Add at least 2 tanks to calculate a blend",
       "fromTanks": "From Tanks",
       "fromTarget": "From Target",
+      "random": "Random",
       "selectTanks": "Select tanks to blend",
       "volumeToUse": "Volume to use (L)",
       "calculate": "Calculate Blend",
@@ -256,6 +257,37 @@
       "totalVolume": "total volume",
       "min": "Min",
       "max": "Max"
+    },
+    "random": {
+      "mode1": {
+        "title": "Fully Automatic",
+        "description": "Automatically selects 2-3 random tanks and generates random volumes for blending."
+      },
+      "mode2": {
+        "title": "Random with Selection",
+        "description": "Select the tanks you want to blend, the system will generate random volumes for you."
+      },
+      "mode3": {
+        "title": "Multi Random - Best",
+        "description": "Generate random combinations and show the best ones.",
+        "iterations": "Combinations to generate",
+        "toShow": "Best to show",
+        "generate": "Generate and Find Best",
+        "generated": "Generated",
+        "blends": "random blends",
+        "showing": "Here are the best"
+      },
+      "numTanks": "Number of tanks to blend",
+      "generate": "Generate Random Blend",
+      "notEnoughTanks": "Not enough tanks",
+      "need": "Need at least",
+      "tanks": "tanks",
+      "score": "Score",
+      "validation": {
+        "iterations": "Enter a number between 1 and 100",
+        "toShow": "Enter a number between 1 and 100",
+        "toShowTooMany": "Cannot be greater than combinations to generate"
+      }
     },
     "results": {
       "title": "Blend Results",

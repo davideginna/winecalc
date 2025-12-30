@@ -234,6 +234,7 @@
       "needTanks": "Fügen Sie mindestens 2 Tanks hinzu, um einen Verschnitt zu berechnen",
       "fromTanks": "Von Tanks",
       "fromTarget": "Von Ziel",
+      "random": "Zufällig",
       "selectTanks": "Tanks zum Verschneiden auswählen",
       "volumeToUse": "Zu verwendendes Volumen (L)",
       "calculate": "Verschnitt Berechnen",
@@ -256,6 +257,37 @@
       "totalVolume": "Gesamtvolumen",
       "min": "Min",
       "max": "Max"
+    },
+    "random": {
+      "mode1": {
+        "title": "Vollautomatisch",
+        "description": "Wählt automatisch 2-3 zufällige Tanks aus und generiert zufällige Volumen zum Verschneiden."
+      },
+      "mode2": {
+        "title": "Zufällig mit Auswahl",
+        "description": "Wählen Sie die Tanks aus, die Sie verschneiden möchten, das System generiert zufällige Volumen für Sie."
+      },
+      "mode3": {
+        "title": "Multi Zufällig - Beste",
+        "description": "Generiert zufällige Kombinationen und zeigt die besten.",
+        "iterations": "Zu generierende Kombinationen",
+        "toShow": "Beste anzuzeigen",
+        "generate": "Generieren und Beste Finden",
+        "generated": "Generiert",
+        "blends": "zufällige Verschnitte",
+        "showing": "Hier sind die besten"
+      },
+      "numTanks": "Anzahl der zu verschneidenden Tanks",
+      "generate": "Zufälligen Verschnitt Generieren",
+      "notEnoughTanks": "Nicht genug Tanks",
+      "need": "Mindestens erforderlich",
+      "tanks": "Tanks",
+      "score": "Punktzahl",
+      "validation": {
+        "iterations": "Geben Sie eine Zahl zwischen 1 und 100 ein",
+        "toShow": "Geben Sie eine Zahl zwischen 1 und 100 ein",
+        "toShowTooMany": "Kann nicht größer sein als zu generierende Kombinationen"
+      }
     },
     "results": {
       "title": "Verschnitt-Ergebnisse",

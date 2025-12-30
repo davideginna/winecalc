@@ -488,6 +488,13 @@ class BlendManager {
                         ${WineCalcI18n.t('blend.calculator.fromTarget') || 'Da Target'}
                     </button>
                 </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="random-tab" data-bs-toggle="tab"
+                            data-bs-target="#random" type="button" role="tab">
+                        <i class="bi bi-shuffle me-2"></i>
+                        ${WineCalcI18n.t('blend.calculator.random') || 'Random'}
+                    </button>
+                </li>
             </ul>
 
             <!-- Tab Content -->
@@ -500,6 +507,11 @@ class BlendManager {
                 <!-- From Target Tab -->
                 <div class="tab-pane fade" id="from-target" role="tabpanel">
                     ${this.renderFromTargetCalculator()}
+                </div>
+
+                <!-- Random Tab -->
+                <div class="tab-pane fade" id="random" role="tabpanel">
+                    ${this.renderRandomCalculator()}
                 </div>
             </div>
         `;
@@ -769,6 +781,119 @@ class BlendManager {
         return html;
     }
 
+    renderRandomCalculator() {
+        let html = `
+            <div class="accordion" id="randomAccordion">
+                <!-- Mode 1: Fully Automatic -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#randomMode1">
+                            <i class="bi bi-magic me-2"></i>
+                            ${WineCalcI18n.t('blend.random.mode1.title') || 'Random Completo'}
+                        </button>
+                    </h2>
+                    <div id="randomMode1" class="accordion-collapse collapse show" data-bs-parent="#randomAccordion">
+                        <div class="accordion-body">
+                            <p class="text-muted">
+                                ${WineCalcI18n.t('blend.random.mode1.description') || 'Seleziona automaticamente 2-3 vasche random e genera volumi casuali per la miscelazione.'}
+                            </p>
+                            <div id="randomMode1ErrorContainer"></div>
+                            <button class="btn btn-primary-theme w-100" id="randomMode1Btn">
+                                <i class="bi bi-shuffle me-2"></i>
+                                ${WineCalcI18n.t('blend.random.generate') || 'Genera Blend Random'}
+                            </button>
+                            <div id="randomMode1Results" class="mt-4" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mode 2: Semi-Automatic -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#randomMode2">
+                            <i class="bi bi-dice-3 me-2"></i>
+                            ${WineCalcI18n.t('blend.random.mode2.title') || 'Random con Selezione'}
+                        </button>
+                    </h2>
+                    <div id="randomMode2" class="accordion-collapse collapse" data-bs-parent="#randomAccordion">
+                        <div class="accordion-body">
+                            <p class="text-muted">
+                                ${WineCalcI18n.t('blend.random.mode2.description') || 'Seleziona le vasche che vuoi miscelare, il sistema genererà volumi casuali per te.'}
+                            </p>
+                            <h6 class="mb-3">${WineCalcI18n.t('blend.calculator.selectTanks') || 'Seleziona le vasche'}</h6>
+                            <div class="row" id="randomMode2TanksList">
+                                ${this.tanks.map(tank => `
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card random-mode2-tank-card" data-id="${tank.id}" style="cursor: pointer; transition: all 0.2s;">
+                                            <div class="card-body">
+                                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                                    <h6 class="mb-0 fw-bold">${this.escapeHtml(tank.name)}</h6>
+                                                    <i class="bi bi-check-circle-fill text-success random-mode2-selected-icon" style="display: none; font-size: 1.5rem;"></i>
+                                                </div>
+                                                <small class="text-muted d-block">
+                                                    <i class="bi bi-bucket me-1"></i>
+                                                    ${tank.volume} ${tank.volumeUnit} • ${tank.alcoholPercent}% vol
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div id="randomMode2ErrorContainer" class="mt-3"></div>
+                            <button class="btn btn-primary-theme w-100 mt-3" id="randomMode2Btn">
+                                <i class="bi bi-shuffle me-2"></i>
+                                ${WineCalcI18n.t('blend.random.generate') || 'Genera Volumi Random'}
+                            </button>
+                            <div id="randomMode2Results" class="mt-4" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mode 3: Multi Random Best -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#randomMode3">
+                            <i class="bi bi-stars me-2"></i>
+                            ${WineCalcI18n.t('blend.random.mode3.title') || 'Multi Random - Best 5'}
+                        </button>
+                    </h2>
+                    <div id="randomMode3" class="accordion-collapse collapse" data-bs-parent="#randomAccordion">
+                        <div class="accordion-body">
+                            <p class="text-muted">
+                                ${WineCalcI18n.t('blend.random.mode3.description') || 'Genera combinazioni casuali e mostra le migliori.'}
+                            </p>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="randomMode3Iterations" class="form-label">
+                                        ${WineCalcI18n.t('blend.random.mode3.iterations') || 'Combinazioni da generare'}
+                                    </label>
+                                    <input type="number" class="form-control" id="randomMode3Iterations"
+                                           min="1" max="100" step="1" placeholder="es. 50">
+                                    <div id="randomMode3IterationsError" class="invalid-feedback" style="display: none;"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="randomMode3ToShow" class="form-label">
+                                        ${WineCalcI18n.t('blend.random.mode3.toShow') || 'Migliori da mostrare'}
+                                    </label>
+                                    <input type="number" class="form-control" id="randomMode3ToShow"
+                                           min="1" max="100" step="1" placeholder="es. 5">
+                                    <div id="randomMode3ToShowError" class="invalid-feedback" style="display: none;"></div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary-theme w-100" id="randomMode3Btn">
+                                <i class="bi bi-lightning me-2"></i>
+                                ${WineCalcI18n.t('blend.random.mode3.generate') || 'Genera e Trova le Migliori'}
+                            </button>
+                            <div id="randomMode3Results" class="mt-4" style="display: none;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        return html;
+    }
+
     setupBlendCalculatorListeners() {
         // Card click listeners
         document.querySelectorAll('.blend-tank-card').forEach(card => {
@@ -823,6 +948,82 @@ class BlendManager {
         if (targetAlcoholField) {
             targetAlcoholField.addEventListener('input', () => {
                 this.clearFieldError('targetAlcohol');
+            });
+        }
+
+        // Random Mode 1 button
+        const randomMode1Btn = document.getElementById('randomMode1Btn');
+        if (randomMode1Btn) {
+            randomMode1Btn.addEventListener('click', () => {
+                this.executeRandomMode1();
+            });
+        }
+
+        // Random Mode 2 button
+        const randomMode2Btn = document.getElementById('randomMode2Btn');
+        if (randomMode2Btn) {
+            randomMode2Btn.addEventListener('click', () => {
+                this.executeRandomMode2();
+            });
+        }
+
+        // Random Mode 3 button
+        const randomMode3Btn = document.getElementById('randomMode3Btn');
+        if (randomMode3Btn) {
+            randomMode3Btn.addEventListener('click', () => {
+                this.executeRandomMode3();
+            });
+        }
+
+        // Random Mode 2 card click listeners
+        document.querySelectorAll('.random-mode2-tank-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const isSelected = card.classList.contains('selected');
+                const icon = card.querySelector('.random-mode2-selected-icon');
+
+                if (isSelected) {
+                    // Deselect
+                    card.classList.remove('selected');
+                    card.style.borderColor = '';
+                    card.style.borderWidth = '';
+                    card.style.boxShadow = '';
+                    icon.style.display = 'none';
+                } else {
+                    // Select
+                    card.classList.add('selected');
+                    card.style.borderColor = 'var(--primary)';
+                    card.style.borderWidth = '2px';
+                    card.style.boxShadow = '0 0.125rem 0.5rem rgba(0, 0, 0, 0.15)';
+                    icon.style.display = 'block';
+                }
+            });
+        });
+
+        // Random Mode 3 input listeners - clear errors on input
+        const randomMode3IterationsInput = document.getElementById('randomMode3Iterations');
+        const randomMode3ToShowInput = document.getElementById('randomMode3ToShow');
+
+        if (randomMode3IterationsInput) {
+            randomMode3IterationsInput.addEventListener('input', () => {
+                const field = document.getElementById('randomMode3Iterations');
+                const errorDiv = document.getElementById('randomMode3IterationsError');
+                if (field) field.classList.remove('is-invalid');
+                if (errorDiv) {
+                    errorDiv.style.display = 'none';
+                    errorDiv.textContent = '';
+                }
+            });
+        }
+
+        if (randomMode3ToShowInput) {
+            randomMode3ToShowInput.addEventListener('input', () => {
+                const field = document.getElementById('randomMode3ToShow');
+                const errorDiv = document.getElementById('randomMode3ToShowError');
+                if (field) field.classList.remove('is-invalid');
+                if (errorDiv) {
+                    errorDiv.style.display = 'none';
+                    errorDiv.textContent = '';
+                }
             });
         }
     }
@@ -1495,6 +1696,399 @@ class BlendManager {
 
         // Scroll to results
         container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Random Blend Methods
+    executeRandomMode1() {
+        this.clearBlendErrors('randomMode1ErrorContainer');
+        const container = document.getElementById('randomMode1Results');
+
+        // Random number of tanks (2 or 3)
+        const tanksCount = Math.random() < 0.5 ? 2 : 3;
+
+        if (this.tanks.length < tanksCount) {
+            this.showBlendError(
+                `${WineCalcI18n.t('blend.random.notEnoughTanks') || 'Non ci sono abbastanza vasche'}. ${WineCalcI18n.t('blend.random.need') || 'Servono almeno'} ${tanksCount} ${WineCalcI18n.t('blend.random.tanks') || 'vasche'}.`,
+                'randomMode1ErrorContainer'
+            );
+            return;
+        }
+
+        // Select random tanks
+        const shuffled = [...this.tanks].sort(() => Math.random() - 0.5);
+        const selectedTanks = shuffled.slice(0, tanksCount);
+
+        // Generate random volumes for each tank
+        const tanksWithVolumes = selectedTanks.map(tank => {
+            const maxVolume = this.convertToLiters(tank.volume, tank.volumeUnit);
+            // Random volume between 10% and 100% of available volume
+            const randomVolume = (Math.random() * 0.9 + 0.1) * maxVolume;
+            return { ...tank, blendVolume: randomVolume };
+        });
+
+        // Calculate blend
+        const result = this.performBlendCalculation(tanksWithVolumes);
+        this.displayBlendResults(result, tanksWithVolumes);
+
+        // Move the results display to randomMode1Results
+        const blendResults = document.getElementById('blendResults');
+        if (blendResults) {
+            container.innerHTML = blendResults.innerHTML;
+            container.style.display = 'block';
+            blendResults.style.display = 'none';
+
+            // Scroll to results
+            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+
+    executeRandomMode2() {
+        this.clearBlendErrors('randomMode2ErrorContainer');
+        const container = document.getElementById('randomMode2Results');
+
+        // Get selected tanks from cards
+        const selectedIds = Array.from(document.querySelectorAll('.random-mode2-tank-card.selected'))
+            .map(card => card.dataset.id);
+
+        if (selectedIds.length < 2) {
+            this.showBlendError(
+                WineCalcI18n.t('blend.calculator.selectAtLeast2') || 'Seleziona almeno 2 vasche',
+                'randomMode2ErrorContainer'
+            );
+            return;
+        }
+
+        // Get selected tanks and generate random volumes
+        const selectedTanks = selectedIds.map(id => {
+            const tank = this.tanks.find(t => t.id === id);
+            const maxVolume = this.convertToLiters(tank.volume, tank.volumeUnit);
+            // Random volume between 10% and 100% of available volume
+            const randomVolume = (Math.random() * 0.9 + 0.1) * maxVolume;
+            return { ...tank, blendVolume: randomVolume };
+        });
+
+        // Calculate blend
+        const result = this.performBlendCalculation(selectedTanks);
+        this.displayBlendResults(result, selectedTanks);
+
+        // Move the results display to randomMode2Results
+        const blendResults = document.getElementById('blendResults');
+        if (blendResults) {
+            container.innerHTML = blendResults.innerHTML;
+            container.style.display = 'block';
+            blendResults.style.display = 'none';
+
+            // Scroll to results
+            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+
+    executeRandomMode3() {
+        // Clear previous errors
+        this.clearRandomMode3Errors();
+        const container = document.getElementById('randomMode3Results');
+
+        // Get input values
+        const iterationsInput = document.getElementById('randomMode3Iterations');
+        const toShowInput = document.getElementById('randomMode3ToShow');
+
+        const iterations = parseInt(iterationsInput.value);
+        const toShow = parseInt(toShowInput.value);
+
+        let hasErrors = false;
+
+        // Validate iterations
+        if (!iterations || iterations < 1 || iterations > 100) {
+            this.showRandomMode3Error('randomMode3Iterations',
+                WineCalcI18n.t('blend.random.validation.iterations') || 'Inserisci un numero tra 1 e 100');
+            hasErrors = true;
+        }
+
+        // Validate toShow
+        if (!toShow || toShow < 1 || toShow > 100) {
+            this.showRandomMode3Error('randomMode3ToShow',
+                WineCalcI18n.t('blend.random.validation.toShow') || 'Inserisci un numero tra 1 e 100');
+            hasErrors = true;
+        } else if (toShow > iterations) {
+            this.showRandomMode3Error('randomMode3ToShow',
+                WineCalcI18n.t('blend.random.validation.toShowTooMany') || 'Non può essere maggiore delle combinazioni da generare');
+            hasErrors = true;
+        }
+
+        if (hasErrors) return;
+
+        if (this.tanks.length < 2) {
+            this.showRandomMode3Error('randomMode3Iterations',
+                `${WineCalcI18n.t('blend.random.notEnoughTanks') || 'Non ci sono abbastanza vasche'}. ${WineCalcI18n.t('blend.random.need') || 'Servono almeno'} 2 ${WineCalcI18n.t('blend.random.tanks') || 'vasche'}.`
+            );
+            return;
+        }
+
+        const combinations = [];
+        const maxTanks = this.tanks.length;
+
+        // Generate random combinations
+        for (let i = 0; i < iterations; i++) {
+            // Random number of tanks from 2 to maxTanks
+            const tanksCount = Math.floor(Math.random() * (maxTanks - 1)) + 2;
+
+            // Select random tanks
+            const shuffled = [...this.tanks].sort(() => Math.random() - 0.5);
+            const selectedTanks = shuffled.slice(0, tanksCount);
+
+            // Generate random volumes
+            const tanksWithVolumes = selectedTanks.map(tank => {
+                const maxVolume = this.convertToLiters(tank.volume, tank.volumeUnit);
+                const randomVolume = (Math.random() * 0.9 + 0.1) * maxVolume;
+                return { ...tank, blendVolume: randomVolume };
+            });
+
+            // Calculate blend
+            const result = this.performBlendCalculation(tanksWithVolumes);
+
+            // Calculate a balance score based on parameter variance
+            const score = this.calculateBlendBalanceScore(result, tanksWithVolumes);
+
+            combinations.push({
+                tanks: tanksWithVolumes,
+                result,
+                score
+            });
+        }
+
+        // Sort by score (best first)
+        combinations.sort((a, b) => b.score - a.score);
+
+        // Display top N
+        this.displayRandomMode3Results(combinations.slice(0, toShow), iterations);
+
+        container.style.display = 'block';
+        container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    clearRandomMode3Errors() {
+        const fields = ['randomMode3Iterations', 'randomMode3ToShow'];
+        fields.forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(fieldId + 'Error');
+            if (field) field.classList.remove('is-invalid');
+            if (errorDiv) {
+                errorDiv.style.display = 'none';
+                errorDiv.textContent = '';
+            }
+        });
+    }
+
+    showRandomMode3Error(fieldId, message) {
+        const field = document.getElementById(fieldId);
+        const errorDiv = document.getElementById(fieldId + 'Error');
+
+        if (field) {
+            field.classList.add('is-invalid');
+        }
+
+        if (errorDiv) {
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+    }
+
+    calculateBlendBalanceScore(result, tanks) {
+        // Score based on:
+        // 1. Balanced proportions (no single tank dominates too much)
+        // 2. Reasonable alcohol level (prefer 11-14%)
+        // 3. Good pH if available (prefer 3.2-3.8)
+        // 4. Moderate acidity if available
+
+        let score = 100;
+
+        // Check proportion balance
+        const totalVolume = result.totalVolume || 1; // Prevent division by zero
+        const proportions = tanks.map(t => (t.blendVolume || 0) / totalVolume);
+        const maxProportion = Math.max(...proportions);
+        const minProportion = Math.min(...proportions);
+
+        // Penalize if one tank dominates too much (>80%)
+        if (maxProportion > 0.8) {
+            score -= (maxProportion - 0.8) * 50;
+        }
+
+        // Bonus for balanced proportions (similar volumes)
+        const proportionRange = maxProportion - minProportion;
+        if (proportionRange < 0.3) {
+            score += 10; // Well balanced
+        }
+
+        // Prefer alcohol in typical wine range (11-14%)
+        const alcoholPercent = result.alcoholPercent || 0;
+        if (alcoholPercent >= 11 && alcoholPercent <= 14) {
+            score += 15;
+        } else if (alcoholPercent >= 10 && alcoholPercent <= 15) {
+            score += 5;
+        } else {
+            // Penalize extreme alcohol levels
+            if (alcoholPercent < 10 && alcoholPercent > 0) {
+                score -= (10 - alcoholPercent) * 3;
+            } else if (alcoholPercent > 15) {
+                score -= (alcoholPercent - 15) * 3;
+            }
+        }
+
+        // Prefer good pH range if available
+        if (result.pH !== null && result.pH !== undefined && !isNaN(result.pH)) {
+            if (result.pH >= 3.2 && result.pH <= 3.8) {
+                score += 10;
+            } else if (result.pH >= 3.0 && result.pH <= 4.0) {
+                score += 3;
+            } else {
+                score -= Math.abs(result.pH - 3.5) * 5;
+            }
+        }
+
+        // Prefer moderate acidity if available
+        if (result.totalAcidity !== null && result.totalAcidity !== undefined && !isNaN(result.totalAcidity)) {
+            if (result.totalAcidity >= 5 && result.totalAcidity <= 7) {
+                score += 8;
+            } else if (result.totalAcidity >= 4 && result.totalAcidity <= 8) {
+                score += 3;
+            }
+        }
+
+        // Prefer low volatile acidity if available
+        if (result.volatileAcidity !== null && result.volatileAcidity !== undefined && !isNaN(result.volatileAcidity)) {
+            if (result.volatileAcidity <= 0.6) {
+                score += 10;
+            } else if (result.volatileAcidity <= 0.9) {
+                score += 3;
+            } else {
+                score -= (result.volatileAcidity - 0.9) * 10;
+            }
+        }
+
+        // Ensure score is a valid number
+        if (isNaN(score)) {
+            score = 50; // Default middle score if something went wrong
+        }
+
+        return Math.max(0, Math.min(200, score)); // Clamp between 0-200
+    }
+
+    displayRandomMode3Results(combinations, totalIterations) {
+        const container = document.getElementById('randomMode3Results');
+
+        let html = `
+            <div class="alert alert-success">
+                <i class="bi bi-check-circle me-2"></i>
+                ${WineCalcI18n.t('blend.random.mode3.generated') || 'Generati'} <strong>${totalIterations}</strong>
+                ${WineCalcI18n.t('blend.random.mode3.blends') || 'blend casuali'}.
+                ${WineCalcI18n.t('blend.random.mode3.showing') || 'Ecco i migliori'} <strong>${combinations.length}</strong>:
+            </div>
+        `;
+
+        combinations.forEach((combo, index) => {
+            const tanks = combo.tanks;
+            const result = combo.result;
+            const score = combo.score;
+
+            // Determine badge color based on score
+            let badgeClass = 'bg-success';
+            if (score < 80) badgeClass = 'bg-warning';
+            if (score < 60) badgeClass = 'bg-secondary';
+
+            html += `
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h6 class="mb-0">
+                                ${WineCalcI18n.t('blend.calculator.combination') || 'Combinazione'} ${index + 1}
+                            </h6>
+                            <span class="badge ${badgeClass}">${WineCalcI18n.t('blend.random.score') || 'Score'}: ${score.toFixed(0)}</span>
+                        </div>
+
+                        <!-- Proportions -->
+                        <h6 class="mt-3 mb-2"><small>${WineCalcI18n.t('blend.results.proportions') || 'Proporzioni'}</small></h6>
+                        <div class="row mb-3">
+            `;
+
+            tanks.forEach(tank => {
+                const percentage = (tank.blendVolume / result.totalVolume * 100).toFixed(1);
+                html += `
+                    <div class="col-md-${tanks.length === 2 ? '6' : '4'}">
+                        <strong>${this.escapeHtml(tank.name)}:</strong><br>
+                        <small>${tank.blendVolume.toFixed(1)} L (${percentage}%)</small>
+                    </div>
+                `;
+            });
+
+            html += `
+                        </div>
+                        <hr>
+                        <!-- Results -->
+                        <div class="row">
+                            <div class="col-md-3">
+                                <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.currentVolume') || 'Volume'}</small>
+                                <strong>${result.totalVolume.toFixed(1)} L</strong>
+                            </div>
+                            <div class="col-md-3">
+                                <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.alcohol') || 'Alcol'}</small>
+                                <strong>${result.alcoholPercent.toFixed(2)}%</strong>
+                            </div>
+            `;
+
+            if (result.totalAcidity !== null) {
+                html += `
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità'}</small>
+                        <strong>${result.totalAcidity.toFixed(2)} g/L</strong>
+                    </div>
+                `;
+            }
+
+            if (result.pH !== null) {
+                html += `
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.ph') || 'pH'}</small>
+                        <strong>${result.pH.toFixed(2)}</strong>
+                    </div>
+                `;
+            }
+
+            html += `
+                        </div>
+            `;
+
+            // Additional parameters row
+            if (result.volatileAcidity !== null || result.residualSugars !== null) {
+                html += `<div class="row mt-2">`;
+
+                if (result.volatileAcidity !== null) {
+                    html += `
+                        <div class="col-md-3">
+                            <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.volatileAcidity') || 'Ac. Vol.'}</small>
+                            <strong>${result.volatileAcidity.toFixed(2)} g/L</strong>
+                        </div>
+                    `;
+                }
+
+                if (result.residualSugars !== null) {
+                    html += `
+                        <div class="col-md-3">
+                            <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.sugars') || 'Zuccheri'}</small>
+                            <strong>${result.residualSugars.toFixed(1)} g/L</strong>
+                        </div>
+                    `;
+                }
+
+                html += `</div>`;
+            }
+
+            html += `
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
     }
 
     // Utility Functions

@@ -622,3 +622,56 @@ footer a:hover {
         flex: 1;
     }
 }
+
+/* Accordion Customization - Use Theme Colors */
+.accordion-button {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    transition: var(--transition-base);
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--primary-light);
+    color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: none;
+}
+
+.accordion-button:hover {
+    background-color: var(--primary-light);
+}
+
+.accordion-button:focus {
+    border-color: var(--primary);
+    box-shadow: var(--focus-ring);
+    outline: none;
+}
+
+.accordion-button::after {
+    filter: brightness(0) saturate(100%) invert(18%) sepia(35%) saturate(1771%) hue-rotate(313deg) brightness(93%) contrast(92%);
+}
+
+.accordion-button:not(.collapsed)::after {
+    filter: brightness(0) saturate(100%) invert(18%) sepia(35%) saturate(1771%) hue-rotate(313deg) brightness(93%) contrast(92%);
+}
+
+.accordion-item {
+    border-color: var(--border-color);
+    background-color: var(--bg-primary);
+}
+
+.accordion-body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* Dark mode accordion adjustments */
+[data-theme="dark"] .accordion-button:not(.collapsed) {
+    background-color: rgba(var(--primary-rgb), 0.15);
+    color: var(--primary);
+}
+
+[data-theme="dark"] .accordion-button:hover {
+    background-color: rgba(var(--primary-rgb), 0.1);
+}

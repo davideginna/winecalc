@@ -234,6 +234,7 @@
       "needTanks": "Añade al menos 2 depósitos para calcular una mezcla",
       "fromTanks": "Desde Depósitos",
       "fromTarget": "Desde Objetivo",
+      "random": "Aleatorio",
       "selectTanks": "Selecciona los depósitos a mezclar",
       "volumeToUse": "Volumen a usar (L)",
       "calculate": "Calcular Mezcla",
@@ -256,6 +257,37 @@
       "totalVolume": "volumen total",
       "min": "Mín",
       "max": "Máx"
+    },
+    "random": {
+      "mode1": {
+        "title": "Totalmente Automático",
+        "description": "Selecciona automáticamente 2-3 depósitos aleatorios y genera volúmenes aleatorios para mezclar."
+      },
+      "mode2": {
+        "title": "Aleatorio con Selección",
+        "description": "Selecciona los depósitos que quieres mezclar, el sistema generará volúmenes aleatorios para ti."
+      },
+      "mode3": {
+        "title": "Multi Aleatorio - Mejores",
+        "description": "Genera combinaciones aleatorias y muestra las mejores.",
+        "iterations": "Combinaciones a generar",
+        "toShow": "Mejores a mostrar",
+        "generate": "Generar y Encontrar Mejores",
+        "generated": "Generados",
+        "blends": "mezclas aleatorias",
+        "showing": "Aquí están las mejores"
+      },
+      "numTanks": "Número de depósitos a mezclar",
+      "generate": "Generar Mezcla Aleatoria",
+      "notEnoughTanks": "No hay suficientes depósitos",
+      "need": "Se necesitan al menos",
+      "tanks": "depósitos",
+      "score": "Puntuación",
+      "validation": {
+        "iterations": "Introduce un número entre 1 y 100",
+        "toShow": "Introduce un número entre 1 y 100",
+        "toShowTooMany": "No puede ser mayor que las combinaciones a generar"
+      }
     },
     "results": {
       "title": "Resultados de la Mezcla",
