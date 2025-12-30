@@ -572,188 +572,194 @@ class BlendManager {
                     </div>
                 </div>
 
-                <!-- Alcohol (required - single value) - Centered -->
-                <div class="row mb-3 justify-content-center">
-                    <div class="col-md-6">
-                        <label class="form-label fw-bold text-center d-block">
-                            ${WineCalcI18n.t('blend.tankForm.alcohol') || 'Gradazione Alcolica'} (%)
-                            <span class="text-danger">*</span>
-                        </label>
-                        <div class="input-group">
-                            <input type="number" class="form-control" id="targetAlcohol"
-                                   step="0.1" min="0" max="20" placeholder="14.5">
-                            <button class="btn btn-outline-secondary" type="button" onclick="document.getElementById('targetAlcohol').value = ''">
-                                <i class="bi bi-trash"></i>
-                            </button>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <!-- Alcohol (required - single value) -->
+                        <div class="row mb-2">
+                            <div class="col-12 col-lg-3 d-flex align-items-center">
+                                <label class="form-label mb-0 fw-bold">
+                                    ${WineCalcI18n.t('blend.tankForm.alcohol') || 'Gradazione Alcolica'} (%)
+                                    <span class="text-danger">*</span>
+                                </label>
+                            </div>
+                            <div class="col-10 col-lg-4">
+                                <input type="number" class="form-control" id="targetAlcohol"
+                                       step="0.1" min="0" max="20" placeholder="14.5">
+                            </div>
+                            <div class="col-2 col-lg-1">
+                                <button class="btn btn-sm btn-outline-secondary w-100" type="button" onclick="document.getElementById('targetAlcohol').value = ''">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Total Acidity Range -->
-                <div class="row mb-2">
-                    <div class="col-12 col-lg-3 d-flex align-items-center">
-                        <label class="form-label mb-0">
-                            ${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità Totale'} (g/L)
-                        </label>
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetAcidityMin"
-                               step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetAcidityMax"
-                               step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
-                    </div>
-                    <div class="col-2 col-lg-1">
-                        <button class="btn btn-sm btn-outline-secondary w-100" type="button"
-                                onclick="document.getElementById('targetAcidityMin').value = ''; document.getElementById('targetAcidityMax').value = ''">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                </div>
+                        <!-- Total Acidity Range -->
+                        <div class="row mb-2">
+                            <div class="col-12 col-lg-3 d-flex align-items-center">
+                                <label class="form-label mb-0">
+                                    ${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità Totale'} (g/L)
+                                </label>
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetAcidityMin"
+                                       step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetAcidityMax"
+                                       step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
+                            </div>
+                            <div class="col-2 col-lg-1">
+                                <button class="btn btn-sm btn-outline-secondary w-100" type="button"
+                                        onclick="document.getElementById('targetAcidityMin').value = ''; document.getElementById('targetAcidityMax').value = ''">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
 
-                <!-- Volatile Acidity Range -->
-                <div class="row mb-2">
-                    <div class="col-12 col-lg-3 d-flex align-items-center">
-                        <label class="form-label mb-0">
-                            ${WineCalcI18n.t('blend.tankForm.volatileAcidity') || 'Acidità Volatile'} (g/L)
-                        </label>
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetVolatileAcidityMin"
-                               step="0.01" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetVolatileAcidityMax"
-                               step="0.01" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
-                    </div>
-                    <div class="col-2 col-lg-1">
-                        <button class="btn btn-sm btn-outline-secondary w-100" type="button"
-                                onclick="document.getElementById('targetVolatileAcidityMin').value = ''; document.getElementById('targetVolatileAcidityMax').value = ''">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                </div>
+                        <!-- Volatile Acidity Range -->
+                        <div class="row mb-2">
+                            <div class="col-12 col-lg-3 d-flex align-items-center">
+                                <label class="form-label mb-0">
+                                    ${WineCalcI18n.t('blend.tankForm.volatileAcidity') || 'Acidità Volatile'} (g/L)
+                                </label>
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetVolatileAcidityMin"
+                                       step="0.01" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetVolatileAcidityMax"
+                                       step="0.01" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
+                            </div>
+                            <div class="col-2 col-lg-1">
+                                <button class="btn btn-sm btn-outline-secondary w-100" type="button"
+                                        onclick="document.getElementById('targetVolatileAcidityMin').value = ''; document.getElementById('targetVolatileAcidityMax').value = ''">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
 
-                <!-- pH Range -->
-                <div class="row mb-2">
-                    <div class="col-12 col-lg-3 d-flex align-items-center">
-                        <label class="form-label mb-0">
-                            ${WineCalcI18n.t('blend.tankForm.ph') || 'pH'}
-                        </label>
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetPHMin"
-                               step="0.01" min="0" max="14" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetPHMax"
-                               step="0.01" min="0" max="14" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
-                    </div>
-                    <div class="col-2 col-lg-1">
-                        <button class="btn btn-sm btn-outline-secondary w-100" type="button"
-                                onclick="document.getElementById('targetPHMin').value = ''; document.getElementById('targetPHMax').value = ''">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                </div>
+                        <!-- pH Range -->
+                        <div class="row mb-2">
+                            <div class="col-12 col-lg-3 d-flex align-items-center">
+                                <label class="form-label mb-0">
+                                    ${WineCalcI18n.t('blend.tankForm.ph') || 'pH'}
+                                </label>
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetPHMin"
+                                       step="0.01" min="0" max="14" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetPHMax"
+                                       step="0.01" min="0" max="14" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
+                            </div>
+                            <div class="col-2 col-lg-1">
+                                <button class="btn btn-sm btn-outline-secondary w-100" type="button"
+                                        onclick="document.getElementById('targetPHMin').value = ''; document.getElementById('targetPHMax').value = ''">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
 
-                <!-- Residual Sugars Range -->
-                <div class="row mb-2">
-                    <div class="col-12 col-lg-3 d-flex align-items-center">
-                        <label class="form-label mb-0">
-                            ${WineCalcI18n.t('blend.tankForm.sugars') || 'Zuccheri Residui'} (g/L)
-                        </label>
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetSugarsMin"
-                               step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetSugarsMax"
-                               step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
-                    </div>
-                    <div class="col-2 col-lg-1">
-                        <button class="btn btn-sm btn-outline-secondary w-100" type="button"
-                                onclick="document.getElementById('targetSugarsMin').value = ''; document.getElementById('targetSugarsMax').value = ''">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                </div>
+                        <!-- Residual Sugars Range -->
+                        <div class="row mb-2">
+                            <div class="col-12 col-lg-3 d-flex align-items-center">
+                                <label class="form-label mb-0">
+                                    ${WineCalcI18n.t('blend.tankForm.sugars') || 'Zuccheri Residui'} (g/L)
+                                </label>
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetSugarsMin"
+                                       step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetSugarsMax"
+                                       step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
+                            </div>
+                            <div class="col-2 col-lg-1">
+                                <button class="btn btn-sm btn-outline-secondary w-100" type="button"
+                                        onclick="document.getElementById('targetSugarsMin').value = ''; document.getElementById('targetSugarsMax').value = ''">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
 
-                <!-- Free SO2 Range -->
-                <div class="row mb-2">
-                    <div class="col-12 col-lg-3 d-flex align-items-center">
-                        <label class="form-label mb-0">
-                            ${WineCalcI18n.t('blend.tankForm.freeSO2') || 'SO2 Libera'} (mg/L)
-                        </label>
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetFreeSO2Min"
-                               step="1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetFreeSO2Max"
-                               step="1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
-                    </div>
-                    <div class="col-2 col-lg-1">
-                        <button class="btn btn-sm btn-outline-secondary w-100" type="button"
-                                onclick="document.getElementById('targetFreeSO2Min').value = ''; document.getElementById('targetFreeSO2Max').value = ''">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                </div>
+                        <!-- Free SO2 Range -->
+                        <div class="row mb-2">
+                            <div class="col-12 col-lg-3 d-flex align-items-center">
+                                <label class="form-label mb-0">
+                                    ${WineCalcI18n.t('blend.tankForm.freeSO2') || 'SO2 Libera'} (mg/L)
+                                </label>
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetFreeSO2Min"
+                                       step="1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetFreeSO2Max"
+                                       step="1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
+                            </div>
+                            <div class="col-2 col-lg-1">
+                                <button class="btn btn-sm btn-outline-secondary w-100" type="button"
+                                        onclick="document.getElementById('targetFreeSO2Min').value = ''; document.getElementById('targetFreeSO2Max').value = ''">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
 
-                <!-- Total SO2 Range -->
-                <div class="row mb-3">
-                    <div class="col-12 col-lg-3 d-flex align-items-center">
-                        <label class="form-label mb-0">
-                            ${WineCalcI18n.t('blend.tankForm.totalSO2') || 'SO2 Totale'} (mg/L)
-                        </label>
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetTotalSO2Min"
-                               step="1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
-                    </div>
-                    <div class="col-5 col-lg-2">
-                        <input type="number" class="form-control" id="targetTotalSO2Max"
-                               step="1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
-                    </div>
-                    <div class="col-2 col-lg-1">
-                        <button class="btn btn-sm btn-outline-secondary w-100" type="button"
-                                onclick="document.getElementById('targetTotalSO2Min').value = ''; document.getElementById('targetTotalSO2Max').value = ''">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </div>
-                </div>
+                        <!-- Total SO2 Range -->
+                        <div class="row mb-3">
+                            <div class="col-12 col-lg-3 d-flex align-items-center">
+                                <label class="form-label mb-0">
+                                    ${WineCalcI18n.t('blend.tankForm.totalSO2') || 'SO2 Totale'} (mg/L)
+                                </label>
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetTotalSO2Min"
+                                       step="1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
+                            </div>
+                            <div class="col-5 col-lg-2">
+                                <input type="number" class="form-control" id="targetTotalSO2Max"
+                                       step="1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
+                            </div>
+                            <div class="col-2 col-lg-1">
+                                <button class="btn btn-sm btn-outline-secondary w-100" type="button"
+                                        onclick="document.getElementById('targetTotalSO2Min').value = ''; document.getElementById('targetTotalSO2Max').value = ''">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </div>
 
-                <div class="row mb-4">
-                    <div class="col-12">
-                        <label class="form-label">
-                            ${WineCalcI18n.t('blend.calculator.emptyTank') || 'Vasca da svuotare completamente'}
-                            <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
-                        </label>
-                        <select class="form-select" id="emptyTankSelect">
-                            <option value="">${WineCalcI18n.t('blend.calculator.noEmptyTank') || 'Nessuna - calcolo libero'}</option>
-                            ${this.tanks.map(tank => `
-                                <option value="${tank.id}">
-                                    ${this.escapeHtml(tank.name)} (${tank.volume} ${tank.volumeUnit} - ${tank.alcoholPercent}% vol)
-                                </option>
-                            `).join('')}
-                        </select>
-                        <small class="form-text text-muted">
-                            ${WineCalcI18n.t('blend.calculator.emptyTankHelp') || 'Se selezionata, il calcolo userà tutto il volume disponibile di questa vasca'}
-                        </small>
-                    </div>
-                </div>
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <label class="form-label">
+                                    ${WineCalcI18n.t('blend.calculator.emptyTank') || 'Vasca da svuotare completamente'}
+                                    <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
+                                </label>
+                                <select class="form-select" id="emptyTankSelect">
+                                    <option value="">${WineCalcI18n.t('blend.calculator.noEmptyTank') || 'Nessuna - calcolo libero'}</option>
+                                    ${this.tanks.map(tank => `
+                                        <option value="${tank.id}">
+                                            ${this.escapeHtml(tank.name)} (${tank.volume} ${tank.volumeUnit} - ${tank.alcoholPercent}% vol)
+                                        </option>
+                                    `).join('')}
+                                </select>
+                                <small class="form-text text-muted">
+                                    ${WineCalcI18n.t('blend.calculator.emptyTankHelp') || 'Se selezionata, il calcolo userà tutto il volume disponibile di questa vasca'}
+                                </small>
+                            </div>
+                        </div>
 
-                <div class="row">
-                    <div class="col-12">
-                        <div id="targetBlendErrorContainer"></div>
-                        <button type="submit" class="btn btn-primary-theme btn-lg w-100">
-                            <i class="bi bi-lightbulb me-2"></i>
-                            ${WineCalcI18n.t('blend.calculator.suggest') || 'Suggerisci Combinazioni'}
-                        </button>
+                        <div class="row">
+                            <div class="col-12">
+                                <div id="targetBlendErrorContainer"></div>
+                                <button type="submit" class="btn btn-primary-theme btn-lg w-100">
+                                    <i class="bi bi-lightbulb me-2"></i>
+                                    ${WineCalcI18n.t('blend.calculator.suggest') || 'Suggerisci Combinazioni'}
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
