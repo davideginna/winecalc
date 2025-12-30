@@ -3,7 +3,7 @@
  * Provides offline functionality and caching for the PWA
  */
 
-const CACHE_NAME = 'winecalc-v2.0.0';
+const CACHE_NAME = 'winecalc-v2.0.1';
 const RUNTIME_CACHE = 'winecalc-runtime';
 
 // Files to cache on install
