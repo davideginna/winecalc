@@ -2,7 +2,12 @@
   "nav": {
     "home": "Accueil",
     "calculators": "Calculateurs",
+    "calculatorsDesc": "Outils de calcul pour ajouts chimiques et corrections œnologiques",
     "formulas": "Formules",
+    "formulasDesc": "Documentation complète des formules mathématiques utilisées",
+    "blend": "Assemblage",
+    "blendDesc": "Calculez les proportions et caractéristiques des assemblages de vins",
+    "explore": "Explorer",
     "about": "À propos"
   },
   "hero": {
@@ -81,7 +86,8 @@
     "copy": "Copier",
     "copied": "Copié dans le presse-papiers",
     "showFormula": "Afficher la formule",
-    "hideFormula": "Masquer la formule"
+    "hideFormula": "Masquer la formule",
+    "optional": "facultatif"
   },
   "footer": {
     "description": "Calculateurs professionnels pour l'œnologie",
@@ -104,7 +110,8 @@
     "invalidRange": "Valeur hors de la plage autorisée",
     "calculationError": "Erreur de calcul",
     "invalidInput": "Veuillez entrer au moins une valeur valide",
-    "invalidVolume": "Le volume doit être supérieur à zéro"
+    "invalidVolume": "Le volume doit être supérieur à zéro",
+    "saveFailed": "Échec de la sauvegarde. Veuillez réessayer."
   },
   "units": {
     "liters": "L",
@@ -192,6 +199,87 @@
     "cremeOfTartar": {
       "additionRateDesc": "- Taux d'ajout souhaité de crème de tartre par litre",
       "volumeDesc": "- Volume total de vin à stabiliser"
+    }
+  },
+  "blend": {
+    "title": "Calculateurs d'Assemblage",
+    "subtitle": "Calculez les proportions et caractéristiques des assemblages de vins",
+    "tanks": {
+      "title": "Mes Cuves",
+      "empty": "Aucune cuve. Ajoutez-en une!",
+      "saved": "Cuve enregistrée avec succès!",
+      "confirmDelete": "Supprimer cette cuve?"
+    },
+    "tankForm": {
+      "add": "Ajouter une Cuve",
+      "edit": "Modifier la Cuve",
+      "save": "Enregistrer la Cuve",
+      "update": "Mettre à Jour la Cuve",
+      "cancel": "Annuler",
+      "name": "Nom de la Cuve",
+      "capacity": "Capacité",
+      "currentVolume": "Volume Actuel",
+      "wineParams": "Paramètres du Vin",
+      "alcohol": "Teneur en Alcool (%)",
+      "acidity": "Acidité Totale (g/L)",
+      "volatileAcidity": "Acidité Volatile (g/L)",
+      "ph": "pH",
+      "sugars": "Sucres Résiduels (g/L)",
+      "freeSO2": "SO2 Libre (mg/L)",
+      "totalSO2": "SO2 Total (mg/L)",
+      "notes": "Notes (facultatif)"
+    },
+    "calculator": {
+      "title": "Calculateur d'Assemblage",
+      "needTanks": "Ajoutez au moins 2 cuves pour calculer un assemblage",
+      "fromTanks": "Depuis Cuves",
+      "fromTarget": "Depuis Cible",
+      "selectTanks": "Sélectionner les cuves à assembler",
+      "volumeToUse": "Volume à utiliser (L)",
+      "calculate": "Calculer l'Assemblage",
+      "enterVolume": "Entrez un volume valide pour toutes les cuves sélectionnées",
+      "selectAtLeast2": "Sélectionnez au moins 2 cuves",
+      "targetTitle": "Définissez les paramètres souhaités pour l'assemblage",
+      "suggest": "Suggérer des Combinaisons",
+      "noSolutions": "Aucune combinaison trouvée pour atteindre les paramètres cibles",
+      "foundSolutions": "Trouvées",
+      "possibleCombinations": "combinaisons possibles",
+      "feasible": "Réalisable",
+      "limitedVolume": "Volume Limité",
+      "combination": "Combinaison",
+      "available": "disponibles",
+      "showingTop5": "Affichage des 5 meilleures combinaisons",
+      "emptyTank": "Cuve à vider complètement",
+      "noEmptyTank": "Aucune - calcul libre",
+      "emptyTankHelp": "Si sélectionnée, le calcul utilisera tout le volume disponible de cette cuve",
+      "emptied": "Vidée",
+      "totalVolume": "volume total",
+      "min": "Min",
+      "max": "Max"
+    },
+    "results": {
+      "title": "Résultats de l'Assemblage",
+      "proportions": "Proportions",
+      "parameters": "Paramètres de l'Assemblage"
+    },
+    "validation": {
+      "nameRequired": "Le nom de la cuve est obligatoire",
+      "capacityRequired": "La capacité doit être supérieure à zéro",
+      "volumeRequired": "Le volume doit être supérieur à zéro",
+      "alcoholRequired": "La teneur en alcool doit être entre 0 et 20%"
+    },
+    "data": {
+      "title": "Données",
+      "export": "Exporter les Cuves",
+      "import": "Importer les Cuves",
+      "noTanks": "Aucune cuve à exporter",
+      "exported": "Cuves exportées avec succès!",
+      "exportError": "Erreur lors de l'exportation",
+      "imported": "Importées",
+      "tanks": "cuves",
+      "importError": "Erreur lors de l'importation. Vérifiez le format du fichier.",
+      "readError": "Erreur de lecture du fichier",
+      "confirmImport": "Remplacer les cuves existantes par celles importées?"
     }
   }
 }

@@ -14,7 +14,7 @@
     <meta property="og:description" content="Strumenti professionali per calcoli enologici">
     <meta property="og:type" content="website">
 
-    <title>WineCalc - Calcolatori Enologici</title>
+    <title>Calcolatori - WineCalc</title>
     <link rel="icon" type="image/jpeg" href="assets/icons/favicon/favicon.jpg">
 
     <!-- PWA Manifest -->
@@ -58,10 +58,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html" data-i18n="nav.home">Home</a>
+                        <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="calculators.html" data-i18n="nav.calculators">Calcolatori</a>
+                        <a class="nav-link active" href="calculators.html" data-i18n="nav.calculators">Calcolatori</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formulas.html" data-i18n="nav.formulas">Formule</a>
@@ -98,81 +98,106 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section bg-gradient-wine text-white py-5">
+    <!-- Page Header -->
+    <section class="bg-light py-4">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h1 class="display-4 fw-bold mb-3" data-i18n="hero.title">Calcolatori Enologici Professionali</h1>
-                    <p class="lead mb-4" data-i18n="hero.subtitle">Strumenti precisi per la vinificazione. Calcola SO2,
-                        acidità, fortificazione e molto altro.</p>
-                </div>
+            <div class="text-center">
+                <h1 class="display-5 mb-2">
+                    <i class="bi bi-calculator-fill text-wine"></i>
+                    <span data-i18n="hero.title">Calcolatori Enologici Professionali</span>
+                </h1>
+                <p class="lead text-muted mb-0" data-i18n="hero.subtitle">
+                    Strumenti precisi per la vinificazione. Calcola SO2, acidità, fortificazione e molto altro.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Navigation Cards Section -->
-    <section class="py-5 bg-light">
+    <!-- Search Bar Section (always visible) -->
+    <div class="search-section py-4">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="search-container">
+                        <div class="input-group input-group-lg shadow-sm">
+                            <span class="input-group-text">
+                                <i class="bi bi-search"></i>
+                            </span>
+                            <input type="text" class="form-control" id="searchInput"
+                                placeholder="Cerca un calcolatore..." data-i18n-placeholder="hero.searchPlaceholder"
+                                aria-label="Cerca calcolatori">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container my-5" id="main-content">
+        <!-- Chemical Additions Category -->
+        <section class="mb-5" id="chemical-calculators">
+            <h2 class="mb-4 text-wine">
+                <i class="bi bi-droplet-fill me-2"></i>
+                <span data-i18n="categories.chemical">Aggiunte Chimiche</span>
+            </h2>
             <div class="row g-4">
-                <!-- Calculators Card -->
-                <div class="col-md-4">
-                    <a href="calculators.html" class="text-decoration-none">
-                        <div class="card h-100 shadow-sm hover-lift border-0">
-                            <div class="card-body text-center p-4">
-                                <div class="icon-circle bg-primary-light mx-auto mb-3">
-                                    <i class="bi bi-calculator-fill text-primary" style="font-size: 2rem;"></i>
-                                </div>
-                                <h3 class="card-title h4 mb-3" data-i18n="nav.calculators">Calcolatori</h3>
-                                <p class="card-text text-muted" data-i18n="nav.calculatorsDesc">Strumenti di calcolo per aggiunte chimiche e correzioni enologiche</p>
-                                <div class="mt-3">
-                                    <span class="btn btn-outline-primary-theme" data-i18n="nav.explore">Esplora</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Formulas Card -->
-                <div class="col-md-4">
-                    <a href="formulas.html" class="text-decoration-none">
-                        <div class="card h-100 shadow-sm hover-lift border-0">
-                            <div class="card-body text-center p-4">
-                                <div class="icon-circle bg-secondary-light mx-auto mb-3">
-                                    <i class="bi bi-mortarboard-fill text-secondary" style="font-size: 2rem;"></i>
-                                </div>
-                                <h3 class="card-title h4 mb-3" data-i18n="nav.formulas">Formule</h3>
-                                <p class="card-text text-muted" data-i18n="nav.formulasDesc">Documentazione completa delle formule matematiche utilizzate</p>
-                                <div class="mt-3">
-                                    <span class="btn btn-outline-primary-theme" data-i18n="nav.explore">Esplora</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Blend Card -->
-                <div class="col-md-4">
-                    <a href="blend.html" class="text-decoration-none">
-                        <div class="card h-100 shadow-sm hover-lift border-0">
-                            <div class="card-body text-center p-4">
-                                <div class="icon-circle bg-accent-light mx-auto mb-3">
-                                    <i class="bi bi-bezier2 text-accent" style="font-size: 2rem;"></i>
-                                </div>
-                                <h3 class="card-title h4 mb-3" data-i18n="nav.blend">Blend</h3>
-                                <p class="card-text text-muted" data-i18n="nav.blendDesc">Calcola proporzioni e caratteristiche di miscele di vini</p>
-                                <div class="mt-3">
-                                    <span class="btn btn-outline-primary-theme" data-i18n="nav.explore">Esplora</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PWA Install Banner -->
+        <!-- Specialized Calculations Category -->
+        <section class="mb-5" id="specialized-calculators">
+            <h2 class="mb-4 text-wine">
+                <i class="bi bi-calculator me-2"></i>
+                <span data-i18n="categories.specialized">Calcoli Specializzati</span>
+            </h2>
+            <div class="row g-4">
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
+            </div>
+        </section>
+
+        <!-- Reference Tools Category -->
+        <section class="mb-5" id="reference-calculators">
+            <h2 class="mb-4 text-wine">
+                <i class="bi bi-tools me-2"></i>
+                <span data-i18n="categories.reference">Strumenti di Riferimento</span>
+            </h2>
+            <div class="row g-4">
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
+            </div>
+        </section>
+
+        <!-- Sensory Analysis Category -->
+        <section class="mb-5" id="sensory-calculators">
+            <h2 class="mb-4 text-wine">
+                <i class="bi bi-clipboard-check me-2"></i>
+                <span data-i18n="categories.sensory">Analisi Sensoriale</span>
+            </h2>
+            <div class="row g-4">
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
+            </div>
+        </section>
+
+        <!-- Additional Resources Category -->
+        <section class="mb-5" id="additional-calculators">
+            <h2 class="mb-4 text-wine">
+                <i class="bi bi-info-circle me-2"></i>
+                <span data-i18n="categories.additional">Risorse Aggiuntive</span>
+            </h2>
+            <div class="row g-4">
+                <!-- Calculators will be loaded dynamically from calculators-config.json -->
+            </div>
+        </section>
+
+        <!-- No Results Message -->
+        <div id="noResults" class="text-center py-5 d-none">
+            <i class="bi bi-search text-muted" style="font-size: 4rem;"></i>
+            <p class="text-muted mt-3" data-i18n="common.noResults">Nessun calcolatore trovato</p>
+        </div>
+    </main>
+
+    <!-- Calculator Modal -->
     <div class="modal fade" id="calculatorModal" tabindex="-1" aria-labelledby="calculatorModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">

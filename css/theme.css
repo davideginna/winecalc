@@ -11,6 +11,13 @@
     --primary-light: #ffe5e8;        /* Light Bordeaux */
     --primary-rgb: 114, 47, 55;      /* RGB values for alpha */
 
+    /* Bootstrap Variable Overrides */
+    --bs-primary: #722F37;
+    --bs-primary-rgb: 114, 47, 55;
+    --bs-link-color: #722F37;
+    --bs-link-hover-color: #5a2529;
+    --bs-border-color: #DEE2E6;
+
     /* Secondary Colors */
     --secondary: #C9A96E;            /* Champagne Gold */
     --secondary-dark: #a88b56;
@@ -73,6 +80,13 @@
     --primary-light: #3a1f23;
     --primary-rgb: 199, 91, 106;
 
+    /* Bootstrap Variable Overrides for Dark Mode */
+    --bs-primary: #C75B6A;
+    --bs-primary-rgb: 199, 91, 106;
+    --bs-link-color: #C75B6A;
+    --bs-link-hover-color: #B04856;
+    --bs-border-color: #333333;
+
     /* Secondary Colors */
     --secondary: #BDA877;            /* Gold più tenue */
     --secondary-dark: #A89566;
@@ -114,6 +128,10 @@
     --primary-dark: #154166;
     --primary-light: #E3F2FD;
     --primary-rgb: 30, 90, 142;
+    --bs-primary: #1E5A8E;
+    --bs-primary-rgb: 30, 90, 142;
+    --bs-link-color: #1E5A8E;
+    --bs-link-hover-color: #154166;
     --secondary: #64B5F6;
     --secondary-dark: #42A5F5;
     --secondary-light: #E1F5FE;
@@ -126,6 +144,10 @@
     --primary-dark: #42A5F5;
     --primary-light: #1a3a52;
     --primary-rgb: 100, 181, 246;
+    --bs-primary: #64B5F6;
+    --bs-primary-rgb: 100, 181, 246;
+    --bs-link-color: #64B5F6;
+    --bs-link-hover-color: #42A5F5;
     --secondary: #90CAF9;
     --secondary-dark: #64B5F6;
     --secondary-light: #1a2f42;
@@ -137,6 +159,10 @@
     --primary-dark: #1B5E20;
     --primary-light: #E8F5E9;
     --primary-rgb: 46, 125, 50;
+    --bs-primary: #2E7D32;
+    --bs-primary-rgb: 46, 125, 50;
+    --bs-link-color: #2E7D32;
+    --bs-link-hover-color: #1B5E20;
     --secondary: #66BB6A;
     --secondary-dark: #4CAF50;
     --secondary-light: #F1F8F4;
@@ -149,6 +175,10 @@
     --primary-dark: #4CAF50;
     --primary-light: #1e3a20;
     --primary-rgb: 102, 187, 106;
+    --bs-primary: #66BB6A;
+    --bs-primary-rgb: 102, 187, 106;
+    --bs-link-color: #66BB6A;
+    --bs-link-hover-color: #4CAF50;
     --secondary: #81C784;
     --secondary-dark: #66BB6A;
     --secondary-light: #1a2e1c;
@@ -160,6 +190,10 @@
     --primary-dark: #4A148C;
     --primary-light: #F3E5F5;
     --primary-rgb: 106, 27, 154;
+    --bs-primary: #6A1B9A;
+    --bs-primary-rgb: 106, 27, 154;
+    --bs-link-color: #6A1B9A;
+    --bs-link-hover-color: #4A148C;
     --secondary: #BA68C8;
     --secondary-dark: #AB47BC;
     --secondary-light: #F3E5F5;
@@ -172,6 +206,10 @@
     --primary-dark: #AB47BC;
     --primary-light: #3a1a4a;
     --primary-rgb: 186, 104, 200;
+    --bs-primary: #BA68C8;
+    --bs-primary-rgb: 186, 104, 200;
+    --bs-link-color: #BA68C8;
+    --bs-link-hover-color: #AB47BC;
     --secondary: #CE93D8;
     --secondary-dark: #BA68C8;
     --secondary-light: #2e1a38;
@@ -183,6 +221,10 @@
     --primary-dark: #BF360C;
     --primary-light: #FBE9E7;
     --primary-rgb: 216, 67, 21;
+    --bs-primary: #D84315;
+    --bs-primary-rgb: 216, 67, 21;
+    --bs-link-color: #D84315;
+    --bs-link-hover-color: #BF360C;
     --secondary: #FF8A65;
     --secondary-dark: #FF7043;
     --secondary-light: #FFF3E0;
@@ -195,6 +237,10 @@
     --primary-dark: #FF5722;
     --primary-light: #4a2315;
     --primary-rgb: 255, 112, 67;
+    --bs-primary: #FF7043;
+    --bs-primary-rgb: 255, 112, 67;
+    --bs-link-color: #FF7043;
+    --bs-link-hover-color: #FF5722;
     --secondary: #FFAB91;
     --secondary-dark: #FF8A65;
     --secondary-light: #3a1f15;
@@ -205,7 +251,7 @@
    ============================================ */
 
 /* Background Utilities */
-.bg-wine, .bg-primary-theme {
+.bg-wine, .bg-primary-theme, .bg-primary {
     background-color: var(--primary) !important;
     color: var(--text-inverse) !important;
 }
@@ -225,7 +271,7 @@
 }
 
 /* Text Utilities */
-.text-wine, .text-primary-theme {
+.text-wine, .text-primary-theme, .text-primary {
     color: var(--primary) !important;
 }
 
@@ -234,10 +280,10 @@
 }
 
 /* Button Utilities */
-.btn-wine, .btn-primary-theme {
-    background-color: var(--primary);
-    border-color: var(--primary);
-    color: var(--text-inverse);
+.btn-wine, .btn-primary-theme, .btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: var(--text-inverse) !important;
     font-weight: 600;
     transition: var(--transition-base);
 }
@@ -245,17 +291,19 @@
 .btn-wine:hover,
 .btn-wine:focus,
 .btn-primary-theme:hover,
-.btn-primary-theme:focus {
-    background-color: var(--primary-dark);
-    border-color: var(--primary-dark);
-    color: var(--text-inverse);
+.btn-primary-theme:focus,
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+    color: var(--text-inverse) !important;
     box-shadow: var(--shadow-primary);
     transform: translateY(-1px);
 }
 
-.btn-outline-wine, .btn-outline-primary-theme {
-    border-color: var(--primary);
-    color: var(--primary);
+.btn-outline-wine, .btn-outline-primary-theme, .btn-outline-primary {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
     border-width: 2px;
     font-weight: 600;
     background-color: transparent;
@@ -264,10 +312,12 @@
 .btn-outline-wine:hover,
 .btn-outline-wine:focus,
 .btn-outline-primary-theme:hover,
-.btn-outline-primary-theme:focus {
-    background-color: var(--primary);
-    border-color: var(--primary);
-    color: var(--text-inverse);
+.btn-outline-primary-theme:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: var(--text-inverse) !important;
 }
 
 /* Badge Utilities */
@@ -282,8 +332,57 @@
 }
 
 /* Border Utilities */
-.border-wine, .border-primary-theme {
+.border-wine, .border-primary-theme, .border-primary {
     border-color: var(--primary) !important;
+}
+
+/* Alert Utilities */
+.alert-primary {
+    background-color: var(--primary-light) !important;
+    border-color: var(--primary) !important;
+    color: var(--primary-dark) !important;
+}
+
+/* Link Utilities */
+.link-primary {
+    color: var(--primary) !important;
+}
+
+.link-primary:hover,
+.link-primary:focus {
+    color: var(--primary-dark) !important;
+}
+
+/* Navbar Link Utilities */
+.navbar-light .navbar-nav .nav-link {
+    color: var(--text-primary) !important;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    color: var(--primary) !important;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--primary) !important;
+}
+
+/* Dropdown Link Utilities */
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: var(--primary) !important;
+    color: var(--text-inverse) !important;
+}
+
+/* Tab Utilities */
+.nav-tabs .nav-link.active {
+    color: var(--primary) !important;
+    border-color: var(--border-color) var(--border-color) var(--bg-primary) !important;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+    color: var(--primary) !important;
 }
 
 /* ============================================
@@ -426,6 +525,26 @@ body {
     border-color: var(--border-color) !important;
     color: var(--text-primary) !important;
     transition: var(--transition-base);
+}
+
+.card-footer {
+    background-color: var(--bg-tertiary) !important;
+    border-top-color: var(--border-color) !important;
+}
+
+[data-theme="dark"] .card-footer.bg-light {
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* List Group Dark Mode */
+.list-group-item {
+    background-color: var(--bg-secondary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+.list-group-item:hover {
+    background-color: var(--bg-tertiary) !important;
 }
 
 .modal-content {

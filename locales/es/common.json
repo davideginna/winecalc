@@ -2,7 +2,12 @@
   "nav": {
     "home": "Inicio",
     "calculators": "Calculadoras",
+    "calculatorsDesc": "Herramientas de cálculo para adiciones químicas y correcciones enológicas",
     "formulas": "Fórmulas",
+    "formulasDesc": "Documentación completa de las fórmulas matemáticas utilizadas",
+    "blend": "Mezcla",
+    "blendDesc": "Calcula proporciones y características de mezclas de vinos",
+    "explore": "Explorar",
     "about": "Acerca de"
   },
   "hero": {
@@ -81,7 +86,8 @@
     "copy": "Copiar",
     "copied": "Copiado al portapapeles",
     "showFormula": "Mostrar fórmula",
-    "hideFormula": "Ocultar fórmula"
+    "hideFormula": "Ocultar fórmula",
+    "optional": "opcional"
   },
   "footer": {
     "description": "Calculadoras profesionales para enología",
@@ -104,7 +110,8 @@
     "invalidRange": "Valor fuera del rango permitido",
     "calculationError": "Error de cálculo",
     "invalidInput": "Por favor ingrese al menos un valor válido",
-    "invalidVolume": "El volumen debe ser mayor que cero"
+    "invalidVolume": "El volumen debe ser mayor que cero",
+    "saveFailed": "Error al guardar. Inténtalo de nuevo."
   },
   "units": {
     "liters": "L",
@@ -192,6 +199,87 @@
     "cremeOfTartar": {
       "additionRateDesc": "- Tasa de adición deseada de cremor tártaro por litro",
       "volumeDesc": "- Volumen total de vino a estabilizar"
+    }
+  },
+  "blend": {
+    "title": "Calculadoras de Mezcla",
+    "subtitle": "Calcula proporciones y características de mezclas de vinos",
+    "tanks": {
+      "title": "Mis Depósitos",
+      "empty": "No hay depósitos. ¡Añade uno!",
+      "saved": "¡Depósito guardado con éxito!",
+      "confirmDelete": "¿Eliminar este depósito?"
+    },
+    "tankForm": {
+      "add": "Añadir Depósito",
+      "edit": "Editar Depósito",
+      "save": "Guardar Depósito",
+      "update": "Actualizar Depósito",
+      "cancel": "Cancelar",
+      "name": "Nombre del Depósito",
+      "capacity": "Capacidad",
+      "currentVolume": "Volumen Actual",
+      "wineParams": "Parámetros del Vino",
+      "alcohol": "Contenido de Alcohol (%)",
+      "acidity": "Acidez Total (g/L)",
+      "volatileAcidity": "Acidez Volátil (g/L)",
+      "ph": "pH",
+      "sugars": "Azúcares Residuales (g/L)",
+      "freeSO2": "SO2 Libre (mg/L)",
+      "totalSO2": "SO2 Total (mg/L)",
+      "notes": "Notas (opcional)"
+    },
+    "calculator": {
+      "title": "Calculadora de Mezcla",
+      "needTanks": "Añade al menos 2 depósitos para calcular una mezcla",
+      "fromTanks": "Desde Depósitos",
+      "fromTarget": "Desde Objetivo",
+      "selectTanks": "Selecciona los depósitos a mezclar",
+      "volumeToUse": "Volumen a usar (L)",
+      "calculate": "Calcular Mezcla",
+      "enterVolume": "Introduce un volumen válido para todos los depósitos seleccionados",
+      "selectAtLeast2": "Selecciona al menos 2 depósitos",
+      "targetTitle": "Establece los parámetros deseados para la mezcla",
+      "suggest": "Sugerir Combinaciones",
+      "noSolutions": "No se encontró combinación para alcanzar los parámetros objetivo",
+      "foundSolutions": "Encontradas",
+      "possibleCombinations": "combinaciones posibles",
+      "feasible": "Factible",
+      "limitedVolume": "Volumen Limitado",
+      "combination": "Combinación",
+      "available": "disponibles",
+      "showingTop5": "Mostrando las 5 mejores combinaciones",
+      "emptyTank": "Depósito a vaciar completamente",
+      "noEmptyTank": "Ninguno - cálculo libre",
+      "emptyTankHelp": "Si se selecciona, el cálculo usará todo el volumen disponible de este depósito",
+      "emptied": "Vaciado",
+      "totalVolume": "volumen total",
+      "min": "Mín",
+      "max": "Máx"
+    },
+    "results": {
+      "title": "Resultados de la Mezcla",
+      "proportions": "Proporciones",
+      "parameters": "Parámetros de la Mezcla"
+    },
+    "validation": {
+      "nameRequired": "El nombre del depósito es obligatorio",
+      "capacityRequired": "La capacidad debe ser mayor que cero",
+      "volumeRequired": "El volumen debe ser mayor que cero",
+      "alcoholRequired": "El contenido de alcohol debe estar entre 0 y 20%"
+    },
+    "data": {
+      "title": "Datos",
+      "export": "Exportar Depósitos",
+      "import": "Importar Depósitos",
+      "noTanks": "No hay depósitos para exportar",
+      "exported": "¡Depósitos exportados con éxito!",
+      "exportError": "Error durante la exportación",
+      "imported": "Importados",
+      "tanks": "depósitos",
+      "importError": "Error durante la importación. Verifica el formato del archivo.",
+      "readError": "Error al leer el archivo",
+      "confirmImport": "¿Reemplazar los depósitos existentes con los importados?"
     }
   }
 }

@@ -53,6 +53,12 @@ async function initI18n() {
         // Setup language switchers
         setupLanguageSwitchers();
 
+        // Set flag to indicate i18n is ready
+        window.i18nReady = true;
+
+        // Trigger custom event to notify that i18n is ready
+        window.dispatchEvent(new CustomEvent('i18nReady', { detail: { language: currentLang } }));
+
         console.log(`WineCalc initialized with language: ${currentLang}`);
     } catch (error) {
         console.error('Error initializing i18n:', error);

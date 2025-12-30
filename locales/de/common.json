@@ -2,7 +2,12 @@
   "nav": {
     "home": "Startseite",
     "calculators": "Rechner",
+    "calculatorsDesc": "Berechnungswerkzeuge für chemische Zusätze und önologische Korrekturen",
     "formulas": "Formeln",
+    "formulasDesc": "Vollständige Dokumentation der verwendeten mathematischen Formeln",
+    "blend": "Verschnitt",
+    "blendDesc": "Berechnen Sie Proportionen und Eigenschaften von Weinverschnitten",
+    "explore": "Erkunden",
     "about": "Über"
   },
   "hero": {
@@ -81,7 +86,8 @@
     "copy": "Kopieren",
     "copied": "In die Zwischenablage kopiert",
     "showFormula": "Formel anzeigen",
-    "hideFormula": "Formel ausblenden"
+    "hideFormula": "Formel ausblenden",
+    "optional": "optional"
   },
   "footer": {
     "description": "Professionelle Rechner für Weinbereitung",
@@ -104,7 +110,8 @@
     "invalidRange": "Wert außerhalb des zulässigen Bereichs",
     "calculationError": "Berechnungsfehler",
     "invalidInput": "Bitte geben Sie mindestens einen gültigen Wert ein",
-    "invalidVolume": "Volumen muss größer als Null sein"
+    "invalidVolume": "Volumen muss größer als Null sein",
+    "saveFailed": "Speichern fehlgeschlagen. Bitte erneut versuchen."
   },
   "units": {
     "liters": "L",
@@ -192,6 +199,87 @@
     "cremeOfTartar": {
       "additionRateDesc": "- Gewünschte Zugaberate von Weinstein pro Liter",
       "volumeDesc": "- Gesamtvolumen von Wein zu stabilisieren"
+    }
+  },
+  "blend": {
+    "title": "Verschnitt-Rechner",
+    "subtitle": "Berechnen Sie Proportionen und Eigenschaften von Weinverschnitten",
+    "tanks": {
+      "title": "Meine Tanks",
+      "empty": "Keine Tanks. Fügen Sie einen hinzu!",
+      "saved": "Tank erfolgreich gespeichert!",
+      "confirmDelete": "Diesen Tank löschen?"
+    },
+    "tankForm": {
+      "add": "Tank Hinzufügen",
+      "edit": "Tank Bearbeiten",
+      "save": "Tank Speichern",
+      "update": "Tank Aktualisieren",
+      "cancel": "Abbrechen",
+      "name": "Tankname",
+      "capacity": "Kapazität",
+      "currentVolume": "Aktuelles Volumen",
+      "wineParams": "Weinparameter",
+      "alcohol": "Alkoholgehalt (%)",
+      "acidity": "Gesamtsäure (g/L)",
+      "volatileAcidity": "Flüchtige Säure (g/L)",
+      "ph": "pH",
+      "sugars": "Restzucker (g/L)",
+      "freeSO2": "Freies SO2 (mg/L)",
+      "totalSO2": "Gesamt-SO2 (mg/L)",
+      "notes": "Notizen (optional)"
+    },
+    "calculator": {
+      "title": "Verschnitt-Rechner",
+      "needTanks": "Fügen Sie mindestens 2 Tanks hinzu, um einen Verschnitt zu berechnen",
+      "fromTanks": "Von Tanks",
+      "fromTarget": "Von Ziel",
+      "selectTanks": "Tanks zum Verschneiden auswählen",
+      "volumeToUse": "Zu verwendendes Volumen (L)",
+      "calculate": "Verschnitt Berechnen",
+      "enterVolume": "Geben Sie ein gültiges Volumen für alle ausgewählten Tanks ein",
+      "selectAtLeast2": "Wählen Sie mindestens 2 Tanks aus",
+      "targetTitle": "Gewünschte Verschnitt-Parameter festlegen",
+      "suggest": "Kombinationen Vorschlagen",
+      "noSolutions": "Keine Kombination gefunden, um Zielparameter zu erreichen",
+      "foundSolutions": "Gefunden",
+      "possibleCombinations": "mögliche Kombinationen",
+      "feasible": "Machbar",
+      "limitedVolume": "Begrenztes Volumen",
+      "combination": "Kombination",
+      "available": "verfügbar",
+      "showingTop5": "Zeige die 5 besten Kombinationen",
+      "emptyTank": "Tank vollständig zu leeren",
+      "noEmptyTank": "Keine - freie Berechnung",
+      "emptyTankHelp": "Wenn ausgewählt, verwendet die Berechnung das gesamte verfügbare Volumen dieses Tanks",
+      "emptied": "Geleert",
+      "totalVolume": "Gesamtvolumen",
+      "min": "Min",
+      "max": "Max"
+    },
+    "results": {
+      "title": "Verschnitt-Ergebnisse",
+      "proportions": "Proportionen",
+      "parameters": "Verschnitt-Parameter"
+    },
+    "validation": {
+      "nameRequired": "Tankname ist erforderlich",
+      "capacityRequired": "Kapazität muss größer als Null sein",
+      "volumeRequired": "Volumen muss größer als Null sein",
+      "alcoholRequired": "Alkoholgehalt muss zwischen 0 und 20% liegen"
+    },
+    "data": {
+      "title": "Daten",
+      "export": "Tanks Exportieren",
+      "import": "Tanks Importieren",
+      "noTanks": "Keine Tanks zum Exportieren",
+      "exported": "Tanks erfolgreich exportiert!",
+      "exportError": "Fehler beim Exportieren",
+      "imported": "Importiert",
+      "tanks": "Tanks",
+      "importError": "Fehler beim Importieren. Überprüfen Sie das Dateiformat.",
+      "readError": "Fehler beim Lesen der Datei",
+      "confirmImport": "Vorhandene Tanks durch importierte ersetzen?"
     }
   }
 }

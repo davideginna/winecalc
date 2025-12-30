@@ -5,6 +5,99 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2025-12-30
+
+### Added
+- **Volatile Acidity Parameter**: Added volatile acidity (acidità volatile) as a parameter for tank storage and blend calculations
+  - Stored in g/L with tank data in localStorage
+  - Calculated as weighted average in blend calculations
+  - Available in both "From Tanks" and "From Target" calculators
+  - Displayed in blend results with color coding
+  - Translations added for all 5 languages (IT, EN, FR, ES, DE)
+
+- **SO2 Parameters in Target Calculator**: Added free SO2 and total SO2 as target parameters
+  - Optional range-based inputs (min-max) for both parameters
+  - Scored based on proximity to target range
+  - Displayed in blend suggestions with color coding (green for in-range, yellow for out-of-range)
+  - Clear buttons to quickly reset values
+
+- **Range-based Target Inputs**: Converted all optional target parameters to use ranges instead of single values
+  - Total Acidity: min-max range in g/L
+  - Volatile Acidity: min-max range in g/L
+  - pH: min-max range
+  - Residual Sugars: min-max range in g/L
+  - Free SO2: min-max range in mg/L
+  - Total SO2: min-max range in mg/L
+  - Users can specify only min, only max, or both
+  - Scoring system favors blends within specified ranges
+  - Penalties applied proportionally to distance from range
+
+### Changed
+- **Target Calculator UI**: Redesigned for compactness and usability
+  - All parameters now on single rows with inline labels
+  - Clear buttons (trash icon) for each parameter to quickly reset values
+  - Form centered with left-aligned content for better readability
+  - Consistent grid layout: label (3 cols), min input (2 cols), max input (2 cols), clear button (1 col)
+  - Alcohol input follows same pattern as other parameters
+  - Input fields use standard Bootstrap sizing for consistency
+
+- **Target Range Display**: Results now show ranges in a clear, intuitive format
+  - "5.0 - 6.0" when both min and max specified
+  - "≥ 5.0" when only min specified
+  - "≤ 6.0" when only max specified
+  - Values within range highlighted in green
+  - Values outside range highlighted in yellow/warning color
+
+- **Scoring Algorithm**: Improved scoring for target calculator to handle ranges
+  - Parameters within range receive no penalty (full score)
+  - Parameters outside range penalized proportionally to distance from range
+  - Differential weights for each parameter type based on importance:
+    - Total Acidity: 5 points per g/L deviation from range
+    - Volatile Acidity: 10 points per g/L deviation from range (higher weight due to critical nature)
+    - pH: 20 points per unit deviation from range (highest weight due to logarithmic scale)
+    - Residual Sugars: 3 points per g/L deviation from range
+    - Free SO2: 0.5 points per mg/L deviation from range
+    - Total SO2: 0.3 points per mg/L deviation from range
+
+### Technical
+- Updated `js/blend-manager.js`:
+  - Added `volatileAcidity` field to `getFormData()` and `populateForm()` methods
+  - Added weighted average calculation for volatile acidity in `performBlendCalculation()`
+  - Added volatile acidity to blend results display
+  - Modified `calculateTwoTankBlend()` to accept range objects for all optional parameters
+  - Added `formatTargetRange()` helper method for display formatting
+  - Added `isInRange()` helper method for range validation
+  - Updated scoring algorithm to handle range-based parameters
+  - Added SO2 calculations (free and total) to blend results
+
+- Updated `blend.html`:
+  - Added volatile acidity input field in tank form
+  - Modified target calculator form to use range inputs (min/max pairs)
+  - Added clear buttons with trash icon to all parameter rows
+  - Restructured layout for centered form with left-aligned content
+
+- Updated translation files in all 5 languages (`locales/*/common.json`):
+  - Added `blend.tankForm.volatileAcidity` translation key
+  - Added `blend.calculator.min` and `blend.calculator.max` translation keys
+  - Translations: IT "Min"/"Max", EN "Min"/"Max", FR "Min"/"Max", ES "Mín"/"Máx", DE "Min"/"Max"
+
+- Updated `service-worker.js`:
+  - Bumped cache version to v2.0.1
+
+- Created automated test suite (`tests/blend-calculator.test.html`):
+  - 23 automated tests covering all new functionality
+  - Tests for volatile acidity weighted average calculations
+  - Tests for SO2 weighted average calculations
+  - Tests for range formatting (all combinations of min/max)
+  - Tests for range validation (boundary conditions, null handling)
+  - Browser-based test runner with visual results
+  - Self-contained HTML file that can be opened directly in browser
+
+### Fixed
+- Service worker cache updated to v2.0.1 to reflect all changes
+- Range validation now properly handles edge cases (null values, missing bounds)
+- Clear buttons properly reset both min and max values simultaneously
+
 ## [1.4.0] - 2025-12-29
 
 ### Added

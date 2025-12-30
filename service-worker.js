@@ -3,14 +3,16 @@
  * Provides offline functionality and caching for the PWA
  */
 
-const CACHE_NAME = 'winecalc-v1.3.0';
+const CACHE_NAME = 'winecalc-v2.0.1';
 const RUNTIME_CACHE = 'winecalc-runtime';
 
 // Files to cache on install
 const PRECACHE_URLS = [
   './',
   './index.html',
+  './calculators.html',
   './formulas.html',
+  './blend.html',
   './css/theme.css',
   './css/styles.css',
   './js/main.js',
@@ -19,6 +21,7 @@ const PRECACHE_URLS = [
   './js/theme-manager.js',
   './js/settings-ui.js',
   './js/pwa-install.js',
+  './js/blend-manager.js',
   './js/modules/app-state.js',
   './js/modules/calculator-loader.js',
   './js/modules/calculator-manager.js',
@@ -106,6 +109,32 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Network-first strategy for HTML pages (always get fresh content)
+  if (request.mode === 'navigate' || request.destination === 'document' ||
+      url.pathname.endsWith('.html') || url.pathname === '/') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          // Cache the new version
+          if (response && response.status === 200) {
+            const responseToCache = response.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, responseToCache);
+            });
+          }
+          return response;
+        })
+        .catch(() => {
+          // Fallback to cache if offline
+          return caches.match(request).then((cachedResponse) => {
+            return cachedResponse || caches.match('/index.html');
+          });
+        })
+    );
+    return;
+  }
+
+  // Cache-first strategy for static resources (CSS, JS, images, etc.)
   event.respondWith(
     caches.match(request)
       .then((cachedResponse) => {
@@ -137,12 +166,6 @@ self.addEventListener('fetch', (event) => {
           })
           .catch((error) => {
             console.error('[Service Worker] Fetch failed:', error);
-
-            // Return offline page for navigation requests
-            if (request.mode === 'navigate') {
-              return caches.match('/index.html');
-            }
-
             throw error;
           });
       })

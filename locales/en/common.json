@@ -2,7 +2,12 @@
   "nav": {
     "home": "Home",
     "calculators": "Calculators",
+    "calculatorsDesc": "Calculation tools for chemical additions and oenological corrections",
     "formulas": "Formulas",
+    "formulasDesc": "Complete documentation of mathematical formulas used",
+    "blend": "Blend",
+    "blendDesc": "Calculate proportions and characteristics of wine blends",
+    "explore": "Explore",
     "about": "About"
   },
   "hero": {
@@ -81,7 +86,8 @@
     "copy": "Copy",
     "copied": "Copied to clipboard",
     "showFormula": "Show formula",
-    "hideFormula": "Hide formula"
+    "hideFormula": "Hide formula",
+    "optional": "optional"
   },
   "footer": {
     "description": "Professional winemaking calculators",
@@ -104,7 +110,8 @@
     "invalidRange": "Value out of allowed range",
     "calculationError": "Calculation error",
     "invalidInput": "Please enter at least one valid value",
-    "invalidVolume": "Volume must be greater than zero"
+    "invalidVolume": "Volume must be greater than zero",
+    "saveFailed": "Save failed. Please try again."
   },
   "units": {
     "liters": "L",
@@ -192,6 +199,87 @@
     "cremeOfTartar": {
       "additionRateDesc": "- Desired addition rate of crème of tartar per liter",
       "volumeDesc": "- Total volume of wine to stabilize"
+    }
+  },
+  "blend": {
+    "title": "Blend Calculators",
+    "subtitle": "Calculate proportions and characteristics of wine blends",
+    "tanks": {
+      "title": "My Tanks",
+      "empty": "No tanks. Add one!",
+      "saved": "Tank saved successfully!",
+      "confirmDelete": "Delete this tank?"
+    },
+    "tankForm": {
+      "add": "Add Tank",
+      "edit": "Edit Tank",
+      "save": "Save Tank",
+      "update": "Update Tank",
+      "cancel": "Cancel",
+      "name": "Tank Name",
+      "capacity": "Capacity",
+      "currentVolume": "Current Volume",
+      "wineParams": "Wine Parameters",
+      "alcohol": "Alcohol Content (%)",
+      "acidity": "Total Acidity (g/L)",
+      "volatileAcidity": "Volatile Acidity (g/L)",
+      "ph": "pH",
+      "sugars": "Residual Sugars (g/L)",
+      "freeSO2": "Free SO2 (mg/L)",
+      "totalSO2": "Total SO2 (mg/L)",
+      "notes": "Notes (optional)"
+    },
+    "calculator": {
+      "title": "Blend Calculator",
+      "needTanks": "Add at least 2 tanks to calculate a blend",
+      "fromTanks": "From Tanks",
+      "fromTarget": "From Target",
+      "selectTanks": "Select tanks to blend",
+      "volumeToUse": "Volume to use (L)",
+      "calculate": "Calculate Blend",
+      "enterVolume": "Enter a valid volume for all selected tanks",
+      "selectAtLeast2": "Select at least 2 tanks",
+      "targetTitle": "Set desired blend parameters",
+      "suggest": "Suggest Combinations",
+      "noSolutions": "No combination found to reach target parameters",
+      "foundSolutions": "Found",
+      "possibleCombinations": "possible combinations",
+      "feasible": "Feasible",
+      "limitedVolume": "Limited Volume",
+      "combination": "Combination",
+      "available": "available",
+      "showingTop5": "Showing top 5 best combinations",
+      "emptyTank": "Tank to empty completely",
+      "noEmptyTank": "None - free calculation",
+      "emptyTankHelp": "If selected, calculation will use all available volume from this tank",
+      "emptied": "Emptied",
+      "totalVolume": "total volume",
+      "min": "Min",
+      "max": "Max"
+    },
+    "results": {
+      "title": "Blend Results",
+      "proportions": "Proportions",
+      "parameters": "Blend Parameters"
+    },
+    "validation": {
+      "nameRequired": "Tank name is required",
+      "capacityRequired": "Capacity must be greater than zero",
+      "volumeRequired": "Volume must be greater than zero",
+      "alcoholRequired": "Alcohol content must be between 0 and 20%"
+    },
+    "data": {
+      "title": "Data",
+      "export": "Export Tanks",
+      "import": "Import Tanks",
+      "noTanks": "No tanks to export",
+      "exported": "Tanks exported successfully!",
+      "exportError": "Error during export",
+      "imported": "Imported",
+      "tanks": "tanks",
+      "importError": "Error during import. Check file format.",
+      "readError": "Error reading file",
+      "confirmImport": "Replace existing tanks with imported ones?"
     }
   }
 }
