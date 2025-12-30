@@ -222,6 +222,7 @@
       "wineParams": "Parámetros del Vino",
       "alcohol": "Contenido de Alcohol (%)",
       "acidity": "Acidez Total (g/L)",
+      "volatileAcidity": "Acidez Volátil (g/L)",
       "ph": "pH",
       "sugars": "Azúcares Residuales (g/L)",
       "freeSO2": "SO2 Libre (mg/L)",
@@ -264,6 +265,19 @@
       "capacityRequired": "La capacidad debe ser mayor que cero",
       "volumeRequired": "El volumen debe ser mayor que cero",
       "alcoholRequired": "El contenido de alcohol debe estar entre 0 y 20%"
+    },
+    "data": {
+      "title": "Datos",
+      "export": "Exportar Depósitos",
+      "import": "Importar Depósitos",
+      "noTanks": "No hay depósitos para exportar",
+      "exported": "¡Depósitos exportados con éxito!",
+      "exportError": "Error durante la exportación",
+      "imported": "Importados",
+      "tanks": "depósitos",
+      "importError": "Error durante la importación. Verifica el formato del archivo.",
+      "readError": "Error al leer el archivo",
+      "confirmImport": "¿Reemplazar los depósitos existentes con los importados?"
     }
   }
 }

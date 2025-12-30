@@ -222,6 +222,7 @@
       "wineParams": "Paramètres du Vin",
       "alcohol": "Teneur en Alcool (%)",
       "acidity": "Acidité Totale (g/L)",
+      "volatileAcidity": "Acidité Volatile (g/L)",
       "ph": "pH",
       "sugars": "Sucres Résiduels (g/L)",
       "freeSO2": "SO2 Libre (mg/L)",
@@ -264,6 +265,19 @@
       "capacityRequired": "La capacité doit être supérieure à zéro",
       "volumeRequired": "Le volume doit être supérieur à zéro",
       "alcoholRequired": "La teneur en alcool doit être entre 0 et 20%"
+    },
+    "data": {
+      "title": "Données",
+      "export": "Exporter les Cuves",
+      "import": "Importer les Cuves",
+      "noTanks": "Aucune cuve à exporter",
+      "exported": "Cuves exportées avec succès!",
+      "exportError": "Erreur lors de l'exportation",
+      "imported": "Importées",
+      "tanks": "cuves",
+      "importError": "Erreur lors de l'importation. Vérifiez le format du fichier.",
+      "readError": "Erreur de lecture du fichier",
+      "confirmImport": "Remplacer les cuves existantes par celles importées?"
     }
   }
 }

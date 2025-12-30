@@ -222,6 +222,7 @@
       "wineParams": "Wine Parameters",
       "alcohol": "Alcohol Content (%)",
       "acidity": "Total Acidity (g/L)",
+      "volatileAcidity": "Volatile Acidity (g/L)",
       "ph": "pH",
       "sugars": "Residual Sugars (g/L)",
       "freeSO2": "Free SO2 (mg/L)",
@@ -264,6 +265,19 @@
       "capacityRequired": "Capacity must be greater than zero",
       "volumeRequired": "Volume must be greater than zero",
       "alcoholRequired": "Alcohol content must be between 0 and 20%"
+    },
+    "data": {
+      "title": "Data",
+      "export": "Export Tanks",
+      "import": "Import Tanks",
+      "noTanks": "No tanks to export",
+      "exported": "Tanks exported successfully!",
+      "exportError": "Error during export",
+      "imported": "Imported",
+      "tanks": "tanks",
+      "importError": "Error during import. Check file format.",
+      "readError": "Error reading file",
+      "confirmImport": "Replace existing tanks with imported ones?"
     }
   }
 }

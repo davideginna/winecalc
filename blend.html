@@ -89,6 +89,8 @@
                         </button>
                     </li>
                 </ul>
+                <!-- Hidden file input for import -->
+                <input type="file" id="importFileInput" accept=".json" style="display: none;">
             </div>
         </div>
     </nav>
@@ -127,6 +129,18 @@
                                 <i class="bi bi-bucket" style="font-size: 3rem; opacity: 0.3;"></i>
                                 <p class="mt-3 mb-0" data-i18n="blend.tanks.empty">Nessuna vasca. Aggiungine una!</p>
                             </div>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-light">
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-primary-theme btn-sm flex-fill" id="exportTanksBtn">
+                                <i class="bi bi-download me-1"></i>
+                                <span data-i18n="blend.data.export">Esporta</span>
+                            </button>
+                            <button class="btn btn-primary-theme btn-sm flex-fill" id="importTanksBtn">
+                                <i class="bi bi-upload me-1"></i>
+                                <span data-i18n="blend.data.import">Importa</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -193,20 +207,27 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="pH" class="form-label" data-i18n="blend.tankForm.ph">pH</label>
-                                    <input type="number" class="form-control" id="pH" step="0.01" min="0" max="14">
+                                    <label for="volatileAcidity" class="form-label" data-i18n="blend.tankForm.volatileAcidity">Acidità Volatile (g/L)</label>
+                                    <input type="number" class="form-control" id="volatileAcidity" step="0.01" min="0">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="residualSugars" class="form-label" data-i18n="blend.tankForm.sugars">Zuccheri Residui (g/L)</label>
-                                    <input type="number" class="form-control" id="residualSugars" step="0.1" min="0">
+                                    <label for="pH" class="form-label" data-i18n="blend.tankForm.ph">pH</label>
+                                    <input type="number" class="form-control" id="pH" step="0.01" min="0" max="14">
                                 </div>
                             </div>
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
+                                    <label for="residualSugars" class="form-label" data-i18n="blend.tankForm.sugars">Zuccheri Residui (g/L)</label>
+                                    <input type="number" class="form-control" id="residualSugars" step="0.1" min="0">
+                                </div>
+                                <div class="col-md-6">
                                     <label for="freeSO2" class="form-label" data-i18n="blend.tankForm.freeSO2">SO2 Libera (mg/L)</label>
                                     <input type="number" class="form-control" id="freeSO2" step="1" min="0">
                                 </div>
+                            </div>
+
+                            <div class="row mb-3">
                                 <div class="col-md-6">
                                     <label for="totalSO2" class="form-label" data-i18n="blend.tankForm.totalSO2">SO2 Totale (mg/L)</label>
                                     <input type="number" class="form-control" id="totalSO2" step="1" min="0">

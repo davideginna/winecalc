@@ -16,7 +16,13 @@ class BlendManager {
         this.loadTanks();
         this.setupEventListeners();
         this.renderTanksList();
-        this.updateBlendCalculator();
+        this.updateBlendCalculator(); // Now safe to call since i18n is ready
+
+        // Listen for language changes
+        window.addEventListener('languageChanged', () => {
+            console.log('[Blend] Language changed, re-rendering...');
+            this.updateBlendCalculator();
+        });
     }
 
     setupEventListeners() {
@@ -39,6 +45,75 @@ class BlendManager {
                 this.saveTank();
             }
         });
+
+        // Export button
+        document.getElementById('exportTanksBtn').addEventListener('click', () => {
+            this.exportTanks();
+        });
+
+        // Import button
+        document.getElementById('importTanksBtn').addEventListener('click', () => {
+            document.getElementById('importFileInput').click();
+        });
+
+        // File input change
+        document.getElementById('importFileInput').addEventListener('change', (e) => {
+            this.importTanks(e);
+        });
+
+        // Clear errors on input for tank form fields
+        ['tankName', 'tankCapacity', 'tankVolume', 'alcoholPercent'].forEach(fieldId => {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.addEventListener('input', () => {
+                    this.clearFieldError(fieldId);
+                });
+            }
+        });
+    }
+
+    clearFieldError(fieldId) {
+        const field = document.getElementById(fieldId);
+        if (!field) return;
+
+        field.classList.remove('is-invalid');
+        const errorDiv = field.parentElement.querySelector('.invalid-feedback');
+        if (errorDiv) {
+            errorDiv.remove();
+        }
+    }
+
+    showBlendError(message, containerId = 'blendErrorContainer') {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        container.innerHTML = `
+            <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+    }
+
+    showBlendInfo(message, containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        container.innerHTML = `
+            <div class="alert alert-info alert-dismissible fade show mb-3" role="alert">
+                <i class="bi bi-info-circle-fill me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        `;
+    }
+
+    clearBlendErrors(containerId = 'blendErrorContainer') {
+        const container = document.getElementById(containerId);
+        if (container) {
+            container.innerHTML = '';
+        }
     }
 
     // Local Storage Management
@@ -61,43 +136,158 @@ class BlendManager {
         }
     }
 
+    // Import/Export
+    exportTanks() {
+        if (this.tanks.length === 0) {
+            this.showToast(WineCalcI18n.t('blend.data.noTanks') || 'Nessuna vasca da esportare', 'warning');
+            return;
+        }
+
+        try {
+            const dataStr = JSON.stringify(this.tanks, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `winecalc-tanks-${new Date().toISOString().slice(0, 10)}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            this.showToast(WineCalcI18n.t('blend.data.exported') || 'Vasche esportate con successo!', 'success');
+        } catch (error) {
+            console.error('[Blend] Export error:', error);
+            this.showToast(WineCalcI18n.t('blend.data.exportError') || 'Errore durante l\'esportazione', 'danger');
+        }
+    }
+
+    importTanks(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                const imported = JSON.parse(e.target.result);
+
+                // Validate structure
+                if (!Array.isArray(imported)) {
+                    throw new Error('Invalid format: not an array');
+                }
+
+                // Validate each tank has required fields
+                for (const tank of imported) {
+                    if (!tank.name || tank.alcoholPercent === undefined || tank.volume === undefined) {
+                        throw new Error('Invalid tank data: missing required fields');
+                    }
+                }
+
+                // Ask for confirmation
+                if (this.tanks.length > 0) {
+                    if (!confirm(WineCalcI18n.t('blend.data.confirmImport') || 'Sostituire le vasche esistenti con quelle importate?')) {
+                        event.target.value = ''; // Reset file input
+                        return;
+                    }
+                }
+
+                // Import tanks
+                this.tanks = imported;
+                this.saveTanksToStorage();
+                this.renderTanksList();
+                this.updateBlendCalculator();
+                this.resetForm();
+
+                this.showToast(
+                    `${WineCalcI18n.t('blend.data.imported') || 'Importate'} ${imported.length} ${WineCalcI18n.t('blend.data.tanks') || 'vasche'}!`,
+                    'success'
+                );
+            } catch (error) {
+                console.error('[Blend] Import error:', error);
+                this.showToast(WineCalcI18n.t('blend.data.importError') || 'Errore durante l\'importazione. Verifica il formato del file.', 'danger');
+            }
+
+            event.target.value = ''; // Reset file input
+        };
+
+        reader.onerror = () => {
+            this.showToast(WineCalcI18n.t('blend.data.readError') || 'Errore nella lettura del file', 'danger');
+            event.target.value = ''; // Reset file input
+        };
+
+        reader.readAsText(file);
+    }
+
     // Tank CRUD Operations
     validateTankForm() {
+        // Clear all previous errors
+        this.clearFieldErrors();
+
         // Get form fields
         const tankName = document.getElementById('tankName').value.trim();
         const tankCapacity = document.getElementById('tankCapacity').value;
         const tankVolume = document.getElementById('tankVolume').value;
         const alcoholPercent = document.getElementById('alcoholPercent').value;
 
+        let isValid = true;
+
         // Validate required fields
         if (!tankName) {
-            this.showToast(WineCalcI18n.t('blend.validation.nameRequired') || 'Il nome della vasca è obbligatorio', 'warning');
-            document.getElementById('tankName').focus();
-            return false;
+            this.showFieldError('tankName', WineCalcI18n.t('blend.validation.nameRequired') || 'Il nome della vasca è obbligatorio');
+            isValid = false;
         }
 
         if (!tankCapacity || parseFloat(tankCapacity) <= 0) {
-            this.showToast(WineCalcI18n.t('blend.validation.capacityRequired') || 'La capienza deve essere maggiore di zero', 'warning');
-            document.getElementById('tankCapacity').focus();
-            return false;
+            this.showFieldError('tankCapacity', WineCalcI18n.t('blend.validation.capacityRequired') || 'La capienza deve essere maggiore di zero');
+            isValid = false;
         }
 
         if (!tankVolume || parseFloat(tankVolume) <= 0) {
-            this.showToast(WineCalcI18n.t('blend.validation.volumeRequired') || 'Il volume deve essere maggiore di zero', 'warning');
-            document.getElementById('tankVolume').focus();
-            return false;
+            this.showFieldError('tankVolume', WineCalcI18n.t('blend.validation.volumeRequired') || 'Il volume deve essere maggiore di zero');
+            isValid = false;
         }
 
         if (!alcoholPercent || parseFloat(alcoholPercent) < 0 || parseFloat(alcoholPercent) > 20) {
-            this.showToast(WineCalcI18n.t('blend.validation.alcoholRequired') || 'La gradazione alcolica deve essere tra 0 e 20%', 'warning');
-            document.getElementById('alcoholPercent').focus();
-            return false;
+            this.showFieldError('alcoholPercent', WineCalcI18n.t('blend.validation.alcoholRequired') || 'La gradazione alcolica deve essere tra 0 e 20%');
+            isValid = false;
         }
 
-        return true;
+        return isValid;
+    }
+
+    showFieldError(fieldId, message) {
+        const field = document.getElementById(fieldId);
+        if (!field) return;
+
+        // Add error class to field
+        field.classList.add('is-invalid');
+
+        // Create or update error message
+        let errorDiv = field.parentElement.querySelector('.invalid-feedback');
+        if (!errorDiv) {
+            errorDiv = document.createElement('div');
+            errorDiv.className = 'invalid-feedback';
+            field.parentElement.appendChild(errorDiv);
+        }
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+    }
+
+    clearFieldErrors() {
+        // Remove all error classes and messages
+        document.querySelectorAll('.is-invalid').forEach(field => {
+            field.classList.remove('is-invalid');
+        });
+        document.querySelectorAll('.invalid-feedback').forEach(error => {
+            error.remove();
+        });
     }
 
     saveTank() {
+        // Clear field errors before saving
+        this.clearFieldErrors();
+
         const tankData = this.getFormData();
 
         if (this.currentTankId) {
@@ -156,6 +346,7 @@ class BlendManager {
             volumeUnit: document.getElementById('tankVolumeUnit').value,
             alcoholPercent: parseFloat(document.getElementById('alcoholPercent').value),
             totalAcidity: parseFloat(document.getElementById('totalAcidity').value) || null,
+            volatileAcidity: parseFloat(document.getElementById('volatileAcidity').value) || null,
             pH: parseFloat(document.getElementById('pH').value) || null,
             residualSugars: parseFloat(document.getElementById('residualSugars').value) || null,
             freeSO2: parseFloat(document.getElementById('freeSO2').value) || null,
@@ -173,6 +364,7 @@ class BlendManager {
         document.getElementById('tankVolumeUnit').value = tank.volumeUnit;
         document.getElementById('alcoholPercent').value = tank.alcoholPercent;
         document.getElementById('totalAcidity').value = tank.totalAcidity || '';
+        document.getElementById('volatileAcidity').value = tank.volatileAcidity || '';
         document.getElementById('pH').value = tank.pH || '';
         document.getElementById('residualSugars').value = tank.residualSugars || '';
         document.getElementById('freeSO2').value = tank.freeSO2 || '';
@@ -261,6 +453,7 @@ class BlendManager {
 
     // Blend Calculator
     updateBlendCalculator() {
+        console.log('[Blend] updateBlendCalculator called, WineCalcI18n available:', !!window.WineCalcI18n);
         const container = document.getElementById('blendCalculatorContent');
 
         if (this.tanks.length < 2) {
@@ -356,6 +549,7 @@ class BlendManager {
                 </div>
                 <div class="row mt-4">
                     <div class="col-12">
+                        <div id="blendErrorContainer"></div>
                         <button type="submit" class="btn btn-primary-theme btn-lg w-100">
                             <i class="bi bi-calculator me-2"></i>
                             ${WineCalcI18n.t('blend.calculator.calculate') || 'Calcola Blend'}
@@ -378,16 +572,16 @@ class BlendManager {
                     </div>
                 </div>
 
-                <div class="row mb-4">
-                    <div class="col-md-4">
+                <div class="row mb-3">
+                    <div class="col-md-3">
                         <label class="form-label fw-bold">
                             ${WineCalcI18n.t('blend.tankForm.alcohol') || 'Gradazione Alcolica'} (%)
                             <span class="text-danger">*</span>
                         </label>
                         <input type="number" class="form-control" id="targetAlcohol"
-                               step="0.1" min="0" max="20" placeholder="14.5" required>
+                               step="0.1" min="0" max="20" placeholder="14.5">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label class="form-label">
                             ${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità Totale'} (g/L)
                             <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
@@ -395,13 +589,29 @@ class BlendManager {
                         <input type="number" class="form-control" id="targetAcidity"
                                step="0.1" min="0" placeholder="5.5">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
+                        <label class="form-label">
+                            ${WineCalcI18n.t('blend.tankForm.volatileAcidity') || 'Acidità Volatile'} (g/L)
+                            <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
+                        </label>
+                        <input type="number" class="form-control" id="targetVolatileAcidity"
+                               step="0.01" min="0" placeholder="0.5">
+                    </div>
+                    <div class="col-md-3">
                         <label class="form-label">
                             ${WineCalcI18n.t('blend.tankForm.ph') || 'pH'}
                             <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
                         </label>
                         <input type="number" class="form-control" id="targetPH"
                                step="0.01" min="0" max="14" placeholder="3.5">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">
+                            ${WineCalcI18n.t('blend.tankForm.sugars') || 'Zuccheri Residui'} (g/L)
+                            <small class="text-muted">(${WineCalcI18n.t('common.optional') || 'opzionale'})</small>
+                        </label>
+                        <input type="number" class="form-control" id="targetSugars"
+                               step="0.1" min="0" placeholder="2.0">
                     </div>
                 </div>
 
@@ -427,6 +637,7 @@ class BlendManager {
 
                 <div class="row">
                     <div class="col-12">
+                        <div id="targetBlendErrorContainer"></div>
                         <button type="submit" class="btn btn-primary-theme btn-lg w-100">
                             <i class="bi bi-lightbulb me-2"></i>
                             ${WineCalcI18n.t('blend.calculator.suggest') || 'Suggerisci Combinazioni'}
@@ -488,9 +699,20 @@ class BlendManager {
                 this.calculateTargetBlend();
             });
         }
+
+        // Clear error on input for target alcohol field
+        const targetAlcoholField = document.getElementById('targetAlcohol');
+        if (targetAlcoholField) {
+            targetAlcoholField.addEventListener('input', () => {
+                this.clearFieldError('targetAlcohol');
+            });
+        }
     }
 
     calculateBlend() {
+        // Clear previous errors
+        this.clearBlendErrors('blendErrorContainer');
+
         const selectedTanks = [];
         let hasInvalidVolume = false;
 
@@ -509,12 +731,18 @@ class BlendManager {
         });
 
         if (hasInvalidVolume) {
-            this.showToast(WineCalcI18n.t('blend.calculator.enterVolume') || 'Inserisci un volume valido per tutte le vasche selezionate', 'warning');
+            this.showBlendError(
+                WineCalcI18n.t('blend.calculator.enterVolume') || 'Inserisci un volume valido per tutte le vasche selezionate',
+                'blendErrorContainer'
+            );
             return;
         }
 
         if (selectedTanks.length < 2) {
-            this.showToast(WineCalcI18n.t('blend.calculator.selectAtLeast2') || 'Seleziona almeno 2 vasche', 'warning');
+            this.showBlendError(
+                WineCalcI18n.t('blend.calculator.selectAtLeast2') || 'Seleziona almeno 2 vasche',
+                'blendErrorContainer'
+            );
             return;
         }
 
@@ -524,14 +752,20 @@ class BlendManager {
     }
 
     calculateTargetBlend() {
+        // Clear previous errors
+        this.clearFieldErrors();
+        this.clearBlendErrors('targetBlendErrorContainer');
+
         const targetAlcohol = parseFloat(document.getElementById('targetAlcohol').value);
         const targetAcidity = parseFloat(document.getElementById('targetAcidity').value) || null;
+        const targetVolatileAcidity = parseFloat(document.getElementById('targetVolatileAcidity').value) || null;
         const targetPH = parseFloat(document.getElementById('targetPH').value) || null;
+        const targetSugars = parseFloat(document.getElementById('targetSugars').value) || null;
         const emptyTankId = document.getElementById('emptyTankSelect').value;
 
         // Validation
         if (!targetAlcohol || targetAlcohol <= 0 || targetAlcohol > 20) {
-            this.showToast(WineCalcI18n.t('blend.validation.alcoholRequired') || 'La gradazione alcolica deve essere tra 0 e 20%', 'warning');
+            this.showFieldError('targetAlcohol', WineCalcI18n.t('blend.validation.alcoholRequired') || 'La gradazione alcolica deve essere tra 0 e 20%');
             return;
         }
 
@@ -546,7 +780,7 @@ class BlendManager {
             for (const otherTank of this.tanks) {
                 if (otherTank.id === emptyTankId) continue;
 
-                const combo = this.calculateTwoTankBlend(emptyTank, otherTank, targetAlcohol, targetAcidity, targetPH, emptyTankId);
+                const combo = this.calculateTwoTankBlend(emptyTank, otherTank, targetAlcohol, targetAcidity, targetVolatileAcidity, targetPH, targetSugars, emptyTankId);
                 if (combo) {
                     combinations.push(combo);
                 }
@@ -559,7 +793,7 @@ class BlendManager {
                     const tankB = this.tanks[j];
 
                     // Calculate combination
-                    const combo = this.calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetPH);
+                    const combo = this.calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetVolatileAcidity, targetPH, targetSugars);
                     if (combo) {
                         combinations.push(combo);
                     }
@@ -568,7 +802,10 @@ class BlendManager {
         }
 
         if (combinations.length === 0) {
-            this.showToast(WineCalcI18n.t('blend.calculator.noSolutions') || 'Nessuna combinazione trovata per raggiungere i parametri target', 'info');
+            this.showBlendInfo(
+                WineCalcI18n.t('blend.calculator.noSolutions') || 'Nessuna combinazione trovata per raggiungere i parametri target',
+                'targetBlendErrorContainer'
+            );
             return;
         }
 
@@ -576,10 +813,10 @@ class BlendManager {
         combinations.sort((a, b) => b.score - a.score);
 
         // Display results
-        this.displayTargetBlendResults(combinations, { alcohol: targetAlcohol, acidity: targetAcidity, pH: targetPH }, emptyTankId);
+        this.displayTargetBlendResults(combinations, { alcohol: targetAlcohol, acidity: targetAcidity, volatileAcidity: targetVolatileAcidity, pH: targetPH, sugars: targetSugars }, emptyTankId);
     }
 
-    calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetPH, emptyTankId = null) {
+    calculateTwoTankBlend(tankA, tankB, targetAlcohol, targetAcidity, targetVolatileAcidity, targetPH, targetSugars, emptyTankId = null) {
         const alcoholA = tankA.alcoholPercent;
         const alcoholB = tankB.alcoholPercent;
 
@@ -648,8 +885,16 @@ class BlendManager {
             ? (tankA.totalAcidity * volumeA + tankB.totalAcidity * volumeB) / totalVolume
             : null;
 
+        const resultVolatileAcidity = tankA.volatileAcidity !== null && tankB.volatileAcidity !== null
+            ? (tankA.volatileAcidity * volumeA + tankB.volatileAcidity * volumeB) / totalVolume
+            : null;
+
         const resultPH = tankA.pH && tankB.pH
             ? -Math.log10((Math.pow(10, -tankA.pH) * volumeA + Math.pow(10, -tankB.pH) * volumeB) / totalVolume)
+            : null;
+
+        const resultSugars = tankA.residualSugars !== null && tankB.residualSugars !== null
+            ? (tankA.residualSugars * volumeA + tankB.residualSugars * volumeB) / totalVolume
             : null;
 
         // Calculate compatibility score (0-100)
@@ -666,10 +911,22 @@ class BlendManager {
             score -= acidityDiff * 5; // Deduct 5 points per g/L difference
         }
 
+        // Bonus if target volatile acidity matches
+        if (targetVolatileAcidity && resultVolatileAcidity !== null) {
+            const volatileAcidityDiff = Math.abs(resultVolatileAcidity - targetVolatileAcidity);
+            score -= volatileAcidityDiff * 10; // Deduct 10 points per g/L difference
+        }
+
         // Bonus if target pH matches
         if (targetPH && resultPH) {
             const phDiff = Math.abs(resultPH - targetPH);
             score -= phDiff * 20; // Deduct 20 points per pH unit difference
+        }
+
+        // Bonus if target sugars matches
+        if (targetSugars && resultSugars !== null) {
+            const sugarsDiff = Math.abs(resultSugars - targetSugars);
+            score -= sugarsDiff * 3; // Deduct 3 points per g/L difference
         }
 
         score = Math.max(0, Math.min(100, score)); // Clamp between 0-100
@@ -685,7 +942,9 @@ class BlendManager {
             maxVolumeB,
             resultAlcohol: targetAlcohol,
             resultAcidity,
+            resultVolatileAcidity,
             resultPH,
+            resultSugars,
             score,
             feasible: volumeA <= maxVolumeA && volumeB <= maxVolumeB
         };
@@ -766,22 +1025,36 @@ class BlendManager {
                         <hr>
 
                         <div class="row">
-                            <div class="col-4">
+                            <div class="col-md-3">
                                 <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.alcohol') || 'Gradazione'}</small>
                                 <strong class="text-success">${combo.resultAlcohol.toFixed(2)}%</strong>
                             </div>
                             ${combo.resultAcidity ? `
-                                <div class="col-4">
+                                <div class="col-md-3">
                                     <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità'}</small>
                                     <strong>${combo.resultAcidity.toFixed(2)} g/L</strong>
-                                    ${targets.acidity ? `<small class="text-muted">(target: ${targets.acidity})</small>` : ''}
+                                    ${targets.acidity ? `<br><small class="text-muted">(target: ${targets.acidity})</small>` : ''}
+                                </div>
+                            ` : ''}
+                            ${combo.resultVolatileAcidity !== null ? `
+                                <div class="col-md-3">
+                                    <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.volatileAcidity') || 'Acidità Volatile'}</small>
+                                    <strong>${combo.resultVolatileAcidity.toFixed(2)} g/L</strong>
+                                    ${targets.volatileAcidity ? `<br><small class="text-muted">(target: ${targets.volatileAcidity})</small>` : ''}
                                 </div>
                             ` : ''}
                             ${combo.resultPH ? `
-                                <div class="col-4">
+                                <div class="col-md-3">
                                     <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.ph') || 'pH'}</small>
                                     <strong>${combo.resultPH.toFixed(2)}</strong>
-                                    ${targets.pH ? `<small class="text-muted">(target: ${targets.pH})</small>` : ''}
+                                    ${targets.pH ? `<br><small class="text-muted">(target: ${targets.pH})</small>` : ''}
+                                </div>
+                            ` : ''}
+                            ${combo.resultSugars !== null ? `
+                                <div class="col-md-3">
+                                    <small class="text-muted d-block">${WineCalcI18n.t('blend.tankForm.sugars') || 'Zuccheri'}</small>
+                                    <strong>${combo.resultSugars.toFixed(2)} g/L</strong>
+                                    ${targets.sugars ? `<br><small class="text-muted">(target: ${targets.sugars})</small>` : ''}
                                 </div>
                             ` : ''}
                         </div>
@@ -816,6 +1089,13 @@ class BlendManager {
                 sum + (t.totalAcidity * t.blendVolume), 0) / totalVolume
             : null;
 
+        // Weighted average for volatile acidity (if available)
+        const tanksWithVolatileAcidity = tanks.filter(t => t.volatileAcidity !== null);
+        const avgVolatileAcidity = tanksWithVolatileAcidity.length > 0
+            ? tanksWithVolatileAcidity.reduce((sum, t) =>
+                sum + (t.volatileAcidity * t.blendVolume), 0) / totalVolume
+            : null;
+
         // pH calculation (logarithmic average - approximate)
         const tanksWithPH = tanks.filter(t => t.pH !== null);
         const avgPH = tanksWithPH.length > 0
@@ -847,6 +1127,7 @@ class BlendManager {
             totalVolume,
             alcoholPercent: avgAlcohol,
             totalAcidity: avgAcidity,
+            volatileAcidity: avgVolatileAcidity,
             pH: avgPH,
             residualSugars: avgSugars,
             freeSO2: avgFreeSO2,
@@ -903,6 +1184,17 @@ class BlendManager {
                     <div class="col-md-6">
                         <strong>${WineCalcI18n.t('blend.tankForm.acidity') || 'Acidità Totale'}:</strong>
                         ${result.totalAcidity.toFixed(2)} g/L
+                    </div>
+                </div>
+            `;
+        }
+
+        if (result.volatileAcidity !== null) {
+            html += `
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <strong>${WineCalcI18n.t('blend.tankForm.volatileAcidity') || 'Acidità Volatile'}:</strong>
+                        ${result.volatileAcidity.toFixed(2)} g/L
                     </div>
                 </div>
             `;
@@ -994,7 +1286,7 @@ class BlendManager {
         const bgColor = colorMap[type] || colorMap.success;
 
         const toast = document.createElement('div');
-        toast.className = 'position-fixed bottom-0 end-0 p-3';
+        toast.className = 'position-fixed top-0 end-0 p-3';
         toast.style.zIndex = '11';
         toast.innerHTML = `
             <div class="toast show" role="alert">
@@ -1009,7 +1301,29 @@ class BlendManager {
     }
 }
 
-// Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+// Initialize when DOM is ready AND i18n is ready
+function initBlendManager() {
+    console.log('[Blend] Initializing BlendManager...');
     window.blendManager = new BlendManager();
-});
+}
+
+// Wait for both DOM and i18n to be ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('[Blend] DOM ready, checking i18n...');
+        if (window.i18nReady) {
+            console.log('[Blend] i18n already ready');
+            initBlendManager();
+        } else {
+            console.log('[Blend] Waiting for i18n...');
+            window.addEventListener('i18nReady', initBlendManager, { once: true });
+        }
+    });
+} else {
+    // DOM already loaded
+    if (window.i18nReady) {
+        initBlendManager();
+    } else {
+        window.addEventListener('i18nReady', initBlendManager, { once: true });
+    }
+}

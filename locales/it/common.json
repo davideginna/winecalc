@@ -222,6 +222,7 @@
       "wineParams": "Parametri del Vino",
       "alcohol": "Gradazione Alcolica (%)",
       "acidity": "Acidità Totale (g/L)",
+      "volatileAcidity": "Acidità Volatile (g/L)",
       "ph": "pH",
       "sugars": "Zuccheri Residui (g/L)",
       "freeSO2": "SO2 Libera (mg/L)",
@@ -264,6 +265,19 @@
       "capacityRequired": "La capienza deve essere maggiore di zero",
       "volumeRequired": "Il volume deve essere maggiore di zero",
       "alcoholRequired": "La gradazione alcolica deve essere tra 0 e 20%"
+    },
+    "data": {
+      "title": "Dati",
+      "export": "Esporta Vasche",
+      "import": "Importa Vasche",
+      "noTanks": "Nessuna vasca da esportare",
+      "exported": "Vasche esportate con successo!",
+      "exportError": "Errore durante l'esportazione",
+      "imported": "Importate",
+      "tanks": "vasche",
+      "importError": "Errore durante l'importazione. Verifica il formato del file.",
+      "readError": "Errore nella lettura del file",
+      "confirmImport": "Sostituire le vasche esistenti con quelle importate?"
     }
   }
 }
