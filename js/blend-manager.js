@@ -548,7 +548,7 @@ class BlendManager {
                                 <hr class="my-2">
                                 <label class="form-label small mb-1">${WineCalcI18n.t('blend.calculator.volumeToUse') || 'Volume da usare (L)'}</label>
                                 <input type="number" class="form-control blend-volume-input"
-                                       data-id="${tank.id}" step="0.1" min="0" max="${maxVolume}"
+                                       data-id="${tank.id}" step="0.01" min="0" max="${maxVolume}"
                                        placeholder="Max: ${maxVolume} L" onclick="event.stopPropagation();">
                             </div>
                         </div>
@@ -596,7 +596,7 @@ class BlendManager {
                             </div>
                             <div class="col-10 col-lg-4">
                                 <input type="number" class="form-control" id="targetAlcohol"
-                                       step="0.1" min="0" max="20" placeholder="14.5">
+                                       step="0.01" min="0" max="20" placeholder="14.5">
                             </div>
                             <div class="col-2 col-lg-1">
                                 <button class="btn btn-sm btn-outline-secondary w-100" type="button" onclick="document.getElementById('targetAlcohol').value = ''">
@@ -614,11 +614,11 @@ class BlendManager {
                             </div>
                             <div class="col-5 col-lg-2">
                                 <input type="number" class="form-control" id="targetAcidityMin"
-                                       step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
+                                       step="0.01" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
                             </div>
                             <div class="col-5 col-lg-2">
                                 <input type="number" class="form-control" id="targetAcidityMax"
-                                       step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
+                                       step="0.01" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
                             </div>
                             <div class="col-2 col-lg-1">
                                 <button class="btn btn-sm btn-outline-secondary w-100" type="button"
@@ -683,11 +683,11 @@ class BlendManager {
                             </div>
                             <div class="col-5 col-lg-2">
                                 <input type="number" class="form-control" id="targetSugarsMin"
-                                       step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
+                                       step="0.01" min="0" placeholder="${WineCalcI18n.t('blend.calculator.min') || 'Min'}">
                             </div>
                             <div class="col-5 col-lg-2">
                                 <input type="number" class="form-control" id="targetSugarsMax"
-                                       step="0.1" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
+                                       step="0.01" min="0" placeholder="${WineCalcI18n.t('blend.calculator.max') || 'Max'}">
                             </div>
                             <div class="col-2 col-lg-1">
                                 <button class="btn btn-sm btn-outline-secondary w-100" type="button"

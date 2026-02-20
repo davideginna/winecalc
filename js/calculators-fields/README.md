@@ -67,7 +67,7 @@ Ogni file JSON ha questa struttura:
 Genera:
 ```html
 <input type="number" id="volume" name="volume"
-       min="0" step="0.1" placeholder="100" required>
+       min="0" step="0.01" placeholder="100" required>
 ```
 
 ### 2. Select (Dropdown)
